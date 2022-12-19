@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Serve",
+            "command": "just",
+            "type": "shell",
+            "args": [
+                "serve"
+            ],
+            "problemMatcher": [],
+        }
+    ]
+}
