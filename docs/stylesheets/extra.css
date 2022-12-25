@@ -1,0 +1,13 @@
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset u {
+    text-decoration-style: wavy;
+    text-underline-position: under;
+    text-decoration-color: var(--md-primary-fg-color);
+}
