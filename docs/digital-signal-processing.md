@@ -338,9 +338,9 @@ $$
 > - [Idea - Cooley–Tukey FFT algorithm - Wikipedia](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#Idea)
 > - [Fast Fourier transform - Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 
-<figure>
-    <img src="../assets/Cooley-tukey-general.png">
-    <figcaption>推广算法｜<a href='https://en.wikipedia.org/wiki/File:Cooley-tukey-general.png'>Wikipedia</a></figcaption>
+<figure markdown='1'>
+![](assets/Cooley-tukey-general.png)
+<figcaption>推广算法｜<a href='https://en.wikipedia.org/wiki/File:Cooley-tukey-general.png'>Wikipedia</a></figcaption>
 </figure>
 
 > 记号如下
@@ -429,22 +429,22 @@ $$
 
 > decimation 为何以 dec- 开头？其词源很血腥。
 
-<figure>
-    <img src="../assets/discremation-in-time.svg">
-    <figcaption>Radix-2 DIT FFT | <code>data-flow-diagram</code></figcaption>
+<figure markdown='1'>
+![](assets/discremation-in-time.svg)
+<figcaption>Radix-2 DIT FFT | <code>data-flow-diagram</code></figcaption>
 </figure>
 
 ### 算法流图
 
 > 2022年12月6日。
 
-<figure>
-    <div style='display: grid; grid-template-columns: repeat(3, auto);'>
-        <img src="../assets/radix-2.png">
-        <img src="../assets/radix-4.png">
-        <img src="../assets/split-radix.png">
-    </div>
-    <figcaption>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions</a>, revised</figcaption>
+<figure markdown='1'>
+<div style='display: grid; grid-template-columns: repeat(3, auto);' markdown='span'>
+  ![](assets/radix-2.png)
+  ![](assets/radix-4.png)
+  ![](assets/split-radix.png)
+</div>
+<figcaption markdown='1'>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions</a>, revised</figcaption>
 </figure>
 
 -   **radix-2**
@@ -459,12 +459,12 @@ $$
    
     - radix-4 中的 4 点变换既可按 DFT 定义（矩阵乘法）处理，也可用 $2\times 2 = 4$ 的 radix-2 FFT 处理。后者增加的旋转因子中 $3/4$ 是一，$1/4$ 是 $-j$，都可不计运算量；并且流图与 radix-2 相同，$N$ 较小时系数也会退化成纯粹的 radix-2。
    
-    <figure>
-        <div style='display: grid; grid-template-columns: repeat(2, auto);'>
-            <img src="../assets/radix-2-or-4-to-split-radix-1.svg">
-            <img src="../assets/radix-2-or-4-to-split-radix-2.svg">
-        </div>
-        <figcaption>Radix-2 or -4 to split-radix | <code>data-flow-diagram</code></figcaption>
+    <figure markdown='1'>
+    <div style='display: grid; grid-template-columns: repeat(2, auto); gap: 1em;' markdown='span'>
+      ![](assets/radix-2-or-4-to-split-radix-1.svg)
+      ![](assets/radix-2-or-4-to-split-radix-2.svg)
+    </div>
+    <figcaption>Radix-2 or -4 to split-radix | <code>data-flow-diagram</code></figcaption>
     </figure>
 
 - **split-radix**
@@ -701,7 +701,7 @@ $$
 >
 > 由于 $e^{j\omega\tau} H \in \R$，共轭［反］对称就是奇／偶对称。
 
-<img src="../assets/linphase-15.png" style="width: 60%;">
+![](assets/linphase-15.png){: style="width: 60%;" }
 
 #### 时域实序列及其零点分布
 

@@ -268,7 +268,7 @@ $$
 
     发送一时，在大信噪比下，结果服从正态分布，误码率同相干解调。
 
-    > ![](../assets/ASK_envelope.svg)
+    > ![](assets/ASK_envelope.svg)
     >
     > 按旋转向量法可绘出上图。
     >
