@@ -25,12 +25,12 @@ x &= \sqrt\frac{\abs{b}}{\qty(2\pi)^{1+a}} \int\limits_\R X e^{-jb\omega t} \dd{
 \end{aligned}
 $$
 
-|             场景 | $a$  |   $b$   |
-| ---------------: | :--: | :-----: |
-|         现代物理 | $0$  |   $1$   |
-|         经典物理 | $-1$ |   $1$   |
-| 纯数学、系统工程 | $1$  |  $-1$   |
-|         信号处理 | $0$  | $-2\pi$ |
+|             场景 |  $a$  |   $b$   |
+| ---------------: | :---: | :-----: |
+|         现代物理 |  $0$  |   $1$   |
+|         经典物理 | $-1$  |   $1$   |
+| 纯数学、系统工程 |  $1$  |  $-1$   |
+|         信号处理 |  $0$  | $-2\pi$ |
 
 ---
 
@@ -269,26 +269,26 @@ $$
 这一过程针对离散信号，并且其时域有限（最多在 $[0,N) \cap \Z$ 有值）。
 
 1. 频域取样就是
-
-    $$
-    \hat X
-    = \eval{X}_\omega \times \qty(\sum_k \eval{\delta}_{\omega - \omega_k})
-    = \sum_k \eval{X}_{\omega_k} \eval{\delta}_{\omega - \omega_k},
-    $$
-
-    其中 $k \in [0,N) \cap \Z$，$\omega_k = \frac{2\pi}{N} k$，$\delta$ 省略了 $2\pi$ 的周期化。
-
-    这在时域相当于 $N$ 的周期化。
-
-3. 恢复相当于只保留时域主值序列，即乘 $R_N$。
-
-    这在频域相当于卷积 $R_N$ 的频谱（如下），再除以 $N$。
    
-    $$
-    R_N \leftrightarrow \frac{\sin\frac{N\omega}{2}}{\sin\frac\omega2} e^{-j\omega\tau},
-    $$
-   
-    其中 $2\tau + 1 = N$。
+  $$
+  \hat X
+  = \eval{X}_\omega \times \qty(\sum_k \eval{\delta}_{\omega - \omega_k})
+  = \sum_k \eval{X}_{\omega_k} \eval{\delta}_{\omega - \omega_k},
+  $$
+
+  其中 $k \in [0,N) \cap \Z$，$\omega_k = \frac{2\pi}{N} k$，$\delta$ 省略了 $2\pi$ 的周期化。
+
+  这在时域相当于 $N$ 的周期化。
+
+2. 恢复相当于只保留时域主值序列，即乘 $R_N$。
+
+  这在频域相当于卷积 $R_N$ 的频谱（如下），再除以 $N$。
+  
+  $$
+  R_N \leftrightarrow \frac{\sin\frac{N\omega}{2}}{\sin\frac\omega2} e^{-j\omega\tau},
+  $$
+  
+  其中 $2\tau + 1 = N$。
 
 其实
 
@@ -345,12 +345,12 @@ $$
 
 > 记号如下
 >
-> -   大写字母：常量。
->     - 衬线体 $A$：很多元素组成的张量。
->     - 无衬线体 $\mathsf A$：单个数字。
-> -   小写字母：变量。
->     - 拉丁字母 $a$：时域。
->     - 希腊字母 $\alpha$：频域。
+> - 大写字母：常量。
+>   - 衬线体 $A$：很多元素组成的张量。
+>   - 无衬线体 $\mathsf A$：单个数字。
+> - 小写字母：变量。
+>   - 拉丁字母 $a$：时域。
+>   - 希腊字母 $\alpha$：频域。
 >
 > 注：不太区分大写拉丁字母与大写希腊字母，例如 $A$ 与 $\Alpha$。
 >
@@ -447,28 +447,29 @@ $$
 <figcaption markdown='1'>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions</a>, revised</figcaption>
 </figure>
 
--   **radix-2**
+- **radix-2**
   
-    -  系数是旋转因子，画在两列蝶形之间也许更科学。
-    -  这是递归算法，但所有系数都要求换算为 $W_N$。每一列系数的指数总是等间隔分布于 $[0, \frac{N}{2})$。
-    -  如果系数标在线上，那么出现位置与输入的二进制表示相同。（0 没有，1 有，且可能为 $W_0$）
-    -  序列反序与远距离蝶形的用意相同，因此不可能出现在流图的同一侧。例如 DIT 输入反序，输入一侧便是近距离蝶形。
-    -  不同列蝶形的线平行时更好看，为此远距离蝶形的宽度要画得大一些。
-
+  - 系数是旋转因子，画在两列蝶形之间也许更科学。
+  - 这是递归算法，但所有系数都要求换算为 $W_N$。每一列系数的指数总是等间隔分布于 $[0, \frac{N}{2})$。
+  - 如果系数标在线上，那么出现位置与输入的二进制表示相同。（0 没有，1 有，且可能为 $W_0$）
+  - 序列反序与远距离蝶形的用意相同，因此不可能出现在流图的同一侧。例如 DIT 输入反序，输入一侧便是近距离蝶形。
+  - 不同列蝶形的线平行时更好看，为此远距离蝶形的宽度要画得大一些。
+  
 - **other mixed-radix**
+  
+  - radix-4 中的 4 点变换既可按 DFT 定义（矩阵乘法）处理，也可用 $2\times 2 = 4$ 的 radix-2 FFT 处理。后者增加的旋转因子中 $3/4$ 是一，$1/4$ 是 $-j$，都可不计运算量；并且流图与 radix-2 相同，$N$ 较小时系数也会退化成纯粹的 radix-2。
    
-    - radix-4 中的 4 点变换既可按 DFT 定义（矩阵乘法）处理，也可用 $2\times 2 = 4$ 的 radix-2 FFT 处理。后者增加的旋转因子中 $3/4$ 是一，$1/4$ 是 $-j$，都可不计运算量；并且流图与 radix-2 相同，$N$ 较小时系数也会退化成纯粹的 radix-2。
-   
-    <figure markdown='1'>
-    <div style='display: grid; grid-template-columns: repeat(2, auto); gap: 1em;' markdown='span'>
-      ![](assets/radix-2-or-4-to-split-radix-1.svg)
-      ![](assets/radix-2-or-4-to-split-radix-2.svg)
-    </div>
-    <figcaption>Radix-2 or -4 to split-radix | <code>data-flow-diagram</code></figcaption>
-    </figure>
+  <figure markdown='1'>
+  <div style='display: grid; grid-template-columns: repeat(2, auto); gap: 1em;' markdown='span'>
+    ![](assets/radix-2-or-4-to-split-radix-1.svg)
+    ![](assets/radix-2-or-4-to-split-radix-2.svg)
+  </div>
+  <figcaption>Radix-2 or -4 to split-radix | <code>data-flow-diagram</code></figcaption>
+  </figure>
 
 - **split-radix**
-    - 流图和 radix-2 相同，可通过移动系数相互转化。
+
+  - 流图和 radix-2 相同，可通过移动系数相互转化。
 
 ## §5 数字滤波器
 
@@ -494,91 +495,91 @@ $$
 
 1.  **确定形式**
    
-    分子、分母都是三次，分母有一个实根、两个虚根。
+  分子、分母都是三次，分母有一个实根、两个虚根。
 
-    $$
-    \triangle + \frac{\bigcirc}{1+0.5x} + \frac{\square + \square x}{1 - 0.9x + 0.81x^2}.
-    $$
+  $$
+  \triangle + \frac{\bigcirc}{1+0.5x} + \frac{\square + \square x}{1 - 0.9x + 0.81x^2}.
+  $$
    
 2.  **求 $\triangle$**
 
-    $x \to \infty$ 时：
+  $x \to \infty$ 时：
 
-    - 由分解后形式，$\lim f = \triangle$。
-    - 由原始形式，$\lim f = \qty(2 \times (-1) \times 1) / \qty(0.5 \times 0.81) = -4.938\cdots$。
+  - 由分解后形式，$\lim f = \triangle$。
+  - 由原始形式，$\lim f = \qty(2 \times (-1) \times 1) / \qty(0.5 \times 0.81) = -4.938\cdots$。
 
-    故 $\triangle = -4.938\cdots$。
+  故 $\triangle = -4.938\cdots$。
 
 3.  **求 $\bigcirc$**
 
-    $1 + 0.5 x \to 0$，即 $x \to -2$ 时，
+  $1 + 0.5 x \to 0$，即 $x \to -2$ 时，
  
-    - 由分解后形式，$(1+0.5) f \to 0 + \bigcirc + 0 = \bigcirc$。
+  - 由分解后形式，$(1+0.5) f \to 0 + \bigcirc + 0 = \bigcirc$。
  
-    -   由原始形式，
-
-        $$
-        \begin{split}
-        (1+0.5)f
-        &= \frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) } { 1 - 0.9x + 0.81x^2 } \\
-        &\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=-2}.
-        \end{split}
-        $$
- 
-    计算得 $\bigcirc = 2.157\cdots$。
-
-4.  **求 $\square + \square x$**
-
-    延拓到 $\C$，则 $1 - 0.9x + 0.81x^2$ 的根是 $\frac{0.9}{2\times0.81} \pm \sqrt{\qty(\frac{0.9}{2})^2 - 0.81^2} = 0.556\cdots \pm 0.673\cdots i$，记作 $\gamma$ 和 $\bar\gamma$。（$\gamma$ 具体取哪个无所谓）
-
-    > 因为最初 $f: \R \to \R$，结合原始形式，这里必为一对共轭虚数 $\gamma,\bar\gamma$。
-
-    $1 - 0.9x + 0.81x^2 \to 0$，即 $x \to \gamma$ 或 $x \to \bar\gamma$ 时，
-
-    - 由分解后形式，$\qty(1 - 0.9x + 0.81x^2) f \to \square + \square \gamma$ 或 $\square + \square \bar\gamma$。
-   
-    -   由原始形式，
-  
-        $$
-        \begin{split}
-        \qty(1 - 0.9x + 0.81x^2) f
-        &= \frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) } { 1+0.5 x } \\
-        &\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=\gamma, \bar\gamma} \\
-        &= 3.894\cdots \mp 1.536\cdots i,
-        \end{split}
-        $$
-       
-        记作 $A$ 和 $\bar A$。
-     
-        > 因为最初 $f: \R \to \R$，这里必为一对共轭复数 $A,\bar A$。
-   
-    因此
-
-    $$
-    \begin{bmatrix}
-       1 & \gamma \\
-       1 & \bar\gamma \\
-    \end{bmatrix}
-    \begin{bmatrix}
-       \square \\ \square
-    \end{bmatrix}
-    = 
-    \begin{bmatrix}
-       A \\ \bar A
-    \end{bmatrix}.
-    $$
-
-    可解得
+  - 由原始形式，
 
     $$
     \begin{split}
-    \square + \square x
-    &= \frac{\Im(\bar A \gamma) + \Im A\ x}{\Im \gamma} \\
-    &= 4.781\cdots - 1.596\cdots x.
+    (1+0.5)f
+    &= \frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) } { 1 - 0.9x + 0.81x^2 } \\
+    &\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=-2}.
     \end{split}
     $$
+ 
+  计算得 $\bigcirc = 2.157\cdots$。
+
+4.  **求 $\square + \square x$**
+
+  延拓到 $\C$，则 $1 - 0.9x + 0.81x^2$ 的根是 $\frac{0.9}{2\times0.81} \pm \sqrt{\qty(\frac{0.9}{2})^2 - 0.81^2} = 0.556\cdots \pm 0.673\cdots i$，记作 $\gamma$ 和 $\bar\gamma$。（$\gamma$ 具体取哪个无所谓）
+
+  > 因为最初 $f: \R \to \R$，结合原始形式，这里必为一对共轭虚数 $\gamma,\bar\gamma$。
+
+  $1 - 0.9x + 0.81x^2 \to 0$，即 $x \to \gamma$ 或 $x \to \bar\gamma$ 时，
+
+  - 由分解后形式，$\qty(1 - 0.9x + 0.81x^2) f \to \square + \square \gamma$ 或 $\square + \square \bar\gamma$。
    
-    > $\Im{\bar A \gamma}$ 是外积。
+  -   由原始形式，
+  
+    $$
+    \begin{split}
+    \qty(1 - 0.9x + 0.81x^2) f
+    &= \frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) } { 1+0.5 x } \\
+    &\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=\gamma, \bar\gamma} \\
+    &= 3.894\cdots \mp 1.536\cdots i,
+    \end{split}
+    $$
+       
+    记作 $A$ 和 $\bar A$。
+ 
+    > 因为最初 $f: \R \to \R$，这里必为一对共轭复数 $A,\bar A$。
+   
+  因此
+
+  $$
+  \begin{bmatrix}
+     1 & \gamma \\
+     1 & \bar\gamma \\
+  \end{bmatrix}
+  \begin{bmatrix}
+     \square \\ \square
+  \end{bmatrix}
+  = 
+  \begin{bmatrix}
+     A \\ \bar A
+  \end{bmatrix}.
+  $$
+
+  可解得
+
+  $$
+  \begin{split}
+  \square + \square x
+  &= \frac{\Im(\bar A \gamma) + \Im A\ x}{\Im \gamma} \\
+  &= 4.781\cdots - 1.596\cdots x.
+  \end{split}
+  $$
+   
+  > $\Im{\bar A \gamma}$ 是外积。
 
 ### 线性相位
 
@@ -617,36 +618,36 @@ $$
 
 > 另：由 $\eval{h}_{\tau+t} = \eval{h^*}_{\tau-t}$。
 
--   $\tau \in \Z$，$N \in 2\Z+1$
+- $\tau \in \Z$，$N \in 2\Z+1$
   
-    $$
-    \begin{split}
-    e^{j\omega\tau} H
-    &= \sum_{n=0}^{N-1} \eval{h}_n e^{(\tau-n)j\omega} \\
-    &= \eval{h}_\tau + \sum_{m=1}^{\tau} \qty(
+  $$
+  \begin{split}
+  e^{j\omega\tau} H
+  &= \sum_{n=0}^{N-1} \eval{h}_n e^{(\tau-n)j\omega} \\
+  &= \eval{h}_\tau + \sum_{m=1}^{\tau} \qty(
           \eval{h}_{\tau-m} e^{mj\omega} +
           {\color{red} \eval{h}_{\tau+m}} e^{-mj\omega}
       ) \\
-    &= \eval{h}_\tau + \sum_{m=1}^{\tau} \qty(
+  &= \eval{h}_\tau + \sum_{m=1}^{\tau} \qty(
           \eval{h}_{\tau-m} e^{mj\omega} +
           {\color{red} \eval{h^*}_{\tau-m}} e^{-mj\omega}
       ) \\
-    &= \eval{h}_\tau + \sum_{m=1}^\tau 2 \Re{\eval{h}_{\tau-m} e^{mj\omega}} \\
-    &\in \R.
-    \end{split}
-    $$
+  &= \eval{h}_\tau + \sum_{m=1}^\tau 2 \Re{\eval{h}_{\tau-m} e^{mj\omega}} \\
+  &\in \R.
+  \end{split}
+  $$
 
--   $\tau \in \Z + \frac12$，$N \in 2\Z$
+- $\tau \in \Z + \frac12$，$N \in 2\Z$
 
-    与前一情况类似，只是没有单独的 $\eval{h}_\tau$ 项。
+  与前一情况类似，只是没有单独的 $\eval{h}_\tau$ 项。
   
-    $$
-    \begin{split}
-    e^{j\omega\tau} H
-    &= \sum_{m = 1-\frac12}^{\tau} 2 \Re{\eval{h}_{\tau - m} e^{mj\omega}} \\
-    &\in \R.
-    \end{split}
-    $$
+  $$
+  \begin{split}
+  e^{j\omega\tau} H
+  &= \sum_{m = 1-\frac12}^{\tau} 2 \Re{\eval{h}_{\tau - m} e^{mj\omega}} \\
+  &\in \R.
+  \end{split}
+  $$
 
 #### 幅度函数的对称性
 
@@ -661,24 +662,27 @@ $$
 $e^{j\omega\tau} H$ 的对称性由 $H$ 和 $e^{j\omega\tau}$ 的对称性共同决定。
 
 - $H$
-    -   关于 $\omega = 0$
 
-        $h\in\R$ 则共轭对称，$h \in \R/j$ 则共轭反对称。
-    
-    -   关于 $\omega = \pi$
+  - 关于 $\omega = 0$
 
-        同上。
+    $h\in\R$ 则共轭对称，$h \in \R/j$ 则共轭反对称。
 
-        $$
-        \begin{aligned}
-        (-1)^n \eval{h}_n &\leftrightarrow \eval{H}_{\pi+\omega}. \\
-        (-1)^n \eval{h^*}_{n} &\leftrightarrow \eval{H^*}_{\pi-\omega}. \\
-        \end{aligned}
-        $$
+  - 关于 $\omega = \pi$
+
+    同上。
+
+    $$
+    \begin{aligned}
+    (-1)^n \eval{h}_n &\leftrightarrow \eval{H}_{\pi+\omega}. \\
+    (-1)^n \eval{h^*}_{n} &\leftrightarrow \eval{H^*}_{\pi-\omega}. \\
+    \end{aligned}
+    $$
 
 - $e^{j\omega\tau}$
-    - 关于 $\omega = 0$ 共轭对称。
-    - 关于 $\omega = \pi$
+
+  - 关于 $\omega = 0$ 共轭对称。
+
+  - 关于 $\omega = \pi$
 
     $\tau \in\Z$ 则共轭对称，$\tau \in \Z + \frac12$ 则共轭反对称。
 
@@ -707,52 +711,55 @@ $$
 
 下面讨论两种特殊情况。
 
--   $h \in \R$
+- $h \in \R$
+  
+  $$
+  \Re{\eval{h}_{\tau - m} e^{mj\omega}}
+  = \eval{h}_{\tau - m} \cos(m\omega).
+  $$
+  
+  最开始的时域条件化为
+  
+  $$
+  \eval{h}_{\tau+m} \equiv \eval{h}_{\tau-m}.
+  $$
+  
+- $h \in \R/j$
+  
+  $$
+  \Re{\eval{h}_{\tau - m} e^{mj\omega}}
+  = \eval{(jh)}_{\tau - m} \sin(m\omega).
+  $$
+  
+  设 $h' = jh \in \R$，$H' = jH$，则 $\operatorname{Arg} H' = \frac\pi2 - \omega\tau$，系统广义线性。
 
-    $$
-    \Re{\eval{h}_{\tau - m} e^{mj\omega}}
-    = \eval{h}_{\tau - m} \cos(m\omega).
-    $$
-
-    最开始的时域条件化为
-
-    $$
-    \eval{h}_{\tau+m} \equiv \eval{h}_{\tau-m}.
-    $$
-
--   $h \in \R/j$
-    
-    $$
-    \Re{\eval{h}_{\tau - m} e^{mj\omega}}
-    = \eval{(jh)}_{\tau - m} \sin(m\omega).
-    $$
-
-    设 $h' = jh \in \R$，$H' = jH$，则 $\operatorname{Arg} H' = \frac\pi2 - \omega\tau$，系统广义线性。
-    > $\R \to \qty{j}$ 共轭反对称，故 $H' = jH$ 与 $H$ 的共轭对称性相反。不过 $H’$ 对应的幅度函数不再是 $e^{j\omega\tau}H' \in j\R$，而是 $e^{j\omega\tau}H' / j = e^{j\omega\tau}H \in \R$，与 $H$ 的相同。
-
-    最开始的时域条件化为
-
-    $$
-    \eval{h'}_{\tau+m} \equiv -\eval{h'}_{\tau-m}.
-    $$
+  > $\R \to \qty{j}$ 共轭反对称，故 $H' = jH$ 与 $H$ 的共轭对称性相反。不过 $H’$ 对应的幅度函数不再是 $e^{j\omega\tau}H' \in j\R$，而是 $e^{j\omega\tau}H' / j = e^{j\omega\tau}H \in \R$，与 $H$ 的相同。
+  
+  最开始的时域条件化为
+  
+  $$
+  \eval{h'}_{\tau+m} \equiv -\eval{h'}_{\tau-m}.
+  $$
 
 下面在 $Z$ 平面考察零点分布。
 
 > 以上第二种特殊情况中，$H' = jH$，所以其实 $H'$ 与 $H$ 的零点一致。
 
--   由 $\eval{h}_{\tau+m} = \eval{h^*}_{\tau - m}$，
-  
-    $$
-    z^\tau \eval{H}_z
-    = z^{-\tau} \eval{H^*}_{1/z^*}
-    $$
-  
-    > $\tau \in\Z+\frac12$ 时以上写法不严谨，应从 $\eval{h}_{n} = \eval{h^*}_{2\tau - n}$ 出发，不过由 $z = e^{sT}$ 也能说通。
-    故零点 $z,\ 1/z^*$ 成对出现。（关于单位圆反演对称）
+- 由 $\eval{h}_{\tau+m} = \eval{h^*}_{\tau - m}$，
+
+  $$
+  z^\tau \eval{H}_z
+  = z^{-\tau} \eval{H^*}_{1/z^*}
+  $$
+
+  > $\tau \in\Z+\frac12$ 时以上写法不严谨，应从 $\eval{h}_{n} = \eval{h^*}_{2\tau - n}$ 出发，不过由 $z = e^{sT}$ 也能说通。
+
+  故零点 $z,\ 1/z^*$ 成对出现。（关于单位圆反演对称）
 
 - 对于以上两种特殊情况
-    - 有 $h \equiv \pm h^*$，故 $\eval{H}_{z} \equiv \pm \eval{H^*}_{z^*}$ ，因此零点 $z, z^*$ 成对出现。（关于实轴对称）
-    - 幅度函数可能共轭反对称，这可在 $\omega = 0,\pi$ 导致零点。
+
+  - 有 $h \equiv \pm h^*$，故 $\eval{H}_{z} \equiv \pm \eval{H^*}_{z^*}$ ，因此零点 $z, z^*$ 成对出现。（关于实轴对称）
+  - 幅度函数可能共轭反对称，这可在 $\omega = 0,\pi$ 导致零点。
 
 ### 从模拟原型 Butterworth 滤波器设计 IIR 数字滤波器
 
@@ -762,46 +769,46 @@ IIR: Infinite impulse response.
 
 1. 给定数字域**指标**
 
-    $\omega, \alpha$ for pass and stop band.
+  $\omega, \alpha$ for pass and stop band.
 
-    （$\alpha$ 总是功率比）
+  （$\alpha$ 总是功率比）
 
 2. **转换**为模拟域特性
 
-    $\alpha$ 不变；$\Omega$ 从 $\omega$ 变换，要求下面能变换回去。
+  $\alpha$ 不变；$\Omega$ 从 $\omega$ 变换，要求下面能变换回去。
 
-    - **脉冲响应不变法**：$\Omega T = \omega$。
-    - **双线性变换法**：$\frac{\Omega T}{2} = \tan\frac{\omega T}{2}$。
+  - **脉冲响应不变法**：$\Omega T = \omega$。
+  - **双线性变换法**：$\frac{\Omega T}{2} = \tan\frac{\omega T}{2}$。
 
 3.  确定模拟原型 Butterworth 滤波器的**参数**
     
-    $$
-    \begin{cases}
-    1 + \qty(\Omega_s / \Omega_c)^{2N} > \alpha_s. \\
-    1 + \qty(\Omega_p / \Omega_c)^{2N} < \alpha_p. \\
-    \end{cases}
-    $$
+  $$
+  \begin{cases}
+  1 + \qty(\Omega_s / \Omega_c)^{2N} > \alpha_s. \\
+  1 + \qty(\Omega_p / \Omega_c)^{2N} < \alpha_p. \\
+  \end{cases}
+  $$
 
-    要求 $N \in \N$，$\Omega_c > 0$。
+  要求 $N \in \N$，$\Omega_c > 0$。
 
-    解得
+  解得
 
-    $$
-    N \geq \frac12 \log_{\Omega_s / \Omega_p} \frac{\alpha_s - 1}{\alpha_p - 1}.
-    $$
+  $$
+  N \geq \frac12 \log_{\Omega_s / \Omega_p} \frac{\alpha_s - 1}{\alpha_p - 1}.
+  $$
 
-    $$
-    \frac{\Omega_p}{\sqrt[2N]{\alpha_p -1}}
-    < \Omega_c <
-    \frac{\Omega_s}{\sqrt[2N]{\alpha_s - 1}}.
-    $$
+  $$
+  \frac{\Omega_p}{\sqrt[2N]{\alpha_p -1}}
+  < \Omega_c <
+  \frac{\Omega_s}{\sqrt[2N]{\alpha_s - 1}}.
+  $$
 
-    一般 $N,\Omega_c$ 尽可能小：$N$ 小结构更简单，$\Omega_c$ 小阻带性能更好。
+  一般 $N,\Omega_c$ 尽可能小：$N$ 小结构更简单，$\Omega_c$ 小阻带性能更好。
 
 4. 转换回**数字**滤波器
 
-    - **脉冲响应不变法**：$\eval{H}_{z = e^{sT}} = \eval{H_a}_s$ 并周期化。实际操作是展开为部分分式，然后 $\frac{1}{s - s_0} \mapsto \frac{1}{1 - e^{s_0 T} / z}$。（还可再乘 $T$ 以修正增益）
-    - **双线性变换法**：$\eval{H}_z = \eval{H_a}_{\frac12 sT = \frac{z-1}{z+1}}$。
+  - **脉冲响应不变法**：$\eval{H}_{z = e^{sT}} = \eval{H_a}_s$ 并周期化。实际操作是展开为部分分式，然后 $\frac{1}{s - s_0} \mapsto \frac{1}{1 - e^{s_0 T} / z}$。（还可再乘 $T$ 以修正增益）
+  - **双线性变换法**：$\eval{H}_z = \eval{H_a}_{\frac12 sT = \frac{z-1}{z+1}}$。
 
 ### 设计 FIR 数字滤波器
 
@@ -815,39 +822,39 @@ FIR: Finite impulse response.
 
 1. 设定窗和理想数字滤波器
 
-    这需要反复试验。
+  这需要反复试验。
 
-    -   **窗**：下面以长 $N$ 的矩形窗为例。
+  -   **窗**：下面以长 $N$ 的矩形窗为例。
 
-        $N \in 2\Z+1$ 时，没有奇对称导致的零点，适于设计所有类型的滤波器。（低通、高通、带通、带阻均可）
+    $N \in 2\Z+1$ 时，没有奇对称导致的零点，适于设计所有类型的滤波器。（低通、高通、带通、带阻均可）
 
-    -   **理想数字滤波器**：下面以门函数为例。
+  -   **理想数字滤波器**：下面以门函数为例。
 
-        $$
-        h_d = \frac{\sin(\omega_c n)}{\pi n} \leftrightarrow G_{2\omega_c}.
-        $$
+    $$
+    h_d = \frac{\sin(\omega_c n)}{\pi n} \leftrightarrow G_{2\omega_c}.
+    $$
 
-        $\omega_c$ 其实也要确定，有时直接取通带、阻带截止频率的中点 $(\omega_s + \omega_p) / 2$。
+    $\omega_c$ 其实也要确定，有时直接取通带、阻带截止频率的中点 $(\omega_s + \omega_p) / 2$。
 
 2. 处理为因果、有限的滤波器
 
-    $$
-    \eval{h}_n = \eval{h_d}_{n - \tau} \eval{R_N}_n.
-    $$
+  $$
+  \eval{h}_n = \eval{h_d}_{n - \tau} \eval{R_N}_n.
+  $$
 
-    其中 $2\tau = N-1$。
+  其中 $2\tau = N-1$。
 
 #### 频域取样法
 
 1. 设定取样数、有符号幅度函数的取样值 $\eval{A}_k$
 
-    通带取一，阻带取零，过渡带设计略有讲究。
+  通带取一，阻带取零，过渡带设计略有讲究。
 
-    一般只设定前半截，后半截就由相位线性确定了。
+  一般只设定前半截，后半截就由相位线性确定了。
 
 2. 内插
 
-    要保证线性相位性质。
+  要保证线性相位性质。
 
 ## 杂项
 
@@ -1000,18 +1007,24 @@ $$
 > :material-clock-edit-outline: 2022年12月7日。
 
 - **原位运算**
-    每个蝶形的输入位置和输出位置相同，无需额外寄存器。
+
+  每个蝶形的输入位置和输出位置相同，无需额外寄存器。
 
 - **输入输出顺序**
-    抽取的域反序，另一域正序。
+
+  抽取的域反序，另一域正序。
 
 - **系数**
-    抽取一侧全为 $W^0$，另一侧为 $W^0, W^1, \ldots, W^{N/2 - 1}$。
-    从另一侧向抽取一侧推进，每次只剩偶序号那一半。
+
+  抽取一侧全为 $W^0$，另一侧为 $W^0, W^1, \ldots, W^{N/2 - 1}$。
+  
+  从另一侧向抽取一侧推进，每次只剩偶序号那一半。
 
 - **蝶形跨度**
-    抽取一侧最小，相邻（相差一）；另一侧最大，相差 $N/2$。
-    从抽取一侧向另一侧推进，每次跨度增加一倍。
+
+  抽取一侧最小，相邻（相差一）；另一侧最大，相差 $N/2$。
+  
+  从抽取一侧向另一侧推进，每次跨度增加一倍。
 
 以上主要针对 radix-2，但 split-radix 基本一致，只是系数有挪动。
 
@@ -1067,12 +1080,14 @@ $$
 > :material-clock-edit-outline: 2022年12月7日。
 
 -   **陈述**
-    - 对于频带有限的信号 $x_a$，若其频率上限为 $f_H$，则时域采样频率 $f_s \geq 2 f_H$ 可避免频域混叠。
-    - 对于时间有限的信号 $x$，若其序列长为 $N$，则频域采样取样点数 $N' \geq N$ 可避免时域混叠。
+
+  - 对于频带有限的信号 $x_a$，若其频率上限为 $f_H$，则时域采样频率 $f_s \geq 2 f_H$ 可避免频域混叠。
+
+  - 对于时间有限的信号 $x$，若其序列长为 $N$，则频域采样取样点数 $N' \geq N$ 可避免时域混叠。
 
 -   **意义**
 
-    采样定理让信号在时域、频域都离散化，让用数字技术处理成为可能。
+  采样定理让信号在时域、频域都离散化，让用数字技术处理成为可能。
 
 #### 滤波器各型结构特点
 
@@ -1081,60 +1096,62 @@ $$
 角度：调试、误差、速率、复用。
 
 - **有反馈**（infinite impulse response，IIR）
-    -   **直接型**（直接 I（aka. 直接）、直接 II（aka. 典范）及其转置）
-        - 简单直观。
-        - 系数<u>不直接决定</u>零极点，不易调试。
-        - 极点对系数过分<u>敏感</u>，因有限字长效应，容易不稳定、累计误差。
-    -   **级联型**
-        - 系数能<u>单独调整零极点</u>。
-        - <u>累计误差</u>小，适当排序后更小。
-        - 存储单元少，可模块化<u>时分复用</u>。
-    -   **并联型**
-        - 系数能<u>单独调整极点</u>，但<u>不能单独调整零点</u>。
-        - 基本节之间无干扰，<u>累计误差</u>小。
-        - 可<u>并行</u>运算，速率高。
+
+  - **直接型**（直接 I（aka. 直接）、直接 II（aka. 典范）及其转置）
+    - 简单直观。
+    - 系数<u>不直接决定</u>零极点，不易调试。
+    - 极点对系数过分<u>敏感</u>，因有限字长效应，容易不稳定、累计误差。
+  - **级联型**
+    - 系数能<u>单独调整零极点</u>。
+    - <u>累计误差</u>小，适当排序后更小。
+    - 存储单元少，可模块化<u>时分复用</u>。
+  - **并联型**
+    - 系数能<u>单独调整极点</u>，但<u>不能单独调整零点</u>。
+    - 基本节之间无干扰，<u>累计误差</u>小。
+    - 可<u>并行</u>运算，速率高。
 
 - **无反馈**（finite impulse response，FIR）
-    -   **直接型**（aka. 横截、卷积）
 
-        类似有反馈。
+  - **直接型**（aka. 横截、卷积）
 
-    -   **级联型**
+    类似有反馈。
 
-        - 能<u>单独调整零点</u>。
-        - 乘法多。
+  - **级联型**
 
-    -   **频率取样型**（梳状滤波器和谐振柜）
+    - 能<u>单独调整零点</u>。
+    - 乘法多。
 
-        - 能<u>直接调整 $H(k)$</u>。
-        - 有限字长效应影响大，容易<u>不稳定</u>。修正谐振柜可缓解。
-        - 系数多为<u>复数</u>，复杂。线性相位、窄带时稍好。
-        - 便于<u>标准</u>化、模块化，可时分复用。
+  - **频率取样型**（梳状滤波器和谐振柜）
+
+    - 能<u>直接调整 $H(k)$</u>。
+    - 有限字长效应影响大，容易<u>不稳定</u>。修正谐振柜可缓解。
+    - 系数多为<u>复数</u>，复杂。线性相位、窄带时稍好。
+    - 便于<u>标准</u>化、模块化，可时分复用。
 
 #### 数字滤波器设计方法特点
 
 > :material-clock-edit-outline: 2022年12月7日。
 
--   **将模拟原型滤波器数字化**为 IIR 滤波器
-    -   **脉冲响应不变**（impulse invariance，aka. 标准 Z 变换法）
-        - 极点 $s \mapsto z = e^{sT}$，不改变稳定性。
-        - $\omega = \Omega T$ <u>线性</u>，保证 $\eval{h}_n = \eval{h_a}_{nT}$，变换后频率响应不失真，能模仿模拟滤波器的功能。
-        - 频域<u>混叠</u>，降低阻带性能，不适合高通、带阻这种高频不衰减的滤波器。
-    -   **双线性变换**（bilinear transform）
-        - 完全<u>不存在混叠</u>。
-        - $\frac{\omega}{2} = \arctan \frac{\Omega T}{2}$，高频严重<u>非线性</u>，变换后频率响应会变形。不过低通、高通、带通、带阻滤波器都是分段常数型，只有相位受影响，幅度正常。
--   **FIR** 滤波器
-    -   **时域窗函数**
-        - 时域截断导致通带波纹、阻带衰减、过渡带。
-    -   **频域取样**
-        - 可以精确控制取样点的响应。
-        - 适合窄带滤波器。
-        - 抽样频率只能是 $\frac{\pi}{N} \Z$，且截止频率不能任意设置（不一定取样到截止频率）。
-        - 过渡带优化涉及：加宽过渡带，降低矩形特性要求，减轻阻带纹波。
--   **IIR 与 FIR** 滤波器
-    - IIR 幅度特性比同等阶数 FIR 好。
-    - IIR 必须附加调相网络才能保证<u>线性相位</u>，FIR 可用对称性直接保证。
-    - IIR 从模拟原型滤波器转换时，可能破坏<u>稳定性</u>。
+- **将模拟原型滤波器数字化**为 IIR 滤波器
+  - **脉冲响应不变**（impulse invariance，aka. 标准 Z 变换法）
+    - 极点 $s \mapsto z = e^{sT}$，不改变稳定性。
+    - $\omega = \Omega T$ <u>线性</u>，保证 $\eval{h}_n = \eval{h_a}_{nT}$，变换后频率响应不失真，能模仿模拟滤波器的功能。
+    - 频域<u>混叠</u>，降低阻带性能，不适合高通、带阻这种高频不衰减的滤波器。
+  - **双线性变换**（bilinear transform）
+    - 完全<u>不存在混叠</u>。
+    - $\frac{\omega}{2} = \arctan \frac{\Omega T}{2}$，高频严重<u>非线性</u>，变换后频率响应会变形。不过低通、高通、带通、带阻滤波器都是分段常数型，只有相位受影响，幅度正常。
+- **FIR** 滤波器
+  - **时域窗函数**
+    - 时域截断导致通带波纹、阻带衰减、过渡带。
+  - **频域取样**
+    - 可以精确控制取样点的响应。
+    - 适合窄带滤波器。
+    - 抽样频率只能是 $\frac{\pi}{N} \Z$，且截止频率不能任意设置（不一定取样到截止频率）。
+    - 过渡带优化涉及：加宽过渡带，降低矩形特性要求，减轻阻带纹波。
+- **IIR 与 FIR** 滤波器
+  - IIR 幅度特性比同等阶数 FIR 好。
+  - IIR 必须附加调相网络才能保证<u>线性相位</u>，FIR 可用对称性直接保证。
+  - IIR 从模拟原型滤波器转换时，可能破坏<u>稳定性</u>。
 
 ### 预计算
 

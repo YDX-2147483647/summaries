@@ -11,7 +11,7 @@ pip install mkdocs-material
 ## To Do
 
 - MathJax: `\N`, `\Z`, `\Q`, `\R`, `\C`.
-- List: `1. ` → `1.  ` (one space → 4-space indent).
+- Ordered list: 3 spaces → 2-space indent.
 - `\n$$\n` → `\n\n$$\n`. (`。\n\$\$` → `。\n\n$$$$`)
 - assets:
   - `DFT的间隔与总长.nb`

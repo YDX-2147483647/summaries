@@ -101,29 +101,29 @@ $$
 
 以二元码为例。记码元重复周期、频率为 $T_B, f_B$（B for baud, named after Émile Baudot）。记两种码元的波形分别为 $g_+, g_-$，出现概率分别为 $p_+,p_-$（$p_+ + p_- = 1$）。认为不同时刻发送的码元相互独立。
 
--   **稳态**部分 $\mathop{\mathbb E} g = p_+g_+ + p_-g_-$
+- **稳态**部分 $\mathop{\mathbb E} g = p_+g_+ + p_-g_-$
 
-    这是确定信号，有周期，频谱离散，导致直流分量、定时分量。无定时分量并不代表无法定时——变换波形后可能存在定时分量。
+  这是确定信号，有周期，频谱离散，导致直流分量、定时分量。无定时分量并不代表无法定时——变换波形后可能存在定时分量。
 
-    $\sum \eval{\delta}_{t - \Z T_B} \leftrightarrow f_B \sum \eval{\delta}_{f - \Z f_B}$，故稳态部分的功率谱（不是频谱）如下。
+  $\sum \eval{\delta}_{t - \Z T_B} \leftrightarrow f_B \sum \eval{\delta}_{f - \Z f_B}$，故稳态部分的功率谱（不是频谱）如下。
 
-    $$
-    \sum \qty(f_B \mathop{\mathbb{E}} G)^2 \eval{\delta}_{f-\Z f_B}.
-    $$
-    
-    可以看到，等概率双极性信号无此部分。对于单极性信号，还要看 $\mathop{\mathbb E} G$ 的零点会不会与 $\Z f_B$ 碰撞——不归零的方波谱就全都碰撞了。
+  $$
+  \sum \qty(f_B \mathop{\mathbb{E}} G)^2 \eval{\delta}_{f-\Z f_B}.
+  $$
+  
+  可以看到，等概率双极性信号无此部分。对于单极性信号，还要看 $\mathop{\mathbb E} G$ 的零点会不会与 $\Z f_B$ 碰撞——不归零的方波谱就全都碰撞了。
 
--   **交变**部分 $g - \mathop{\mathbb E}G$
+- **交变**部分 $g - \mathop{\mathbb E}G$
 
-    这是随机信号，有连续功率谱，影响信号带宽。
+  这是随机信号，有连续功率谱，影响信号带宽。
 
-    在每一码元，以 $p_\pm$ 的概率出现 $\pm p_\mp \qty(g_+ - g_-)$。期望当然为零，方差为 $p_+ p_- \qty(g_+ - g_-)^2$。由此大约能得到自相关函数，反正最终功率谱如下。
-    
-    $$
-    f_B \times p_+ p_- \qty(G_+ - G_-)^2.
-    $$
-    
-    可以看到，对于方波，带宽与占空比成反比。
+  在每一码元，以 $p_\pm$ 的概率出现 $\pm p_\mp \qty(g_+ - g_-)$。期望当然为零，方差为 $p_+ p_- \qty(g_+ - g_-)^2$。由此大约能得到自相关函数，反正最终功率谱如下。
+  
+  $$
+  f_B \times p_+ p_- \qty(G_+ - G_-)^2.
+  $$
+  
+  可以看到，对于方波，带宽与占空比成反比。
 
 ### 基带信号的编码
 
@@ -133,31 +133,31 @@ $$
 
 编码目标：频谱、定时、纠错。
 
--   **Alternative Mark Inversion**
+- **Alternative Mark Inversion**
 
-    如其名。
+  如其名。
 
-    为保证定时分量，需避免连续零，改进为 High Density Bipolar。
+  为保证定时分量，需避免连续零，改进为 High Density Bipolar。
 
-    连续0 → `00…0V` / `B0…0V`。（保证编码后连零数量不超过 order，order 实用时常取 3）
+  连续0 → `00…0V` / `B0…0V`。（保证编码后连零数量不超过 order，order 实用时常取 3）
 
-    - V (Violation) 同时满足两个条件：
-        - （V之间）交替 ±1 ——保证平均仍是零。
-        - 极性与前一号相同（“前一号”包括原有1和新加的V、B）——方便译码。
-    - V 的两个条件可能矛盾，于是要引入 B (Balance)。
+  - V (Violation) 同时满足两个条件：
+    - （V之间）交替 ±1 ——保证平均仍是零。
+    - 极性与前一号相同（“前一号”包括原有1和新加的V、B）——方便译码。
+  - V 的两个条件可能矛盾，于是要引入 B (Balance)。
 
--   **块编码**
+- **块编码**
 
-    - 1 binary → 2 binary
-        - Manchester 双相码：用上升沿、下降沿区分。
-        - Coded Mark Inversion：用有沿、无沿区分。
-    - x binary → y binary
-    - x binary → y (pseudo) ternary
-        - AMI, HDB.
+  - 1 binary → 2 binary
+    - Manchester 双相码：用上升沿、下降沿区分。
+    - Coded Mark Inversion：用有沿、无沿区分。
+  - x binary → y binary
+  - x binary → y (pseudo) ternary
+    - AMI, HDB.
 
--   **相对码**（aka. 差分码）
+- **相对码**（aka. 差分码）
 
-    这是一种设计，可以和其它编码结合。
+  这是一种设计，可以和其它编码结合。
 
 ### 码间串扰
 
@@ -249,41 +249,41 @@ $$
 
 **解调**：
 
--   **相干解调**。
+- **相干解调**。
 
-    误码率 $P_e = \Pr(\sigma_n Z > \frac{a}{2})$，其中 ${\sigma_n}^2$ 为噪声功率，$a$ 为信号幅度（$\frac12 a^2$ 为信号功率）。信噪比 $r = \frac12 a^2 / {\sigma_n}^2$，因此
-    
-    $$
-    \boxed{P_e = \Pr(Z > \sqrt{\frac{r}{2}})}
-    = \frac12 \erfc\sqrt{\frac{r}{4}}.
-    $$
+  误码率 $P_e = \Pr(\sigma_n Z > \frac{a}{2})$，其中 ${\sigma_n}^2$ 为噪声功率，$a$ 为信号幅度（$\frac12 a^2$ 为信号功率）。信噪比 $r = \frac12 a^2 / {\sigma_n}^2$，因此
+  
+  $$
+  \boxed{P_e = \Pr(Z > \sqrt{\frac{r}{2}})}
+  = \frac12 \erfc\sqrt{\frac{r}{4}}.
+  $$
 
--   **包络检波**。
+- **包络检波**。
 
-    大信噪比下，最佳门限同相干解调。发送零时，结果服从 Rayleigh 分布，误码率为
+  大信噪比下，最佳门限同相干解调。发送零时，结果服从 Rayleigh 分布，误码率为
+  
+  $$
+  \exp(- \frac{(a/2)^2}{2 {\sigma_n}^2}) = e^{-r/4}.
+  $$
 
-    $$
-    \exp(- \frac{(a/2)^2}{2 {\sigma_n}^2}) = e^{-r/4}.
-    $$
+  发送一时，在大信噪比下，结果服从正态分布，误码率同相干解调。
 
-    发送一时，在大信噪比下，结果服从正态分布，误码率同相干解调。
+  > ![](assets/ASK_envelope.svg)
+  >
+  > 按旋转向量法可绘出上图。
+  >
+  > - 结果是信号叠加噪声。
+  >   - 信号发送零时（绿色）为 $(0,0)$，发送一时（红色）为 $(a,0)$。
+  >   - 噪声服从二维正态分布，均值为零，标准差为 $\sigma_n$，协方差为零。
+  > - 判决边界是紫色圆环。
+  >
+  > 可以看到，发送零时更容易越过判决边界。
 
-    > ![](assets/ASK_envelope.svg)
-    >
-    > 按旋转向量法可绘出上图。
-    >
-    > -   结果是信号叠加噪声。
-    >     - 信号发送零时（绿色）为 $(0,0)$，发送一时（红色）为 $(a,0)$。
-    >     - 噪声服从二维正态分布，均值为零，标准差为 $\sigma_n$，协方差为零。
-    > -   判决边界是紫色圆环。
-    >
-    > 可以看到，发送零时更容易越过判决边界。
-
-    总误码率是二者平均。由于[第一项是第二项的高阶无穷小](#正态分布的累积分布)，大信噪比下，
-    
-    $$
-    \boxed{P_e = \frac12 e^{-r/4}.}
-    $$
+  总误码率是二者平均。由于[第一项是第二项的高阶无穷小](#正态分布的累积分布)，大信噪比下，
+  
+  $$
+  \boxed{P_e = \frac12 e^{-r/4}.}
+  $$
 
 #### Frequency Shift Keying
 
@@ -650,55 +650,55 @@ $$
 
 > :material-clock-edit-outline: 2022年11月8日，2022年12月13日，2022年12月15日。
 
-1.  $ω = 2π f$，$ω$ 与 $f$ 数值并不相同，但表示相同的复指数信号。就像 $v = \SI{36}{km/h}$ 与 $v = \SI{10}{m/s}$ 里的 $36 ≠ 10$，却表示相同速度。
+1. $ω = 2π f$，$ω$ 与 $f$ 数值并不相同，但表示相同的复指数信号。就像 $v = \SI{36}{km/h}$ 与 $v = \SI{10}{m/s}$ 里的 $36 ≠ 10$，却表示相同速度。
 
-2.  $\eval{X}_\omega$ 与 $\eval{X}_f$ 是不同的数学函数，但表示相同的信号。
+2. $\eval{X}_\omega$ 与 $\eval{X}_f$ 是不同的数学函数，但表示相同的信号。
 
-    $X$ 是个 $\R \to \C$ 函数，自变量是频率，因变量是频谱密度。$\eval{X}_\omega$ 与 $\eval{X}_f$ 的**自变量数值不同**（前者用角频率 $\omega$ 度量，后者用频率 $f$ 度量），**因变量相同**。$\eval{X}_f = \eval{X}_{\omega = 2\pi f}$ 给出了自变量的换算关系，它永远成立。
+  $X$ 是个 $\R \to \C$ 函数，自变量是频率，因变量是频谱密度。$\eval{X}_\omega$ 与 $\eval{X}_f$ 的**自变量数值不同**（前者用角频率 $\omega$ 度量，后者用频率 $f$ 度量），**因变量相同**。$\eval{X}_f = \eval{X}_{\omega = 2\pi f}$ 给出了自变量的换算关系，它永远成立。
 
-    ```mermaid
-    flowchart LR
-        subgraph 频率
-            ω -.-|"ω = 2π×f"| f
-        end
-    
-        subgraph 频谱密度
-            X
-        end
-    
-        ω -->|"X(ω)"| X
-        f -->|"X(f)"| X
-    ```
+  ```mermaid
+  flowchart LR
+      subgraph 频率
+          ω -.-|"ω = 2π×f"| f
+      end
 
-    这里为了更清楚，写成 $\eval{\tilde{X}}_\omega$ 与 $\eval{X}_f$，则 $\eval{X}_f = \eval{\tilde X}_{2\pi f}$。（实际因变量是重点，自变量不写都行，没必要区分）
+      subgraph 频谱密度
+          X
+      end
 
-    比如逆 Fourier 变换：
-   
-    $$
-    \begin{split}
-    \eval{x}_t
-    &= \int\limits_\R {\color{red} \eval{\tilde X}_\omega} e^{j\omega t} \frac{\dd{\omega}}{2\pi} \\
-    &= \int\limits_\R \eval{\tilde X}_{\color{red} 2\pi f} e^{j (2\pi f) t} \frac{\dd{(2\pi f)}}{2\pi}
-       \qq{($\omega \mapsto f = 2\pi f$)} \\
-    &= \int\limits_\R \eval{\tilde X}_{2\pi f} e^{2\pi j f t} \dd{f} \\
-    &= \int\limits_\R {\color{red} \eval{X}_{f}} e^{2\pi j f t} \dd{f}.
-       \qq{($\tilde X \mapsto X$)} \\
-    \end{split}
-    $$
-   
-    这也会影响卷积：
-   
-    $$
-    \begin{split}
-    & \frac{1}{2\pi} \int\limits_\R \eval{\tilde X}_{\omega'} \eval{\tilde Y}_{\omega - \omega'} \dd{\omega'} \\
-    &= \int\limits_\R \eval{\tilde X}_{2\pi f'} \eval{\tilde Y}_{2\pi (f-f')} \frac{\dd{(2\pi f')}}{2\pi} \\
-    &= \int\limits_\R \eval{X}_{f'} \eval{Y}_{f-f'} \dd{f'}.
-    \end{split}
-    $$
+      ω -->|"X(ω)"| X
+      f -->|"X(f)"| X
+  ```
 
-3.  Dirac $δ$ 是 $\sin$、$\exp$ 一样的数学函数，和信号没关系，它的定义只有一种形式—— $\int_\R \eval{\delta}_x \dd{x} = 1$。
+  这里为了更清楚，写成 $\eval{\tilde{X}}_\omega$ 与 $\eval{X}_f$，则 $\eval{X}_f = \eval{\tilde X}_{2\pi f}$。（实际因变量是重点，自变量不写都行，没必要区分）
 
-    如果已有 $\eval{\tilde X}_\omega$，其中含 $\eval{\delta}_\omega$，想写出 $\eval{X}_f$，那直接把自变量全换了，变成 $\eval{\delta}_{2\pi f}$ 就好了。不过人们习惯于写 $\frac{1}{2\pi} \eval{\delta}_f$ 而非 $\eval{\delta}_{2\pi f}$，就像把 $\cos(2x)$ 整理成 $1 - 2\sin^2 x$。
+  比如逆 Fourier 变换：
+
+  $$
+  \begin{split}
+  \eval{x}_t
+  &= \int\limits_\R {\color{red} \eval{\tilde X}_\omega} e^{j\omega t} \frac{\dd{\omega}}{2\pi} \\
+  &= \int\limits_\R \eval{\tilde X}_{\color{red} 2\pi f} e^{j (2\pi f) t} \frac{\dd{(2\pi f)}}{2\pi}
+      \qq{($\omega \mapsto f = 2\pi f$)} \\
+  &= \int\limits_\R \eval{\tilde X}_{2\pi f} e^{2\pi j f t} \dd{f} \\
+  &= \int\limits_\R {\color{red} \eval{X}_{f}} e^{2\pi j f t} \dd{f}.
+      \qq{($\tilde X \mapsto X$)} \\
+  \end{split}
+  $$
+
+  这也会影响卷积：
+
+  $$
+  \begin{split}
+  & \frac{1}{2\pi} \int\limits_\R \eval{\tilde X}_{\omega'} \eval{\tilde Y}_{\omega - \omega'} \dd{\omega'} \\
+  &= \int\limits_\R \eval{\tilde X}_{2\pi f'} \eval{\tilde Y}_{2\pi (f-f')} \frac{\dd{(2\pi f')}}{2\pi} \\
+  &= \int\limits_\R \eval{X}_{f'} \eval{Y}_{f-f'} \dd{f'}.
+  \end{split}
+  $$
+
+3. Dirac $δ$ 是 $\sin$、$\exp$ 一样的数学函数，和信号没关系，它的定义只有一种形式—— $\int_\R \eval{\delta}_x \dd{x} = 1$。
+
+  如果已有 $\eval{\tilde X}_\omega$，其中含 $\eval{\delta}_\omega$，想写出 $\eval{X}_f$，那直接把自变量全换了，变成 $\eval{\delta}_{2\pi f}$ 就好了。不过人们习惯于写 $\frac{1}{2\pi} \eval{\delta}_f$ 而非 $\eval{\delta}_{2\pi f}$，就像把 $\cos(2x)$ 整理成 $1 - 2\sin^2 x$。
 
 ### Fourier 参数之间的关系
 
@@ -769,40 +769,40 @@ $$
 
 信号的功率谱、频率千姿百态，带宽只是一个数字特征。门函数大约是带宽歧义最少的谱。
 
--   习惯上只算**正频率**。因此基带系统中的带宽往往是调制后的一半。
+- 习惯上只算**正频率**。因此基带系统中的带宽往往是调制后的一半。
 
--   **等效带宽**
+- **等效带宽**
 
-    $B_\omega \coloneqq \int_\R X \dd{\omega} / \eval{X}_{\omega=0}$，$B_f$ 同理。在中心处数值不变、积分相等的意义下，等效为门函数。
+  $B_\omega \coloneqq \int_\R X \dd{\omega} / \eval{X}_{\omega=0}$，$B_f$ 同理。在中心处数值不变、积分相等的意义下，等效为门函数。
 
-    这是良定义，应用于几乎所有谱都合理，而且若类似定义等效时宽，则两域宽度严格成反比。
-    
-    $$
-    \begin{split}
-    B_f B_t
-    &\coloneqq \frac{\int_\R X \dd{f}}{\eval{X}_{f=0}}
+  这是良定义，应用于几乎所有谱都合理，而且若类似定义等效时宽，则两域宽度严格成反比。
+
+  $$
+  \begin{split}
+  B_f B_t
+  &\coloneqq \frac{\int_\R X \dd{f}}{\eval{X}_{f=0}}
       \times \frac{\int_\R x \dd{t}}{\eval{x}_{t=0}} \\
-    &= \frac{\int_\R X \dd{f}}{\eval{x}_{t=0}}
+  &= \frac{\int_\R X \dd{f}}{\eval{x}_{t=0}}
       \times \frac{\int_\R x \dd{t}}{\eval{X}_{f=0}} \\
-    &= 1 \times 1 = 1.
-    \end{split}
-    $$
+  &= 1 \times 1 = 1.
+  \end{split}
+  $$
 
--   **谱零点带宽**
+- **谱零点带宽**
 
-    在中心处数值不变、两侧首个零点不变的意义下，等效为门函数。
+  在中心处数值不变、两侧首个零点不变的意义下，等效为门函数。
 
-    主要用于 $\sinc$ 式频谱，它的谱零点带宽是等效带宽的两倍。又名主瓣带宽。
-
-    给定信号，用滤波器去除噪声。若按等效带宽滤波，信号往往被削掉太多，按谱零点带宽就好一些。
+  主要用于 $\sinc$ 式频谱，它的谱零点带宽是等效带宽的两倍。又名主瓣带宽。
+  
+  给定信号，用滤波器去除噪声。若按等效带宽滤波，信号往往被削掉太多，按谱零点带宽就好一些。
 
 下面是一些案例。
 
--   无码间串扰限制下，频域最窄时为门函数，时域为 $\sinc$ 型。按任意带宽计算，$B = \frac12 R_\text{Baud}$。
+- 无码间串扰限制下，频域最窄时为门函数，时域为 $\sinc$ 型。按任意带宽计算，$B = \frac12 R_\text{Baud}$。
 
--   基带信号标准时域脉冲为门函数（i.e. 不归零矩形脉冲），频域为 $\sinc$ 型。按谱零点带宽算，$B = R_\text{Baud}$。
+- 基带信号标准时域脉冲为门函数（i.e. 不归零矩形脉冲），频域为 $\sinc$ 型。按谱零点带宽算，$B = R_\text{Baud}$。
 
-    不过发送出去之前，往往还用滤波器均衡一下码间串扰。这里若用理想低通滤波器，带宽又是上面的了。
+  不过发送出去之前，往往还用滤波器均衡一下码间串扰。这里若用理想低通滤波器，带宽又是上面的了。
 
 ### 模型与结构
 
