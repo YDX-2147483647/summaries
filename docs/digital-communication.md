@@ -704,7 +704,7 @@ $$
 
 > :material-clock-edit-outline: 2022年8月31日。
 >
-> :material-eye-arrow-right: [“数字信号处理”同名小节](../digital-signal-processing/#fourier)。
+> :material-eye-arrow-right: [“数字信号处理”同名小节](../digital-signal-processing/#Fourier-参数之间的关系)。
 
 频域可用频率 $f$ 或角频率 $\omega$ 度量。
 
