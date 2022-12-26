@@ -8,13 +8,13 @@ $$
 \def\Alpha{Α} % capital alpha
 $$
 
-> - [`数字信号处理 习题集2019.pdf`](https://isip.bit.edu.cn/jxgz/jxzyxz/b142394.htm)
+> :material-file-move-outline: [`数字信号处理 习题集2019.pdf`](https://isip.bit.edu.cn/jxgz/jxzyxz/b142394.htm)
 
 ## §3 离散 Fourier 变换
 
 ### Fourier 参数之间的关系
 
-> 2022年8月31日，2022年12月4日。
+> :material-clock-edit-outline: 2022年8月31日，2022年12月4日。
 
 → [`FourierTransform`](https://reference.wolfram.com/language/ref/FourierTransform.html.zh)、[`InverseFourierTransform`](https://reference.wolfram.com/language/ref/InverseFourierTransform.html) 文档的“更多信息和选项”。
 
@@ -61,7 +61,7 @@ $$
 
 ### 等差比数列
 
-> 2022年9月30日，2022年12月3日。
+> :material-clock-edit-outline: 2022年9月30日，2022年12月3日。
 
 $$
 \begin{split}
@@ -76,7 +76,7 @@ $$
 
 ### 等比数列
 
-> 2022年12月3日。
+> :material-clock-edit-outline: 2022年12月3日。
 
 $a \neq b$ 则
 
@@ -100,9 +100,9 @@ $$
 
 ### 对偶关系
 
-> 2022年10月1日。
+> :material-clock-edit-outline: 2022年10月1日。
 >
-> →`DFT的间隔与总长.nb`。
+> :material-file-move-outline: `DFT的间隔与总长.nb`
 
 | 一个域 | 另一域 |
 | :----: | :----: |
@@ -136,7 +136,7 @@ $$
 
 ### 用 DFT 取样 Z 频域
 
-> 2022年10月12日。
+> :material-clock-edit-outline: 2022年10月12日。
 
 今有 8 点序列 $x$，问 $\eval{X}_{z=0.2\exp(2\pi jk/7)}$（$k=1,\ldots,7$）。要求只用一次 DFT，点数不超过 8。
 
@@ -247,7 +247,7 @@ $$
 
 ### 内插
 
-> 2022年11月24日，2022年12月3日。
+> :material-clock-edit-outline: 2022年11月24日，2022年12月3日。
 
 由 $\eval{X}_k$ 内插回 $\eval{X}_z$：
 
@@ -299,9 +299,9 @@ $$
 
 ### 用圆周卷积分段计算长输入与短响应的线性卷积
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 >
-> - [Overlap Add, Overlap Save Visual Explanation](https://blog.robertelder.org/overlap-add-overlap-save)
+> :material-eye-arrow-right: [Overlap Add, Overlap Save Visual Explanation](https://blog.robertelder.org/overlap-add-overlap-save)
 
 -   **重叠相加**（overlap add）
   
@@ -313,7 +313,7 @@ $$
 
 ### 对称序列的圆周卷积
 
-> 2022年12月8日。
+> :material-clock-edit-outline: 2022年12月8日。
 
 $$
 \begin{split}
@@ -333,10 +333,10 @@ $$
 
 ### Cooley–Sande–Tukey 算法
 
-> 2022年11月18日，2022年12月6日。
+> :material-clock-edit-outline: 2022年11月18日，2022年12月6日。
 >
-> - [Idea - Cooley–Tukey FFT algorithm - Wikipedia](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#Idea)
-> - [Fast Fourier transform - Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
+> :material-eye-arrow-right: [Idea - Cooley–Tukey FFT algorithm - Wikipedia](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#Idea)
+> :material-eye-arrow-right: [Fast Fourier transform - Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 
 <figure markdown='1'>
 ![](assets/Cooley-tukey-general.png)
@@ -436,7 +436,7 @@ $$
 
 ### 算法流图
 
-> 2022年12月6日。
+> :material-clock-edit-outline: 2022年12月6日。
 
 <figure markdown='1'>
 <div style='display: grid; grid-template-columns: repeat(3, auto);' markdown='span'>
@@ -474,15 +474,15 @@ $$
 
 ### $\R$ 上的部分分式展开
 
-> 2022年11月27日，2022年12月3日。
+> :material-clock-edit-outline: 2022年11月27日，2022年12月3日。
 
-> CASIO fx-911 的功能：
->
-> - $\C$ 上的四则运算。
-> - 求 $\R$ 上某点的导数值。
-> - 解 $\R$ 上方程。
-> - 给定 $\C$ 上含变量的表达式，计算（calculate，<kbd>CALC</kbd>）变量取特定值时的值。
-> - 存储（store，<kbd>STO</kbd>）、使用 $\C$ 上的变量。
+!!! note "CASIO fx-911 的功能"
+
+    - $\C$ 上的四则运算。
+    - 求 $\R$ 上某点的导数值。
+    - 解 $\R$ 上方程。
+    - 给定 $\C$ 上含变量的表达式，计算（calculate，<kbd>CALC</kbd>）变量取特定值时的值。
+    - 存储（store，<kbd>STO</kbd>）、使用 $\C$ 上的变量。
 
 以展开下式为例。
 
@@ -582,9 +582,9 @@ $$
 
 ### 线性相位
 
-> 2022年11月29–30日，2022年12月4日。
+> :material-clock-edit-outline: 2022年11月29–30日，2022年12月4日。
 >
-> [*Linear-Phase FIR Filters*](https://eeweb.engineering.nyu.edu/iselesni/EL713/zoom/linphase.pdf).
+> :material-eye-arrow-right: [*Linear-Phase FIR Filters*](https://eeweb.engineering.nyu.edu/iselesni/EL713/zoom/linphase.pdf).
 
 #### 群时延及相应幅度函数
 
@@ -756,7 +756,7 @@ $$
 
 ### 从模拟原型 Butterworth 滤波器设计 IIR 数字滤波器
 
-> 2022年12月3日。
+> :material-clock-edit-outline: 2022年12月3日。
 
 IIR: Infinite impulse response.
 
@@ -805,7 +805,7 @@ IIR: Infinite impulse response.
 
 ### 设计 FIR 数字滤波器
 
-> 2022年12月3日。
+> :material-clock-edit-outline: 2022年12月3日。
 
 FIR: Finite impulse response.
 
@@ -853,9 +853,9 @@ FIR: Finite impulse response.
 
 ### 不确定性原理
 
-> 2022年10月5日。
+> :material-clock-edit-outline: 2022年10月5日。
 >
-> Mitch Hill, [*The Uncertainty Principle for Fourier Transforms on the Real Line*](https://math.uchicago.edu/~may/REU2013/REUPapers/Hill.pdf).
+> :material-eye-arrow-right: Mitch Hill, [*The Uncertainty Principle for Fourier Transforms on the Real Line*](https://math.uchicago.edu/~may/REU2013/REUPapers/Hill.pdf).
 
 $\hat\cdot$ 表示正变换，$\check\cdot$ 表示反变换，例如 Parseval 定理如下。
 
@@ -948,7 +948,7 @@ $$
 
 ### 时域频域翻转
 
-> 2022年11月30日，2022年12月5日。
+> :material-clock-edit-outline: 2022年11月30日，2022年12月5日。
 
 $$
 \begin{array}{cc}
@@ -976,7 +976,7 @@ $$
 
 #### DFT 逼近连续信号
 
-> 2022年12月6日。
+> :material-clock-edit-outline: 2022年12月6日。
 
 |     问题     | 原因                                               | 改善方法                              |
 | :----------: | :------------------------------------------------- | :------------------------------------ |
@@ -988,7 +988,7 @@ $$
 
 #### 提升 DFT 运算效率的途径
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 注意 ${W_N}^{nk}$ 的性质。
 
@@ -997,7 +997,7 @@ $$
 
 #### radix-2 及 split-radix FFT 的特点
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 - **原位运算**
     每个蝶形的输入位置和输出位置相同，无需额外寄存器。
@@ -1022,7 +1022,7 @@ split-radix 算法中“大蝶形”数量规律如下。
 
 #### 运算量
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 ##### DFT
 
@@ -1064,7 +1064,7 @@ $$
 
 #### 采样定理
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 -   **陈述**
     - 对于频带有限的信号 $x_a$，若其频率上限为 $f_H$，则时域采样频率 $f_s \geq 2 f_H$ 可避免频域混叠。
@@ -1076,7 +1076,7 @@ $$
 
 #### 滤波器各型结构特点
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 角度：调试、误差、速率、复用。
 
@@ -1113,7 +1113,7 @@ $$
 
 #### 数字滤波器设计方法特点
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 -   **将模拟原型滤波器数字化**为 IIR 滤波器
     -   **脉冲响应不变**（impulse invariance，aka. 标准 Z 变换法）
@@ -1138,7 +1138,7 @@ $$
 
 ### 预计算
 
-> 2022年12月7日。
+> :material-clock-edit-outline: 2022年12月7日。
 
 $h,\gamma \in \C$，则
 

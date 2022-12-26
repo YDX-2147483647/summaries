@@ -15,6 +15,11 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - md_in_html
   - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - admonition
 
 extra_javascript:
   - javascripts/mathjax.js

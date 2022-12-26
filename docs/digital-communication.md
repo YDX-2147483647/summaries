@@ -16,9 +16,9 @@ $$
 
 ### 平稳与遍历
 
-> 2022年12月3日。
+> :material-clock-edit-outline: 2022年12月3日。
 >
-> →`总结：信息论与编码.md`同名小节。
+> :material-eye-arrow-right: `总结：信息论与编码.md`同名小节。
 
 - stationary but not ergodic (for any sense)：$Y$ 为一随机变量，$\eval{X}_t \equiv Y$。
 - wide-sense stationary but neither stationary (for any order) nor ergodic (for any sense)：$\Theta$ 服从 $\qty{0, \frac12\pi, \pi, \frac32\pi}$ 上的均匀分布，$\eval{X}_t = \cos(\omega t + \Theta)$，其中 $\omega > 0$。
@@ -27,7 +27,7 @@ $$
 
 ### 多径传播的影响
 
-> 2022年12月10日。
+> :material-clock-edit-outline: 2022年12月10日。
 
 信号快衰落（fading）。
 
@@ -42,7 +42,7 @@ $$
 
 ### 调幅
 
-> 2022年12月4日–5日。
+> :material-clock-edit-outline: 2022年12月4日–5日。
 
 记基带信号最高频率为 $f_H$。
 
@@ -60,7 +60,7 @@ $$
 
 ### 调频和调相
 
-> 2022年12月5日，2022年12月15日。
+> :material-clock-edit-outline: 2022年12月5日，2022年12月15日。
 
 -   调相灵敏度 $K_\text{phase} \coloneqq \Delta \varphi / m$。（$m$ 是调制信号的瞬时值，下同）
 
@@ -84,7 +84,7 @@ $$
 
 ### 比较
 
-> 2022年12月5日。
+> :material-clock-edit-outline: 2022年12月5日。
 
 |                |  AM  | DSB  | SSB  |       VSB       |     FM     |
 | :------------: | :--: | :--: | :--: | :-------------: | :--------: |
@@ -97,7 +97,7 @@ $$
 
 ### 作为模拟信号的基带信号
 
-> 2022年12月5日。
+> :material-clock-edit-outline: 2022年12月5日。
 
 以二元码为例。记码元重复周期、频率为 $T_B, f_B$（B for baud, named after Émile Baudot）。记两种码元的波形分别为 $g_+, g_-$，出现概率分别为 $p_+,p_-$（$p_+ + p_- = 1$）。认为不同时刻发送的码元相互独立。
 
@@ -127,7 +127,7 @@ $$
 
 ### 基带信号的编码
 
-> 2022年12月5日，2022年12月15日。
+> :material-clock-edit-outline: 2022年12月5日，2022年12月15日。
 
 基带信号是与模拟信号紧密相关的数字信号。
 
@@ -161,7 +161,7 @@ $$
 
 ### 码间串扰
 
-> 2022年12月5日，2022年12月15日。
+> :material-clock-edit-outline: 2022年12月5日，2022年12月15日。
 
 码间串扰（InterSymbol Inference）完全不存在的充要条件如下。
 
@@ -189,7 +189,7 @@ $$
 
 ### 噪声
 
-> 2022年12月5日。
+> :material-clock-edit-outline: 2022年12月5日。
 
 对于二元信号和 Additive Gaussian White Noise（AGWN），最佳门限电平
 
@@ -204,7 +204,7 @@ $$
 
 ### 眼图
 
-> 2022年12月5日。
+> :material-clock-edit-outline: 2022年12月5日。
 
 - 最佳抽样时刻、最佳判决门限。
 - 抽样失真。
@@ -213,7 +213,7 @@ $$
 
 ### 时域均衡
 
-> 2022年12月5日。
+> :material-clock-edit-outline: 2022年12月5日。
 
 目的：抑制码间串扰。
 
@@ -222,7 +222,7 @@ $$
 
 ### 评价传输特性
 
-> 2022年12月15日。
+> :material-clock-edit-outline: 2022年12月15日。
 
 - 码间串扰。
 - 带宽利用率。
@@ -232,7 +232,7 @@ $$
 
 ### 二进制数字调制
 
-> 2022年12月9日。
+> :material-clock-edit-outline: 2022年12月9日。
 
 以下判决门限 $V_d^*$、误码率 $P_\text{error}$ 都是在信源均匀分布条件下估计的。
 
@@ -348,7 +348,7 @@ $$
 
 ### 多进制数字调制
 
-> 2022年12月9日。
+> :material-clock-edit-outline: 2022年12月9日。
 
 与二进制相比，提高有效性（$R_b$），牺牲可靠性（抗噪声性能）。
 
@@ -362,7 +362,7 @@ $$
 
 ### Quadrature Shift Keying
 
-> 2022年12月9日。
+> :material-clock-edit-outline: 2022年12月9日。
 
 Also known as 4 – phase shift keying.
 
@@ -387,7 +387,7 @@ Also known as 4 – phase shift keying.
 
 ### 相关形式
 
-> 2022年12月9日，2022年12月15日。
+> :material-clock-edit-outline: 2022年12月9日，2022年12月15日。
 
 #### 概念
 
@@ -500,7 +500,7 @@ $$
 
 ### 匹配滤波形式
 
-> 2022年12月10日。
+> :material-clock-edit-outline: 2022年12月10日。
 
 目标：最大信噪比。
 
@@ -535,7 +535,7 @@ $$
 
 ### 多电平基带系统
 
-> 2022年12月10日。
+> :material-clock-edit-outline: 2022年12月10日。
 
 设输出端 $M$ 种电平分别为 $\pm d, \pm 3d, \ldots, \pm(M-1)d$。记输出噪声功率为 ${\sigma_n}^2$。
 
@@ -565,13 +565,13 @@ $$
 
 ### 带通信号抽样定理
 
-> 2022年12月10日。
+> :material-clock-edit-outline: 2022年12月10日。
 
 给定 $f_H, B$，若 $f_H = n B'$，$n \in \N_+$，$B' \geq B$，则按 $f_s = 2B'$ 抽样也不会失真，与带宽为 $B'$ 的低通信号一样。
 
 ### 13段折线量化编码
 
-> 2022年12月10日，2022年12月16日。
+> :material-clock-edit-outline: 2022年12月10日，2022年12月16日。
 
 这是一种脉冲编码调制（Pulse Coded Modulation，PCM），近似不均匀编码的A律（$A = 87.6 \gg 1$，如下），主要用于语音信号。
 
@@ -598,7 +598,7 @@ $$
 
 ### 噪声
 
-> 2022年12月15日。
+> :material-clock-edit-outline: 2022年12月15日。
 
 若均匀量化为 $M$ 个电平，则信源在零两侧对称均匀分布时，量噪比 $S_\text{out} / N_\text{quantize}$ 为 $M^2$。
 
@@ -608,7 +608,7 @@ $$
 
 ### 差错控制能力
 
-> 2022年12月10日。
+> :material-clock-edit-outline: 2022年12月10日。
 
 最小码距 $d$、译码策略决定了差错控制能力。
 
@@ -620,7 +620,7 @@ $$
 
 ### 频带利用率
 
-> 2022年12月4日。
+> :material-clock-edit-outline: 2022年12月4日。
 
 这个利用率是 utilization 而非 efficiency，衡量数字通信系统的有效性。
 
@@ -634,7 +634,7 @@ $$
 
 ### 量纲
 
-> 2022年12月4日，2022年12月10日。
+> :material-clock-edit-outline: 2022年12月4日，2022年12月10日。
 
 其中功率、能量是指归一化功率、归一化能量。
 
@@ -648,7 +648,7 @@ $$
 
 ### 角频率与频率度量的频域
 
-> 2022年11月8日，2022年12月13日，2022年12月15日。
+> :material-clock-edit-outline: 2022年11月8日，2022年12月13日，2022年12月15日。
 
 1.  $ω = 2π f$，$ω$ 与 $f$ 数值并不相同，但表示相同的复指数信号。就像 $v = \SI{36}{km/h}$ 与 $v = \SI{10}{m/s}$ 里的 $36 ≠ 10$，却表示相同速度。
 
@@ -702,9 +702,9 @@ $$
 
 ### Fourier 参数之间的关系
 
-> 2022年8月31日。
+> :material-clock-edit-outline: 2022年8月31日。
 >
-> →[“数字信号处理”同名小节](../digital-signal-processing/#fourier)。
+> :material-eye-arrow-right: [“数字信号处理”同名小节](../digital-signal-processing/#fourier)。
 
 频域可用频率 $f$ 或角频率 $\omega$ 度量。
 
@@ -732,7 +732,7 @@ $$
 
 ### 正态分布的累积分布
 
-> 2022年12月4日，2022年12月5日。
+> :material-clock-edit-outline: 2022年12月4日，2022年12月5日。
 
 $Z \sim \mathcal{N}(0,1)$，则
 
@@ -765,7 +765,7 @@ $$
 
 ### 带宽
 
-> 2022年12月9日，2022年12月10日，2022年12月13日。
+> :material-clock-edit-outline: 2022年12月9日，2022年12月10日，2022年12月13日。
 
 信号的功率谱、频率千姿百态，带宽只是一个数字特征。门函数大约是带宽歧义最少的谱。
 
@@ -806,7 +806,7 @@ $$
 
 ### 模型与结构
 
-> 2022年12月14–15日。
+> :material-clock-edit-outline: 2022年12月14–15日。
 
 #### 通信系统
 
