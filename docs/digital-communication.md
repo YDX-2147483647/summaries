@@ -22,7 +22,7 @@ $$
 
 > :material-clock-edit-outline: 2022年12月3日。
 >
-> :material-eye-arrow-right: `总结：信息论与编码.md`同名小节。
+> :material-eye-arrow-right: [“信息论与编码”同名小节](../information-theory-and-coding/#平稳与遍历)。
 
 - stationary but not ergodic (for any sense)：$Y$ 为一随机变量，$\eval{X}_t \equiv Y$。
 - wide-sense stationary but neither stationary (for any order) nor ergodic (for any sense)：$\Theta$ 服从 $\qty{0, \frac12\pi, \pi, \frac32\pi}$ 上的均匀分布，$\eval{X}_t = \cos(\omega t + \Theta)$，其中 $\omega > 0$。
