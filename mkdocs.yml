@@ -4,6 +4,7 @@ theme:
   name: material
   palette:
     primary: teal
+  custom_dir: overrides
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -28,3 +29,8 @@ extra_javascript:
 
 extra_css:
   - stylesheets/extra.css
+
+extra:
+  analytics:
+    provider: custom
+    property: ZwSg9rf6GA
