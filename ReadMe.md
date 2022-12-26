@@ -14,9 +14,4 @@ pip install mkdocs-material
 - MathJax: `\N`, `\Z`, `\Q`, `\R`, `\C`.
 - Ordered list: 3 spaces → 2-space indent.
 - `\n$$\n` → `\n\n$$\n`. (`。\n\$\$` → `。\n\n$$$$`)
-- assets:
-  - 数字信号处理
-    - `DFT的间隔与总长.nb`
-    - `data-flow-diagram`
-  - 半导体物理
-    - `绘图.nb`
+- assets
