@@ -6,6 +6,8 @@ theme:
     primary: teal
   language: zh
   custom_dir: overrides
+  features:
+    - navigation.top
 
 markdown_extensions:
   - pymdownx.arithmatex:
