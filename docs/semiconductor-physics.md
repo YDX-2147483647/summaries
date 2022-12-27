@@ -520,7 +520,7 @@ $V = V_\text{flat band}$ 是相当于原来的 $V$ 为零。其中平带电压 $
 
 ## 数据
 
-- 熔点：Si $\SI{1410}{\degree C}$，Ge $\SI{937}{\degree C}$。
+- 熔点：Si $\SI{1410}{\celsius}$，Ge $\SI{937}{\celsius}$。
 - 纯 Si 室温（$\SI{300}{K}$）电阻率 $\SI{2\times 10^5}{\Omega\cdot cm}$。
 - 正四面体共价键键角 $2\arccos\frac{1}{\sqrt3} = 109\degree 28'$。
 - 晶体结构：Si、Ge 金刚石，GaAs（一般）闪锌矿。

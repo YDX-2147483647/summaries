@@ -16,6 +16,9 @@ window.MathJax = {
                 'physics',
             ],
         },
+        autoload: {
+            gensymb: ['degree', 'celsius', 'ohm', 'micro'],
+        },
         inlineMath: [["\\(", "\\)"]],
         displayMath: [["\\[", "\\]"]],
         processEscapes: true,
