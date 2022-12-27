@@ -1,6 +1,7 @@
 site_name: 总结
 repo_url: https://github.com/YDX-2147483647/summaries
 repo_name: YDX-2147483647/summaries
+edit_uri: 'blob/main/docs/'
 
 theme:
   name: material
