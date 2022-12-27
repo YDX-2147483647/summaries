@@ -1,4 +1,6 @@
 site_name: 总结
+repo_url: https://github.com/YDX-2147483647/summaries
+repo_name: YDX-2147483647/summaries
 
 theme:
   name: material
@@ -10,26 +12,26 @@ theme:
     - navigation.top
 
 markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds: {}
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - md_in_html
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - def_list
-  - admonition
-  - toc:
-      permalink: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds: {}
-  - mdx_truly_sane_lists
   - pymdownx.tilde
+  - mdx_truly_sane_lists
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -43,3 +45,4 @@ extra:
   analytics:
     provider: custom
     property: ZwSg9rf6GA
+  comments: true
