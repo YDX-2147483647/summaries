@@ -2,6 +2,7 @@ set windows-shell := ["pwsh", "-NoLogo", "-Command"]
 set dotenv-load
 
 mkdocs := env_var_or_default('MKDOCS', 'mkdocs')
+python := env_var_or_default('PYTHON', 'python')
 pip := env_var_or_default('PIP', 'pip')
 
 
@@ -21,3 +22,8 @@ serve:
 # Build the docs site
 build:
     {{ mkdocs }} build
+
+# Normalize markdown files
+[no-cd]
+normalize +FILES:
+    {{ python }} '{{ justfile_directory() }}/scripts/normalize.py' {{ FILES }}
