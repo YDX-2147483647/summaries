@@ -27,3 +27,9 @@ build:
 [no-cd]
 normalize +FILES:
     {{ python }} '{{ justfile_directory() }}/scripts/normalize.py' {{ FILES }}
+
+# Normalize all markdown files in current directory
+[windows]
+[no-cd]
+normalize-all:
+    just normalize (ls *.md -Name | Join-String -Separator ' ')
