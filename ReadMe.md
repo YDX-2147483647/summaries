@@ -13,4 +13,5 @@ pip install mkdocs-material
 - `just normalize +FILES`.
 - MathJax: `\N`, `\Z`, `\Q`, `\R`, `\C`.
 - Ordered list: 3 spaces → 2-space indent.
+- `:material-eye-arrow-right:`, etc.
 - assets
