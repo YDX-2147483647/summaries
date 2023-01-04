@@ -43,6 +43,25 @@ def mark_dates(lines: list[str], file: Path) -> list[str] | None:
     return lines if changed else None
 
 
+def is_separation(line: str, *, head: str = '') -> bool:
+    """检查此行是否是分隔
+
+    参数
+    - line：要检查的行
+    - head：允许的开头（例如`>`），不含结尾空白
+    """
+
+    # if a fully empty line
+    if not line.strip():
+        return True
+    # elif head + spaces
+    elif line.startswith(head) and not line[len(head):].strip():
+        # We are in a <blockquote> or something.
+        return True
+    else:
+        return False
+
+
 def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
     """隔开“$$”
 
@@ -59,33 +78,33 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
         if match := DOLLARS_PATTERN.match(l):
             logging.debug(f'Dollars detected on line {i} in “{file}”: “{l}”.')
 
-            # if within a math block or this is the first line
-            if within_math_block or not new_lines:
+            # if this is the first line or the last line
+            if not new_lines or i == len(lines) - 1:
                 # No separation needed.
-                pass
+                new_lines.append(l)
+
+            # elif inside a math block → outside
+            elif within_math_block:
+                new_lines.append(l)
+
+                if not is_separation(lines[i+1], head=match.group(1).rstrip()):
+                    changed = True
+                    print(f'Separate dollars after line {i} in “{file}”.')
+                    new_lines.append(match.group(1))
+
+            # else outside a math block → inside
             else:
-                # Is there a separation line?
-                last_line = new_lines[-1]
-                if not last_line.strip():
-                    # OK, there is one.
-                    pass
-                else:
-                    # Maybe we are in a <blockquote> or something?
-                    head = match.group(1).rstrip()
-                    if last_line.startswith(head) and not last_line[len(head):].strip():
-                        # Yes we are.
-                        pass
-                    else:
-                        # Insert the separation line.
-                        changed = True
-                        print(
-                            f'Separate dollars before line {i} in “{file}”.')
-                        new_lines.append(match.group(1))
+                if not is_separation(new_lines[-1], head=match.group(1).rstrip()):
+                    changed = True
+                    print(f'Separate dollars before line {i} in “{file}”.')
+                    new_lines.append(match.group(1))
+
+                new_lines.append(l)
 
             # Flip
             within_math_block = not within_math_block
-
-        new_lines.append(l)
+        else:
+            new_lines.append(l)
 
     return new_lines if changed else None
 
