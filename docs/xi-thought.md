@@ -221,7 +221,7 @@
 > :material-clock-edit-outline: 2021年1月8日–2021年1月10日。
 
 
-!!! danger
+!!! danger 危险（✗）
 
     Cl~2~(l) + H~2~(s) → Au(s) + Ag(s)
 
