@@ -336,6 +336,7 @@ $$
 > :material-clock-edit-outline: 2022年11月18日，2022年12月6日。
 >
 > :material-eye-arrow-right: [Idea - Cooley–Tukey FFT algorithm - Wikipedia](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#Idea)
+>
 > :material-eye-arrow-right: [Fast Fourier transform - Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 
 <figure markdown='1'>
