@@ -173,6 +173,20 @@ $$
 
 注意积分性质 $\mathcal{L} \int X\dd{t} = X/s + \int_{\R^-}x\dd{t} / s$。
 
+### Dirac δ
+
+> :material-clock-edit-outline: 2023年1月9日。
+>
+> :material-eye-arrow-right: [real analysis - Can $e^{c\delta(t)}$ be rewritten some how? - Mathematics Stack Exchange](https://math.stackexchange.com/a/1115921/1031068)
+
+事实上 $\delta$ 可看成 $\R^\R \to \R$ 的映射。
+
+$$
+\int\limits_\R f \delta \dd{t} \coloneqq \eval{f}_0.
+$$
+
+> $Y^X$ is the set of functions that maps $X \to Y$. (in the sense of $\abs{Y}^\abs{X}$)
+
 # 后备箱
 
 - 复合变换时总是变换整个函数的自变量，而非最外层函数的自变量。
@@ -213,4 +227,3 @@ $$
 - $\eval{\delta}_t \eval{f}_t = \eval{\delta}_t \eval{f}_0 \neq \eval{f}_0$。
 
 - $\alpha^n u$ 在 $\abs{\alpha} \leq 1$ 时才存在 DTFT。（取等时有奇异函数）
-
