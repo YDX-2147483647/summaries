@@ -270,11 +270,11 @@ $$
 
 1. 频域取样就是
    
-  $$
+$$
   \hat X
   = \eval{X}_\omega \times \qty(\sum_k \eval{\delta}_{\omega - \omega_k})
   = \sum_k \eval{X}_{\omega_k} \eval{\delta}_{\omega - \omega_k},
-  $$
+$$
 
   其中 $k \in [0,N) \cap \Z$，$\omega_k = \frac{2\pi}{N} k$，$\delta$ 省略了 $2\pi$ 的周期化。
 
@@ -283,11 +283,11 @@ $$
 2. 恢复相当于只保留时域主值序列，即乘 $R_N$。
 
   这在频域相当于卷积 $R_N$ 的频谱（如下），再除以 $N$。
-  
-  $$
+
+$$
   R_N \leftrightarrow \frac{\sin\frac{N\omega}{2}}{\sin\frac\omega2} e^{-j\omega\tau},
-  $$
-  
+$$
+
   其中 $2\tau + 1 = N$。
 
 其实
@@ -330,6 +330,8 @@ $$
 另：若 $x$ 以 $2$ 为周期，则只有零频和最高频分量。假如 $y$ 奇对称，那么 $Y$ 也奇对称，零频和最高频为零。因此 $x \circledast y$ 将恒零。
 
 ## §4 快速 Fourier 变换
+
+> :material-eye-arrow-right: [Reducible](https://www.youtube.com/@Reducible), [*The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?*](https://www.youtube.com/watch?v=h7apO7q16V0), YouTube. ([哔哩哔哩](https://www.bilibili.com/video/BV1ee411c7B7/))
 
 ### Cooley–Sande–Tukey 算法
 
@@ -459,7 +461,7 @@ $$
 - **other mixed-radix**
   
   - radix-4 中的 4 点变换既可按 DFT 定义（矩阵乘法）处理，也可用 $2\times 2 = 4$ 的 radix-2 FFT 处理。后者增加的旋转因子中 $3/4$ 是一，$1/4$ 是 $-j$，都可不计运算量；并且流图与 radix-2 相同，$N$ 较小时系数也会退化成纯粹的 radix-2。
-   
+  
   <figure markdown='1'>
   <div style='display: grid; grid-template-columns: repeat(2, auto); gap: 1em;' markdown='span'>
     ![](assets/radix-2-or-4-to-split-radix-1.svg)
@@ -495,13 +497,13 @@ f =
 $$
 
 1.  **确定形式**
-   
+
   分子、分母都是三次，分母有一个实根、两个虚根。
 
-  $$
+$$
   \triangle + \frac{\bigcirc}{1+0.5x} + \frac{\square + \square x}{1 - 0.9x + 0.81x^2}.
-  $$
-   
+$$
+
 2.  **求 $\triangle$**
 
   $x \to \infty$ 时：
@@ -514,9 +516,9 @@ $$
 3.  **求 $\bigcirc$**
 
   $1 + 0.5 x \to 0$，即 $x \to -2$ 时，
- 
+
   - 由分解后形式，$(1+0.5) f \to 0 + \bigcirc + 0 = \bigcirc$。
- 
+
   - 由原始形式，
 
     $$
@@ -526,7 +528,7 @@ $$
     &\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=-2}.
     \end{split}
     $$
- 
+
   计算得 $\bigcirc = 2.157\cdots$。
 
 4.  **求 $\square + \square x$**
@@ -549,14 +551,14 @@ $$
     &= 3.894\cdots \mp 1.536\cdots i,
     \end{split}
     $$
-       
+    
     记作 $A$ 和 $\bar A$。
- 
+
     > 因为最初 $f: \R \to \R$，这里必为一对共轭复数 $A,\bar A$。
-   
+
   因此
 
-  $$
+$$
   \begin{bmatrix}
      1 & \gamma \\
      1 & \bar\gamma \\
@@ -568,18 +570,18 @@ $$
   \begin{bmatrix}
      A \\ \bar A
   \end{bmatrix}.
-  $$
+$$
 
   可解得
 
-  $$
+$$
   \begin{split}
   \square + \square x
   &= \frac{\Im(\bar A \gamma) + \Im A\ x}{\Im \gamma} \\
   &= 4.781\cdots - 1.596\cdots x.
   \end{split}
-  $$
-   
+$$
+
   > $\Im{\bar A \gamma}$ 是外积。
 
 ### 线性相位
@@ -783,26 +785,26 @@ IIR: Infinite impulse response.
 
 3.  确定模拟原型 Butterworth 滤波器的**参数**
     
-  $$
+$$
   \begin{cases}
   1 + \qty(\Omega_s / \Omega_c)^{2N} > \alpha_s. \\
   1 + \qty(\Omega_p / \Omega_c)^{2N} < \alpha_p. \\
   \end{cases}
-  $$
+$$
 
   要求 $N \in \N$，$\Omega_c > 0$。
 
   解得
 
-  $$
+$$
   N \geq \frac12 \log_{\Omega_s / \Omega_p} \frac{\alpha_s - 1}{\alpha_p - 1}.
-  $$
+$$
 
-  $$
+$$
   \frac{\Omega_p}{\sqrt[2N]{\alpha_p -1}}
   < \Omega_c <
   \frac{\Omega_s}{\sqrt[2N]{\alpha_s - 1}}.
-  $$
+$$
 
   一般 $N,\Omega_c$ 尽可能小：$N$ 小结构更简单，$\Omega_c$ 小阻带性能更好。
 
@@ -839,9 +841,9 @@ FIR: Finite impulse response.
 
 2. 处理为因果、有限的滤波器
 
-  $$
+$$
   \eval{h}_n = \eval{h_d}_{n - \tau} \eval{R_N}_n.
-  $$
+$$
 
   其中 $2\tau = N-1$。
 
