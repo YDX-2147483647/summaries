@@ -57,3 +57,5 @@
 - [Python-Markdown](https://python-markdown.github.io/)
 - [MkDocs](https://www.mkdocs.org/)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+- [giscus](https://giscus.app/)
+- [Mdx Truly Sane Lists](https://github.com/radude/mdx_truly_sane_lists)
