@@ -11,6 +11,8 @@ theme:
   custom_dir: overrides
   features:
     - navigation.top
+    - content.action.view
+    - content.action.edit
 
 markdown_extensions:
   - admonition
