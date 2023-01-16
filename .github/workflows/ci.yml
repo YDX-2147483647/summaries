@@ -17,6 +17,5 @@ jobs:
       - uses: extractions/setup-just@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: pip install mkdocs-material 
-      - run: just install-ext
+      - run: just bootstrap
       - run: mkdocs gh-deploy --force

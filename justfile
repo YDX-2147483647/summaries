@@ -1,19 +1,18 @@
 set windows-shell := ["pwsh", "-NoLogo", "-Command"]
-set dotenv-load
+set dotenv-load := true
 
-mkdocs := env_var_or_default('MKDOCS', 'mkdocs')
 python := env_var_or_default('PYTHON', 'python')
-pip := env_var_or_default('PIP', 'pip')
-
+pip := python + " -m pip"
+mkdocs := python + " -m mkdocs"
 
 # List available recipes
 @default:
     just --list
 
-
-# Install MkDocs plugins and markdown extensions with pip
-install-ext:
-    {{ pip }} install mdx_truly_sane_lists
+# Install/upgrade MkDocs, its plugins, and markdown extensions
+bootstrap:
+    {{ pip }} install mkdocs-material --upgrade
+    {{ pip }} install mdx_truly_sane_lists --upgrade
 
 # Start the live-reloading docs server
 serve:
@@ -29,7 +28,7 @@ normalize +FILES:
     {{ python }} '{{ justfile_directory() }}/scripts/normalize.py' {{ FILES }}
 
 # Normalize all markdown files in current directory
-[windows]
 [no-cd]
+[windows]
 normalize-all:
     just normalize (ls *.md -Name | Join-String -Separator ' ')
