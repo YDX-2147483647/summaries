@@ -15,8 +15,8 @@ bootstrap:
     {{ pip }} install mdx_truly_sane_lists --upgrade
 
 # Start the live-reloading docs server
-serve:
-    {{ mkdocs }} serve
+serve *ARGS:
+    {{ mkdocs }} serve {{ ARGS }}
 
 # Build the docs site
 build:

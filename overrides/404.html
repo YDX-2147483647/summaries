@@ -1,0 +1,32 @@
+<!--
+  Inspired by https://github.com/Torusaynim/Evangelion-404th-Impact
+  MIT License
+-->
+
+{% extends "main.html" %}
+
+<!-- Site title -->
+{% block htmltitle %}
+  <title>404 - {{ config.site_name }}</title>
+{% endblock %}
+
+
+<!-- Theme-related style sheets -->
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'stylesheets/404.css' | url }}" />
+{% endblock %}
+
+
+<!-- Content -->
+{% block content %}
+  <h1>The End of Internet (404 - Not found)</h1>
+
+  <div class="page">
+    <div class="small-line">Oops</div>
+    <div class="small-line">Something</div>
+    <div class="large-line">went wrong</div>
+    <div class="error">Error: 404</div>
+    <div class="title"><a href="{{ base_url }}">Take me back</a></div>
+  </div>
+{% endblock %}
