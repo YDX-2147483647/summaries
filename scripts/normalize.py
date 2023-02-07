@@ -18,9 +18,9 @@ TRANSFORMER: TypeAlias = Callable[[list[str], Path], list[str] | None]
 
 
 def build_parser() -> ArgumentParser:
-    parser = ArgumentParser(description='Normalize markdown files')
-    parser.add_argument('files', type=Path, nargs='+')
-    parser.add_argument('-n', '--dry-run', action='store_true')
+    parser = ArgumentParser(description="Normalize markdown files")
+    parser.add_argument("files", type=Path, nargs="+")
+    parser.add_argument("-n", "--dry-run", action="store_true")
     return parser
 
 
@@ -30,20 +30,20 @@ def mark_dates(lines: list[str], file: Path) -> list[str] | None:
     @see TRANSFORMER
     """
 
-    DATES_PATTERN: Final = re.compile(r'^> ([–\d年月日，、]+。)$')
+    DATES_PATTERN: Final = re.compile(r"^> ([–\d年月日，、]+。)$")
 
     changed = False
 
     for i, l in enumerate(lines):
         if match := DATES_PATTERN.match(l):
-            print(f'Mark dates: “{l}”. ({file}:{i})')
+            print(f"Mark dates: “{l}”. ({file}:{i})")
             changed = True
-            lines[i] = f'> :material-clock-edit-outline: {match.group(1)}'
+            lines[i] = f"> :material-clock-edit-outline: {match.group(1)}"
 
     return lines if changed else None
 
 
-def is_separation(line: str, *, head: str = '') -> bool:
+def is_separation(line: str, *, head: str = "") -> bool:
     """检查此行是否是分隔
 
     参数
@@ -55,7 +55,7 @@ def is_separation(line: str, *, head: str = '') -> bool:
     if not line.strip():
         return True
     # elif head + spaces
-    elif line.startswith(head) and not line[len(head):].strip():
+    elif line.startswith(head) and not line[len(head) :].strip():
         # We are in a <blockquote> or something.
         return True
     else:
@@ -68,7 +68,7 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
     @see TRANSFORMER
     """
 
-    DOLLARS_PATTERN: Final = re.compile(r'^(>?\s*)\$\$$')
+    DOLLARS_PATTERN: Final = re.compile(r"^(>?\s*)\$\$$")
 
     changed = False
     new_lines: list[str] = []
@@ -76,7 +76,7 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
     within_math_block = False
     for i, l in enumerate(lines):
         if match := DOLLARS_PATTERN.match(l):
-            logging.debug(f'Dollars detected on line {i} in “{file}”: “{l}”.')
+            logging.debug(f"Dollars detected on line {i} in “{file}”: “{l}”.")
 
             # if this is the first line or the last line
             if not new_lines or i == len(lines) - 1:
@@ -87,16 +87,16 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
             elif within_math_block:
                 new_lines.append(l)
 
-                if not is_separation(lines[i+1], head=match.group(1).rstrip()):
+                if not is_separation(lines[i + 1], head=match.group(1).rstrip()):
                     changed = True
-                    print(f'Separate dollars after line {i} in “{file}”.')
+                    print(f"Separate dollars after line {i} in “{file}”.")
                     new_lines.append(match.group(1))
 
             # else outside a math block → inside
             else:
                 if not is_separation(new_lines[-1], head=match.group(1).rstrip()):
                     changed = True
-                    print(f'Separate dollars before line {i} in “{file}”.')
+                    print(f"Separate dollars before line {i} in “{file}”.")
                     new_lines.append(match.group(1))
 
                 new_lines.append(l)
@@ -112,7 +112,7 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
 def main():
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(message)s',
+        format="%(asctime)s - %(message)s",
     )
     args = build_parser().parse_args()
 
@@ -123,9 +123,9 @@ def main():
 
     file: Path
     for file in args.files:
-        logging.info(f'Processing “{file}”.')
+        logging.info(f"Processing “{file}”.")
 
-        lines = file.read_text(encoding='utf-8').splitlines()
+        lines = file.read_text(encoding="utf-8").splitlines()
 
         # Transform
         changed = False
@@ -136,8 +136,8 @@ def main():
 
         # Save
         if changed:
-            file.write_text('\n'.join(lines), encoding='utf-8')
+            file.write_text("\n".join(lines), encoding="utf-8")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
