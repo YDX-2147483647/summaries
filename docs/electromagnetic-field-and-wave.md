@@ -308,7 +308,7 @@ $$
 
 ### 传输线理论
 
-> :material-clock-edit-outline: 2022年6月12日。
+> :material-clock-edit-outline: 2022年6月12日，2023年3月3日。
 
 分布参数模型：$R_0,\, L_0,\, G_0,\, C_0$。
 
@@ -320,6 +320,8 @@ $$
 \pdv{z} i + G_0 u + C_0 \pdv{t}u = 0. \\
 \end{cases}
 $$
+
+> 注意 $u,i$ 不在同一方向上（$u$ 从传输线的一条到另一条，而 $i$ 沿着传输线），与低频电路中的单导线不同。
 
 以下在复频域考虑。
 
@@ -346,6 +348,21 @@ $$
 则
 
 $$
+\begin{bmatrix}
+  \pdv{z} & \gamma \\
+  \gamma & \pdv{z} \\
+\end{bmatrix}
+\begin{bmatrix}
+  u \\ Z_c i
+\end{bmatrix}
+= 0.
+$$
+
+$\pdv{z} \leftrightarrow \mp\gamma$ 时，系数矩阵行列式为零，相应解是 $u  = \pm Z_c i$。（特征线？）
+
+也可独立出来，写成
+
+$$
 \begin{cases}
 \displaystyle
 \dv[2]{z} u = \gamma^2 u. \\
@@ -354,13 +371,13 @@ $$
 \end{cases}
 $$
 
-以负载（load）处为原点，向负载传播为 $+z$，则可分解 $U = U^+ + U^-$，$\boxed{U^\pm = U^\pm_\text{load} e^{\mp\gamma z}}$，相应 $I^\pm = \pm U^\pm / Z_c$，$I = I^+ + I^-$。
+以负载（load）处为原点，向负载传播为 $+z$，则可分解 $U = U^+ + U^-$，$\boxed{U^\pm = U^\pm_\text{load} e^{\mp\gamma z}}$，相应 $Z_c I^\pm = \pm U^\pm$，$I = I^+ + I^-$。
 
 一些特殊解：
 
 - 已知负载 $U_l,\ I_l$（$U_l = Z_l I_l$）
 
-  $\boxed{U = U_l \cosh(\gamma z) - I_l Z_c \sinh(\gamma z)}$，$I = I_l \cosh(\gamma z) - U_l / Z_c \sinh(\gamma z)$。
+  $\boxed{U = U_l \cosh(\gamma z) - I_l Z_c \sinh(\gamma z)}$，$Z_c I = Z_c I_l \cosh(\gamma z) - U_l \sinh(\gamma z)$。
 
   易将之转换为行波叠加的形式。
 
@@ -380,11 +397,21 @@ $$
   = \frac{Z_l - Z_c}{Z_l + Z_c}.
   $$
 
+  <figure markdown='1'>
+  ![](assets/Smith_chart_explanation.svg)
+  <figcaption markdown='1'>Smith圆图｜[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Smith_chart_explanation.svg)</figcaption>
+  </figure>
+
 - 工作状态：
 
   - 行波 $\Gamma_l = 0$，阻抗匹配。
 
   - 纯驻波 $\abs{\Gamma_l} = 1$，负载开路、短路或匹配纯电抗。
+
+    <figure markdown='1'>
+      ![](assets/Transmission_line_pulse_reflections.gif)
+      <figcaption markdown='1'>两种全反射情况｜[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Transmission_line_pulse_reflections.gif)<br>箭头表示电场（电压），黑点表示电子（电流）。<br>上：终端开路；下：终端短路。</figcaption>
+    </figure>
 
   - 混合。
 
