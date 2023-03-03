@@ -397,7 +397,7 @@ $$
   = \frac{Z_l - Z_c}{Z_l + Z_c}.
   $$
 
-  <figure markdown='1'>
+  <figure markdown='span'>
   ![](assets/Smith_chart_explanation.svg)
   <figcaption markdown='1'>Smith圆图｜[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Smith_chart_explanation.svg)</figcaption>
   </figure>
@@ -408,7 +408,7 @@ $$
 
   - 纯驻波 $\abs{\Gamma_l} = 1$，负载开路、短路或匹配纯电抗。
 
-    <figure markdown='1'>
+    <figure markdown='span'>
       ![](assets/Transmission_line_pulse_reflections.gif)
       <figcaption markdown='1'>两种全反射情况｜[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Transmission_line_pulse_reflections.gif)<br>箭头表示电场（电压），黑点表示电子（电流）。<br>上：终端开路；下：终端短路。</figcaption>
     </figure>

@@ -341,9 +341,9 @@ $$
 >
 > :material-eye-arrow-right: [Fast Fourier transform - Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 
-<figure markdown='1'>
+<figure markdown='span'>
 ![](assets/Cooley-tukey-general.png)
-<figcaption>推广算法｜<a href='https://en.wikipedia.org/wiki/File:Cooley-tukey-general.png'>Wikipedia</a></figcaption>
+<figcaption markdown='1'>推广算法｜[Wikipedia](https://en.wikipedia.org/wiki/File:Cooley-tukey-general.png)</figcaption>
 </figure>
 
 > 记号如下
@@ -432,7 +432,7 @@ $$
 
 > decimation 为何以 dec- 开头？其词源很血腥。
 
-<figure markdown='1'>
+<figure markdown='span'>
 ![](assets/discremation-in-time.svg)
 <figcaption>Radix-2 DIT FFT | <code>data-flow-diagram</code></figcaption>
 </figure>
