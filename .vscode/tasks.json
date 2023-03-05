@@ -10,6 +10,17 @@
             ],
             "problemMatcher": [],
             "group": "build",
+        },
+        {
+            "label": "Normalize",
+            "detail": "Normalize current markdown file",
+            "command": "just",
+            "type": "shell",
+            "args": [
+                "normalize",
+                "${file}"
+            ],
+            "problemMatcher": []
         }
     ]
 }
