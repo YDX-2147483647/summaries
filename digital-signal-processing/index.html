@@ -1,0 +1,2702 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="各种课程的总结、随记等。">
+      
+      
+      
+        <link rel="canonical" href="https://ydx-2147483647.github.io/summaries/digital-signal-processing/">
+      
+      
+        <link rel="prev" href="../digital-communication/">
+      
+      
+        <link rel="next" href="../electromagnetic-field-and-wave/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>数字信号处理 - 总结</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>  
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="新增内容的 RSS 源" href="../feed_rss_created.xml">
+  <link rel="alternate" type="application/rss+xml" title="更新内容的 RSS 源" href="../feed_rss_updated.xml">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#数字信号处理" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="总结" class="md-header__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            总结
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数字信号处理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="总结" class="md-nav__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    总结
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Summaries
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artificial-intelligence/" class="md-nav__link">
+        人工智能导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-functions-and-equations-of-mathematical-physics/" class="md-nav__link">
+        复变函数与数理方程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-and-data-structure/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-circuits-and-systems/" class="md-nav__link">
+        数字电路与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-communication/" class="md-nav__link">
+        数字通信原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数字信号处理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数字信号处理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-离散-Fourier-变换" class="md-nav__link">
+    §3 离散 Fourier 变换
+  </a>
+  
+    <nav class="md-nav" aria-label="§3 离散 Fourier 变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Fourier-参数之间的关系" class="md-nav__link">
+    Fourier 参数之间的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#等差比数列" class="md-nav__link">
+    等差比数列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#等比数列" class="md-nav__link">
+    等比数列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#对偶关系" class="md-nav__link">
+    对偶关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#用-DFT-取样-Z-频域" class="md-nav__link">
+    用 DFT 取样 Z 频域
+  </a>
+  
+    <nav class="md-nav" aria-label="用 DFT 取样 Z 频域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#分析" class="md-nav__link">
+    分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#代入" class="md-nav__link">
+    代入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#整理" class="md-nav__link">
+    整理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#内插" class="md-nav__link">
+    内插
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#用圆周卷积分段计算长输入与短响应的线性卷积" class="md-nav__link">
+    用圆周卷积分段计算长输入与短响应的线性卷积
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#对称序列的圆周卷积" class="md-nav__link">
+    对称序列的圆周卷积
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-快速-Fourier-变换" class="md-nav__link">
+    §4 快速 Fourier 变换
+  </a>
+  
+    <nav class="md-nav" aria-label="§4 快速 Fourier 变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#CooleySandeTukey-算法" class="md-nav__link">
+    Cooley–Sande–Tukey 算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#算法流图" class="md-nav__link">
+    算法流图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-数字滤波器" class="md-nav__link">
+    §5 数字滤波器
+  </a>
+  
+    <nav class="md-nav" aria-label="§5 数字滤波器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#R-上的部分分式展开" class="md-nav__link">
+    \(\R\) 上的部分分式展开
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#线性相位" class="md-nav__link">
+    线性相位
+  </a>
+  
+    <nav class="md-nav" aria-label="线性相位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#群时延及相应幅度函数" class="md-nav__link">
+    群时延及相应幅度函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#幅度函数的对称性" class="md-nav__link">
+    幅度函数的对称性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时域实序列及其零点分布" class="md-nav__link">
+    时域实序列及其零点分布
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#从模拟原型-Butterworth-滤波器设计-IIR-数字滤波器" class="md-nav__link">
+    从模拟原型 Butterworth 滤波器设计 IIR 数字滤波器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#设计-FIR-数字滤波器" class="md-nav__link">
+    设计 FIR 数字滤波器
+  </a>
+  
+    <nav class="md-nav" aria-label="设计 FIR 数字滤波器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#时域窗函数法" class="md-nav__link">
+    时域窗函数法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#频域取样法" class="md-nav__link">
+    频域取样法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#杂项" class="md-nav__link">
+    杂项
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#不确定性原理" class="md-nav__link">
+    不确定性原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时域频域翻转" class="md-nav__link">
+    时域频域翻转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#概念" class="md-nav__link">
+    概念
+  </a>
+  
+    <nav class="md-nav" aria-label="概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#DFT-逼近连续信号" class="md-nav__link">
+    DFT 逼近连续信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#提升-DFT-运算效率的途径" class="md-nav__link">
+    提升 DFT 运算效率的途径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radix-2-及-split-radix-FFT-的特点" class="md-nav__link">
+    radix-2 及 split-radix FFT 的特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#运算量" class="md-nav__link">
+    运算量
+  </a>
+  
+    <nav class="md-nav" aria-label="运算量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#DFT" class="md-nav__link">
+    DFT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#卷积" class="md-nav__link">
+    卷积
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#采样定理" class="md-nav__link">
+    采样定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#滤波器各型结构特点" class="md-nav__link">
+    滤波器各型结构特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数字滤波器设计方法特点" class="md-nav__link">
+    数字滤波器设计方法特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#预计算" class="md-nav__link">
+    预计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electromagnetic-field-and-wave/" class="md-nav__link">
+        电磁场与电磁波
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-theory-and-coding/" class="md-nav__link">
+        信息论与编码
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrated-circuits/" class="md-nav__link">
+        集成电路设计实践
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligent-multi-source-sensing/" class="md-nav__link">
+        智能多源感知
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modern-chinese-history/" class="md-nav__link">
+        中国近现代史纲要
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morals-ethics-law/" class="md-nav__link">
+        思想道德修养与法律基础
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-system/" class="md-nav__link">
+        操作系统原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-1/" class="md-nav__link">
+        物理1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-2/" class="md-nav__link">
+        物理2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probability-and-statistics/" class="md-nav__link">
+        概率论与数理统计
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roller-skating/" class="md-nav__link">
+        轮滑
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semiconductor-physics/" class="md-nav__link">
+        半导体物理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-theory/" class="md-nav__link">
+        集合论——开启理性思维的钥匙
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals-and-systems/" class="md-nav__link">
+        信号与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-signal-processing/" class="md-nav__link">
+        随机信号分析
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theoretical-physics-intro/" class="md-nav__link">
+        理论物理导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xi-thought/" class="md-nav__link">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-离散-Fourier-变换" class="md-nav__link">
+    §3 离散 Fourier 变换
+  </a>
+  
+    <nav class="md-nav" aria-label="§3 离散 Fourier 变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Fourier-参数之间的关系" class="md-nav__link">
+    Fourier 参数之间的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#等差比数列" class="md-nav__link">
+    等差比数列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#等比数列" class="md-nav__link">
+    等比数列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#对偶关系" class="md-nav__link">
+    对偶关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#用-DFT-取样-Z-频域" class="md-nav__link">
+    用 DFT 取样 Z 频域
+  </a>
+  
+    <nav class="md-nav" aria-label="用 DFT 取样 Z 频域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#分析" class="md-nav__link">
+    分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#代入" class="md-nav__link">
+    代入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#整理" class="md-nav__link">
+    整理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#内插" class="md-nav__link">
+    内插
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#用圆周卷积分段计算长输入与短响应的线性卷积" class="md-nav__link">
+    用圆周卷积分段计算长输入与短响应的线性卷积
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#对称序列的圆周卷积" class="md-nav__link">
+    对称序列的圆周卷积
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-快速-Fourier-变换" class="md-nav__link">
+    §4 快速 Fourier 变换
+  </a>
+  
+    <nav class="md-nav" aria-label="§4 快速 Fourier 变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#CooleySandeTukey-算法" class="md-nav__link">
+    Cooley–Sande–Tukey 算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#算法流图" class="md-nav__link">
+    算法流图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-数字滤波器" class="md-nav__link">
+    §5 数字滤波器
+  </a>
+  
+    <nav class="md-nav" aria-label="§5 数字滤波器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#R-上的部分分式展开" class="md-nav__link">
+    \(\R\) 上的部分分式展开
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#线性相位" class="md-nav__link">
+    线性相位
+  </a>
+  
+    <nav class="md-nav" aria-label="线性相位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#群时延及相应幅度函数" class="md-nav__link">
+    群时延及相应幅度函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#幅度函数的对称性" class="md-nav__link">
+    幅度函数的对称性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时域实序列及其零点分布" class="md-nav__link">
+    时域实序列及其零点分布
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#从模拟原型-Butterworth-滤波器设计-IIR-数字滤波器" class="md-nav__link">
+    从模拟原型 Butterworth 滤波器设计 IIR 数字滤波器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#设计-FIR-数字滤波器" class="md-nav__link">
+    设计 FIR 数字滤波器
+  </a>
+  
+    <nav class="md-nav" aria-label="设计 FIR 数字滤波器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#时域窗函数法" class="md-nav__link">
+    时域窗函数法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#频域取样法" class="md-nav__link">
+    频域取样法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#杂项" class="md-nav__link">
+    杂项
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#不确定性原理" class="md-nav__link">
+    不确定性原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时域频域翻转" class="md-nav__link">
+    时域频域翻转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#概念" class="md-nav__link">
+    概念
+  </a>
+  
+    <nav class="md-nav" aria-label="概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#DFT-逼近连续信号" class="md-nav__link">
+    DFT 逼近连续信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#提升-DFT-运算效率的途径" class="md-nav__link">
+    提升 DFT 运算效率的途径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radix-2-及-split-radix-FFT-的特点" class="md-nav__link">
+    radix-2 及 split-radix FFT 的特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#运算量" class="md-nav__link">
+    运算量
+  </a>
+  
+    <nav class="md-nav" aria-label="运算量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#DFT" class="md-nav__link">
+    DFT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#卷积" class="md-nav__link">
+    卷积
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#采样定理" class="md-nav__link">
+    采样定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#滤波器各型结构特点" class="md-nav__link">
+    滤波器各型结构特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数字滤波器设计方法特点" class="md-nav__link">
+    数字滤波器设计方法特点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#预计算" class="md-nav__link">
+    预计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/YDX-2147483647/summaries/blob/main/docs/digital-signal-processing.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/YDX-2147483647/summaries/raw/main/docs/digital-signal-processing.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="数字信号处理">数字信号处理<a class="headerlink" href="#数字信号处理" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Alpha{Α} % capital alpha
+\]</div>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 .41.12.8.34 1.12.07.11.16.21.25.29.36.37.86.59 1.41.59h7.53c-.53-.58-.92-1.25-1.18-2H6V4h7v5h5v3c.7 0 1.37.12 2 .34V8l-6-6m4 21 5-4.5-3-2.7-2-1.8v3h-4v3h4v3Z"/></svg></span> <a href="https://isip.bit.edu.cn/jxgz/jxzyxz/b142394.htm"><code>数字信号处理 习题集2019.pdf</code></a></p>
+</blockquote>
+<h2 id="3-离散-Fourier-变换">§3 离散 Fourier 变换<a class="headerlink" href="#3-离散-Fourier-变换" title="Permanent link">&para;</a></h2>
+<h3 id="Fourier-参数之间的关系">Fourier 参数之间的关系<a class="headerlink" href="#Fourier-参数之间的关系" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年8月31日，2022年12月4日。</p>
+</blockquote>
+<p>→ <a href="https://reference.wolfram.com/language/ref/FourierTransform.html.zh"><code>FourierTransform</code></a>、<a href="https://reference.wolfram.com/language/ref/InverseFourierTransform.html"><code>InverseFourierTransform</code></a> 文档的“更多信息和选项”。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+X &amp;= \sqrt\frac{\abs{b}}{\qty(2\pi)^{1-a}} \int\limits_\R x e^{jb\omega t} \dd{t}. \\
+x &amp;= \sqrt\frac{\abs{b}}{\qty(2\pi)^{1+a}} \int\limits_\R X e^{-jb\omega t} \dd{t}. \\
+\end{aligned}
+\]</div>
+<table>
+<thead>
+<tr>
+<th align="right">场景</th>
+<th align="center"><span class="arithmatex">\(a\)</span></th>
+<th align="center"><span class="arithmatex">\(b\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">现代物理</td>
+<td align="center"><span class="arithmatex">\(0\)</span></td>
+<td align="center"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td align="right">经典物理</td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+<td align="center"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td align="right">纯数学、系统工程</td>
+<td align="center"><span class="arithmatex">\(1\)</span></td>
+<td align="center"><span class="arithmatex">\(-1\)</span></td>
+</tr>
+<tr>
+<td align="right">信号处理</td>
+<td align="center"><span class="arithmatex">\(0\)</span></td>
+<td align="center"><span class="arithmatex">\(-2\pi\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>记 <span class="arithmatex">\(T(k)\)</span> 为</p>
+<div class="arithmatex">\[
+\qty(u \mapsto f) \mapsto \qty(v \mapsto \int\limits_\R f e^{jkvu} \dd{u}).
+\]</div>
+<p>可知 <span class="arithmatex">\(\forall \lambda&gt;0,\ T(\lambda k) = T(k) / \lambda\)</span>。</p>
+<p>又，开头两式化为 <span class="arithmatex">\(\mathcal{F} = \sqrt{\abs{b} / \qty(2\pi)^{1-a}}\ T(b)\)</span>，<span class="arithmatex">\(\mathcal{F}^{-1} = \sqrt{\abs{b} / \qty(2\pi)^{1+a}}\ T(-b)\)</span>，即</p>
+<div class="arithmatex">\[
+\sqrt\frac{\abs{b}}{\qty(2\pi)^{1+a}}\ T(-b)
+\circ \sqrt\frac{\abs{b}}{\qty(2\pi)^{1-a}}\ T(b)
+= \qty(f\mapsto f).
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+\begin{split}
+\qty(f \mapsto f)
+&amp;= \frac{\abs{b}}{2\pi}\ T(-b) \circ T(b).
+\end{split}
+\]</div>
+<h3 id="等差比数列">等差比数列<a class="headerlink" href="#等差比数列" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年9月30日，2022年12月3日。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{split}
+\sum_{n=0}^{N-1} n q^{n-1}
+&amp;= \pdv{q} \sum_n q^n \\
+&amp;= \pdv{q} \frac{1-q^N}{1-q} \\
+&amp;= \frac{1-q^N}{\qty(1-q)^2} - \frac{Nq^{N-1}}{1-q}.
+\end{split}
+\]</div>
+<p>（<span class="arithmatex">\(q \neq 1\)</span>）</p>
+<h3 id="等比数列">等比数列<a class="headerlink" href="#等比数列" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月3日。</p>
+</blockquote>
+<p><span class="arithmatex">\(a \neq b\)</span> 则</p>
+<div class="arithmatex">\[
+a^n + a^{n-1} b + a^{n-2}b^2 + \cdots + b^n
+= \frac{a^{n+1} - b^{n+1}}{a-b}.
+\]</div>
+<p><span class="arithmatex">\(\tau \in \Z / 2\)</span>，<span class="arithmatex">\(N = 2\tau + 1 \in \Z\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{split}
+\sum e^{j\omega \times \qty[-\tau, +\tau]}
+&amp;= e^{-j\omega\tau} + e^{-j\omega (\tau-1)} + \cdots + e^{+j\omega\tau} \\
+&amp;= \frac{e^{-j\omega N/2} - e^{+j\omega N/2}}{e^{-j\omega/2} - e^{+j\omega/2}} \\
+&amp;= \frac{\sin \frac{N\omega}{2}}{\sin\frac\omega2}.
+\end{split}
+\]</div>
+<p>注意，<span class="arithmatex">\(\tau \in \Z + \frac12\)</span> 时这不是严格的 DTFT，<span class="arithmatex">\(4\pi\)</span> 才是最小正周期。</p>
+<h3 id="对偶关系">对偶关系<a class="headerlink" href="#对偶关系" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年10月1日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 .41.12.8.34 1.12.07.11.16.21.25.29.36.37.86.59 1.41.59h7.53c-.53-.58-.92-1.25-1.18-2H6V4h7v5h5v3c.7 0 1.37.12 2 .34V8l-6-6m4 21 5-4.5-3-2.7-2-1.8v3h-4v3h4v3Z"/></svg></span> <code>DFT的间隔与总长.nb</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">一个域</th>
+<th align="center">另一域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">周期</td>
+<td align="center">离散</td>
+</tr>
+<tr>
+<td align="center">混叠</td>
+<td align="center">疏松</td>
+</tr>
+<tr>
+<td align="center">非周期</td>
+<td align="center">连续</td>
+</tr>
+<tr>
+<td align="center">补零</td>
+<td align="center">细致</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>补零相当于增大最小正周期，减弱周期性。细致相当于增强连续性。混叠、疏松同理。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">一个域</th>
+<th align="center">另一域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">插零</td>
+<td align="center">重复</td>
+</tr>
+</tbody>
+</table>
+<div class="arithmatex">\[
+\begin{array}{c|cc}
+    &amp; 时域 &amp; 频域 \\ \hline
+    间隔 &amp; T &amp; F \\
+    总长 &amp; t_p &amp; f_s \\
+\end{array}
+\]</div>
+<blockquote>
+<p>时域插零相当于减小 <span class="arithmatex">\(T\)</span> 而 <span class="arithmatex">\(t_p\)</span> 不变。</p>
+</blockquote>
+<p>第二行是第一行的 <span class="arithmatex">\(N\)</span> 倍（<span class="arithmatex">\(N\)</span> 是点数），对角线之积是一。</p>
+<blockquote>
+<ul>
+<li>时域间隔：采样周期。</li>
+<li>频域间隔：频谱分辨率。</li>
+<li>时域总长：记录时间。</li>
+<li>频域总长：无专门名词，等于采样频率。</li>
+</ul>
+</blockquote>
+<h3 id="用-DFT-取样-Z-频域">用 DFT 取样 Z 频域<a class="headerlink" href="#用-DFT-取样-Z-频域" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年10月12日。</p>
+</blockquote>
+<p>今有 8 点序列 <span class="arithmatex">\(x\)</span>，问 <span class="arithmatex">\(\eval{X}_{z=0.2\exp(2\pi jk/7)}\)</span>（<span class="arithmatex">\(k=1,\ldots,7\)</span>）。要求只用一次 DFT，点数不超过 8。</p>
+<h4 id="分析">分析<a class="headerlink" href="#分析" title="Permanent link">&para;</a></h4>
+<p>这种取样的频谱分辨率为 <span class="arithmatex">\(\frac17\)</span>，所以 DFT 点数只能是 7。</p>
+<p>下面试图构造一个 7 点序列 <span class="arithmatex">\(y\)</span>，使 <span class="arithmatex">\(\eval{Y}_k\)</span> 为所求。</p>
+<p>方案：</p>
+<ol>
+<li>用 <span class="arithmatex">\(x\)</span> 计算 <span class="arithmatex">\(y\)</span>。</li>
+<li>计算 <span class="arithmatex">\(y\)</span> 的 7 点 DFT。</li>
+<li>整理一下 <span class="arithmatex">\(k\)</span> 的顺序。</li>
+</ol>
+<h4 id="代入">代入<a class="headerlink" href="#代入" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart LR
+
+subgraph 时域
+    x -.-&gt;|?| y
+end
+
+subgraph 频域
+    X --&gt; Y
+end
+
+x --- X
+y --- Y</code></pre>
+<p>注意题目给定了 <span class="arithmatex">\(X, Y\)</span> 关系，我们需要确定 <span class="arithmatex">\(x,y\)</span> 关系。那么可走 <span class="arithmatex">\(x \mapsto X \mapsto Y \mapsto y\)</span> 这一圈试试。</p>
+<p>从后往前代入，首先是 <span class="arithmatex">\(Y \mapsto y\)</span>：</p>
+<div class="arithmatex">\[
+{\color{red} \eval{y}_n } = \frac 17 \sum_{k:7} W^{-kn} {\color{red} \eval{Y}_k }.
+\]</div>
+<blockquote>
+<ul>
+<li>“<span class="arithmatex">\(k:N\)</span>”表示 <span class="arithmatex">\(k \in [0,N) \cap \Z\)</span>。</li>
+<li><span class="arithmatex">\(W = \exp(-2\pi j /7)\)</span>。</li>
+</ul>
+</blockquote>
+<p>代入 <span class="arithmatex">\(X \mapsto Y\)</span>：</p>
+<div class="arithmatex">\[
+\eval{y}_n = \frac 17 \sum_{k:7} W^{-kn} {\color{red} \eval{X}_{z = 0.2 W^{-k}} }.
+\]</div>
+<p>再代入 <span class="arithmatex">\(x \mapsto X\)</span>（Z 变换）：</p>
+<div class="arithmatex">\[
+\begin{split}
+\eval{y}_n
+&amp;= \frac 17 \sum_{k:7} W^{-kn} \times \color{red} \sum_{m:8} \eval{x}_m \qty(0.2W^{-k})^{-m} \\
+&amp;= \frac 17 \sum_{k:7} W^{-kn} \times \sum_{m:8} \eval{x}_m \color{red} 5^m W^{km} \\
+&amp;= \frac 17 \sum_{k:7} \sum_{m:8} \qty(\eval{x}_m 5^m) \times W^{k \color{red} (m-n)}. \\
+\end{split}
+\]</div>
+<p>交换求和顺序，得</p>
+<div class="arithmatex">\[
+\eval{y}_n
+= \sum_{m:8} \qty(\eval{x}_m 5^m) \times {\color{red} \frac 17 \sum_{k:7} W^{k(m-n)} }.
+\]</div>
+<h4 id="整理">整理<a class="headerlink" href="#整理" title="Permanent link">&para;</a></h4>
+<p>下面考虑 <span class="arithmatex">\(\frac17\sum_k W^{k(m-n)}\)</span>。回忆一下，<span class="arithmatex">\(\xi \in \Z\)</span> 时，</p>
+<div class="arithmatex">\[
+\frac 17 \sum_{k:7} W^{k\xi}
+= \begin{cases}
+    1 &amp; \xi \in 7\Z. \\
+    0 &amp; \xi \notin 7\Z. \\
+\end{cases}
+\]</div>
+<p>这里 <span class="arithmatex">\(\xi = m-n\)</span>，可能是哪种情况？注意 <span class="arithmatex">\(m:8\)</span>，<span class="arithmatex">\(n:7\)</span>，所以 <span class="arithmatex">\(m -n \in [0-(7-1),\ (8-1)-0] \cap \Z = [-6,7] \cap \Z\)</span>，而 <span class="arithmatex">\([-6,7] \cap \qty(7\Z) = \qty{0, 7}\)</span>，故</p>
+<div class="arithmatex">\[
+\begin{split}
+\frac17\sum_k W^{k(m-n)}
+&amp;= \begin{cases}
+    1 &amp; m = n \lor m = n + 7 \\
+    0 &amp; \text{other}
+\end{cases} \\
+&amp;= \eval{\delta}_{m-n} + \eval{\delta}_{m-n-7}. \\
+\end{split}
+\]</div>
+<p>代回 <span class="arithmatex">\(x \mapsto y\)</span> 那个式子，得</p>
+<div class="arithmatex">\[
+\begin{split}
+\eval{y}_n
+&amp;= \sum_{m:8} \qty(\eval{x}_m 5^m) \times \qty({\color{orange} \eval{\delta}_{m-n}} + {\color{green} \eval{\delta}_{m-n-7}}) \\
+&amp;= {\color{orange} \eval{x}_n 5^n} + {\color{green} \eval{x}_{n+7} 5^{n+7}}. \\
+\end{split}
+\]</div>
+<p>而 <span class="arithmatex">\(x\)</span> 只有 8 点，于是</p>
+<div class="arithmatex">\[
+\eval{y}_n = \eval{x}_n 5^n + \eval{x}_7 5^7 \eval{\delta}_n.
+\]</div>
+<h3 id="内插">内插<a class="headerlink" href="#内插" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月24日，2022年12月3日。</p>
+</blockquote>
+<p>由 <span class="arithmatex">\(\eval{X}_k\)</span> 内插回 <span class="arithmatex">\(\eval{X}_z\)</span>：</p>
+<div class="arithmatex">\[
+\begin{split}
+\eval{X}_z
+&amp;= \sum_n z^{-n} \eval{x}_n \\
+&amp;= \sum_n z^{-n} \frac{1}{N} \sum_{k} \eval{X}_k W^{-nk} \\
+&amp;= \frac{1}{N} \sum_k \eval{X}_k \sum_n \qty(W^{k} z)^{-n} \\
+&amp;= \frac{1}{N} \sum_k \eval{X}_k \frac{1-z^{-N}}{1 - \qty(W^kz)^{-1}} \\
+&amp;= \frac{1}{N} \sum_k \boxed{ \color{red}
+    \frac{1-z^{-N}}{1 - W^{-k}/z}
+} \eval{X}_k.  \\
+\end{split}
+\]</div>
+<p>若只考虑 DTFT，还可进一步化简；不过不如重新考虑，除非你能想起来 <span class="arithmatex">\((e^{j\omega_k}/z)^N = z^{-N}\)</span>。</p>
+<p>这一过程针对离散信号，并且其时域有限（最多在 <span class="arithmatex">\([0,N) \cap \Z\)</span> 有值）。</p>
+<ol>
+<li>频域取样就是</li>
+</ol>
+<div class="arithmatex">\[
+  \hat X
+  = \eval{X}_\omega \times \qty(\sum_k \eval{\delta}_{\omega - \omega_k})
+  = \sum_k \eval{X}_{\omega_k} \eval{\delta}_{\omega - \omega_k},
+\]</div>
+<p>其中 <span class="arithmatex">\(k \in [0,N) \cap \Z\)</span>，<span class="arithmatex">\(\omega_k = \frac{2\pi}{N} k\)</span>，<span class="arithmatex">\(\delta\)</span> 省略了 <span class="arithmatex">\(2\pi\)</span> 的周期化。</p>
+<p>这在时域相当于 <span class="arithmatex">\(N\)</span> 的周期化。</p>
+<ol>
+<li>
+<p>恢复相当于只保留时域主值序列，即乘 <span class="arithmatex">\(R_N\)</span>。</p>
+<p>这在频域相当于卷积 <span class="arithmatex">\(R_N\)</span> 的频谱（如下），再除以 <span class="arithmatex">\(N\)</span>。</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+  R_N \leftrightarrow \frac{\sin\frac{N\omega}{2}}{\sin\frac\omega2} e^{-j\omega\tau},
+\]</div>
+<p>其中 <span class="arithmatex">\(2\tau + 1 = N\)</span>。</p>
+<p>其实</p>
+<div class="arithmatex">\[
+\eval{\frac{1 - z^{-N}}{1 - e^{j\omega_k} / z}}_{z = e^{j\omega}}
+= \eval{\qty(\frac{\sin\frac{N\omega}{2}}{\sin\frac\omega2} e^{-j\omega\tau})}_{\omega = \omega - \omega_k}.
+\]</div>
+<h3 id="用圆周卷积分段计算长输入与短响应的线性卷积">用圆周卷积分段计算长输入与短响应的线性卷积<a class="headerlink" href="#用圆周卷积分段计算长输入与短响应的线性卷积" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://blog.robertelder.org/overlap-add-overlap-save">Overlap Add, Overlap Save Visual Explanation</a></p>
+</blockquote>
+<ul>
+<li><strong>重叠相加</strong>（overlap add）<p>利用线性卷积的线性，将输入拆成多段，每一段用圆周卷积补零计算线性卷积。</p>
+</li>
+</ul>
+<ul>
+<li><strong>重叠保留</strong>（overlap save）<p>将输出拆成多段，抛弃每一段圆周卷积混叠的部分。</p>
+</li>
+</ul>
+<h3 id="对称序列的圆周卷积">对称序列的圆周卷积<a class="headerlink" href="#对称序列的圆周卷积" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月8日。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{split}
+\eval{\qty(x \circledast y)}_n
+&amp;= \sum_{m} \eval{x}_m \eval{y}_{n-m} \\
+&amp;= \pm \sum_{m} \eval{x}_{\color{red} -m} \eval{y}_{n-m} \\
+&amp;= \pm \pm \sum_{m} \eval{x}_{-m} \eval{y}_{\color{red} m-n} \\
+&amp;= \pm \pm \eval{\qty(x \circledast y)}_{-n}.
+\end{split}
+\]</div>
+<p>在频域考虑类似。</p>
+<p>另：若 <span class="arithmatex">\(x\)</span> 以 <span class="arithmatex">\(2\)</span> 为周期，则只有零频和最高频分量。假如 <span class="arithmatex">\(y\)</span> 奇对称，那么 <span class="arithmatex">\(Y\)</span> 也奇对称，零频和最高频为零。因此 <span class="arithmatex">\(x \circledast y\)</span> 将恒零。</p>
+<h2 id="4-快速-Fourier-变换">§4 快速 Fourier 变换<a class="headerlink" href="#4-快速-Fourier-变换" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://www.youtube.com/@Reducible">Reducible</a>, <a href="https://www.youtube.com/watch?v=h7apO7q16V0"><em>The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?</em></a>, YouTube. (<a href="https://www.bilibili.com/video/BV1ee411c7B7/">哔哩哔哩</a>)</p>
+</blockquote>
+<h3 id="CooleySandeTukey-算法">Cooley–Sande–Tukey 算法<a class="headerlink" href="#CooleySandeTukey-算法" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月18日，2022年12月6日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#Idea">Idea - Cooley–Tukey FFT algorithm - Wikipedia</a></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier transform - Wikipedia</a></p>
+</blockquote>
+<figure>
+<img alt="" src="../assets/Cooley-tukey-general.png" />
+<figcaption>推广算法｜<a href="https://en.wikipedia.org/wiki/File:Cooley-tukey-general.png">Wikipedia</a></figcaption>
+</figure>
+<blockquote>
+<p>记号如下</p>
+<ul>
+<li>大写字母：常量。<ul>
+<li>衬线体 <span class="arithmatex">\(A\)</span>：很多元素组成的张量。</li>
+<li>无衬线体 <span class="arithmatex">\(\mathsf A\)</span>：单个数字。</li>
+</ul>
+</li>
+<li>小写字母：变量。<ul>
+<li>拉丁字母 <span class="arithmatex">\(a\)</span>：时域。</li>
+<li>希腊字母 <span class="arithmatex">\(\alpha\)</span>：频域。</li>
+</ul>
+</li>
+</ul>
+<p>注：不太区分大写拉丁字母与大写希腊字母，例如 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(\Alpha\)</span>。</p>
+<p>又注：常见数学常量、函数除外。</p>
+</blockquote>
+<p>DFT 点数 <span class="arithmatex">\(N = AB\)</span>，则时域优先排 <span class="arithmatex">\(B\)</span> 维度（<span class="arithmatex">\(x = aB + b\)</span>），频域优先排 <span class="arithmatex">\(A\)</span> 维度（<span class="arithmatex">\(\xi = A \beta + \alpha\)</span>）。</p>
+<blockquote>
+<p>在上图中，<span class="arithmatex">\(A\)</span> 对应 <span class="arithmatex">\(N_2\)</span>、行数、每列长度，<span class="arithmatex">\(B\)</span> 对应 <span class="arithmatex">\(N_1\)</span>、列数、每行长度。</p>
+</blockquote>
+<p>信号 <span class="arithmatex">\(F_x\)</span> 的 DFT 定义为</p>
+<div class="arithmatex">\[
+F^\xi \coloneqq \sum_x \mathsf{N}^{\xi x} F_x.
+\]</div>
+<blockquote>
+<p>其中 <span class="arithmatex">\(\mathsf{N} \coloneqq \exp(-2\pi j / N)\)</span>，它的上标表示指数。下面的 <span class="arithmatex">\(\mathsf{A}, \mathsf{B}\)</span> 同理。</p>
+<p>其余上下标表示元素的指标。</p>
+</blockquote>
+<p>注意</p>
+<div class="arithmatex">\[
+\begin{split}
+\mathsf{N}^{\xi x}
+&amp;= \mathsf{N}^{(A\beta + \alpha) (aB + b)} \\
+&amp;= \mathsf{N}^{AB \beta a}
+    \mathsf{N}^{A\beta b}
+    \mathsf{N}^{B\alpha a}
+    \mathsf{N}^{\alpha b} \\
+&amp;= \qty(\mathsf{N}^{N})^{\beta a}
+    \qty(\mathsf{N}^{A})^{\beta b}
+    \qty(\mathsf{N}^{B})^{\alpha a}
+    \mathsf{N}^{\alpha b} \\
+&amp;= \mathsf{B}^{\beta b} \mathsf{A}^{\alpha a} \mathsf{N}^{\alpha b}.
+\end{split}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\mathsf{N}^{N} = \exp(-2\pi j N/N) = 1\)</span>。</p>
+<p><span class="arithmatex">\(\mathsf{N}^A = \exp(-2\pi j A/N) = \exp(-2\pi j /B) = \mathsf{B}\)</span>，同理 <span class="arithmatex">\(\mathsf{N}^B = \mathsf{A}\)</span>。</p>
+</blockquote>
+<p>代回，得</p>
+<div class="arithmatex">\[
+F^{\beta \alpha}
+= \sum_{a,b} \mathsf{B}^{\beta b} \mathsf{A}^{\alpha a} \mathsf{N}^{\alpha b} F_{ab}.
+\]</div>
+<blockquote>
+<p>若删掉旋转因子（twiddle factor）<span class="arithmatex">\(\mathsf{N}^{\alpha b}\)</span>（将之替换为一），则上式与二维变换相同。</p>
+</blockquote>
+<p>下面运用交换结合律，把它重组为两次变换。</p>
+<div class="arithmatex">\[
+F^{\beta \alpha}
+= \sum_{b} \mathsf{B}^{\beta b} \mathsf{N}^{\alpha b}
+    \sum_a \mathsf{A}^{\alpha a} F_{ab}.
+\]</div>
+<ol>
+<li>
+<p><span class="arithmatex">\(F_{ab} \mapsto {F^\alpha}_b = \sum_a \mathsf{A}^{\alpha a} F_{ab}\)</span></p>
+<p>变换时域次要排的 <span class="arithmatex">\(A\)</span> 维度。Performs <span class="arithmatex">\(B\)</span> DFTs of size <span class="arithmatex">\(A\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\({F^\alpha}_b \mapsto {\tilde{F}^\alpha}_b = {F^\alpha}_b \mathsf{N}^{\alpha b}\)</span></p>
+<p>旋转（twiddle），应用于时域、频域优先排的维度 <span class="arithmatex">\(b, \alpha\)</span>。</p>
+</li>
+<li>
+<p><span class="arithmatex">\({\tilde{F}^\alpha}_b \mapsto {F_b}^\alpha = {\tilde{F}_b}^\alpha\)</span></p>
+<p>转置。</p>
+</li>
+<li>
+<p><span class="arithmatex">\({F_b}^\alpha \mapsto F^{\beta\alpha} = \sum_b \mathsf{B}^{\beta b} {F_b}^\alpha\)</span></p>
+<p>变换频域次要排的 <span class="arithmatex">\(B\)</span> 维度。Performs <span class="arithmatex">\(A\)</span> DFTs of size <span class="arithmatex">\(B\)</span>.</p>
+</li>
+</ol>
+<p>无论 <span class="arithmatex">\(A,B\)</span> 哪个维度，都可能被认作基（radix）。哪一域优先要排的维度被认作基，就称作在哪一域抽取（因为这一域那步变换一般点数更多），相应的因子称作蝶形。例如 <span class="arithmatex">\(B\)</span> 维度在时域优先排，若 <span class="arithmatex">\(B\)</span> 被称作基，则这种算法称作在时域抽取（decimation in time），<span class="arithmatex">\(\mathsf{B}^{\beta b}\)</span> 称作蝶形。</p>
+<blockquote>
+<p>decimation 为何以 dec- 开头？其词源很血腥。</p>
+</blockquote>
+<figure>
+<img alt="" src="../assets/discremation-in-time.svg" />
+<figcaption>Radix-2 DIT FFT | <code>data-flow-diagram</code></figcaption>
+</figure>
+<h3 id="算法流图">算法流图<a class="headerlink" href="#算法流图" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月6日。</p>
+</blockquote>
+<figure>
+<div style="display: grid; grid-template-columns: repeat(3, auto);">
+  <img alt="" src="../assets/radix-2.png" />
+  <img alt="" src="../assets/radix-4.png" />
+  <img alt="" src="../assets/split-radix.png" />
+</div>
+<figcaption>
+<p>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions</a>, revised</p>
+</figcaption>
+</figure>
+<ul>
+<li>
+<p><strong>radix-2</strong></p>
+<ul>
+<li>系数是旋转因子，画在两列蝶形之间也许更科学。</li>
+<li>这是递归算法，但所有系数都要求换算为 <span class="arithmatex">\(W_N\)</span>。每一列系数的指数总是等间隔分布于 <span class="arithmatex">\([0, \frac{N}{2})\)</span>。</li>
+<li>如果系数标在线上，那么出现位置与输入的二进制表示相同。（0 没有，1 有，且可能为 <span class="arithmatex">\(W_0\)</span>）</li>
+<li>序列反序与远距离蝶形的用意相同，因此不可能出现在流图的同一侧。例如 DIT 输入反序，输入一侧便是近距离蝶形。</li>
+<li>不同列蝶形的线平行时更好看，为此远距离蝶形的宽度要画得大一些。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>other mixed-radix</strong></p>
+<ul>
+<li>radix-4 中的 4 点变换既可按 DFT 定义（矩阵乘法）处理，也可用 <span class="arithmatex">\(2\times 2 = 4\)</span> 的 radix-2 FFT 处理。后者增加的旋转因子中 <span class="arithmatex">\(3/4\)</span> 是一，<span class="arithmatex">\(1/4\)</span> 是 <span class="arithmatex">\(-j\)</span>，都可不计运算量；并且流图与 radix-2 相同，<span class="arithmatex">\(N\)</span> 较小时系数也会退化成纯粹的 radix-2。</li>
+</ul>
+<figure>
+<div style="display: grid; grid-template-columns: repeat(2, auto); gap: 1em;">
+    <img alt="" src="../assets/radix-2-or-4-to-split-radix-1.svg" />
+    <img alt="" src="../assets/radix-2-or-4-to-split-radix-2.svg" />
+  </div>
+<figcaption>Radix-2 or -4 to split-radix | <code>data-flow-diagram</code></figcaption>
+</figure>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>split-radix</strong></p>
+<ul>
+<li>流图和 radix-2 相同，可通过移动系数相互转化。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-数字滤波器">§5 数字滤波器<a class="headerlink" href="#5-数字滤波器" title="Permanent link">&para;</a></h2>
+<h3 id="R-上的部分分式展开"><span class="arithmatex">\(\R\)</span> 上的部分分式展开<a class="headerlink" href="#R-上的部分分式展开" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月27日，2022年12月3日。</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">CASIO fx-911 的功能</p>
+<ul>
+<li><span class="arithmatex">\(\C\)</span> 上的四则运算。</li>
+<li>求 <span class="arithmatex">\(\R\)</span> 上某点的导数值。</li>
+<li>解 <span class="arithmatex">\(\R\)</span> 上方程。</li>
+<li>给定 <span class="arithmatex">\(\C\)</span> 上含变量的表达式，计算（calculate，<kbd>CALC</kbd>）变量取特定值时的值。</li>
+<li>存储（store，<kbd>STO</kbd>）、使用 <span class="arithmatex">\(\C\)</span> 上的变量。</li>
+</ul>
+</div>
+<p>以展开下式为例。</p>
+<div class="arithmatex">\[
+f =
+\frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) }
+    { (1 + 0.5 x) (1 - 0.9x + 0.81x^2) }.
+\]</div>
+<ol>
+<li>
+<p><strong>确定形式</strong></p>
+<p>分子、分母都是三次，分母有一个实根、两个虚根。</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+  \triangle + \frac{\bigcirc}{1+0.5x} + \frac{\square + \square x}{1 - 0.9x + 0.81x^2}.
+\]</div>
+<ol>
+<li>
+<p><strong>求 <span class="arithmatex">\(\triangle\)</span></strong></p>
+<p><span class="arithmatex">\(x \to \infty\)</span> 时：</p>
+<ul>
+<li>由分解后形式，<span class="arithmatex">\(\lim f = \triangle\)</span>。</li>
+<li>由原始形式，<span class="arithmatex">\(\lim f = \qty(2 \times (-1) \times 1) / \qty(0.5 \times 0.81) = -4.938\cdots\)</span>。</li>
+</ul>
+<p>故 <span class="arithmatex">\(\triangle = -4.938\cdots\)</span>。</p>
+</li>
+<li>
+<p><strong>求 <span class="arithmatex">\(\bigcirc\)</span></strong></p>
+<p><span class="arithmatex">\(1 + 0.5 x \to 0\)</span>，即 <span class="arithmatex">\(x \to -2\)</span> 时，</p>
+<ul>
+<li>由分解后形式，<span class="arithmatex">\((1+0.5) f \to 0 + \bigcirc + 0 = \bigcirc\)</span>。</li>
+</ul>
+<ul>
+<li>
+<p>由原始形式，</p>
+<div class="arithmatex">\[
+\begin{split}
+(1+0.5)f
+&amp;= \frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) } { 1 - 0.9x + 0.81x^2 } \\
+&amp;\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=-2}.
+\end{split}
+\]</div>
+</li>
+</ul>
+<p>计算得 <span class="arithmatex">\(\bigcirc = 2.157\cdots\)</span>。</p>
+</li>
+<li>
+<p><strong>求 <span class="arithmatex">\(\square + \square x\)</span></strong></p>
+<p>延拓到 <span class="arithmatex">\(\C\)</span>，则 <span class="arithmatex">\(1 - 0.9x + 0.81x^2\)</span> 的根是 <span class="arithmatex">\(\frac{0.9}{2\times0.81} \pm \sqrt{\qty(\frac{0.9}{2})^2 - 0.81^2} = 0.556\cdots \pm 0.673\cdots i\)</span>，记作 <span class="arithmatex">\(\gamma\)</span> 和 <span class="arithmatex">\(\bar\gamma\)</span>。（<span class="arithmatex">\(\gamma\)</span> 具体取哪个无所谓）</p>
+<blockquote>
+<p>因为最初 <span class="arithmatex">\(f: \R \to \R\)</span>，结合原始形式，这里必为一对共轭虚数 <span class="arithmatex">\(\gamma,\bar\gamma\)</span>。</p>
+</blockquote>
+<p><span class="arithmatex">\(1 - 0.9x + 0.81x^2 \to 0\)</span>，即 <span class="arithmatex">\(x \to \gamma\)</span> 或 <span class="arithmatex">\(x \to \bar\gamma\)</span> 时，</p>
+<ul>
+<li>由分解后形式，<span class="arithmatex">\(\qty(1 - 0.9x + 0.81x^2) f \to \square + \square \gamma\)</span> 或 <span class="arithmatex">\(\square + \square \bar\gamma\)</span>。</li>
+</ul>
+<ul>
+<li>
+<p>由原始形式，</p>
+<div class="arithmatex">\[
+\begin{split}
+\qty(1 - 0.9x + 0.81x^2) f
+&amp;= \frac{ 2(1-x) \qty(1 + \sqrt{2} x + x^2) } { 1+0.5 x } \\
+&amp;\to \eval{\frac{(\cdots)}{(\cdots)}}_{x=\gamma, \bar\gamma} \\
+&amp;= 3.894\cdots \mp 1.536\cdots i,
+\end{split}
+\]</div>
+<p>记作 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(\bar A\)</span>。</p>
+<blockquote>
+<p>因为最初 <span class="arithmatex">\(f: \R \to \R\)</span>，这里必为一对共轭复数 <span class="arithmatex">\(A,\bar A\)</span>。</p>
+</blockquote>
+</li>
+</ul>
+<p>因此</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+  \begin{bmatrix}
+     1 &amp; \gamma \\
+     1 &amp; \bar\gamma \\
+  \end{bmatrix}
+  \begin{bmatrix}
+     \square \\ \square
+  \end{bmatrix}
+  = 
+  \begin{bmatrix}
+     A \\ \bar A
+  \end{bmatrix}.
+\]</div>
+<p>可解得</p>
+<div class="arithmatex">\[
+  \begin{split}
+  \square + \square x
+  &amp;= \frac{\Im(\bar A \gamma) + \Im A\ x}{\Im \gamma} \\
+  &amp;= 4.781\cdots - 1.596\cdots x.
+  \end{split}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\Im{\bar A \gamma}\)</span> 是外积。</p>
+</blockquote>
+<h3 id="线性相位">线性相位<a class="headerlink" href="#线性相位" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月29–30日，2022年12月4日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://eeweb.engineering.nyu.edu/iselesni/EL713/zoom/linphase.pdf"><em>Linear-Phase FIR Filters</em></a>.</p>
+</blockquote>
+<h4 id="群时延及相应幅度函数">群时延及相应幅度函数<a class="headerlink" href="#群时延及相应幅度函数" title="Permanent link">&para;</a></h4>
+<p>设群时延为 <span class="arithmatex">\(\tau\)</span>，则 <span class="arithmatex">\(\operatorname{Arg} H = -\omega\tau\)</span>（其实应该再 <span class="arithmatex">\(\pm \pi\)</span>）—— <span class="arithmatex">\(H = \qty(e^{j\omega\tau}H) e^{-j\omega\tau}\)</span>，其中幅度函数 <span class="arithmatex">\(e^{j\omega\tau} H \in \R\)</span>。</p>
+<blockquote>
+<p>群时延其实是 <span class="arithmatex">\(-\dv{\omega} \operatorname{Arg} H\)</span>，而不是 <span class="arithmatex">\(- \frac{1}{\omega} \operatorname{Arg} H\)</span>。</p>
+<p>广义“线性相位”只要求 <span class="arithmatex">\(e^{j\omega\tau} H\)</span> 的辐角不随 <span class="arithmatex">\(\omega\)</span> 变化，不要求具体是多少。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{split}
+&amp; \forall \omega,\quad
+    e^{j\omega\tau} H \in \R. \\
+&amp;\iff \forall \omega,\quad
+    e^{j\omega\tau} H = \qty(e^{j\omega\tau} H)^*. \\
+&amp;\iff \forall t,\quad
+    \eval{h}_{\tau+t} = \eval{h^*}_{\tau-t}.
+\end{split}
+\]</div>
+<p>若抽样转为离散，则最好满足 <span class="arithmatex">\(\forall t,\quad \tau + t\in\Z \iff \tau-t\in\Z\)</span>，即 <span class="arithmatex">\(\tau \in \Z/2\)</span>。</p>
+<p>另外注意，</p>
+<div class="arithmatex">\[
+\eval{H}_{e^{j\omega}} = \sum_n \eval{h}_n e^{-nj\omega}.
+\]</div>
+<p>响应有限长（finite impulse response）时，记长为 <span class="arithmatex">\(N\)</span>，则 <span class="arithmatex">\(H\)</span> 由 <span class="arithmatex">\(1, e^{-j\omega}, e^{-2j\omega}, \ldots, e^{-(N-1)j\omega}\)</span> 构成，可以想见 <span class="arithmatex">\(2\tau = N-1\)</span>，不然虚部无法保持抵消。</p>
+<blockquote>
+<p>另：由 <span class="arithmatex">\(\eval{h}_{\tau+t} = \eval{h^*}_{\tau-t}\)</span>。</p>
+</blockquote>
+<ul>
+<li>
+<p><span class="arithmatex">\(\tau \in \Z\)</span>，<span class="arithmatex">\(N \in 2\Z+1\)</span></p>
+<div class="arithmatex">\[
+\begin{split}
+e^{j\omega\tau} H
+&amp;= \sum_{n=0}^{N-1} \eval{h}_n e^{(\tau-n)j\omega} \\
+&amp;= \eval{h}_\tau + \sum_{m=1}^{\tau} \qty(
+        \eval{h}_{\tau-m} e^{mj\omega} +
+        {\color{red} \eval{h}_{\tau+m}} e^{-mj\omega}
+    ) \\
+&amp;= \eval{h}_\tau + \sum_{m=1}^{\tau} \qty(
+        \eval{h}_{\tau-m} e^{mj\omega} +
+        {\color{red} \eval{h^*}_{\tau-m}} e^{-mj\omega}
+    ) \\
+&amp;= \eval{h}_\tau + \sum_{m=1}^\tau 2 \Re{\eval{h}_{\tau-m} e^{mj\omega}} \\
+&amp;\in \R.
+\end{split}
+\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p><span class="arithmatex">\(\tau \in \Z + \frac12\)</span>，<span class="arithmatex">\(N \in 2\Z\)</span></p>
+<p>与前一情况类似，只是没有单独的 <span class="arithmatex">\(\eval{h}_\tau\)</span> 项。</p>
+<div class="arithmatex">\[
+\begin{split}
+e^{j\omega\tau} H
+&amp;= \sum_{m = 1-\frac12}^{\tau} 2 \Re{\eval{h}_{\tau - m} e^{mj\omega}} \\
+&amp;\in \R.
+\end{split}
+\]</div>
+</li>
+</ul>
+<h4 id="幅度函数的对称性">幅度函数的对称性<a class="headerlink" href="#幅度函数的对称性" title="Permanent link">&para;</a></h4>
+<p>现在讨论一下幅度函数 <span class="arithmatex">\(e^{j\omega\tau} H\)</span> 的对称性。</p>
+<p>前面已提到它是实函数。</p>
+<div class="arithmatex">\[
+e^{j\omega\tau} H \equiv \qty(e^{j\omega\tau} H)^*.
+\]</div>
+<p><span class="arithmatex">\(e^{j\omega\tau} H\)</span> 的对称性由 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(e^{j\omega\tau}\)</span> 的对称性共同决定。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(H\)</span></p>
+<ul>
+<li>
+<p>关于 <span class="arithmatex">\(\omega = 0\)</span></p>
+<p><span class="arithmatex">\(h\in\R\)</span> 则共轭对称，<span class="arithmatex">\(h \in \R/j\)</span> 则共轭反对称。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>关于 <span class="arithmatex">\(\omega = \pi\)</span></p>
+<p>同上。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+(-1)^n \eval{h}_n &amp;\leftrightarrow \eval{H}_{\pi+\omega}. \\
+(-1)^n \eval{h^*}_{n} &amp;\leftrightarrow \eval{H^*}_{\pi-\omega}. \\
+\end{aligned}
+\]</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><span class="arithmatex">\(e^{j\omega\tau}\)</span></p>
+<ul>
+<li>关于 <span class="arithmatex">\(\omega = 0\)</span> 共轭对称。</li>
+</ul>
+<ul>
+<li>
+<p>关于 <span class="arithmatex">\(\omega = \pi\)</span></p>
+<p><span class="arithmatex">\(\tau \in\Z\)</span> 则共轭对称，<span class="arithmatex">\(\tau \in \Z + \frac12\)</span> 则共轭反对称。</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意 <span class="arithmatex">\(2\pi\)</span> 总是 <span class="arithmatex">\(H\)</span> 的周期，但不一定是 <span class="arithmatex">\(e^{j\omega\tau}\)</span> 的；<span class="arithmatex">\(e^{j\omega\tau}\)</span> 只能保证 <span class="arithmatex">\(4\pi\)</span> 是它的周期。这是 <span class="arithmatex">\(\operatorname{Arg} \pm \pi\)</span> 的多值性导致的。</p>
+</blockquote>
+<p>综合一下，得幅度函数 <span class="arithmatex">\(e^{j\omega\tau} H\)</span> 的共轭对称性如下表。</p>
+<div class="arithmatex">\[
+\begin{array}{lc|cc}
+  &amp;  &amp;  \tau\in\Z  &amp;  \tau \in \Z+\frac12  \\
+  &amp;  &amp;  N \in 2\Z+1  &amp;  N \in 2\Z  \\
+  &amp;  &amp;  +/+  &amp;  +/-  \\
+\hline
+h\in\R  &amp;  +  &amp;  +/+  &amp;  +/-  \\
+h\in\R/j  &amp;  -  &amp;  -/-  &amp;  -/+  \\
+\end{array}
+\]</div>
+<blockquote>
+<p>上表中 <span class="arithmatex">\(+,-\)</span> 分别表示共轭对称、共轭反对称；<span class="arithmatex">\(x/y\)</span> 表示关于 <span class="arithmatex">\(\omega=0\)</span> 为 <span class="arithmatex">\(x\)</span>，关于 <span class="arithmatex">\(\omega=\pi\)</span> 为 <span class="arithmatex">\(y\)</span>。</p>
+<p>由于 <span class="arithmatex">\(e^{j\omega\tau} H \in \R\)</span>，共轭［反］对称就是奇／偶对称。</p>
+</blockquote>
+<p><img alt="" src="../assets/linphase-15.png" style="width: 60%;" /></p>
+<h4 id="时域实序列及其零点分布">时域实序列及其零点分布<a class="headerlink" href="#时域实序列及其零点分布" title="Permanent link">&para;</a></h4>
+<p>下面讨论两种特殊情况。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(h \in \R\)</span></p>
+<div class="arithmatex">\[
+\Re{\eval{h}_{\tau - m} e^{mj\omega}}
+= \eval{h}_{\tau - m} \cos(m\omega).
+\]</div>
+<p>最开始的时域条件化为</p>
+<div class="arithmatex">\[
+\eval{h}_{\tau+m} \equiv \eval{h}_{\tau-m}.
+\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p><span class="arithmatex">\(h \in \R/j\)</span></p>
+<div class="arithmatex">\[
+\Re{\eval{h}_{\tau - m} e^{mj\omega}}
+= \eval{(jh)}_{\tau - m} \sin(m\omega).
+\]</div>
+<p>设 <span class="arithmatex">\(h' = jh \in \R\)</span>，<span class="arithmatex">\(H' = jH\)</span>，则 <span class="arithmatex">\(\operatorname{Arg} H' = \frac\pi2 - \omega\tau\)</span>，系统广义线性。</p>
+<blockquote>
+<p><span class="arithmatex">\(\R \to \qty{j}\)</span> 共轭反对称，故 <span class="arithmatex">\(H' = jH\)</span> 与 <span class="arithmatex">\(H\)</span> 的共轭对称性相反。不过 <span class="arithmatex">\(H’\)</span> 对应的幅度函数不再是 <span class="arithmatex">\(e^{j\omega\tau}H' \in j\R\)</span>，而是 <span class="arithmatex">\(e^{j\omega\tau}H' / j = e^{j\omega\tau}H \in \R\)</span>，与 <span class="arithmatex">\(H\)</span> 的相同。</p>
+</blockquote>
+<p>最开始的时域条件化为</p>
+<div class="arithmatex">\[
+\eval{h'}_{\tau+m} \equiv -\eval{h'}_{\tau-m}.
+\]</div>
+</li>
+</ul>
+<p>下面在 <span class="arithmatex">\(Z\)</span> 平面考察零点分布。</p>
+<blockquote>
+<p>以上第二种特殊情况中，<span class="arithmatex">\(H' = jH\)</span>，所以其实 <span class="arithmatex">\(H'\)</span> 与 <span class="arithmatex">\(H\)</span> 的零点一致。</p>
+</blockquote>
+<ul>
+<li>
+<p>由 <span class="arithmatex">\(\eval{h}_{\tau+m} = \eval{h^*}_{\tau - m}\)</span>，</p>
+<div class="arithmatex">\[
+z^\tau \eval{H}_z
+= z^{-\tau} \eval{H^*}_{1/z^*}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\tau \in\Z+\frac12\)</span> 时以上写法不严谨，应从 <span class="arithmatex">\(\eval{h}_{n} = \eval{h^*}_{2\tau - n}\)</span> 出发，不过由 <span class="arithmatex">\(z = e^{sT}\)</span> 也能说通。</p>
+</blockquote>
+<p>故零点 <span class="arithmatex">\(z,\ 1/z^*\)</span> 成对出现。（关于单位圆反演对称）</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>对于以上两种特殊情况</p>
+<ul>
+<li>有 <span class="arithmatex">\(h \equiv \pm h^*\)</span>，故 <span class="arithmatex">\(\eval{H}_{z} \equiv \pm \eval{H^*}_{z^*}\)</span> ，因此零点 <span class="arithmatex">\(z, z^*\)</span> 成对出现。（关于实轴对称）</li>
+<li>幅度函数可能共轭反对称，这可在 <span class="arithmatex">\(\omega = 0,\pi\)</span> 导致零点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="从模拟原型-Butterworth-滤波器设计-IIR-数字滤波器">从模拟原型 Butterworth 滤波器设计 IIR 数字滤波器<a class="headerlink" href="#从模拟原型-Butterworth-滤波器设计-IIR-数字滤波器" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月3日。</p>
+</blockquote>
+<p>IIR: Infinite impulse response.</p>
+<ol>
+<li>
+<p>给定数字域<strong>指标</strong></p>
+<p><span class="arithmatex">\(\omega, \alpha\)</span> for pass and stop band.</p>
+<p>（<span class="arithmatex">\(\alpha\)</span> 总是功率比）</p>
+</li>
+<li>
+<p><strong>转换</strong>为模拟域特性</p>
+<p><span class="arithmatex">\(\alpha\)</span> 不变；<span class="arithmatex">\(\Omega\)</span> 从 <span class="arithmatex">\(\omega\)</span> 变换，要求下面能变换回去。</p>
+<ul>
+<li><strong>脉冲响应不变法</strong>：<span class="arithmatex">\(\Omega T = \omega\)</span>。</li>
+<li><strong>双线性变换法</strong>：<span class="arithmatex">\(\frac{\Omega T}{2} = \tan\frac{\omega T}{2}\)</span>。</li>
+</ul>
+</li>
+<li>
+<p>确定模拟原型 Butterworth 滤波器的<strong>参数</strong></p>
+</li>
+</ol>
+<div class="arithmatex">\[
+  \begin{cases}
+  1 + \qty(\Omega_s / \Omega_c)^{2N} &gt; \alpha_s. \\
+  1 + \qty(\Omega_p / \Omega_c)^{2N} &lt; \alpha_p. \\
+  \end{cases}
+\]</div>
+<p>要求 <span class="arithmatex">\(N \in \N\)</span>，<span class="arithmatex">\(\Omega_c &gt; 0\)</span>。</p>
+<p>解得</p>
+<div class="arithmatex">\[
+  N \geq \frac12 \log_{\Omega_s / \Omega_p} \frac{\alpha_s - 1}{\alpha_p - 1}.
+\]</div>
+<div class="arithmatex">\[
+  \frac{\Omega_p}{\sqrt[2N]{\alpha_p -1}}
+  &lt; \Omega_c &lt;
+  \frac{\Omega_s}{\sqrt[2N]{\alpha_s - 1}}.
+\]</div>
+<p>一般 <span class="arithmatex">\(N,\Omega_c\)</span> 尽可能小：<span class="arithmatex">\(N\)</span> 小结构更简单，<span class="arithmatex">\(\Omega_c\)</span> 小阻带性能更好。</p>
+<ol>
+<li>
+<p>转换回<strong>数字</strong>滤波器</p>
+<ul>
+<li><strong>脉冲响应不变法</strong>：<span class="arithmatex">\(\eval{H}_{z = e^{sT}} = \eval{H_a}_s\)</span> 并周期化。实际操作是展开为部分分式，然后 <span class="arithmatex">\(\frac{1}{s - s_0} \mapsto \frac{1}{1 - e^{s_0 T} / z}\)</span>。（还可再乘 <span class="arithmatex">\(T\)</span> 以修正增益）</li>
+<li><strong>双线性变换法</strong>：<span class="arithmatex">\(\eval{H}_z = \eval{H_a}_{\frac12 sT = \frac{z-1}{z+1}}\)</span>。</li>
+</ul>
+</li>
+</ol>
+<h3 id="设计-FIR-数字滤波器">设计 FIR 数字滤波器<a class="headerlink" href="#设计-FIR-数字滤波器" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月3日。</p>
+</blockquote>
+<p>FIR: Finite impulse response.</p>
+<p>这种滤波器可用对称性让相位严格线性。</p>
+<h4 id="时域窗函数法">时域窗函数法<a class="headerlink" href="#时域窗函数法" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>设定窗和理想数字滤波器</p>
+<p>这需要反复试验。</p>
+<ul>
+<li>
+<p><strong>窗</strong>：下面以长 <span class="arithmatex">\(N\)</span> 的矩形窗为例。</p>
+<p><span class="arithmatex">\(N \in 2\Z+1\)</span> 时，没有奇对称导致的零点，适于设计所有类型的滤波器。（低通、高通、带通、带阻均可）</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>理想数字滤波器</strong>：下面以门函数为例。</p>
+<div class="arithmatex">\[
+h_d = \frac{\sin(\omega_c n)}{\pi n} \leftrightarrow G_{2\omega_c}.
+\]</div>
+<p><span class="arithmatex">\(\omega_c\)</span> 其实也要确定，有时直接取通带、阻带截止频率的中点 <span class="arithmatex">\((\omega_s + \omega_p) / 2\)</span>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>处理为因果、有限的滤波器</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+  \eval{h}_n = \eval{h_d}_{n - \tau} \eval{R_N}_n.
+\]</div>
+<p>其中 <span class="arithmatex">\(2\tau = N-1\)</span>。</p>
+<h4 id="频域取样法">频域取样法<a class="headerlink" href="#频域取样法" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>设定取样数、有符号幅度函数的取样值 <span class="arithmatex">\(\eval{A}_k\)</span></p>
+<p>通带取一，阻带取零，过渡带设计略有讲究。</p>
+<p>一般只设定前半截，后半截就由相位线性确定了。</p>
+</li>
+<li>
+<p>内插</p>
+<p>要保证线性相位性质。</p>
+</li>
+</ol>
+<h2 id="杂项">杂项<a class="headerlink" href="#杂项" title="Permanent link">&para;</a></h2>
+<h3 id="不确定性原理">不确定性原理<a class="headerlink" href="#不确定性原理" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年10月5日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> Mitch Hill, <a href="https://math.uchicago.edu/~may/REU2013/REUPapers/Hill.pdf"><em>The Uncertainty Principle for Fourier Transforms on the Real Line</em></a>.</p>
+</blockquote>
+<p><span class="arithmatex">\(\hat\cdot\)</span> 表示正变换，<span class="arithmatex">\(\check\cdot\)</span> 表示反变换，例如 Parseval 定理如下。</p>
+<div class="arithmatex">\[
+\norm{f}_2^2 = \frac1{2\pi} \norm{\hat f}_2^2.
+\]</div>
+<p>又如 <span class="arithmatex">\(\widehat{f'} = j\omega \hat f\)</span>。</p>
+<hr />
+<p>设 <span class="arithmatex">\(f: \R \to \C\)</span> 属于 Schwartz 类（衰减快于任何幂函数），则可分部积分</p>
+<div class="arithmatex">\[
+\begin{split}
+\norm{f}_2^2
+&amp;\coloneqq \int\limits_\R f \bar f \dd{t} \\
+&amp;= \eval{f\bar f t}_{-\infty}^{+\infty}
+    - \int\limits_\R t \qty(f'\bar f + f \bar{f'}) \dd{t} \\
+&amp;= -2 \int\limits_\R t \mathfrak{Re}[f\bar{f'}] \dd{t}.
+\end{split}
+\]</div>
+<p>补上虚部，再由 Cachy – Schwartz 不等式，</p>
+<div class="arithmatex">\[
+\begin{split}
+\norm{f}_2^2
+&amp;\leq 2 \abs{\int\limits_\R t f \cdot \bar{f'} \dd{t}} \\
+&amp;\leq 2 \norm{tf}_2 \cdot \norm{f'}_2.
+\end{split}
+\]</div>
+<p>注意 <span class="arithmatex">\(f’ = \qty(j\omega \hat f)^\check{}\)</span>，<span class="arithmatex">\(\norm{f'}_2^2 = \frac{1}{2\pi } \norm{j\omega \hat f}_2^2 = \frac{1}{2\pi} \norm{\omega \hat f}_2^2\)</span>，上式化为</p>
+<div class="arithmatex">\[
+\norm{f}_2^2 \leq \sqrt\frac{2}{\pi} \norm{tf}_2 \cdot \norm{\omega \hat f}_2.
+\]</div>
+<blockquote>
+<p>在时域、频域平移后，证明仍成立。</p>
+</blockquote>
+<p>取等时，<span class="arithmatex">\(\exists \lambda \in \C,\ f' \equiv \lambda xf\)</span>，即 <span class="arithmatex">\(f\)</span> 是 Gaussian 函数。</p>
+<hr />
+<p>以 <span class="arithmatex">\(f = \exp(-t^2/2)\)</span> 为例。</p>
+<div class="arithmatex">\[
+\begin{split}
+\hat f
+&amp;= \int\limits_\R \exp(-\frac{t^2}{2} -j\omega t) \dd{t} \\
+&amp;= \int\limits_\R \exp\frac{-\qty(t+j\omega)^2}{2} \exp\frac{\qty(j\omega)^2}{2} \dd{t} \\
+&amp;= e^{-\omega^2/2} \int\limits_\R \exp\frac{-\qty(t+j\omega)^2}{2} \dd{t}.
+\end{split}
+\]</div>
+<p>考虑矩形围道 <span class="arithmatex">\((-\varepsilon,0) \to (-\varepsilon, j\omega) \to (+\varepsilon,j\omega) \to (+\varepsilon,0) \to (-\varepsilon, 0)\)</span>，在 <span class="arithmatex">\(\varepsilon \to +\infty\)</span> 时，可知 <span class="arithmatex">\(\int_\R \exp(-\frac12 (t+j\omega)^2) \dd{t} = \int_\R \exp(-\frac12t^2) \dd{t}\)</span>，从而等于 <span class="arithmatex">\(\sqrt{2\pi}\)</span>。（另法：求 <span class="arithmatex">\(\pdv{\omega} \int_\R \dd{t}\)</span>）</p>
+<p>故</p>
+<div class="arithmatex">\[
+\hat f = \exp(-\frac{\omega^2}{2}) \sqrt{2\pi}.
+\]</div>
+<p>此时代入不等式</p>
+<div class="arithmatex">\[
+\text{LHS} = \int\limits_\R \exp(-t^2) \dd{t} = \sqrt{\pi}.
+\]</div>
+<blockquote>
+<p>正态分布 <span class="arithmatex">\(\sigma^2 = 1/2\)</span>，概率和为一。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{split}
+\norm{t f}_2^2
+&amp;= \int\limits_\R t^2 \exp(-t^2) \dd{t} = \frac{\sqrt\pi}{2}.
+\end{split}
+\]</div>
+<blockquote>
+<p>方差。</p>
+</blockquote>
+<p>同理 <span class="arithmatex">\(\norm{\omega \hat f}_2^2 = 2\pi \cdot \frac{\sqrt\pi}{2} = \pi\sqrt{\pi}\)</span>。</p>
+<div class="arithmatex">\[
+\therefore \text{RHS} = \sqrt\frac{2}{\pi} \sqrt{\frac{\sqrt\pi}{2}} \cdot \sqrt{\pi \sqrt\pi}
+= \sqrt\frac2\pi  \frac{\pi}{\sqrt2} = \sqrt\pi.
+\]</div>
+<p>满足 <span class="arithmatex">\(\text{LHS} \leq \text{RHS}\)</span>，且能取等。</p>
+<h3 id="时域频域翻转">时域频域翻转<a class="headerlink" href="#时域频域翻转" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月30日，2022年12月5日。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{array}{cc}
+\eval{h}_t \leftrightarrow \eval{H}_s  &amp;
+\eval{h}_{-t} \leftrightarrow \eval{H}_{-s}  \\
+\eval{h^*}_t \leftrightarrow \eval{H^*}_{s^*}  &amp;
+\eval{h^*}_{-t} \leftrightarrow \eval{H^*}_{-s^*}  \\
+\end{array}
+\]</div>
+<div class="arithmatex">\[
+\begin{array}{cc}
+\eval{h}_n \leftrightarrow \eval{H}_z  &amp;
+\eval{h}_{-n} \leftrightarrow \eval{H}_{1/z}  \\
+\eval{h^*}_n \leftrightarrow \eval{H^*}_{z^*}  &amp;
+\eval{h^*}_{-n} \leftrightarrow \eval{H^*}_{1/z^*}  \\
+\end{array}
+\]</div>
+<p>当 <span class="arithmatex">\(s = j\Omega\)</span>，<span class="arithmatex">\(z = e^{j\omega}\)</span> 时，<span class="arithmatex">\(s = -s^*\)</span>（关于虚轴对称），<span class="arithmatex">\(z = 1/z^*\)</span>（关于单位圆反演）。</p>
+<p>这大约与 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(H^*\)</span> 不能同时解析有关。必须自变量、因变量同时取共轭才行，那样才不打破 Cauchy–Riemann 条件，特别是变换保角导致的手性不变性。</p>
+<h3 id="概念">概念<a class="headerlink" href="#概念" title="Permanent link">&para;</a></h3>
+<h4 id="DFT-逼近连续信号">DFT 逼近连续信号<a class="headerlink" href="#DFT-逼近连续信号" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月6日。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">问题</th>
+<th align="left">原因</th>
+<th align="left">改善方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>频域混叠</strong></td>
+<td align="left">时域（周期）取样<br>频域周期化</td>
+<td align="left">加紧采样，提高折叠频率</td>
+</tr>
+<tr>
+<td align="center"><strong>栅栏效应</strong></td>
+<td align="left">频域（周期）取样（只取基频整倍）<br>时域周期化</td>
+<td align="left">在时域补零凑数</td>
+</tr>
+<tr>
+<td align="center"><strong>频谱泄露</strong></td>
+<td align="left">时域截断<br>频域每个横向滤波器的响应太宽，副瓣太强</td>
+<td align="left">乘缓变（taper）窗，减弱截断处的不连续</td>
+</tr>
+</tbody>
+</table>
+<p>在时域补零时窗函数宽度仍应按数据实际长度选取，并且只能提高频谱分辨率，增加总采样时长才能提高频率分辨能力。</p>
+<h4 id="提升-DFT-运算效率的途径">提升 DFT 运算效率的途径<a class="headerlink" href="#提升-DFT-运算效率的途径" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<p>注意 <span class="arithmatex">\({W_N}^{nk}\)</span> 的性质。</p>
+<ul>
+<li>对称性 ⇒ 合并首尾项。</li>
+<li>周期性、对称性、可约性 ⇒ 将长序列 DFT 分解为多个短序列 DFT。</li>
+</ul>
+<h4 id="radix-2-及-split-radix-FFT-的特点">radix-2 及 split-radix FFT 的特点<a class="headerlink" href="#radix-2-及-split-radix-FFT-的特点" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>原位运算</strong></p>
+<p>每个蝶形的输入位置和输出位置相同，无需额外寄存器。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>输入输出顺序</strong></p>
+<p>抽取的域反序，另一域正序。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>系数</strong></p>
+<p>抽取一侧全为 <span class="arithmatex">\(W^0\)</span>，另一侧为 <span class="arithmatex">\(W^0, W^1, \ldots, W^{N/2 - 1}\)</span>。</p>
+<p>从另一侧向抽取一侧推进，每次只剩偶序号那一半。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>蝶形跨度</strong></p>
+<p>抽取一侧最小，相邻（相差一）；另一侧最大，相差 <span class="arithmatex">\(N/2\)</span>。</p>
+<p>从抽取一侧向另一侧推进，每次跨度增加一倍。</p>
+</li>
+</ul>
+<p>以上主要针对 radix-2，但 split-radix 基本一致，只是系数有挪动。</p>
+<p>split-radix 算法中“大蝶形”数量规律如下。</p>
+<ul>
+<li>抽取一侧有 <span class="arithmatex">\(N/4\)</span> 个。</li>
+<li>从抽取一侧向另一侧推进，每次新增加的“大蝶形”数量是 <span class="arithmatex">\(N/4\)</span> 减上次增加的一半。</li>
+</ul>
+<h4 id="运算量">运算量<a class="headerlink" href="#运算量" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<h5 id="DFT">DFT<a class="headerlink" href="#DFT" title="Permanent link">&para;</a></h5>
+<div class="arithmatex">\[
+\begin{array}{c|cc}
+&amp; \text{DFT} &amp; \text{radix-2 FFT} &amp; \text{split-radix FFT} \\
+\hline
+\times &amp; N^2 &amp; \frac12 N\nu &amp; \frac13 N\nu + \order{N} \\
++ &amp; N(N-1) &amp; N\nu &amp; N\nu \\
+\end{array}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(N=2^\nu\)</span> 是序列长。</li>
+<li>split-radix FFT 不计 <span class="arithmatex">\(-j\)</span>。</li>
+<li><span class="arithmatex">\(\times, +\)</span> 按复数的计算。</li>
+</ul>
+<p>若是实序列，radix-2 FFT 还可进一步合并运算。</p>
+<div class="arithmatex">\[
+\begin{array}{c|c}
+\hline
+\times &amp; \frac14 N(\nu-1) + N = \frac14 N\nu + \order{N} \\
++ &amp; \frac12 N(\nu-1) + 2N = \frac12 N\nu + \order{N} \\
+\end{array}
+\]</div>
+<h5 id="卷积">卷积<a class="headerlink" href="#卷积" title="Permanent link">&para;</a></h5>
+<p>两个序列分别长 <span class="arithmatex">\(N,M\)</span>。用 FFT 卷积时补零到 <span class="arithmatex">\(L= 2^\nu\)</span>。</p>
+<div class="arithmatex">\[
+\begin{array}{c|cc}
+&amp; \text{by definition} &amp; \text{FFT} \\
+\hline
+\times &amp; NM &amp; 3 \times \frac12 L\nu + L \\
++ &amp; (N-1)(M-1) &amp; 3 \times L\nu 
+\end{array}
+\]</div>
+<h4 id="采样定理">采样定理<a class="headerlink" href="#采样定理" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>陈述</strong></p>
+<ul>
+<li>对于频带有限的信号 <span class="arithmatex">\(x_a\)</span>，若其频率上限为 <span class="arithmatex">\(f_H\)</span>，则时域采样频率 <span class="arithmatex">\(f_s \geq 2 f_H\)</span> 可避免频域混叠。</li>
+</ul>
+<ul>
+<li>对于时间有限的信号 <span class="arithmatex">\(x\)</span>，若其序列长为 <span class="arithmatex">\(N\)</span>，则频域采样取样点数 <span class="arithmatex">\(N' \geq N\)</span> 可避免时域混叠。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>意义</strong></p>
+<p>采样定理让信号在时域、频域都离散化，让用数字技术处理成为可能。</p>
+</li>
+</ul>
+<h4 id="滤波器各型结构特点">滤波器各型结构特点<a class="headerlink" href="#滤波器各型结构特点" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<p>角度：调试、误差、速率、复用。</p>
+<ul>
+<li>
+<p><strong>有反馈</strong>（infinite impulse response，IIR）</p>
+<ul>
+<li><strong>直接型</strong>（直接 I（aka. 直接）、直接 II（aka. 典范）及其转置）<ul>
+<li>简单直观。</li>
+<li>系数<u>不直接决定</u>零极点，不易调试。</li>
+<li>极点对系数过分<u>敏感</u>，因有限字长效应，容易不稳定、累计误差。</li>
+</ul>
+</li>
+<li><strong>级联型</strong><ul>
+<li>系数能<u>单独调整零极点</u>。</li>
+<li><u>累计误差</u>小，适当排序后更小。</li>
+<li>存储单元少，可模块化<u>时分复用</u>。</li>
+</ul>
+</li>
+<li><strong>并联型</strong><ul>
+<li>系数能<u>单独调整极点</u>，但<u>不能单独调整零点</u>。</li>
+<li>基本节之间无干扰，<u>累计误差</u>小。</li>
+<li>可<u>并行</u>运算，速率高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>无反馈</strong>（finite impulse response，FIR）</p>
+<ul>
+<li>
+<p><strong>直接型</strong>（aka. 横截、卷积）</p>
+<p>类似有反馈。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>级联型</strong></p>
+<ul>
+<li>能<u>单独调整零点</u>。</li>
+<li>乘法多。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>频率取样型</strong>（梳状滤波器和谐振柜）</p>
+<ul>
+<li>能<u>直接调整 <span class="arithmatex">\(H(k)\)</span></u>。</li>
+<li>有限字长效应影响大，容易<u>不稳定</u>。修正谐振柜可缓解。</li>
+<li>系数多为<u>复数</u>，复杂。线性相位、窄带时稍好。</li>
+<li>便于<u>标准</u>化、模块化，可时分复用。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数字滤波器设计方法特点">数字滤波器设计方法特点<a class="headerlink" href="#数字滤波器设计方法特点" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<ul>
+<li><strong>将模拟原型滤波器数字化</strong>为 IIR 滤波器<ul>
+<li><strong>脉冲响应不变</strong>（impulse invariance，aka. 标准 Z 变换法）<ul>
+<li>极点 <span class="arithmatex">\(s \mapsto z = e^{sT}\)</span>，不改变稳定性。</li>
+<li><span class="arithmatex">\(\omega = \Omega T\)</span> <u>线性</u>，保证 <span class="arithmatex">\(\eval{h}_n = \eval{h_a}_{nT}\)</span>，变换后频率响应不失真，能模仿模拟滤波器的功能。</li>
+<li>频域<u>混叠</u>，降低阻带性能，不适合高通、带阻这种高频不衰减的滤波器。</li>
+</ul>
+</li>
+<li><strong>双线性变换</strong>（bilinear transform）<ul>
+<li>完全<u>不存在混叠</u>。</li>
+<li><span class="arithmatex">\(\frac{\omega}{2} = \arctan \frac{\Omega T}{2}\)</span>，高频严重<u>非线性</u>，变换后频率响应会变形。不过低通、高通、带通、带阻滤波器都是分段常数型，只有相位受影响，幅度正常。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>FIR</strong> 滤波器<ul>
+<li><strong>时域窗函数</strong><ul>
+<li>时域截断导致通带波纹、阻带衰减、过渡带。</li>
+</ul>
+</li>
+<li><strong>频域取样</strong><ul>
+<li>可以精确控制取样点的响应。</li>
+<li>适合窄带滤波器。</li>
+<li>抽样频率只能是 <span class="arithmatex">\(\frac{\pi}{N} \Z\)</span>，且截止频率不能任意设置（不一定取样到截止频率）。</li>
+<li>过渡带优化设计：加宽过渡带，降低矩形特性要求，减轻阻带纹波。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>IIR 与 FIR</strong> 滤波器<ul>
+<li>IIR 幅度特性比同等阶数 FIR 好。</li>
+<li>IIR 必须附加调相网络才能保证<u>线性相位</u>，FIR 可用对称性直接保证。</li>
+<li>IIR 从模拟原型滤波器转换时，可能破坏<u>稳定性</u>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="预计算">预计算<a class="headerlink" href="#预计算" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月7日。</p>
+</blockquote>
+<p><span class="arithmatex">\(h,\gamma \in \C\)</span>，则</p>
+<div class="arithmatex">\[
+\frac{h}{1 - \gamma /z} \pm \frac{h^*}{1- \gamma^*/z}
+\]</div>
+<p>会涉及以下元素。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\qty(1-\frac{\gamma}{z}) \qty(1-\frac{\gamma^*}{z})
+    &amp;= 1 - \frac{2 \operatorname\Re \gamma}{z} + \frac{\abs{\gamma}^2}{z^2}. \\
+h \qty(1-\frac{\gamma^*}{z}) + h^* \qty(1-\frac{\gamma}{z})
+    &amp;=  2\operatorname\Re h - \frac{2\ \Re{ h\gamma^*}}{z}. \\
+h \qty(1-\frac{\gamma^*}{z}) - h^* \qty(1-\frac{\gamma}{z})
+    &amp;= 2j \operatorname\Im h - \frac{2j\ \Im{h\gamma^*}}{z}. \\
+\end{aligned}
+\]</div>
+<hr />
+<div class="arithmatex">\[
+\begin{array}{r|rrrr}
+&amp; z^3 &amp; z^2 &amp; z &amp; 1 \\
+\hline
+(z-1)^3 &amp; 1 &amp; -3 &amp; 3 &amp; -1 \\
+(z-1)^2(z+1) &amp; 1 &amp; -1 &amp; -1 &amp; 1 \\
+(z-1)(z+1)^2 &amp; 1 &amp; 1 &amp; -1 &amp; -1 \\
+(z+1)^3 &amp; 1 &amp; 3 &amp; 3 &amp; 1 \\
+\end{array}
+\]</div>
+<h1 id="后备箱">后备箱<a class="headerlink" href="#后备箱" title="Permanent link">&para;</a></h1>
+<ul>
+<li>混叠是尾部混叠到前部，而且可能<u>混叠好几圈</u>（周期化时不同周期可能混叠）：<span class="arithmatex">\(\eval{\delta}_{k-1} - \eval{\delta}_{k+1}\)</span> 在 <span class="arithmatex">\(N=1,2\)</span> 时恒零。</li>
+<li>公比为一时，等比数列求和公式不适用。</li>
+<li><span class="arithmatex">\(W^k\)</span> 反着转，<span class="arithmatex">\(\Im W &lt; 0\)</span>（<span class="arithmatex">\(N\geq 3\)</span>）。</li>
+<li>设计数字滤波器时，即使给模拟域指标，也应用采样率先换算为数字域指标。特别是双线性变换法要<u>预畸</u>。</li>
+<li>用差分方程表示有反馈系统时，通常把当前输出 <span class="arithmatex">\(\eval{y}_n\)</span> 单独拿出来，反馈和输入放到同一边，因而有个<u>负号</u>。</li>
+<li>频率取样型 FIR 滤波器中，<u>梳状滤波器无反馈</u>，谐振柜有反馈。</li>
+<li><span class="arithmatex">\(e^{s_0 t} u \leftrightarrow \frac{1}{s-s_0}\)</span>，时域取样后变为 <span class="arithmatex">\(e^{s_0 nT} u \leftrightarrow \frac{1}{1-e^{s_0 T}/z}\)</span>，注意正负号。</li>
+<li>想清楚到底是几阶的 Butterworth 滤波器。</li>
+<li>画算法流图时要注意按<u>哪个域抽取</u>。</li>
+<li>设计数字滤波器时，步骤一定要清晰，最好不省略原始公式。</li>
+<li>FIR 滤波器的幅度响应一般要求偶对称，因此即使只规定 <span class="arithmatex">\([0,\pi]\)</span>，也相当于给了全部。</li>
+</ul>
+
+
+  
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Snippet generated by giscus.app -->
+  <script src="https://giscus.app/client.js"
+          data-repo="YDX-2147483647/summaries"
+          data-repo-id="R_kgDOIpJG0Q"
+          data-category="General"
+          data-category-id="DIC_kwDOIpJG0c4CTQqa"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://ydx-2147483647.github.io/summaries/feed_rss_updated.xml" target="_blank" rel="noopener" title="RSS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

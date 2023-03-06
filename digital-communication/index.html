@@ -1,0 +1,2622 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="各种课程的总结、随记等。">
+      
+      
+      
+        <link rel="canonical" href="https://ydx-2147483647.github.io/summaries/digital-communication/">
+      
+      
+        <link rel="prev" href="../digital-circuits-and-systems/">
+      
+      
+        <link rel="next" href="../digital-signal-processing/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>数字通信原理 - 总结</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>  
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="新增内容的 RSS 源" href="../feed_rss_created.xml">
+  <link rel="alternate" type="application/rss+xml" title="更新内容的 RSS 源" href="../feed_rss_updated.xml">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#数字通信原理" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="总结" class="md-header__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            总结
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数字通信原理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="总结" class="md-nav__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    总结
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Summaries
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artificial-intelligence/" class="md-nav__link">
+        人工智能导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-functions-and-equations-of-mathematical-physics/" class="md-nav__link">
+        复变函数与数理方程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-and-data-structure/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-circuits-and-systems/" class="md-nav__link">
+        数字电路与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数字通信原理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数字通信原理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-随机过程" class="md-nav__link">
+    §3 随机过程
+  </a>
+  
+    <nav class="md-nav" aria-label="§3 随机过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#平稳与遍历" class="md-nav__link">
+    平稳与遍历
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-信道" class="md-nav__link">
+    §4 信道
+  </a>
+  
+    <nav class="md-nav" aria-label="§4 信道">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#多径传播的影响" class="md-nav__link">
+    多径传播的影响
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-模拟调制系统" class="md-nav__link">
+    §5 模拟调制系统
+  </a>
+  
+    <nav class="md-nav" aria-label="§5 模拟调制系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#调幅" class="md-nav__link">
+    调幅
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#调频和调相" class="md-nav__link">
+    调频和调相
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#比较" class="md-nav__link">
+    比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-数字基带传输系统" class="md-nav__link">
+    §6 数字基带传输系统
+  </a>
+  
+    <nav class="md-nav" aria-label="§6 数字基带传输系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#作为模拟信号的基带信号" class="md-nav__link">
+    作为模拟信号的基带信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#基带信号的编码" class="md-nav__link">
+    基带信号的编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#码间串扰" class="md-nav__link">
+    码间串扰
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#噪声" class="md-nav__link">
+    噪声
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#眼图" class="md-nav__link">
+    眼图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时域均衡" class="md-nav__link">
+    时域均衡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#评价传输特性" class="md-nav__link">
+    评价传输特性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-数字带通调制系统" class="md-nav__link">
+    §7 数字带通调制系统
+  </a>
+  
+    <nav class="md-nav" aria-label="§7 数字带通调制系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二进制数字调制" class="md-nav__link">
+    二进制数字调制
+  </a>
+  
+    <nav class="md-nav" aria-label="二进制数字调制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Amplitude-Shift-Keying" class="md-nav__link">
+    Amplitude Shift Keying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Frequency-Shift-Keying" class="md-nav__link">
+    Frequency Shift Keying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Phase-Shift-Keying" class="md-nav__link">
+    Phase Shift Keying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#横向比较" class="md-nav__link">
+    横向比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#多进制数字调制" class="md-nav__link">
+    多进制数字调制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Quadrature-Shift-Keying" class="md-nav__link">
+    Quadrature Shift Keying
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-最佳接收" class="md-nav__link">
+    §9 最佳接收
+  </a>
+  
+    <nav class="md-nav" aria-label="§9 最佳接收">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#相关形式" class="md-nav__link">
+    相关形式
+  </a>
+  
+    <nav class="md-nav" aria-label="相关形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#概念" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#结构" class="md-nav__link">
+    结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#误码率" class="md-nav__link">
+    误码率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#匹配滤波形式" class="md-nav__link">
+    匹配滤波形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#多电平基带系统" class="md-nav__link">
+    多电平基带系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-信源编码" class="md-nav__link">
+    §10 信源编码
+  </a>
+  
+    <nav class="md-nav" aria-label="§10 信源编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#带通信号抽样定理" class="md-nav__link">
+    带通信号抽样定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13段折线量化编码" class="md-nav__link">
+    13段折线量化编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#噪声_1" class="md-nav__link">
+    噪声
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-信道编码" class="md-nav__link">
+    §11 信道编码
+  </a>
+  
+    <nav class="md-nav" aria-label="§11 信道编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#差错控制能力" class="md-nav__link">
+    差错控制能力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#杂项" class="md-nav__link">
+    杂项
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#频带利用率" class="md-nav__link">
+    频带利用率
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#量纲" class="md-nav__link">
+    量纲
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#角频率与频率度量的频域" class="md-nav__link">
+    角频率与频率度量的频域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Fourier-参数之间的关系" class="md-nav__link">
+    Fourier 参数之间的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#正态分布的累积分布" class="md-nav__link">
+    正态分布的累积分布
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#带宽" class="md-nav__link">
+    带宽
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#模型与结构" class="md-nav__link">
+    模型与结构
+  </a>
+  
+    <nav class="md-nav" aria-label="模型与结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#通信系统" class="md-nav__link">
+    通信系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#模拟调制系统" class="md-nav__link">
+    模拟调制系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数字基带系统" class="md-nav__link">
+    数字基带系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数字调制系统" class="md-nav__link">
+    数字调制系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#最佳接收" class="md-nav__link">
+    最佳接收
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-signal-processing/" class="md-nav__link">
+        数字信号处理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electromagnetic-field-and-wave/" class="md-nav__link">
+        电磁场与电磁波
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-theory-and-coding/" class="md-nav__link">
+        信息论与编码
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrated-circuits/" class="md-nav__link">
+        集成电路设计实践
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligent-multi-source-sensing/" class="md-nav__link">
+        智能多源感知
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modern-chinese-history/" class="md-nav__link">
+        中国近现代史纲要
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morals-ethics-law/" class="md-nav__link">
+        思想道德修养与法律基础
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-system/" class="md-nav__link">
+        操作系统原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-1/" class="md-nav__link">
+        物理1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-2/" class="md-nav__link">
+        物理2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probability-and-statistics/" class="md-nav__link">
+        概率论与数理统计
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roller-skating/" class="md-nav__link">
+        轮滑
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semiconductor-physics/" class="md-nav__link">
+        半导体物理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-theory/" class="md-nav__link">
+        集合论——开启理性思维的钥匙
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals-and-systems/" class="md-nav__link">
+        信号与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-signal-processing/" class="md-nav__link">
+        随机信号分析
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theoretical-physics-intro/" class="md-nav__link">
+        理论物理导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xi-thought/" class="md-nav__link">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-随机过程" class="md-nav__link">
+    §3 随机过程
+  </a>
+  
+    <nav class="md-nav" aria-label="§3 随机过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#平稳与遍历" class="md-nav__link">
+    平稳与遍历
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-信道" class="md-nav__link">
+    §4 信道
+  </a>
+  
+    <nav class="md-nav" aria-label="§4 信道">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#多径传播的影响" class="md-nav__link">
+    多径传播的影响
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-模拟调制系统" class="md-nav__link">
+    §5 模拟调制系统
+  </a>
+  
+    <nav class="md-nav" aria-label="§5 模拟调制系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#调幅" class="md-nav__link">
+    调幅
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#调频和调相" class="md-nav__link">
+    调频和调相
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#比较" class="md-nav__link">
+    比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-数字基带传输系统" class="md-nav__link">
+    §6 数字基带传输系统
+  </a>
+  
+    <nav class="md-nav" aria-label="§6 数字基带传输系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#作为模拟信号的基带信号" class="md-nav__link">
+    作为模拟信号的基带信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#基带信号的编码" class="md-nav__link">
+    基带信号的编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#码间串扰" class="md-nav__link">
+    码间串扰
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#噪声" class="md-nav__link">
+    噪声
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#眼图" class="md-nav__link">
+    眼图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时域均衡" class="md-nav__link">
+    时域均衡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#评价传输特性" class="md-nav__link">
+    评价传输特性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-数字带通调制系统" class="md-nav__link">
+    §7 数字带通调制系统
+  </a>
+  
+    <nav class="md-nav" aria-label="§7 数字带通调制系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二进制数字调制" class="md-nav__link">
+    二进制数字调制
+  </a>
+  
+    <nav class="md-nav" aria-label="二进制数字调制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Amplitude-Shift-Keying" class="md-nav__link">
+    Amplitude Shift Keying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Frequency-Shift-Keying" class="md-nav__link">
+    Frequency Shift Keying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Phase-Shift-Keying" class="md-nav__link">
+    Phase Shift Keying
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#横向比较" class="md-nav__link">
+    横向比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#多进制数字调制" class="md-nav__link">
+    多进制数字调制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Quadrature-Shift-Keying" class="md-nav__link">
+    Quadrature Shift Keying
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-最佳接收" class="md-nav__link">
+    §9 最佳接收
+  </a>
+  
+    <nav class="md-nav" aria-label="§9 最佳接收">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#相关形式" class="md-nav__link">
+    相关形式
+  </a>
+  
+    <nav class="md-nav" aria-label="相关形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#概念" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#结构" class="md-nav__link">
+    结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#误码率" class="md-nav__link">
+    误码率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#匹配滤波形式" class="md-nav__link">
+    匹配滤波形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#多电平基带系统" class="md-nav__link">
+    多电平基带系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-信源编码" class="md-nav__link">
+    §10 信源编码
+  </a>
+  
+    <nav class="md-nav" aria-label="§10 信源编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#带通信号抽样定理" class="md-nav__link">
+    带通信号抽样定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13段折线量化编码" class="md-nav__link">
+    13段折线量化编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#噪声_1" class="md-nav__link">
+    噪声
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-信道编码" class="md-nav__link">
+    §11 信道编码
+  </a>
+  
+    <nav class="md-nav" aria-label="§11 信道编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#差错控制能力" class="md-nav__link">
+    差错控制能力
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#杂项" class="md-nav__link">
+    杂项
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#频带利用率" class="md-nav__link">
+    频带利用率
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#量纲" class="md-nav__link">
+    量纲
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#角频率与频率度量的频域" class="md-nav__link">
+    角频率与频率度量的频域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Fourier-参数之间的关系" class="md-nav__link">
+    Fourier 参数之间的关系
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#正态分布的累积分布" class="md-nav__link">
+    正态分布的累积分布
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#带宽" class="md-nav__link">
+    带宽
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#模型与结构" class="md-nav__link">
+    模型与结构
+  </a>
+  
+    <nav class="md-nav" aria-label="模型与结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#通信系统" class="md-nav__link">
+    通信系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#模拟调制系统" class="md-nav__link">
+    模拟调制系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数字基带系统" class="md-nav__link">
+    数字基带系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数字调制系统" class="md-nav__link">
+    数字调制系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#最佳接收" class="md-nav__link">
+    最佳接收
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/YDX-2147483647/summaries/blob/main/docs/digital-communication.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/YDX-2147483647/summaries/raw/main/docs/digital-communication.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="数字通信原理">数字通信原理<a class="headerlink" href="#数字通信原理" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\DeclareMathOperator\sinc{sinc}
+\DeclareMathOperator\erfc{erfc}
+\newcommand\SI[2]{#1\ \mathrm{#2}}  % siunitx (package)
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\]</div>
+<blockquote>
+<p>以下所有 <span class="arithmatex">\(\Pr(\cdot)\)</span> 中的 <span class="arithmatex">\(Z\)</span>（例：<span class="arithmatex">\(\Pr(Z &gt; z)\)</span>）默认为标准正态随机变量，即 <span class="arithmatex">\(Z \sim \mathcal{N}(0,1)\)</span>。</p>
+</blockquote>
+<h2 id="3-随机过程">§3 随机过程<a class="headerlink" href="#3-随机过程" title="Permanent link">&para;</a></h2>
+<h3 id="平稳与遍历">平稳与遍历<a class="headerlink" href="#平稳与遍历" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月3日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="../information-theory-and-coding/#平稳与遍历">“信息论与编码”同名小节</a>。</p>
+</blockquote>
+<ul>
+<li>stationary but not ergodic (for any sense)：<span class="arithmatex">\(Y\)</span> 为一随机变量，<span class="arithmatex">\(\eval{X}_t \equiv Y\)</span>。</li>
+<li>wide-sense stationary but neither stationary (for any order) nor ergodic (for any sense)：<span class="arithmatex">\(\Theta\)</span> 服从 <span class="arithmatex">\(\qty{0, \frac12\pi, \pi, \frac32\pi}\)</span> 上的均匀分布，<span class="arithmatex">\(\eval{X}_t = \cos(\omega t + \Theta)\)</span>，其中 <span class="arithmatex">\(\omega &gt; 0\)</span>。</li>
+</ul>
+<h2 id="4-信道">§4 信道<a class="headerlink" href="#4-信道" title="Permanent link">&para;</a></h2>
+<h3 id="多径传播的影响">多径传播的影响<a class="headerlink" href="#多径传播的影响" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月10日。</p>
+</blockquote>
+<p>信号快衰落（fading）。</p>
+<p>单一频率信号：</p>
+<ul>
+<li>时域包络不稳定。</li>
+<li>频谱弥散。</li>
+</ul>
+<p>若信号频带有限宽，有频率选择性衰落。若码元时宽 <span class="arithmatex">\(T_B\)</span> 超过各路径延时极差 <span class="arithmatex">\(\Delta\tau_m\)</span> 数倍，带宽 <span class="arithmatex">\(B\)</span> 小于 <span class="arithmatex">\(1/\Delta\tau_m\)</span> 数倍分之一 ，可缓解。</p>
+<h2 id="5-模拟调制系统">§5 模拟调制系统<a class="headerlink" href="#5-模拟调制系统" title="Permanent link">&para;</a></h2>
+<h3 id="调幅">调幅<a class="headerlink" href="#调幅" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月4日–5日。</p>
+</blockquote>
+<p>记基带信号最高频率为 <span class="arithmatex">\(f_H\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="center">带宽<small>ordinary frequency</small></th>
+<th align="center">相干解调<small>信号功率增益</small></th>
+<th align="center">包络检波<small>信噪比增益</small></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">Amplitude Modulation</td>
+<td align="center"><span class="arithmatex">\(2 f_H\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac12 \times \frac{P_\text{signal}}{P_\text{carrier} + P_\text{signal}}\)</span></td>
+<td align="center">好时同相干解调，坏时崩溃</td>
+</tr>
+<tr>
+<td align="right">Double Side Band</td>
+<td align="center"><span class="arithmatex">\(2 f_H\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac12\)</span></td>
+<td align="center">✗ 不适用</td>
+</tr>
+<tr>
+<td align="right">Single Side Band</td>
+<td align="center"><span class="arithmatex">\(f_H\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac12 \times \frac12 = \frac14\)</span></td>
+<td align="center">✗ 不适用</td>
+</tr>
+<tr>
+<td align="right">Vestigial Side Band</td>
+<td align="center">DSB、SSB 之间</td>
+<td align="center">类似 SSB</td>
+<td align="center">✗ 不适用</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>“增益”指接收方解调器两端的增益，不是从发射到接收的增益。</li>
+<li>相干解调时，噪声功率都一样：输入中 <span class="arithmatex">\(n_0 B\)</span>，输出中 <span class="arithmatex">\(\frac14 n_0 B\)</span>（<span class="arithmatex">\(\frac14\)</span> 的来源同 SSB 信号功率）；不过 <span class="arithmatex">\(B\)</span> 每种方式不一定一样。比较输出信噪比时，应当控制 <span class="arithmatex">\(f_H\)</span>、<span class="arithmatex">\(n_0\)</span> 相同。</li>
+<li>相干解调时，SSB 信号功率增益：第一个 <span class="arithmatex">\(\frac12\)</span> 因为同相分量的功率只占一半，第二个因为 <span class="arithmatex">\(\cos^2(\omega_\text{carrier} t)\)</span> 的平均下来只有一半。</li>
+<li>AM 包络检波的 <span class="arithmatex">\(\frac{P_\text{signal}}{P_\text{carrier} + P_\text{signal}}\)</span> 应当理解为 <span class="arithmatex">\(\overline{m^2} / \qty(A^2 + \overline{m^2})\)</span>。因为相对载波而言，<span class="arithmatex">\(A\)</span> 恒定，信号也算恒定；而长期时间平均时，<span class="arithmatex">\(A\)</span> 仍恒定，但信号不再能算恒定，平均功率只有峰值功率的一半。</li>
+</ul>
+<h3 id="调频和调相">调频和调相<a class="headerlink" href="#调频和调相" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日，2022年12月15日。</p>
+</blockquote>
+<ul>
+<li>调相灵敏度 <span class="arithmatex">\(K_\text{phase} \coloneqq \Delta \varphi / m\)</span>。（<span class="arithmatex">\(m\)</span> 是调制信号的瞬时值，下同）</li>
+</ul>
+<ul>
+<li>调频灵敏度 <span class="arithmatex">\(K_\text{frequency} \coloneqq \dv{\Delta\varphi}{t} / m\)</span>。</li>
+</ul>
+<ul>
+<li>最大角频偏 <span class="arithmatex">\((\Delta\omega)_\text{max}\)</span>。<p>如果是调频，并且输入信号是单频正弦波，则 <span class="arithmatex">\((\Delta \omega)_\text{max} = K_\text{frequency} m_\text{max}\)</span>。</p>
+<p><span class="arithmatex">\((\Delta \omega)_\text{max} \ll \frac\pi6\)</span> 则认为是窄带调频。</p>
+<p>若基带信号最高频率为 <span class="arithmatex">\(\omega_H\)</span>，则调制后带宽为 <span class="arithmatex">\(2 \qty(\omega_H + (\Delta\omega)_\text{max})\)</span>。</p>
+</li>
+</ul>
+<ul>
+<li>调频指数 <span class="arithmatex">\(m_\text{frequency} \coloneqq (\Delta \omega)_\text{max} / \omega_\text{modulate}\)</span>。</li>
+</ul>
+<p>调频、调相后信号总功率等于载波功率——只是重新分配功率，并不添加功率。</p>
+<blockquote>
+<p>“调制信号”相对载波而言，在通信系统中通常是基带信号。（莫与“已调信号”混淆）</p>
+</blockquote>
+<p>与线性调制相比，这两种非线性调制不止搬移基带信号的频谱，还有弥散。</p>
+<h3 id="比较">比较<a class="headerlink" href="#比较" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">AM</th>
+<th align="center">DSB</th>
+<th align="center">SSB</th>
+<th align="center">VSB</th>
+<th align="center">FM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(B/f_H\)</span></td>
+<td align="center"><span class="arithmatex">\(2\)</span></td>
+<td align="center"><span class="arithmatex">\(2\)</span></td>
+<td align="center"><span class="arithmatex">\(1\)</span></td>
+<td align="center"><span class="arithmatex">\(1+\varepsilon\)</span></td>
+<td align="center"><span class="arithmatex">\(2(1+m_f)\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>抗噪声性能</strong></td>
+<td align="center">+</td>
+<td align="center">++</td>
+<td align="center">++</td>
+<td align="center">++</td>
+<td align="center">++++</td>
+</tr>
+<tr>
+<td align="center"><strong>功率利用率</strong></td>
+<td align="center">+</td>
+<td align="center">++</td>
+<td align="center">++</td>
+<td align="center">++</td>
+<td align="center">++++</td>
+</tr>
+<tr>
+<td align="center"><strong>设备简单度</strong></td>
+<td align="center">++++</td>
+<td align="center">+++</td>
+<td align="center">+</td>
+<td align="center">++</td>
+<td align="center">+++</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-数字基带传输系统">§6 数字基带传输系统<a class="headerlink" href="#6-数字基带传输系统" title="Permanent link">&para;</a></h2>
+<h3 id="作为模拟信号的基带信号">作为模拟信号的基带信号<a class="headerlink" href="#作为模拟信号的基带信号" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日。</p>
+</blockquote>
+<p>以二元码为例。记码元重复周期、频率为 <span class="arithmatex">\(T_B, f_B\)</span>（B for baud, named after Émile Baudot）。记两种码元的波形分别为 <span class="arithmatex">\(g_+, g_-\)</span>，出现概率分别为 <span class="arithmatex">\(p_+,p_-\)</span>（<span class="arithmatex">\(p_+ + p_- = 1\)</span>）。认为不同时刻发送的码元相互独立。</p>
+<ul>
+<li>
+<p><strong>稳态</strong>部分 <span class="arithmatex">\(\mathop{\mathbb E} g = p_+g_+ + p_-g_-\)</span></p>
+<p>这是确定信号，有周期，频谱离散，导致直流分量、定时分量。无定时分量并不代表无法定时——变换波形后可能存在定时分量。</p>
+<p><span class="arithmatex">\(\sum \eval{\delta}_{t - \Z T_B} \leftrightarrow f_B \sum \eval{\delta}_{f - \Z f_B}\)</span>，故稳态部分的功率谱（不是频谱）如下。</p>
+<div class="arithmatex">\[
+\sum \qty(f_B \mathop{\mathbb{E}} G)^2 \eval{\delta}_{f-\Z f_B}.
+\]</div>
+<p>可以看到，等概率双极性信号无此部分。对于单极性信号，还要看 <span class="arithmatex">\(\mathop{\mathbb E} G\)</span> 的零点会不会与 <span class="arithmatex">\(\Z f_B\)</span> 碰撞——不归零的方波谱就全都碰撞了。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>交变</strong>部分 <span class="arithmatex">\(g - \mathop{\mathbb E}G\)</span></p>
+<p>这是随机信号，有连续功率谱，影响信号带宽。</p>
+<p>在每一码元，以 <span class="arithmatex">\(p_\pm\)</span> 的概率出现 <span class="arithmatex">\(\pm p_\mp \qty(g_+ - g_-)\)</span>。期望当然为零，方差为 <span class="arithmatex">\(p_+ p_- \qty(g_+ - g_-)^2\)</span>。由此大约能得到自相关函数，反正最终功率谱如下。</p>
+<div class="arithmatex">\[
+f_B \times p_+ p_- \qty(G_+ - G_-)^2.
+\]</div>
+<p>可以看到，对于方波，带宽与占空比成反比。</p>
+</li>
+</ul>
+<h3 id="基带信号的编码">基带信号的编码<a class="headerlink" href="#基带信号的编码" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日，2022年12月15日。</p>
+</blockquote>
+<p>基带信号是与模拟信号紧密相关的数字信号。</p>
+<p>编码目标：频谱、定时、纠错。</p>
+<ul>
+<li>
+<p><strong>Alternative Mark Inversion</strong></p>
+<p>如其名。</p>
+<p>为保证定时分量，需避免连续零，改进为 High Density Bipolar。</p>
+<p>连续0 → <code>00…0V</code> / <code>B0…0V</code>。（保证编码后连零数量不超过 order，order 实用时常取 3）</p>
+<ul>
+<li>V (Violation) 同时满足两个条件：<ul>
+<li>（V之间）交替 ±1 ——保证平均仍是零。</li>
+<li>极性与前一号相同（“前一号”包括原有1和新加的V、B）——方便译码。</li>
+</ul>
+</li>
+<li>V 的两个条件可能矛盾，于是要引入 B (Balance)。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>块编码</strong></p>
+<ul>
+<li>1 binary → 2 binary<ul>
+<li>Manchester 双相码：用上升沿、下降沿区分。</li>
+<li>Coded Mark Inversion：用有沿、无沿区分。</li>
+</ul>
+</li>
+<li>x binary → y binary</li>
+<li>x binary → y (pseudo) ternary<ul>
+<li>AMI, HDB.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>相对码</strong>（aka. 差分码）</p>
+<p>这是一种设计，可以和其它编码结合。</p>
+</li>
+</ul>
+<h3 id="码间串扰">码间串扰<a class="headerlink" href="#码间串扰" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日，2022年12月15日。</p>
+</blockquote>
+<p>码间串扰（InterSymbol Inference）完全不存在的充要条件如下。</p>
+<ul>
+<li><strong>时域</strong>：<span class="arithmatex">\(h\)</span> 在其它抽样时刻（<span class="arithmatex">\(\Z T_B - \qty{0}\)</span>）均为零。</li>
+<li><strong>频域</strong>：<span class="arithmatex">\(H\)</span> 以 <span class="arithmatex">\(f_B\)</span> 为周期延拓后，对所有 <span class="arithmatex">\(\omega\)</span> 一致。</li>
+</ul>
+<div class="arithmatex">\[
+\begin{array}{crcl}
+&amp;
+h \delta &amp;=&amp; h \sum \eval{\delta}_{t - \Z T_B}. \\
+\iff&amp;
+\eval{h}_0 &amp;\equiv&amp; H * f_B \sum \eval{\delta}_{f - \Z f_B}. \\
+\iff&amp;
+\eval{h}_0 T_B &amp;\equiv&amp; \sum \eval{H}_{f - \Z f_B}.
+\end{array}
+\]</div>
+<p>由频域条件，<span class="arithmatex">\(2B \geq f_B\)</span>，故频带利用率 <span class="arithmatex">\(\eta \coloneqq \frac{f_B}{B} \leq 2\)</span>（这是无码间串扰的必要不充分条件），或者对于 <span class="arithmatex">\(M\)</span> 元码，<span class="arithmatex">\(\eta_b \leq 2 \log M\)</span>。</p>
+<blockquote>
+<p><span class="arithmatex">\(B\)</span> 只算正频率。这里是基带系统，两侧对称分布于 <span class="arithmatex">\(\omega = 0\)</span> 附近，<span class="arithmatex">\(2B\)</span> 才是频域等效宽度。</p>
+</blockquote>
+<p>这最小的 <span class="arithmatex">\(B\)</span> 称作 Nyquist 带宽 <span class="arithmatex">\(f_N\)</span>。（仅限基带系统）</p>
+<p>有人说，<a href="https://en.wikipedia.org/wiki/Nyquist_ISI_criterion">Nyquist ISI criterion</a> 只是 <a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist–Shannon sampling theorem</a> 的另一角度。</p>
+<h3 id="噪声">噪声<a class="headerlink" href="#噪声" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日。</p>
+</blockquote>
+<p>对于二元信号和 Additive Gaussian White Noise（AGWN），最佳门限电平</p>
+<div class="arithmatex">\[
+V_d^* = \frac{A_+ + A_-}{2} + \frac{{\sigma_n}^2}{A_+ - A_-} \ln \frac{P_-}{P_+}.
+\]</div>
+<ul>
+<li>噪声越强，先验概率影响越大。</li>
+<li>谁先验概率大，谁的判定区域大。</li>
+</ul>
+<p>信源均匀分布时，<span class="arithmatex">\(V_d^* = 0\)</span>，两个条件误码率一致，总误码率也一致，为 <span class="arithmatex">\(\Pr(\sigma_n Z &gt; \frac{A_+ - A_-}{2})\)</span>。</p>
+<h3 id="眼图">眼图<a class="headerlink" href="#眼图" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日。</p>
+</blockquote>
+<ul>
+<li>最佳抽样时刻、最佳判决门限。</li>
+<li>抽样失真。</li>
+<li>噪声容限。</li>
+<li>定时误差灵敏度。</li>
+</ul>
+<h3 id="时域均衡">时域均衡<a class="headerlink" href="#时域均衡" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月5日。</p>
+</blockquote>
+<p>目的：抑制码间串扰。</p>
+<ul>
+<li>按幅度失真（aka. 峰值失真），要迫零调整。（要求初始失真够小）</li>
+<li>按平方失真，应用自适应均衡器，让每一处抽样的误差与抽样值不相关。</li>
+</ul>
+<h3 id="评价传输特性">评价传输特性<a class="headerlink" href="#评价传输特性" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月15日。</p>
+</blockquote>
+<ul>
+<li>码间串扰。</li>
+<li>带宽利用率。</li>
+<li>时域拖尾情况。</li>
+</ul>
+<h2 id="7-数字带通调制系统">§7 数字带通调制系统<a class="headerlink" href="#7-数字带通调制系统" title="Permanent link">&para;</a></h2>
+<h3 id="二进制数字调制">二进制数字调制<a class="headerlink" href="#二进制数字调制" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月9日。</p>
+</blockquote>
+<p>以下判决门限 <span class="arithmatex">\(V_d^*\)</span>、误码率 <span class="arithmatex">\(P_\text{error}\)</span> 都是在信源均匀分布条件下估计的。</p>
+<h4 id="Amplitude-Shift-Keying">Amplitude Shift Keying<a class="headerlink" href="#Amplitude-Shift-Keying" title="Permanent link">&para;</a></h4>
+<p>特例：On / Off Keying。</p>
+<p><strong>调制</strong>：</p>
+<ul>
+<li>模拟相乘。</li>
+<li>数字键控。（用开关电路）</li>
+</ul>
+<p><strong>功率谱</strong>：将基带信号平移到载频附近，带宽变为原来两倍。</p>
+<p><strong>解调</strong>：</p>
+<ul>
+<li>
+<p><strong>相干解调</strong>。</p>
+<p>误码率 <span class="arithmatex">\(P_e = \Pr(\sigma_n Z &gt; \frac{a}{2})\)</span>，其中 <span class="arithmatex">\({\sigma_n}^2\)</span> 为噪声功率，<span class="arithmatex">\(a\)</span> 为信号幅度（<span class="arithmatex">\(\frac12 a^2\)</span> 为信号功率）。信噪比 <span class="arithmatex">\(r = \frac12 a^2 / {\sigma_n}^2\)</span>，因此</p>
+<div class="arithmatex">\[
+\boxed{P_e = \Pr(Z &gt; \sqrt{\frac{r}{2}})}
+= \frac12 \erfc\sqrt{\frac{r}{4}}.
+\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>包络检波</strong>。</p>
+<p>大信噪比下，最佳门限同相干解调。发送零时，结果服从 Rayleigh 分布，误码率为</p>
+<div class="arithmatex">\[
+\exp(- \frac{(a/2)^2}{2 {\sigma_n}^2}) = e^{-r/4}.
+\]</div>
+<p>发送一时，在大信噪比下，结果服从正态分布，误码率同相干解调。</p>
+<blockquote>
+<p><img alt="" src="../assets/ASK_envelope.svg" /></p>
+<p>按旋转向量法可绘出上图。</p>
+<ul>
+<li>结果是信号叠加噪声。<ul>
+<li>信号发送零时（绿色）为 <span class="arithmatex">\((0,0)\)</span>，发送一时（红色）为 <span class="arithmatex">\((a,0)\)</span>。</li>
+<li>噪声服从二维正态分布，均值为零，标准差为 <span class="arithmatex">\(\sigma_n\)</span>，协方差为零。</li>
+</ul>
+</li>
+<li>判决边界是紫色圆环。</li>
+</ul>
+<p>可以看到，发送零时更容易越过判决边界。</p>
+</blockquote>
+<p>总误码率是二者平均。由于<a href="#正态分布的累积分布">第一项是第二项的高阶无穷小</a>，大信噪比下，</p>
+<div class="arithmatex">\[
+\boxed{P_e = \frac12 e^{-r/4}.}
+\]</div>
+</li>
+</ul>
+<h4 id="Frequency-Shift-Keying">Frequency Shift Keying<a class="headerlink" href="#Frequency-Shift-Keying" title="Permanent link">&para;</a></h4>
+<p>相当于两路 ASK 叠加。</p>
+<p><strong>调制</strong>：键控。</p>
+<p><strong>功率谱</strong>：将基带信号平移到两个载频附近，传输时带宽相当于同等 ASK 带宽加上两载频距离。（解调时因为有带通滤波，噪声谱的范围还和同等 ASK 一样。）</p>
+<p><strong>解调</strong>：</p>
+<ul>
+<li>用两路带通滤波器分解为 <u>ASK</u>，然后各自用 ASK 的方法解调，最后比较。<p>注意有两路结果，只需比较大小，无需专门设置判决门限。另外差的方差等于方差的和，因此“两路结果之差”的噪声方差是原本的两倍（<span class="arithmatex">\(2 {\sigma_n}^2\)</span>）；同时两种码元的幅度差从 <span class="arithmatex">\(a-0\)</span> 变成了 <span class="arithmatex">\(a - (-a)\)</span>，变为原来的两倍。综合两点，误码率同 ASK，只需把 <span class="arithmatex">\(r\)</span> 替换为 <span class="arithmatex">\(\frac12 r\)</span>。</p>
+</li>
+</ul>
+<ul>
+<li><u>过零检测</u>：将零点转换为脉冲（限幅、微分、整流），展宽脉冲，低通滤波。</li>
+</ul>
+<h4 id="Phase-Shift-Keying">Phase Shift Keying<a class="headerlink" href="#Phase-Shift-Keying" title="Permanent link">&para;</a></h4>
+<p>改进：Differential PSK（输入决定输出变不变）。</p>
+<p><strong>调制</strong>：</p>
+<ul>
+<li>变换<u>码型</u>为双极性，模拟相乘。</li>
+<li>制备反相信号，数字<u>键控</u>。</li>
+</ul>
+<p><strong>功率谱</strong>：先将基带信号转换为双极性信号，再像 ASK 一样搬移，带宽也是最初两倍，不过信源均匀分布时无离散谱。</p>
+<p><strong>解调</strong>：</p>
+<ul>
+<li><u>相干</u>解调（aka. 极性比较法）。若是 DPSK，解调后再变换码型。<p>同 ASK，只需把 <span class="arithmatex">\(a/2\)</span> 换成 <span class="arithmatex">\(a\)</span>，即 <span class="arithmatex">\(r\)</span> 换成 <span class="arithmatex">\(4r\)</span>。若是 DPSK，变换码型时，相邻两位任意一个错误都会导致结果错误，误码率小时相当于翻倍。</p>
+</li>
+</ul>
+<ul>
+<li>对于 DPSK，还可<u>比较相位</u>。<p>将接收信号延时一个码元后与自身相乘，低通滤波，抽样判决。（无需另外变换码型）</p>
+<blockquote>
+<p>这相当于自相干，因此又称“差分相干解调”。不过一般“相干解调”是信号与载波相干，与此不同。</p>
+</blockquote>
+<p>类似 ASK 的包络检波，只需把 <span class="arithmatex">\(a/2\)</span> 换成 <span class="arithmatex">\(a\)</span>，即 <span class="arithmatex">\(r\)</span> 换成 <span class="arithmatex">\(4r\)</span>。</p>
+</li>
+</ul>
+<h4 id="横向比较">横向比较<a class="headerlink" href="#横向比较" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="center">相干解调</th>
+<th align="center">非相干解调（包络检波等）</th>
+<th>与 ASK 比较</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>ASK</strong></td>
+<td align="center"><span class="arithmatex">\(\Pr(\sigma_n Z &gt; \frac{a}{2}) = \Pr(Z &gt; \sqrt{r/2})\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac12 \exp(-r/4)\)</span></td>
+<td>✗不适用</td>
+</tr>
+<tr>
+<td align="right"><strong>FSK</strong></td>
+<td align="center"><span class="arithmatex">\(\Pr(\sqrt2 \sigma_n Z &gt; a) = \Pr(Z &gt; \sqrt{r})\)</span></td>
+<td align="center"><span class="arithmatex">\(\frac12 \exp(-r/2)\)</span></td>
+<td>同下，加上两路比较时 <span class="arithmatex">\({\sigma_n}^2\)</span> 翻倍</td>
+</tr>
+<tr>
+<td align="right"><strong>PSK</strong></td>
+<td align="center"><span class="arithmatex">\(\Pr(\sigma_n Z &gt; a) = \Pr(Z &gt; \sqrt{2r})\)</span></td>
+<td align="center">✗不适用</td>
+<td>两种码元距离从 <span class="arithmatex">\(a\)</span> 变成 <span class="arithmatex">\(2a\)</span></td>
+</tr>
+<tr>
+<td align="right"><strong>DPSK</strong></td>
+<td align="center">以上两倍</td>
+<td align="center"><span class="arithmatex">\(\frac12 \exp(-r)\)</span></td>
+<td>同上，相干解调再加码型变换</td>
+</tr>
+</tbody>
+</table>
+<p>其中 DPSK 的相干解调、全部非相干解调仅限 <span class="arithmatex">\(r \gg 1\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="center">ASK</th>
+<th align="center">FSK</th>
+<th align="center">PSK / DPSK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>抗噪声性能</strong></td>
+<td align="center">+</td>
+<td align="center">++</td>
+<td align="center">+++</td>
+</tr>
+<tr>
+<td align="right"><strong>频带利用率</strong></td>
+<td align="center">++</td>
+<td align="center">+</td>
+<td align="center">++</td>
+</tr>
+<tr>
+<td align="right"><strong>适应性</strong></td>
+<td align="center">+</td>
+<td align="center">++++</td>
+<td align="center">+++</td>
+</tr>
+<tr>
+<td align="right"><strong>功率利用率</strong></td>
+<td align="center">+</td>
+<td align="center">++</td>
+<td align="center">++</td>
+</tr>
+</tbody>
+</table>
+<p><strong>设备简单度</strong>：非相干解调优于相干解调。</p>
+<h3 id="多进制数字调制">多进制数字调制<a class="headerlink" href="#多进制数字调制" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月9日。</p>
+</blockquote>
+<p>与二进制相比，提高有效性（<span class="arithmatex">\(R_b\)</span>），牺牲可靠性（抗噪声性能）。</p>
+<p>为比较不同体制，用 <span class="arithmatex">\(r_b \coloneqq \frac12 a^2 / ({\sigma_n}^2 \log M)\)</span> 衡量 <span class="arithmatex">\(M\)</span> 进制的信噪比。</p>
+<blockquote>
+<div class="arithmatex">\[
+\frac{E_b R_B}{n_0 B} = \frac{a^2/2}{{\sigma_n}^2 \log M}.
+\]</div>
+<p>对于 ASK、PSK，<span class="arithmatex">\(B = R_B\)</span>。</p>
+</blockquote>
+<h3 id="Quadrature-Shift-Keying">Quadrature Shift Keying<a class="headerlink" href="#Quadrature-Shift-Keying" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月9日。</p>
+</blockquote>
+<p>Also known as 4 – phase shift keying.</p>
+<p>改进：Offset QPSK，π/4 相移 QPSK，Q Differential PSK（A、B方式）。</p>
+<p><strong>调制</strong>：（都先串行转并行）</p>
+<ul>
+<li><u>正交调相</u>，模拟相乘。</li>
+<li><u>选择相位</u>。</li>
+</ul>
+<p><strong>解调</strong>：</p>
+<ul>
+<li>相干解调（aka. <u>极性比较</u>法）。<p>分两路，分别乘同相、正交载波，后同 2PSK。若是 DPSK，还需变换码型。</p>
+</li>
+</ul>
+<ul>
+<li>对于 DPSK，还可<u>比较相位</u>。<p>也需要两路。</p>
+</li>
+</ul>
+<h2 id="9-最佳接收">§9 最佳接收<a class="headerlink" href="#9-最佳接收" title="Permanent link">&para;</a></h2>
+<h3 id="相关形式">相关形式<a class="headerlink" href="#相关形式" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月9日，2022年12月15日。</p>
+</blockquote>
+<h4 id="概念">概念<a class="headerlink" href="#概念" title="Permanent link">&para;</a></h4>
+<p>目标：最小误码率。</p>
+<p>方法：哪个信号的后验概率大就判为哪个。后验概率 = 先验概率 × 似然函数。</p>
+<p>对于 AGWN，似然函数（发送 <span class="arithmatex">\(s\)</span> 的条件下收到 <span class="arithmatex">\(r\)</span> 的概率密度）如下</p>
+<div class="arithmatex">\[
+\frac{1}{\sqrt{(2\pi)^k {\sigma_n}^{2k}}} \exp(-\frac{\int \qty(r - s)^2 \dd{t}}{n_0}).
+\]</div>
+<blockquote>
+<ul>
+<li>这时 <span class="arithmatex">\(k\)</span> 维概率密度。</li>
+<li>指数部分分母的量纲是<code>[归一化功率]/[频率]</code>，分子的是<code>[幅度平方]×[时间]</code>。</li>
+<li><span class="arithmatex">\({\sigma_n}^2 = n_0 B\)</span>，其中 <span class="arithmatex">\(n_0\)</span> 是噪声的单边功率谱密度。</li>
+<li>指数部分分子在 <span class="arithmatex">\(k \to +\infty\)</span> 时才是积分。积分范围是一个码元重复周期。</li>
+</ul>
+</blockquote>
+<h4 id="结构">结构<a class="headerlink" href="#结构" title="Permanent link">&para;</a></h4>
+<p>此时</p>
+<div class="arithmatex">\[
+\begin{split}
+\ln P
+&amp;= \ln P_\text{prior} - \frac{1}{n_0} \int (r-s)^2 \dd{t} + (\cdots) \\
+&amp;\propto n_0 \ln P_\text{prior} - \int (r-s)^2 \dd{t} + (\cdots).
+\end{split}
+\]</div>
+<blockquote>
+<p>其中 <span class="arithmatex">\((\cdots)\)</span> 与发送码元无关，比较概率时无需考虑。</p>
+<p>此处 <span class="arithmatex">\(\propto\)</span> 都保证系数是正数。</p>
+</blockquote>
+<p>注意积分中 <span class="arithmatex">\(\int r^2 \dd{t}\)</span> 与发送码元无关。对于 FSK、PSK，<span class="arithmatex">\(\int s^2 \dd{t}\)</span> 也无关，可进一步简化为</p>
+<div class="arithmatex">\[
+\ln P \propto \boxed{
+    \frac12 n_0 \ln P_\text{prior} + \int rs \dd{t}
+} + (\cdots).
+\]</div>
+<p>这就是最佳接收机的结构。</p>
+<h4 id="误码率">误码率<a class="headerlink" href="#误码率" title="Permanent link">&para;</a></h4>
+<p>判决依据各个码元的 <span class="arithmatex">\(\ln P\)</span>，误码等价于 <span class="arithmatex">\(\ln P &lt; \ln P'\)</span>（发送 <span class="arithmatex">\(s\)</span>，误判为 <span class="arithmatex">\(s'\)</span>）。</p>
+<div class="arithmatex">\[
+\begin{split}
+&amp; \Delta\ln P = \ln P' - \ln P &gt; 0 \\
+&amp;\iff n_0 \Delta\ln P_\text{prior} - \int \Delta(r-s)^2 \dd{t} &gt; 0.
+\end{split}
+\]</div>
+<p>噪声 <span class="arithmatex">\(n = r-s\)</span> 的分布更简洁，我们向它看齐。</p>
+<div class="arithmatex">\[
+\begin{split}
+&amp; \Delta\ln P &gt; 0 \\
+&amp;\iff n_0 \Delta\ln P_\text{prior} - \int \qty((n+\Delta s)^2 - n^2) \dd{t} &gt; 0 \\
+&amp;\iff n_0 \Delta\ln P_\text{prior} - \int (\Delta s)^2 \dd{t} - 2\int n \Delta s \dd{t} &gt; 0. \\
+\end{split}
+\]</div>
+<blockquote>
+<p>每一项的量纲都是<code>[幅度平方]×[时间]</code>。</p>
+<p><span class="arithmatex">\(n\)</span> 越与 <span class="arithmatex">\(\Delta s = s' - s\)</span> 符合，<span class="arithmatex">\(r = s + n\)</span> 越容易被误判为 <span class="arithmatex">\(s'\)</span>。</p>
+</blockquote>
+<p>任意时刻 <span class="arithmatex">\(n \sim \mathcal{N}(0, \frac12 n_0)\)</span>。<span class="arithmatex">\(\int n \Delta s \dd{t}\)</span> 是其线性组合，应当服从</p>
+<div class="arithmatex">\[
+\mathcal{N}\qty(0,\ \frac{n_0}{2} \times \int \qty(\Delta s)^2 \dd{t}).
+\]</div>
+<p>记 <span class="arithmatex">\(\Delta E = \int \qty(\Delta s)^2 \dd{t}\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{split}
+P_\text{error}
+&amp;= \Pr(\Delta\ln P &lt; 0) \\
+&amp;= \Pr(n_0 \Delta\ln P_\text{prior} - \Delta E - 2\sqrt{\frac{n_0}{2} \Delta E} \times  Z &lt; 0). \\
+\end{split}
+\]</div>
+<p>信源均匀分布时 <span class="arithmatex">\(\Delta \ln P_\text{prior} = 0\)</span>，上式简化为</p>
+<div class="arithmatex">\[
+\boxed{P_e = \Pr(\sqrt{n_0} \times Z &gt; - \sqrt{\frac{\Delta E}{2}}).}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\Delta E = E + E' - 2 (s, s')\)</span>。若 <span class="arithmatex">\(E = E' = E_b\)</span>，<span class="arithmatex">\((s,s') = \rho E_b\)</span>，则 <span class="arithmatex">\(\Delta E = 2(1-\rho) E_b\)</span>。</p>
+</blockquote>
+<p>下面分析特例。设发一时的能量为 <span class="arithmatex">\(E_b\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th align="center">基带系统体制</th>
+<th align="center"><span class="arithmatex">\(\Delta E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">单极性</td>
+<td align="center"><span class="arithmatex">\(E_b\)</span></td>
+</tr>
+<tr>
+<td align="center">双极性</td>
+<td align="center"><span class="arithmatex">\(4 E_b\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">带通系统体制</th>
+<th align="center"><span class="arithmatex">\(\Delta E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2ASK</td>
+<td align="center"><span class="arithmatex">\(E_b\)</span></td>
+</tr>
+<tr>
+<td align="center">2FSK</td>
+<td align="center"><span class="arithmatex">\(2 E_b\)</span></td>
+</tr>
+<tr>
+<td align="center">2PSK</td>
+<td align="center"><span class="arithmatex">\(4 E_b\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>2ASK、2PSK 显然；2FSK 可展开完全平方差，利用正交性。</p>
+</blockquote>
+<p>将这些结果中的 <span class="arithmatex">\(E_b / n_0\)</span> 换为 <span class="arithmatex">\(r\)</span>，就变成了<a href="#横向比较">实际接收机的公式</a>。</p>
+<h3 id="匹配滤波形式">匹配滤波形式<a class="headerlink" href="#匹配滤波形式" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月10日。</p>
+</blockquote>
+<p>目标：最大信噪比。</p>
+<p>接收到 <span class="arithmatex">\(s + n\)</span>（<span class="arithmatex">\(n\)</span> 是 AGWN），传输函数为 <span class="arithmatex">\(h\)</span>，则输出中</p>
+<ul>
+<li>信号频谱密度：<span class="arithmatex">\(HS\)</span>。（量纲：<code>[幅度]/[频率]</code>）</li>
+<li>噪声功率谱密度：<span class="arithmatex">\(\frac{n_0}{2} \abs{H}^2\)</span>。（量纲：<code>[幅度平方]/[频率]</code>）</li>
+</ul>
+<p>瞬时信噪比</p>
+<div class="arithmatex">\[
+\begin{split}
+r
+&amp;= \frac {\eval{\abs{s_\text{output}}^2}_{t_0}} {\int \frac{n_0}{2} \abs{H}^2 \dd{f}} \\
+&amp;= \frac {\qty(H^*,\ S e^{j\omega t_0})^2} {\frac{n_0}{2} \qty(H,H)}
+    \qq{(inverse Fourier transform)} \\
+&amp;\leq \frac {\qty(H^*,\ H^*) \times \qty(S e^{j\omega t_0},\ S e^{j\omega t_0})} {\frac{n_0}{2} \qty(H,H)}
+    \qq{(Cauchy–Schwartz inequality)} \\
+&amp;= \frac {(H,H) \times (S,S)} {\frac{n_0}{2} \qty(H,H)} \\
+&amp;= \frac{(S,S)}{n_0 / 2}
+\eqqcolon \frac{E}{n_0/2}.
+\end{split}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\((x,y) = \int x^* y \dd{f}\)</span> 是内积。</p>
+<p><span class="arithmatex">\(E\)</span> 是码元能量。</p>
+</blockquote>
+<p>取等时， <span class="arithmatex">\(H\)</span> 可取 <span class="arithmatex">\(S^* e^{-j\omega t_0}\)</span>，即 <span class="arithmatex">\(h = \eval{s}_{t_0 - t}\)</span>。</p>
+<p>匹配滤波在 <span class="arithmatex">\(t_0\)</span> 时刻的输出，与前述相关在 <span class="arithmatex">\(T_B\)</span> 时刻的输出相同。（要求信源均匀分布）</p>
+<h3 id="多电平基带系统">多电平基带系统<a class="headerlink" href="#多电平基带系统" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月10日。</p>
+</blockquote>
+<p>设输出端 <span class="arithmatex">\(M\)</span> 种电平分别为 <span class="arithmatex">\(\pm d, \pm 3d, \ldots, \pm(M-1)d\)</span>。记输出噪声功率为 <span class="arithmatex">\({\sigma_n}^2\)</span>。</p>
+<p>误码有两种可能，在两端为 <span class="arithmatex">\(\Pr(Z\sigma_n &gt; d)\)</span>，在内部为 <span class="arithmatex">\(\Pr(\abs{Z\sigma_n} &gt; d)\)</span>。设信源均匀分布，则总误码率</p>
+<div class="arithmatex">\[
+P_\text{error} = \frac{M-1}{M} \Pr(\abs{Z}\sigma_n &gt; d).
+\]</div>
+<p>信源均匀分布时，输出码元平均能量</p>
+<div class="arithmatex">\[
+E_\text{output} = \overline{\qty((2i-1)d)^2} = \frac{M^2-1}{3} d^2.
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(1^2 + 3^2 + \cdots + (2n-1)^2 = \frac13 n (2n-1)(2n+1)\)</span>。</p>
+</blockquote>
+<p>最佳接收时，<span class="arithmatex">\(\frac12 n_0 = {\sigma_n}^2 / (H,H)\)</span>，输入码元平均能量 <span class="arithmatex">\(E = E_\text{output} / (H,H)\)</span>，可转换为输入信噪比：</p>
+<div class="arithmatex">\[
+P_e = \frac{M-1}{M} \erfc\sqrt{\frac{3}{M^2-1} \times \frac{E}{n_0/2 \times 2}}.
+\]</div>
+<p>以上要求 <span class="arithmatex">\(H\)</span> 能无码间串扰。</p>
+<h2 id="10-信源编码">§10 信源编码<a class="headerlink" href="#10-信源编码" title="Permanent link">&para;</a></h2>
+<h3 id="带通信号抽样定理">带通信号抽样定理<a class="headerlink" href="#带通信号抽样定理" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月10日。</p>
+</blockquote>
+<p>给定 <span class="arithmatex">\(f_H, B\)</span>，若 <span class="arithmatex">\(f_H = n B'\)</span>，<span class="arithmatex">\(n \in \N_+\)</span>，<span class="arithmatex">\(B' \geq B\)</span>，则按 <span class="arithmatex">\(f_s = 2B'\)</span> 抽样也不会失真，与带宽为 <span class="arithmatex">\(B'\)</span> 的低通信号一样。</p>
+<h3 id="13段折线量化编码">13段折线量化编码<a class="headerlink" href="#13段折线量化编码" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月10日，2022年12月16日。</p>
+</blockquote>
+<p>这是一种脉冲编码调制（Pulse Coded Modulation，PCM），近似不均匀编码的A律（<span class="arithmatex">\(A = 87.6 \gg 1\)</span>，如下），主要用于语音信号。</p>
+<div class="arithmatex">\[
+y = \operatorname{sgn} x \times \begin{cases}
+    \dfrac{A\abs{x}}{1 + \ln A} &amp; \abs{x} \leq A^{-1}. \\
+    \dfrac{1 + \ln (A\abs{x})}{1 + \ln A} &amp;  A^{-1} \leq \abs{x} \leq 1. \\
+\end{cases}
+\]</div>
+<p>以 <span class="arithmatex">\(\abs{x} \leq A^{-1}\)</span> 段的量化间隔为 1。</p>
+<ul>
+<li>1位极性码</li>
+</ul>
+<ul>
+<li>3位段落对数量化码<p><code>000</code>为<code>0..16</code>，<code>001</code>为<code>16..32</code>。从下一段开始，每段长度翻倍。最后一段<code>111</code>为<code>1024..2048</code>。</p>
+</li>
+</ul>
+<ul>
+<li>4位段内均匀量化码<p>每一段都取 16 个点。<code>000</code>、<code>001</code>的量化间隔是 1。从下一段开始，每段量化间隔翻倍，最后一段<code>111</code>为 64。</p>
+</li>
+</ul>
+<p>编码时向下对齐，译码时按期望估计。</p>
+<h3 id="噪声_1">噪声<a class="headerlink" href="#噪声_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月15日。</p>
+</blockquote>
+<p>若均匀量化为 <span class="arithmatex">\(M\)</span> 个电平，则信源在零两侧对称均匀分布时，量噪比 <span class="arithmatex">\(S_\text{out} / N_\text{quantize}\)</span> 为 <span class="arithmatex">\(M^2\)</span>。</p>
+<p>加性噪声在此的信噪比 <span class="arithmatex">\(S_\text{out} / N_\text{additive} = 1 / (4P_\text{error})\)</span>。（<span class="arithmatex">\(M \in 2^\N\)</span> 时）</p>
+<h2 id="11-信道编码">§11 信道编码<a class="headerlink" href="#11-信道编码" title="Permanent link">&para;</a></h2>
+<h3 id="差错控制能力">差错控制能力<a class="headerlink" href="#差错控制能力" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月10日。</p>
+</blockquote>
+<p>最小码距 <span class="arithmatex">\(d\)</span>、译码策略决定了差错控制能力。</p>
+<ul>
+<li>保证正确检测 <span class="arithmatex">\(e\)</span> 位：<span class="arithmatex">\(d &gt; e\)</span>。</li>
+<li>保证正确纠错 <span class="arithmatex">\(t\)</span> 位：<span class="arithmatex">\(d &gt; 2t\)</span>。</li>
+<li>保证正确纠错 <span class="arithmatex">\(t\)</span> 位，正确检测 <span class="arithmatex">\(e\)</span> 位（<span class="arithmatex">\(e &gt; t\)</span>）：<span class="arithmatex">\(d &gt; t+e\)</span>。</li>
+</ul>
+<h2 id="杂项">杂项<a class="headerlink" href="#杂项" title="Permanent link">&para;</a></h2>
+<h3 id="频带利用率">频带利用率<a class="headerlink" href="#频带利用率" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月4日。</p>
+</blockquote>
+<p>这个利用率是 utilization 而非 efficiency，衡量数字通信系统的有效性。</p>
+<div class="arithmatex">\[
+\eta \coloneqq \frac{R_B}{B}.
+\]</div>
+<blockquote>
+<p>以上按码元（<span class="arithmatex">\(\text{Baud}\)</span>）衡量，也可按信息（<span class="arithmatex">\(\text{bit}\)</span>）衡量—— <span class="arithmatex">\(\eta_b \coloneqq R_b / B\)</span>。</p>
+<p>若符号数为 <span class="arithmatex">\(M\)</span>，则 <span class="arithmatex">\(R_b = R_B \log M\)</span>。</p>
+</blockquote>
+<h3 id="量纲">量纲<a class="headerlink" href="#量纲" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月4日，2022年12月10日。</p>
+</blockquote>
+<p>其中功率、能量是指归一化功率、归一化能量。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><code>[幅度]</code></th>
+<th align="center"><code>[功率] = [幅度平方]</code></th>
+<th align="center"><code>[能量] = [幅度平方]×[时间]</code></th>
+<th>关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex">\(\sigma_n\)</span></td>
+<td align="center">噪声功率或方差 <span class="arithmatex">\({\sigma_n}^2\)</span></td>
+<td align="center">噪声功率谱密度 <span class="arithmatex">\(n_0\)</span></td>
+<td><span class="arithmatex">\({\sigma_n}^2 = n_0 B\)</span></td>
+</tr>
+<tr>
+<td align="center">信号振幅 <span class="arithmatex">\(a\)</span></td>
+<td align="center">信号功率 <span class="arithmatex">\(S\)</span></td>
+<td align="center">信号能量 <span class="arithmatex">\(E\)</span></td>
+<td><span class="arithmatex">\(E = ST_B\)</span>，<span class="arithmatex">\(S = \frac12 a^2\)</span></td>
+</tr>
+<tr>
+<td align="center">信号 <span class="arithmatex">\(x\)</span></td>
+<td align="center">自相关函数 <span class="arithmatex">\(R\)</span></td>
+<td align="center">功率谱密度 <span class="arithmatex">\(P\)</span></td>
+<td><span class="arithmatex">\(R = \mathbb{E}[\eval{x}_{t_1} \eval{x}_{t_2}] \leftrightarrow P\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><code>[时域物理量]×[时间] = [频域物理量]</code>。</p>
+<h3 id="角频率与频率度量的频域">角频率与频率度量的频域<a class="headerlink" href="#角频率与频率度量的频域" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月8日，2022年12月13日，2022年12月15日。</p>
+</blockquote>
+<ol>
+<li>
+<p><span class="arithmatex">\(ω = 2π f\)</span>，<span class="arithmatex">\(ω\)</span> 与 <span class="arithmatex">\(f\)</span> 数值并不相同，但表示相同的复指数信号。就像 <span class="arithmatex">\(v = \SI{36}{km/h}\)</span> 与 <span class="arithmatex">\(v = \SI{10}{m/s}\)</span> 里的 <span class="arithmatex">\(36 ≠ 10\)</span>，却表示相同速度。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\eval{X}_\omega\)</span> 与 <span class="arithmatex">\(\eval{X}_f\)</span> 是不同的数学函数，但表示相同的信号。</p>
+<p><span class="arithmatex">\(X\)</span> 是个 <span class="arithmatex">\(\R \to \C\)</span> 函数，自变量是频率，因变量是频谱密度。<span class="arithmatex">\(\eval{X}_\omega\)</span> 与 <span class="arithmatex">\(\eval{X}_f\)</span> 的<strong>自变量数值不同</strong>（前者用角频率 <span class="arithmatex">\(\omega\)</span> 度量，后者用频率 <span class="arithmatex">\(f\)</span> 度量），<strong>因变量相同</strong>。<span class="arithmatex">\(\eval{X}_f = \eval{X}_{\omega = 2\pi f}\)</span> 给出了自变量的换算关系，它永远成立。</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph 频率
+        ω -.-|"ω = 2π×f"| f
+    end
+
+    subgraph 频谱密度
+        X
+    end
+
+    ω --&gt;|"X(ω)"| X
+    f --&gt;|"X(f)"| X</code></pre>
+<p>这里为了更清楚，写成 <span class="arithmatex">\(\eval{\tilde{X}}_\omega\)</span> 与 <span class="arithmatex">\(\eval{X}_f\)</span>，则 <span class="arithmatex">\(\eval{X}_f = \eval{\tilde X}_{2\pi f}\)</span>。（实际因变量是重点，自变量不写都行，没必要区分）</p>
+<p>比如逆 Fourier 变换：</p>
+<div class="arithmatex">\[
+\begin{split}
+\eval{x}_t
+&amp;= \int\limits_\R {\color{red} \eval{\tilde X}_\omega} e^{j\omega t} \frac{\dd{\omega}}{2\pi} \\
+&amp;= \int\limits_\R \eval{\tilde X}_{\color{red} 2\pi f} e^{j (2\pi f) t} \frac{\dd{(2\pi f)}}{2\pi}
+    \qq{($\omega \mapsto f = 2\pi f$)} \\
+&amp;= \int\limits_\R \eval{\tilde X}_{2\pi f} e^{2\pi j f t} \dd{f} \\
+&amp;= \int\limits_\R {\color{red} \eval{X}_{f}} e^{2\pi j f t} \dd{f}.
+    \qq{($\tilde X \mapsto X$)} \\
+\end{split}
+\]</div>
+<p>这也会影响卷积：</p>
+<div class="arithmatex">\[
+\begin{split}
+&amp; \frac{1}{2\pi} \int\limits_\R \eval{\tilde X}_{\omega'} \eval{\tilde Y}_{\omega - \omega'} \dd{\omega'} \\
+&amp;= \int\limits_\R \eval{\tilde X}_{2\pi f'} \eval{\tilde Y}_{2\pi (f-f')} \frac{\dd{(2\pi f')}}{2\pi} \\
+&amp;= \int\limits_\R \eval{X}_{f'} \eval{Y}_{f-f'} \dd{f'}.
+\end{split}
+\]</div>
+</li>
+<li>
+<p>Dirac <span class="arithmatex">\(δ\)</span> 是 <span class="arithmatex">\(\sin\)</span>、<span class="arithmatex">\(\exp\)</span> 一样的数学函数，和信号没关系，它的定义只有一种形式—— <span class="arithmatex">\(\int_\R \eval{\delta}_x \dd{x} = 1\)</span>。</p>
+<p>如果已有 <span class="arithmatex">\(\eval{\tilde X}_\omega\)</span>，其中含 <span class="arithmatex">\(\eval{\delta}_\omega\)</span>，想写出 <span class="arithmatex">\(\eval{X}_f\)</span>，那直接把自变量全换了，变成 <span class="arithmatex">\(\eval{\delta}_{2\pi f}\)</span> 就好了。不过人们习惯于写 <span class="arithmatex">\(\frac{1}{2\pi} \eval{\delta}_f\)</span> 而非 <span class="arithmatex">\(\eval{\delta}_{2\pi f}\)</span>，就像把 <span class="arithmatex">\(\cos(2x)\)</span> 整理成 <span class="arithmatex">\(1 - 2\sin^2 x\)</span>。</p>
+</li>
+</ol>
+<h3 id="Fourier-参数之间的关系">Fourier 参数之间的关系<a class="headerlink" href="#Fourier-参数之间的关系" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年8月31日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="../digital-signal-processing/#Fourier-参数之间的关系">“数字信号处理”同名小节</a>。</p>
+</blockquote>
+<p>频域可用频率 <span class="arithmatex">\(f\)</span> 或角频率 <span class="arithmatex">\(\omega\)</span> 度量。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\eval{X^{(f)}}_{f} &amp;= \eval{X^{(\omega)}}_{2\pi f}. \\
+2\pi \dd{f} &amp;= \dd{\omega}. \\
+\end{aligned}
+\]</div>
+<p>这是频域的两种度量，不涉及 Fourier 变换的对偶性。</p>
+<p>例如设 <span class="arithmatex">\(x = \sum \eval{\delta}_{t - \Z T_0}\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{aligned}
+X^{(\omega)} &amp;= \omega_0 \sum \eval{\delta}_{\omega - \Z \omega_0}. \\
+X^{(f)} &amp;= f_0 \sum \eval{\delta}_{f - \Z f_0}. \\
+\end{aligned}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\omega_0 T_0 = 2\pi\)</span>，<span class="arithmatex">\(f_0 T_0 = 1\)</span>。</p>
+</blockquote>
+<p>注意 <span class="arithmatex">\(\eval{\delta}_{2\pi f} = \frac{1}{2\pi} \eval{\delta}_f\)</span>，因为 Dirac <span class="arithmatex">\(\delta\)</span> 的定义里有个积分。</p>
+<h3 id="正态分布的累积分布">正态分布的累积分布<a class="headerlink" href="#正态分布的累积分布" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月4日，2022年12月5日。</p>
+</blockquote>
+<p><span class="arithmatex">\(Z \sim \mathcal{N}(0,1)\)</span>，则</p>
+<div class="arithmatex">\[
+\Pr(Z &gt; z) = \frac12 \erfc \frac{z}{\sqrt 2}.
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+\erfc x \coloneqq \frac{2}{\sqrt\pi} \int\limits_x^{+\infty} e^{-u^2} \dd{u}.
+\]</div>
+<p>这是 <span class="arithmatex">\(x \to + \infty\)</span> 下的无穷小量。诈唬使用 L’Hospital 法则，能得到</p>
+<div class="arithmatex">\[
+\frac{\int\limits_{x}^{+\infty} e^{-au^2} \dd{u}}
+    {e^{-ax^2}}
+\approx \frac{-e^{-ax^2}}{-2ax \times e^{-ax^2}} = \frac{1}{2ax}.
+\]</div>
+<blockquote>
+<p>可以严谨证明 <span class="arithmatex">\(\int_{u\geq x} \exp(-au^2) \dd{u} \sim \exp(-ax^2) / \qty(2ax)\)</span>。</p>
+<div class="arithmatex">\[
+\lim \frac{\int\limits_{x}^{+\infty} e^{-au^2} \dd{u}}
+    {\frac{1}{2ax} e^{-ax^2}}
+= \lim \frac{- e^{-ax^2}}{\qty(\frac{-2ax}{2ax} - \frac{1}{2ax^2}) e^{-ax^2}}
+= \lim \frac{1}{1 + \frac{1}{2ax^2}} = 1.
+\]</div>
+</blockquote>
+<h3 id="带宽">带宽<a class="headerlink" href="#带宽" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月9日，2022年12月10日，2022年12月13日。</p>
+</blockquote>
+<p>信号的功率谱、频率千姿百态，带宽只是一个数字特征。门函数大约是带宽歧义最少的谱。</p>
+<ul>
+<li>习惯上只算<strong>正频率</strong>。因此基带系统中的带宽往往是调制后的一半。</li>
+</ul>
+<ul>
+<li>
+<p><strong>等效带宽</strong></p>
+<p><span class="arithmatex">\(B_\omega \coloneqq \int_\R X \dd{\omega} / \eval{X}_{\omega=0}\)</span>，<span class="arithmatex">\(B_f\)</span> 同理。在中心处数值不变、积分相等的意义下，等效为门函数。</p>
+<p>这是良定义，应用于几乎所有谱都合理，而且若类似定义等效时宽，则两域宽度严格成反比。</p>
+<div class="arithmatex">\[
+\begin{split}
+B_f B_t
+&amp;\coloneqq \frac{\int_\R X \dd{f}}{\eval{X}_{f=0}}
+    \times \frac{\int_\R x \dd{t}}{\eval{x}_{t=0}} \\
+&amp;= \frac{\int_\R X \dd{f}}{\eval{x}_{t=0}}
+    \times \frac{\int_\R x \dd{t}}{\eval{X}_{f=0}} \\
+&amp;= 1 \times 1 = 1.
+\end{split}
+\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>谱零点带宽</strong></p>
+<p>在中心处数值不变、两侧首个零点不变的意义下，等效为门函数。</p>
+<p>主要用于 <span class="arithmatex">\(\sinc\)</span> 式频谱，它的谱零点带宽是等效带宽的两倍。又名主瓣带宽。</p>
+<p>给定信号，用滤波器去除噪声。若按等效带宽滤波，信号往往被削掉太多，按谱零点带宽就好一些。</p>
+</li>
+</ul>
+<p>下面是一些案例。</p>
+<ul>
+<li>无码间串扰限制下，频域最窄时为门函数，时域为 <span class="arithmatex">\(\sinc\)</span> 型。按任意带宽计算，<span class="arithmatex">\(B = \frac12 R_\text{Baud}\)</span>。</li>
+</ul>
+<ul>
+<li>
+<p>基带信号标准时域脉冲为门函数（i.e. 不归零矩形脉冲），频域为 <span class="arithmatex">\(\sinc\)</span> 型。按谱零点带宽算，<span class="arithmatex">\(B = R_\text{Baud}\)</span>。</p>
+<p>不过发送出去之前，往往还用滤波器均衡一下码间串扰。这里若用理想低通滤波器，带宽又是上面的了。</p>
+</li>
+</ul>
+<h3 id="模型与结构">模型与结构<a class="headerlink" href="#模型与结构" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年12月14–15日。</p>
+</blockquote>
+<h4 id="通信系统">通信系统<a class="headerlink" href="#通信系统" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart LR
+    subgraph 发送端
+        信源 --&gt; 发送设备
+    end
+    发送设备 --&gt; 信道 --&gt; 接收设备
+    噪声源 --&gt; 信道
+    subgraph 接收端
+        接收设备 --&gt; 信宿
+    end</code></pre>
+<p>按信道中信号形式，分为模拟、数字通信系统。</p>
+<ul>
+<li><strong>模拟</strong><p>发送设备是调制器，将基带信号转为已调信号；接收设备是解调器。</p>
+</li>
+</ul>
+<ul>
+<li><strong>数字</strong><p>信源、信宿旁有信源压缩编码，信道旁有信道差错控制编码，二者之间还有密码。</p>
+<p>如果是数字调制系统（而非数字基带系统），同样有数字版本的调制、解调（键控，Shift Keying）。</p>
+<pre class="mermaid"><code>flowchart LR
+  信源 -.-&gt; 信道编码 --&gt; 数字调制
+  subgraph 编码信道["编码信道（广义信道）"]
+      数字调制 --&gt; 调制信道["调制信道&lt;br&gt;（狭义信道）"] --&gt; 数字解调
+  end
+  数字解调 --&gt; 信道译码 -.-&gt; 信宿</code></pre>
+</li>
+</ul>
+<h4 id="模拟调制系统">模拟调制系统<a class="headerlink" href="#模拟调制系统" title="Permanent link">&para;</a></h4>
+<p>调制：</p>
+<ul>
+<li>AM：加上 <span class="arithmatex">\(A_0\)</span> 再乘 <span class="arithmatex">\(\cos(\omega_c t)\)</span>。</li>
+<li>DSB：似上，去掉 <span class="arithmatex">\(A_0\)</span>。</li>
+<li>SSB：似上，滤波。另法移相再相乘。</li>
+<li>VSB：似 DSB，滤波。</li>
+</ul>
+<p>解调：</p>
+<ul>
+<li>相干解调：乘载波，低通滤波。</li>
+<li>包络检波：电容单向充放电。</li>
+</ul>
+<h4 id="数字基带系统">数字基带系统<a class="headerlink" href="#数字基带系统" title="Permanent link">&para;</a></h4>
+<p>接收设备：</p>
+<pre class="mermaid"><code>flowchart LR
+    信道 -.-&gt; 接收滤波器 --&gt; 同步提取 --&gt; 抽样判决 -.-&gt; 输出
+    接收滤波器 --&gt; 抽样判决</code></pre>
+<h4 id="数字调制系统">数字调制系统<a class="headerlink" href="#数字调制系统" title="Permanent link">&para;</a></h4>
+<p>调制：</p>
+<ul>
+<li>模拟相乘。</li>
+<li>数字键控。</li>
+</ul>
+<p>解调：</p>
+<pre class="mermaid"><code>flowchart LR
+    信道 -.-&gt; 带通滤波 --&gt; 处理["非相干解调：全波整流&lt;br&gt;相干解调：乘载波"] --&gt; 低通滤波 --&gt; 抽样判决 -.-&gt; 输出
+    定时脉冲 --&gt; 抽样判决</code></pre>
+<p>QPSK 更具体实现见前面§7。</p>
+<h4 id="最佳接收">最佳接收<a class="headerlink" href="#最佳接收" title="Permanent link">&para;</a></h4>
+<ul>
+<li>相关形式：分多路，相乘，积分（信号→数），偏置，比较。有时可省略一路；信源均匀分布时无需偏置。</li>
+<li>匹配滤波形式：滤波，等到抽样时刻，比较。</li>
+</ul>
+<h1 id="后备箱">后备箱<a class="headerlink" href="#后备箱" title="Permanent link">&para;</a></h1>
+<ul>
+<li>用 <span class="arithmatex">\(\sin\)</span> 表示 <span class="arithmatex">\(\sinc\)</span> 时，若求 <span class="arithmatex">\(0\)</span> 处的函数值，不能只看分子。</li>
+<li>区分 <span class="arithmatex">\(\omega\)</span> 和 <span class="arithmatex">\(f\)</span>，例如带宽。</li>
+<li>Baud 率描述码元，信息速率描述信息，<u>多电平</u>信号时二者不一致。</li>
+<li>区分每信息能量 <span class="arithmatex">\(E_b\)</span> 和每码元能量 <span class="arithmatex">\(E\)</span>。</li>
+<li><span class="arithmatex">\(\sum \eval{\delta}_{t - \Z T_0} = \omega_0 \sum \eval{\delta}_{\omega - \Z \omega_0} = f_0 \sum \eval{\delta}_{f - \Z f_0}\)</span>，有个系数。</li>
+<li>平顶抽样也时变：它是理想抽样经线性时不变系统，而理想抽样当然时变。</li>
+<li>注意信号有几路。</li>
+<li>“最小码距 &gt; 纠正位数 + 检测位数”只在“检测位数 &gt; 纠正位数”时有意义。</li>
+<li>线性分组码中，全零码总许用。</li>
+<li>区分卷积和相关。一般写为相关更方便用计算器。</li>
+<li>基带系统判决后时域均衡，若要衡量失真，应考虑所有输出，而不只是输入对应的那些输出。</li>
+<li>功率谱密度有个平方，通过线性时不变系统前后倍数也是平方。</li>
+<li>单边带移相调制有个 <span class="arithmatex">\(1/2\)</span>：<span class="arithmatex">\(\cos x \cos y = \frac12 \qty(\cos(x+y) + \cos(x-y))\)</span>。</li>
+<li>模拟调制系统中，区分原始基带信号功率、发射机发送功率、接收机接收功率。前两者可相差一倍。</li>
+<li>给定传输特性，无码间串扰对码率的限制是一些离散点，而非连续区间。</li>
+<li><u>差分相干解调</u>确实有“干涉”，但从无需载波、误码率、比较相位等方面看，应该算<u>非相干解调</u>。</li>
+</ul>
+
+
+  
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Snippet generated by giscus.app -->
+  <script src="https://giscus.app/client.js"
+          data-repo="YDX-2147483647/summaries"
+          data-repo-id="R_kgDOIpJG0Q"
+          data-category="General"
+          data-category-id="DIC_kwDOIpJG0c4CTQqa"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://ydx-2147483647.github.io/summaries/feed_rss_updated.xml" target="_blank" rel="noopener" title="RSS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

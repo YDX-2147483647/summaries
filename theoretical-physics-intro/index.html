@@ -1,0 +1,1355 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="各种课程的总结、随记等。">
+      
+      
+      
+        <link rel="canonical" href="https://ydx-2147483647.github.io/summaries/theoretical-physics-intro/">
+      
+      
+        <link rel="prev" href="../stochastic-signal-processing/">
+      
+      
+        <link rel="next" href="../xi-thought/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>理论物理导论 - 总结</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>  
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="新增内容的 RSS 源" href="../feed_rss_created.xml">
+  <link rel="alternate" type="application/rss+xml" title="更新内容的 RSS 源" href="../feed_rss_updated.xml">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#理论物理导论" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="总结" class="md-header__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            总结
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              理论物理导论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="总结" class="md-nav__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    总结
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Summaries
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artificial-intelligence/" class="md-nav__link">
+        人工智能导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-functions-and-equations-of-mathematical-physics/" class="md-nav__link">
+        复变函数与数理方程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-and-data-structure/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-circuits-and-systems/" class="md-nav__link">
+        数字电路与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-communication/" class="md-nav__link">
+        数字通信原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-signal-processing/" class="md-nav__link">
+        数字信号处理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electromagnetic-field-and-wave/" class="md-nav__link">
+        电磁场与电磁波
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-theory-and-coding/" class="md-nav__link">
+        信息论与编码
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrated-circuits/" class="md-nav__link">
+        集成电路设计实践
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligent-multi-source-sensing/" class="md-nav__link">
+        智能多源感知
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modern-chinese-history/" class="md-nav__link">
+        中国近现代史纲要
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morals-ethics-law/" class="md-nav__link">
+        思想道德修养与法律基础
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-system/" class="md-nav__link">
+        操作系统原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-1/" class="md-nav__link">
+        物理1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-2/" class="md-nav__link">
+        物理2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probability-and-statistics/" class="md-nav__link">
+        概率论与数理统计
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roller-skating/" class="md-nav__link">
+        轮滑
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semiconductor-physics/" class="md-nav__link">
+        半导体物理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-theory/" class="md-nav__link">
+        集合论——开启理性思维的钥匙
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals-and-systems/" class="md-nav__link">
+        信号与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-signal-processing/" class="md-nav__link">
+        随机信号分析
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          理论物理导论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        理论物理导论
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-薛定谔方程" class="md-nav__link">
+    2 薛定谔方程
+  </a>
+  
+    <nav class="md-nav" aria-label="2 薛定谔方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#旧量子论" class="md-nav__link">
+    旧量子论
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#波函数" class="md-nav__link">
+    波函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#高斯积分" class="md-nav__link">
+    高斯积分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-定态微扰论" class="md-nav__link">
+    5 定态微扰论
+  </a>
+  
+    <nav class="md-nav" aria-label="5 定态微扰论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无简并情况" class="md-nav__link">
+    无简并情况
+  </a>
+  
+    <nav class="md-nav" aria-label="无简并情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#记号" class="md-nav__link">
+    记号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#问题" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#一阶" class="md-nav__link">
+    一阶
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二阶" class="md-nav__link">
+    二阶
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#有简并情况" class="md-nav__link">
+    有简并情况
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xi-thought/" class="md-nav__link">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-薛定谔方程" class="md-nav__link">
+    2 薛定谔方程
+  </a>
+  
+    <nav class="md-nav" aria-label="2 薛定谔方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#旧量子论" class="md-nav__link">
+    旧量子论
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#波函数" class="md-nav__link">
+    波函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#高斯积分" class="md-nav__link">
+    高斯积分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-定态微扰论" class="md-nav__link">
+    5 定态微扰论
+  </a>
+  
+    <nav class="md-nav" aria-label="5 定态微扰论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无简并情况" class="md-nav__link">
+    无简并情况
+  </a>
+  
+    <nav class="md-nav" aria-label="无简并情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#记号" class="md-nav__link">
+    记号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#问题" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#一阶" class="md-nav__link">
+    一阶
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二阶" class="md-nav__link">
+    二阶
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#有简并情况" class="md-nav__link">
+    有简并情况
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/YDX-2147483647/summaries/blob/main/docs/theoretical-physics-intro.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/YDX-2147483647/summaries/raw/main/docs/theoretical-physics-intro.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="理论物理导论">理论物理导论<a class="headerlink" href="#理论物理导论" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\def\R{\mathbb{R}}
+\]</div>
+<h2 id="2-薛定谔方程">2 薛定谔方程<a class="headerlink" href="#2-薛定谔方程" title="Permanent link">&para;</a></h2>
+<h3 id="旧量子论">旧量子论<a class="headerlink" href="#旧量子论" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年10月16日。</p>
+</blockquote>
+<ul>
+<li>
+<p>黑体辐射 Planck 1900</p>
+<p>综合高频的 Wien 公式与低频的 Ray leigh–Jeans 公式时，提出了能量量子化 <span class="arithmatex">\(\varepsilon_0 = h\nu\)</span>。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>光电效应 Einstein 1905</p>
+<p>光电效应中电子会即时逸出，且存在截止频率。为此提出光是粒子流，每个光子携带 <span class="arithmatex">\(h\nu\)</span> 的能量，<span class="arithmatex">\(E_{km} = h\nu - W_0\)</span>。后来又提出 <span class="arithmatex">\(E^2 = m_0^2 c^4 + p^2 c^2\)</span> 等。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>原子光谱 Bohr 1913</p>
+<p>定态、跃迁。只适用于氢原子这样的简单体系。</p>
+</li>
+</ul>
+<p>光的粒子性在 Compton 散射（1923）中得到直接证明。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    E &amp;= hv = \hbar \omega. \\
+    \vb*{p} &amp;= \frac{h}{\lambda} = \hbar \vb*{k}.
+\end{aligned}
+\]</div>
+<p>⇒波粒二象性。</p>
+<h3 id="波函数">波函数<a class="headerlink" href="#波函数" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年10月16日。</p>
+<p>经典平面波：<span class="arithmatex">\(y = A\sin(\omega t- \vb*{k}\vdot\vb*{x} + \varphi_0)\)</span>。</p>
+</blockquote>
+<p><span class="arithmatex">\(\abs{\Psi}^2\)</span> 表示概率密度。（统计解释，1926，M. Born）</p>
+<p>由物理意义，波函数必须有限、单值、连续（对位置连续可微、平方可积）。（标准条件）</p>
+<p>由于 <span class="arithmatex">\(\abs{a+b}^2 = \abs{a}^2 + \abs{b}^2 + {\color{red} a^*b+ ab^*}\)</span>，存在<strong>线性叠加态</strong>。</p>
+<blockquote>
+<p><span class="arithmatex">\(z^*\)</span> 表示 <span class="arithmatex">\(z\)</span> 的共轭复数。</p>
+</blockquote>
+<p>波函数的演化符合薛定谔（Schrödinger）方程：</p>
+<div class="arithmatex">\[
+i\hbar \pdv{t} \Psi = \vu*{H} \Psi, \quad \vu*{H} =-\frac{\hbar^2 \laplacian}{2m} + U.
+\]</div>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(-i\hbar \grad\)</span> 类似动量，<span class="arithmatex">\(\vb*{p}^2/2m\)</span> 是动能。</li>
+<li><span class="arithmatex">\(U\)</span> 是势能。</li>
+</ul>
+</blockquote>
+<p><span class="arithmatex">\(U\)</span> 不显含 <span class="arithmatex">\(t\)</span> 时称作“定态”。此时可分离变量：设 <span class="arithmatex">\(\eval{\Psi}_{\vb*{r},t} = \eval{\psi}_{\vb*{r}} \eval{f}_t\)</span>。得到</p>
+<div class="arithmatex">\[
+\begin{cases}
+    i \hbar \pdv{t}f &amp;= E f. \\
+    \va*{H} \psi &amp;= E \psi.
+\end{cases}
+\]</div>
+<blockquote>
+<p>其中 <span class="arithmatex">\(E\)</span> 是常数，物理意义是能量。</p>
+</blockquote>
+<p>解得 <span class="arithmatex">\(f \propto \exp(-i \omega t)\)</span>，其中 <span class="arithmatex">\(\omega = E/\hbar\)</span>。</p>
+<h3 id="高斯积分">高斯积分<a class="headerlink" href="#高斯积分" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年10月16日。</p>
+</blockquote>
+<p>最基础的：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    \int\limits_{-\infty}^{+\infty} \exp(-\frac{x^2}{2}) \dd{x} &amp;= \sqrt{2\pi}. \\
+    \int\limits_{-\infty}^{+\infty} \exp(-x^2) \dd{x} &amp;= \sqrt{\pi}. \\
+    \int\limits_{-\infty}^{+\infty} \exp(-a^2x^2) \dd{x} &amp;= \frac{\sqrt{\pi}}{a}. \\
+\end{aligned}
+\]</div>
+<blockquote>
+<p>证明：</p>
+<div class="arithmatex">\[
+\begin{split}
+    \qty( \int\limits_{\R} \exp(-\frac{x^2}{2})\dd{x} )^2
+    &amp;= \iint\limits_{\R^2} \exp(-\frac{x^2 + y^2}{2}) \dd{x}\dd{y} \\
+    &amp;= \int\limits_0^{2\pi} \dd{\theta} \int\limits_{0}^{+\infty} \exp(-\frac{r^2}{2}) r\dd{r} \\
+    &amp;= 2\pi \int\limits_{0}^{+\infty} \exp(-\frac{r^2}{2}) \dd{\frac{r^2}{2}} \\
+    &amp;= 2\pi. \\
+\end{split}
+\]</div>
+<p>又 <span class="arithmatex">\(\int_{\R} \exp(-x^2/2) \dd{x} &gt; 0\)</span>，故为 <span class="arithmatex">\(\sqrt{2\pi}\)</span>。</p>
+</blockquote>
+<p>乘上 <span class="arithmatex">\(x^n\)</span>：</p>
+<div class="arithmatex">\[
+\int\limits_\R x^n \exp(-\frac{x^2}{2}) \dd{x} = \begin{cases}
+    (n-1)!! \sqrt{2\pi} &amp; n\text{是偶数}, \\
+    0 &amp; n\text{是奇数}, \\
+\end{cases}
+\]</div>
+<p>以及</p>
+<div class="arithmatex">\[
+\int\limits_0^{+\infty} x^n \exp(-\frac{x^2}{2}) \dd{x} = \begin{cases}
+    (n-1)!! \sqrt{\frac\pi2} &amp; n\text{是偶数}. \\
+    (n-1)!!= 2^{\frac{n-1}{2}} \qty(\frac{n-1}{2})! &amp; n\text{是奇数}. \\
+\end{cases}
+\]</div>
+<blockquote>
+<p>证明：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+ \int\limits_\R x^n \exp(-\frac{x^2}{2}) \dd{x}
+ &amp;= \int\limits_\R x^{n-1} \exp(-\frac{x^2}{2}) \dd{\frac{x^2}{2}} \\
+ &amp;= -\int\limits_\R x^{n-1} \dd{\exp(-\frac{x^2}{2})} \\
+ &amp;= -\eval{ x^{n-1} \exp(-\frac{x^2}{2})}_{-\infty}^{+\infty}
+        + \int\limits_\R \exp(-\frac{x^2}{2}) \dd{\qty(x^{n-1})} \\
+    &amp;= (n-1) \int\limits_\R x^{n-2} \exp(-\frac{x^2}{2}) \dd{x}.
+\end{aligned}
+\]</div>
+<p>（积分区间改为 <span class="arithmatex">\([0,+\infty)\)</span> 也可）</p>
+<p>另外，《新概念》上有不同的证明，利用 <span class="arithmatex">\(\pdv{a} x^n e^{-ax^2} = -x^{n+2}e^{-ax^2}\)</span>。</p>
+</blockquote>
+<p>另外，<span class="arithmatex">\(\Gamma(t) = \int_0^\infty x^{t-1} e^{-t} \dd{x} = (t-1)!\)</span>。令 <span class="arithmatex">\(x = \frac{u^2}{2}\)</span>，<span class="arithmatex">\(\dd{x} = u\dd{u}\)</span>，得</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; \Gamma(t) = \int\limits_0^{+\infty} \frac{u^{2t-1}}{2^{t-1}} \exp(-\frac{u^2}{2}) \dd{u}. \\
+    &amp;\implies \int\limits_0^{+\infty} x^{2t-1} \exp(-\frac{x^2}2) \dd{x} =  2^{t-1} \Gamma(t). \\
+    &amp;\implies \int\limits_0^{+\infty} x^{n} \exp(-\frac{x^2}2) \dd{x} =  2^{\frac{n-1}{2}} \Gamma\qty(\frac{n+1}{2}) \\
+    &amp;\qquad = 2^{\frac{n-1}{2}} \qty(\frac{n-1}{2})!. \\
+\end{aligned}
+\]</div>
+<hr />
+<div class="highlight"><pre><span></span><code><span class="n">Table</span><span class="p">[{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">!!</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">}];</span>
+<span class="n">TableForm</span><span class="p">[</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="n">TableHeadings</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">None</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">!!</span><span class="p">}}]</span>
+<span class="err">%</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">TeXForm</span>
+</code></pre></div>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+ i &amp; i! &amp; (2i)!! \\
+ \hline
+ -2 &amp; \infty &amp; \infty \\
+ -\frac{3}{2} &amp; -2 \sqrt{\pi } &amp; -1 \\
+ -1 &amp; \infty &amp; \infty \\
+ -\frac{1}{2} &amp; \sqrt{\pi } &amp; 1 \\
+ 0 &amp; 1 &amp; 1 \\
+ \frac{1}{2} &amp; \frac{\sqrt{\pi }}{2} &amp; 1 \\
+ 1 &amp; 1 &amp; 2 \\
+ \frac{3}{2} &amp; \frac{3 \sqrt{\pi }}{4} &amp; 3 \\
+ 2 &amp; 2 &amp; 8 \\
+ \frac{5}{2} &amp; \frac{15 \sqrt{\pi }}{8} &amp; 15 \\
+ 3 &amp; 6 &amp; 48 \\
+ \frac{7}{2} &amp; \frac{105 \sqrt{\pi }}{16} &amp; 105 \\
+ 4 &amp; 24 &amp; 384 \\
+ \frac{9}{2} &amp; \frac{945 \sqrt{\pi }}{32} &amp; 945 \\
+ 5 &amp; 120 &amp; 3840 \\
+\end{array}
+\]</div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="o">!!</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">^</span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">!</span><span class="p">};</span>
+<span class="n">Table</span><span class="p">[</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}];</span>
+<span class="n">TableForm</span><span class="p">[</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="n">TableHeadings</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">None</span><span class="p">,</span><span class="w"> </span><span class="err">%%</span><span class="p">}]</span>
+<span class="err">%</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">TeXForm</span>
+</code></pre></div>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+ n &amp; (n-1)!! &amp; 2^{\frac{n-1}{2}} \qty(\frac{n-1}{2})!\\
+ \hline
+ 0 &amp; 1 &amp; \sqrt{\frac{\pi }{2}} \\
+ 1 &amp; 1 &amp; 1 \\
+ 2 &amp; 1 &amp; \sqrt{\frac{\pi }{2}} \\
+ 3 &amp; 2 &amp; 2 \\
+ 4 &amp; 3 &amp; 3 \sqrt{\frac{\pi }{2}} \\
+ 5 &amp; 8 &amp; 8 \\
+\end{array}
+\]</div>
+<h2 id="5-定态微扰论">5 定态微扰论<a class="headerlink" href="#5-定态微扰论" title="Permanent link">&para;</a></h2>
+<h3 id="无简并情况">无简并情况<a class="headerlink" href="#无简并情况" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年11月15日，2021年11月25日，2021年11月26日。</p>
+</blockquote>
+<h4 id="记号">记号<a class="headerlink" href="#记号" title="Permanent link">&para;</a></h4>
+<ul>
+<li>共轭上标 <span class="arithmatex">\(*\)</span>，共轭转置上标 <span class="arithmatex">\(\dagger\)</span>。例如 <span class="arithmatex">\(i^* = -i\)</span>，<span class="arithmatex">\(H^\dagger = H\)</span>。</li>
+</ul>
+<ul>
+<li>
+<p>实际的东西加上划线，<span class="arithmatex">\(n\)</span> 级近似项加 <span class="arithmatex">\(n\)</span> 个撇号，或者上标 <span class="arithmatex">\((n)\)</span>。例如</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\bar H &amp;= H + H'. \\
+\bar \varphi &amp;= \varphi + \varphi' + \varphi'' + \cdots &amp;= \sum_{n=1}^{+\infty} \varphi^{(n)}.
+\end{aligned}
+\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p>类似矩阵的东西用大写字母，类似向量或数的东西用小写字母。例如</p>
+<div class="arithmatex">\[
+\Phi = \begin{bmatrix}
+\varphi_1 &amp; \varphi_2 &amp; \varphi_3 &amp; \cdots
+\end{bmatrix}.
+\]</div>
+</li>
+</ul>
+<ul>
+<li>
+<p>波函数 <span class="arithmatex">\(\phi, \psi\)</span> 之间的内积采用 <span class="arithmatex">\(\int \phi^* \psi \dd{x}\)</span>，记为 <span class="arithmatex">\(\braket{\phi}{\psi}\)</span> 或 <span class="arithmatex">\(\phi^\dagger \psi\)</span>。</p>
+<p>比如 <span class="arithmatex">\(H^\dagger = H\)</span> 表示 <span class="arithmatex">\(\braket{\phi}{H\psi} = \braket{H^\dagger \phi}{\psi} = \braket{H\phi}{\psi}\)</span>。（这种东西记作 <span class="arithmatex">\(\mel{\phi}{H}{\psi}\)</span>）</p>
+</li>
+</ul>
+<h4 id="问题">问题<a class="headerlink" href="#问题" title="Permanent link">&para;</a></h4>
+<p>求解定态薛定谔方程 <span class="arithmatex">\(\bar H \bar\Phi = \bar\Phi \bar E\)</span>。</p>
+<blockquote>
+<p>其中 <span class="arithmatex">\(\bar H\)</span> 是哈密顿算符，矩阵 <span class="arithmatex">\(\bar\Phi\)</span> 的各列是特征向量（本征态，一个“向量”），（由数组成的）对角阵 <span class="arithmatex">\(\bar E = \operatorname{diag}(\bar e_1, \bar e_2, \ldots)\)</span> 的对角线上是特征值（能量，一个数）。</p>
+</blockquote>
+<p>设 <span class="arithmatex">\(\bar H = H + H'\)</span>，先求解 <span class="arithmatex">\(H\)</span> 的特征系统，即 <span class="arithmatex">\(H\Phi = \Phi E\)</span>。</p>
+<blockquote>
+<p>需要具体问题具体分析，总之求完得到 <span class="arithmatex">\(\Phi,E\)</span>。</p>
+</blockquote>
+<h4 id="一阶">一阶<a class="headerlink" href="#一阶" title="Permanent link">&para;</a></h4>
+<p>然后再考虑微扰 <span class="arithmatex">\(H'\)</span>，求 <span class="arithmatex">\(H+H'\)</span> 的特征系统，即</p>
+<div class="arithmatex">\[
+\qty(H+H') \qty(\Phi + \Phi' + \cdots)
+= \qty(\Phi + \Phi' + \cdots) \qty(E+E'+\cdots) .
+\]</div>
+<p>乘开上式，将一阶以上的项都合并到“<span class="arithmatex">\(\cdots\)</span>”中，得</p>
+<blockquote>
+<p>某个单项式的“阶数”与其中撇号的总数相同，例如 <span class="arithmatex">\(H'\Phi'\)</span> 是二阶，<span class="arithmatex">\(\Phi^{(2)} E^{(5)}\)</span> 是 <span class="arithmatex">\(7\)</span> 阶。</p>
+</blockquote>
+<div class="arithmatex">\[
+H\Phi + H'\Phi + H\Phi' + \cdots
+= \Phi E + \Phi'E + \Phi E' + \cdots.
+\]</div>
+<p>对于两侧的零阶项 <span class="arithmatex">\(H\Phi\)</span> 与 <span class="arithmatex">\(\Phi E\)</span>，我们之前已经保证它们相等，可以约去。对于两侧未写出的高阶项，我们假装它们是零，直接丢掉。于是只剩下这些东西：</p>
+<div class="arithmatex">\[
+H'\Phi + H\Phi' \overset?= \Phi'E + \Phi E'.
+\]</div>
+<p>我们在这里的任务就是选取适当的 <span class="arithmatex">\(E'\)</span>、<span class="arithmatex">\(\Phi'\)</span>，让上式近似成立。</p>
+<hr />
+<p>由本征态的正交归一完备性（<span class="arithmatex">\(\Phi^\dagger\Phi = I\)</span>），总可以设（由数组成的）方阵 <span class="arithmatex">\(C'\)</span> 使 <span class="arithmatex">\(\Phi' = \Phi C'\)</span>。从而将“求 <span class="arithmatex">\(\Phi'\)</span>”转化为“求 <span class="arithmatex">\(C'\)</span>”。</p>
+<blockquote>
+<p>注意：<span class="arithmatex">\(\varphi'_j = \sum_i \varphi_i c'_{ij}\)</span>，其中 <span class="arithmatex">\(\varphi'_j\)</span> 是 <span class="arithmatex">\(\Phi'\)</span> 的第 <span class="arithmatex">\(j\)</span> 列，<span class="arithmatex">\(\varphi_i\)</span> 是 <span class="arithmatex">\(\Phi_i\)</span> 的第 <span class="arithmatex">\(i\)</span> 列，<span class="arithmatex">\(c'_{ij}\)</span> 是 <span class="arithmatex">\(C'\)</span> 的第 <span class="arithmatex">\(i\)</span> 行第 <span class="arithmatex">\(j\)</span> 列。换句话说，<span class="arithmatex">\(C'\)</span> 的第 <span class="arithmatex">\(j\)</span> 列是 <span class="arithmatex">\(\varphi'_j\)</span> 在 <span class="arithmatex">\(\{\varphi_i\}\)</span> 下的坐标。</p>
+</blockquote>
+<p>代入上式，得</p>
+<div class="arithmatex">\[
+H'\Phi + H\Phi C' = \Phi C' E + \Phi E'.
+\]</div>
+<p>同时在等式两端左乘 <span class="arithmatex">\(\Phi^\dagger\)</span> 以消掉 <span class="arithmatex">\(\Phi\)</span>，然后利用 <span class="arithmatex">\(H\Phi = \Phi E\)</span>，得</p>
+<div class="arithmatex">\[
+\Phi^\dagger H' \Phi + EC' = C'E + E'.
+\]</div>
+<blockquote>
+<p>另一种推出此式的方法：直接把 <span class="arithmatex">\(H,\Phi\)</span> 等东西都换成在 <span class="arithmatex">\(\{\varphi_i\}\)</span> 下的坐标。</p>
+</blockquote>
+<div class="arithmatex">\[
+\implies E' = EC'-C'E + \Phi^\dagger H' \Phi.
+\]</div>
+<hr />
+<p>先考察 <span class="arithmatex">\(EC'-C'E\)</span>。回想一下，<span class="arithmatex">\(E,E'\)</span> 都对应特征值，它们都是对角阵。<span class="arithmatex">\(EC'\)</span> 相当于给 <span class="arithmatex">\(C'\)</span> 做初等行变换，第 <span class="arithmatex">\(i\)</span> 行变为原来的 <span class="arithmatex">\(e_i\)</span> 倍；<span class="arithmatex">\(C'E\)</span> 相当于给 <span class="arithmatex">\(C'\)</span> 做初等列变换，第 <span class="arithmatex">\(j\)</span> 列变为原来的 <span class="arithmatex">\(e_j\)</span> 倍。因此</p>
+<div class="arithmatex">\[
+EC' - C'E = \begin{bmatrix}
+0 &amp; (e_1-e_2)c'_{12} &amp; (e_1-e_3)c'_{13} &amp; \cdots \\
+(e_2-e_1) c'_{21} &amp; 0 &amp; (e_2-e_3)c'_{23} &amp; \cdots \\
+(e_3-e_1) c'_{31} &amp; (e_3-e_2)c'_{32} &amp; 0 &amp; \cdots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots \\
+\end{bmatrix}.
+\]</div>
+<blockquote>
+<p>第 <span class="arithmatex">\(i\)</span> 行第 <span class="arithmatex">\(j\)</span> 列：<span class="arithmatex">\(e_i c_{jk} - c_{ij} e_{j} = (e_i-e_j)c_{ij}\)</span>。</p>
+</blockquote>
+<p>——对角线上都是零。</p>
+<p>再看 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span>。<span class="arithmatex">\(H’\)</span> 由问题提供，<span class="arithmatex">\(\Phi\)</span> 之前已经算好，反正 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span> 是个已知的（数组成的）方阵。另外，一见形式就知道它的共轭转置是其自身：<span class="arithmatex">\(\qty(\Phi^\dagger H' \Phi)^\dagger = \Phi^\dagger H'^\dagger \Phi = \Phi^\dagger H' \Phi\)</span>。</p>
+<p>现在，怎样保证 <span class="arithmatex">\(E'\)</span> 是对角阵？</p>
+<ul>
+<li>对角线上是 <span class="arithmatex">\(e’_i\)</span>。由于 <span class="arithmatex">\(EC'-C'E\)</span> 不提供对角线，所以 <span class="arithmatex">\(e_i'\)</span> 只来自 <span class="arithmatex">\(\Phi^\dagger H\Phi\)</span>。因此 <span class="arithmatex">\(e'_i = \varphi_i^\dagger H' \varphi_i\)</span>。</li>
+</ul>
+<ul>
+<li>
+<p>除此以外全是零。<span class="arithmatex">\(EC'-C'E\)</span> 要抵消 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span> 的非对角元，所以 <span class="arithmatex">\((e_i-e_j) c'_{ij} = - \varphi_i^\dagger H' \varphi_j\)</span>。</p>
+<div class="arithmatex">\[
+c'_{ij} = - \frac{\mel{\varphi_i}{H'}{\varphi_j}} {e_i - e_j}
+\]</div>
+<blockquote>
+<p>顺带得到 <span class="arithmatex">\(c_{ij} = -c_{ji}^\dagger\)</span>，反 Hermitian。</p>
+</blockquote>
+</li>
+</ul>
+<p>至此确定了 <span class="arithmatex">\(E'\)</span> 和 <span class="arithmatex">\(C'\)</span>（除了对角线）。</p>
+<hr />
+<p>检验一下 <span class="arithmatex">\(\bar \Phi\)</span> 的正交归一完备性。</p>
+<blockquote>
+<p>事实上由于 <span class="arithmatex">\(\bar H, H, H'\)</span> 的共轭转置都是自身，这是必然的。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{split}
+I &amp;\overset?=
+\qty(\Phi + \Phi' + \cdots)^\dagger (\Phi + \Phi' + \cdots) \\
+&amp;= \Phi^\dagger\Phi + \Phi'^\dagger \Phi + \Phi^\dagger \Phi' + \cdots. \\
+\end{split}
+\]</div>
+<blockquote>
+<p>仍旧将一阶以上的项合并到“<span class="arithmatex">\(\cdots\)</span>”中。</p>
+</blockquote>
+<p><span class="arithmatex">\(\Phi'^\dagger \Phi + \Phi^\dagger \Phi'\)</span> 是零吗？其实它就是 <span class="arithmatex">\(\Phi^\dagger \Phi C' + C'^\dagger \Phi^\dagger\Phi = IC'+C'^\dagger I = C'+ C'^\dagger\)</span>。在非对角线上，由 <span class="arithmatex">\(c'_{ij}\)</span> 的公式，确实如此。在对角线上，我们还未确定 <span class="arithmatex">\(c'_{ii}\)</span>，现在知道要求 <span class="arithmatex">\(c'_{ii} \in i\R\)</span>；由于此时虚部不影响物理现实，我们直接都取零，保持 <span class="arithmatex">\(C'^\dagger = - C'\)</span>。</p>
+<h4 id="二阶">二阶<a class="headerlink" href="#二阶" title="Permanent link">&para;</a></h4>
+<p>同理得目标</p>
+<div class="arithmatex">\[
+H'\Phi' + H\Phi'' \overset?= \Phi''E + \Phi' E' + \Phi E''.
+\]</div>
+<p>仍设 <span class="arithmatex">\(\Phi' = \Phi C'\)</span>，<span class="arithmatex">\(\Phi'' = \Phi C''\)</span>。同理</p>
+<div class="arithmatex">\[
+\begin{split}
+&amp;\implies H'\Phi C' + H\Phi C'' = \Phi C'' E + \Phi C' E' + \Phi E''. \\
+&amp;\implies \Phi^\dagger H'\Phi\ C' + E C''
+    = C'' E + C'E' + E''. \\
+&amp;\implies E'' = \qty(EC'' - C'' E) + \qty(\Phi^\dagger H'\Phi C' - C' E').
+\end{split}
+\]</div>
+<p><span class="arithmatex">\(E''\)</span> 仍是对角阵，<span class="arithmatex">\(EC''-C''E\)</span> 仍不提供对角线。<span class="arithmatex">\(C'\)</span> 的对角线是零，<span class="arithmatex">\(C'E'\)</span> 也不提供对角线。因此 <span class="arithmatex">\(E''\)</span> 的对角线只由 <span class="arithmatex">\(\Phi^\dagger H' \Phi C'\)</span> 提供。故</p>
+<div class="arithmatex">\[
+\begin{split}
+e''_i &amp;= \sum_j\varphi_i^\dagger H' \varphi_j \ c'_{ji} \\
+&amp;= -\sum_{j} \mel{\varphi_i}{H'}{\varphi_j} \frac{\mel{\varphi_j}{H'}{\varphi_i}} {e_j - e_i} \\
+&amp;= \sum_{j} \frac{\mel{\varphi_i}{H'}{\varphi_j}^2} {e_i - e_j}.
+\end{split}
+\]</div>
+<h3 id="有简并情况">有简并情况<a class="headerlink" href="#有简并情况" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年11月26日。</p>
+</blockquote>
+<p>采用类似记号。</p>
+<blockquote>
+<p>由 Hermitian 的性质，即使 <span class="arithmatex">\(H\)</span> 的特征值简并了，相应的特征子空间也不会退化。因此沿用记号是合理的。</p>
+</blockquote>
+<p>同理可得</p>
+<div class="arithmatex">\[
+E' = EC'-C'E + \Phi^\dagger H' \Phi.
+\]</div>
+<p>还是先看 <span class="arithmatex">\(EC'-C'E\)</span>。这仍然是给 <span class="arithmatex">\(C'\)</span> 做两种初等变换后的差，但因为特征值有简并（<span class="arithmatex">\(e_i\)</span> 有重复），会有成片的零（而非仅对角线是零），比如下面这样的对角线加正方形。</p>
+<div class="arithmatex">\[
+\left[\begin{array}{c|c|cc|c}
+0 &amp; &amp; &amp; &amp; \\
+\hline
+&amp; 0 &amp; &amp; &amp; \\
+\hline
+&amp; &amp; 0 &amp; \color{red}{0} &amp; \\
+&amp; &amp; \color{red}{0} &amp; 0 &amp; \\
+\hline
+&amp; &amp; &amp; &amp; 0
+\end{array}\right]
+\]</div>
+<blockquote>
+<p>空白处是任意数。</p>
+</blockquote>
+<p>再看 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span>。呃，它好像没什么变化……</p>
+<p>现在同样想保证 <span class="arithmatex">\(E'\)</span> 是对角阵，怎么做？</p>
+<ul>
+<li>对角线上是 <span class="arithmatex">\(e’_i\)</span>。<span class="arithmatex">\(EC'-C'E\)</span> 只是多了些零，仍旧不提供对角线，所以 <span class="arithmatex">\(e_i'\)</span> 还是只来自 <span class="arithmatex">\(\Phi^\dagger H\Phi\)</span>。因此 <span class="arithmatex">\(e'_i = \varphi_i^\dagger H' \varphi_i\)</span>。</li>
+<li>除此以外全是零。<span class="arithmatex">\(EC'-C'E\)</span> 要抵消 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span> 的非对角元。对于非零部分，仍令 <span class="arithmatex">\((e_i-e_j) c_{ij} = - \varphi_i^\dagger H' \varphi_j\)</span> 即可；对于剩下的部分（上面矩阵中对角线以外的零，即红色部分），无论 <span class="arithmatex">\(c_{ij}\)</span> 怎么取，<span class="arithmatex">\(EC'-C'E\)</span> 中对应项都是零，<u><strong>无法抵消</strong></u>——这怎么办？</li>
+</ul>
+<hr />
+<p>再看看 <span class="arithmatex">\(E' = EC' - C'E + \Phi^\dagger H' \Phi\)</span> —— <span class="arithmatex">\(EC'-C'E\)</span> 是没辙了，其它部分能否活动活动呢？</p>
+<p><span class="arithmatex">\(E'\)</span> 对应特征值，必须是对角阵，这改变不了。那对 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span> 下手。<span class="arithmatex">\(H'\)</span> 由问题提供，无回旋余地；<span class="arithmatex">\(\Phi\)</span> 是 <span class="arithmatex">\(H\)</span> 的特征向量—— <span class="arithmatex">\(H\)</span> 只把空间划分为若干正交的特征子空间，它并不限制每个子空间里的基怎么选！</p>
+<p>因此，我们准备换个 <span class="arithmatex">\(\Phi\)</span>，让 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span> 中 <span class="arithmatex">\(EC'-C'E\)</span> 抵消不了的部分天然是零。换句话说，把 <span class="arithmatex">\(H'\)</span> 的这部分也一起对角化，或者说继续把 <span class="arithmatex">\(\Phi^\dagger H' \Phi\)</span> 的这部分对角化；再换个抽象一点儿的说法，挑出 <span class="arithmatex">\(H\)</span> 的那些简并特征值对应的多维特征子空间，在这个子空间中求解 <span class="arithmatex">\(H'\)</span> 的特征系统。</p>
+<blockquote>
+<p>直观上感觉这就有可能。非简并特征值对应的部分无从修改，只能换简并特征值对应的部分，而 <span class="arithmatex">\(EC'-C'E\)</span> 抵消不了的部分正是这些。</p>
+<p>换了 <span class="arithmatex">\(\Phi\)</span> 之后 <span class="arithmatex">\(\Phi^\dagger H'\Phi\)</span> 的对角线也换了，所以 <span class="arithmatex">\(E'\)</span> 对角线上的元素不一定是刚才估计的那些。</p>
+</blockquote>
+<p>书上其实只求了这些特征系统的特征值，那我们直接给出特征方程 <span class="arithmatex">\(\det(\Phi_d^\dagger H'_d \Phi_d - E_d'I) = 0\)</span> 就完了。</p>
+<blockquote>
+<p>下标 <span class="arithmatex">\(d\)</span> 表示只有简并（degenerate）的那些部分。</p>
+</blockquote>
+<h1 id="后备箱">后备箱<a class="headerlink" href="#后备箱" title="Permanent link">&para;</a></h1>
+
+
+  
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Snippet generated by giscus.app -->
+  <script src="https://giscus.app/client.js"
+          data-repo="YDX-2147483647/summaries"
+          data-repo-id="R_kgDOIpJG0Q"
+          data-category="General"
+          data-category-id="DIC_kwDOIpJG0c4CTQqa"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://ydx-2147483647.github.io/summaries/feed_rss_updated.xml" target="_blank" rel="noopener" title="RSS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

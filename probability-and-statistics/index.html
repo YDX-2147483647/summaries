@@ -1,0 +1,1356 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="各种课程的总结、随记等。">
+      
+      
+      
+        <link rel="canonical" href="https://ydx-2147483647.github.io/summaries/probability-and-statistics/">
+      
+      
+        <link rel="prev" href="../physics-2/">
+      
+      
+        <link rel="next" href="../roller-skating/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>概率论与数理统计 - 总结</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>  
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="新增内容的 RSS 源" href="../feed_rss_created.xml">
+  <link rel="alternate" type="application/rss+xml" title="更新内容的 RSS 源" href="../feed_rss_updated.xml">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#概率论与数理统计" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="总结" class="md-header__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            总结
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              概率论与数理统计
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="总结" class="md-nav__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    总结
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Summaries
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artificial-intelligence/" class="md-nav__link">
+        人工智能导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-functions-and-equations-of-mathematical-physics/" class="md-nav__link">
+        复变函数与数理方程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-and-data-structure/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-circuits-and-systems/" class="md-nav__link">
+        数字电路与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-communication/" class="md-nav__link">
+        数字通信原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-signal-processing/" class="md-nav__link">
+        数字信号处理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electromagnetic-field-and-wave/" class="md-nav__link">
+        电磁场与电磁波
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-theory-and-coding/" class="md-nav__link">
+        信息论与编码
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrated-circuits/" class="md-nav__link">
+        集成电路设计实践
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligent-multi-source-sensing/" class="md-nav__link">
+        智能多源感知
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modern-chinese-history/" class="md-nav__link">
+        中国近现代史纲要
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morals-ethics-law/" class="md-nav__link">
+        思想道德修养与法律基础
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-system/" class="md-nav__link">
+        操作系统原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-1/" class="md-nav__link">
+        物理1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-2/" class="md-nav__link">
+        物理2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          概率论与数理统计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        概率论与数理统计
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-随机事件与概率" class="md-nav__link">
+    §1 随机事件与概率
+  </a>
+  
+    <nav class="md-nav" aria-label="§1 随机事件与概率">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#独立" class="md-nav__link">
+    独立
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-随机变量" class="md-nav__link">
+    §2 随机变量
+  </a>
+  
+    <nav class="md-nav" aria-label="§2 随机变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#分布" class="md-nav__link">
+    分布
+  </a>
+  
+    <nav class="md-nav" aria-label="分布">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二项分布-Bnp" class="md-nav__link">
+    二项分布 \(B(n,p)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#超几何分布-HnMN" class="md-nav__link">
+    超几何分布 \(H(n,M,N)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#几何分布-Gp" class="md-nav__link">
+    几何分布 \(G(p)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#泊松分布-pilambda" class="md-nav__link">
+    泊松分布 \(\pi(\lambda)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#均匀分布-Ulr" class="md-nav__link">
+    均匀分布 \(U(l,r)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#指数分布-Elambda" class="md-nav__link">
+    指数分布 \(E(\lambda)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#正态分布-Nmu-sigma2" class="md-nav__link">
+    正态分布 \(N(\mu, \sigma^2)\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-极限定理" class="md-nav__link">
+    §5 极限定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-抽样分布" class="md-nav__link">
+    §6 抽样分布
+  </a>
+  
+    <nav class="md-nav" aria-label="§6 抽样分布">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#抽样分布" class="md-nav__link">
+    抽样分布
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#抽样分布定理" class="md-nav__link">
+    抽样分布定理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-参数估计" class="md-nav__link">
+    §7 参数估计
+  </a>
+  
+    <nav class="md-nav" aria-label="§7 参数估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无偏与相合" class="md-nav__link">
+    无偏与相合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roller-skating/" class="md-nav__link">
+        轮滑
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semiconductor-physics/" class="md-nav__link">
+        半导体物理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-theory/" class="md-nav__link">
+        集合论——开启理性思维的钥匙
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals-and-systems/" class="md-nav__link">
+        信号与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-signal-processing/" class="md-nav__link">
+        随机信号分析
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theoretical-physics-intro/" class="md-nav__link">
+        理论物理导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xi-thought/" class="md-nav__link">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-随机事件与概率" class="md-nav__link">
+    §1 随机事件与概率
+  </a>
+  
+    <nav class="md-nav" aria-label="§1 随机事件与概率">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#独立" class="md-nav__link">
+    独立
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-随机变量" class="md-nav__link">
+    §2 随机变量
+  </a>
+  
+    <nav class="md-nav" aria-label="§2 随机变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#分布" class="md-nav__link">
+    分布
+  </a>
+  
+    <nav class="md-nav" aria-label="分布">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二项分布-Bnp" class="md-nav__link">
+    二项分布 \(B(n,p)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#超几何分布-HnMN" class="md-nav__link">
+    超几何分布 \(H(n,M,N)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#几何分布-Gp" class="md-nav__link">
+    几何分布 \(G(p)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#泊松分布-pilambda" class="md-nav__link">
+    泊松分布 \(\pi(\lambda)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#均匀分布-Ulr" class="md-nav__link">
+    均匀分布 \(U(l,r)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#指数分布-Elambda" class="md-nav__link">
+    指数分布 \(E(\lambda)\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#正态分布-Nmu-sigma2" class="md-nav__link">
+    正态分布 \(N(\mu, \sigma^2)\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-极限定理" class="md-nav__link">
+    §5 极限定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-抽样分布" class="md-nav__link">
+    §6 抽样分布
+  </a>
+  
+    <nav class="md-nav" aria-label="§6 抽样分布">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#抽样分布" class="md-nav__link">
+    抽样分布
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#抽样分布定理" class="md-nav__link">
+    抽样分布定理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-参数估计" class="md-nav__link">
+    §7 参数估计
+  </a>
+  
+    <nav class="md-nav" aria-label="§7 参数估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无偏与相合" class="md-nav__link">
+    无偏与相合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/YDX-2147483647/summaries/blob/main/docs/probability-and-statistics.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/YDX-2147483647/summaries/raw/main/docs/probability-and-statistics.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="概率论与数理统计">概率论与数理统计<a class="headerlink" href="#概率论与数理统计" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\]</div>
+<h2 id="1-随机事件与概率">§1 随机事件与概率<a class="headerlink" href="#1-随机事件与概率" title="Permanent link">&para;</a></h2>
+<h3 id="独立">独立<a class="headerlink" href="#独立" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年9月22日。</p>
+</blockquote>
+<p>伯恩斯坦（哪位？）反例。给 <span class="arithmatex">\(n\)</span> 面体类似地涂上 <span class="arithmatex">\(n-1\)</span> 种颜色，相应的事件并不两两独立。</p>
+<hr />
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://www.zhihu.com/question/21872177/answer/1247392105">随机事件a、b、c两两独立和相互独立有什么区别？ - 黑夜里的白猫的回答 - 知乎</a>，图自 <a href="https://en.wikipedia.org/wiki/Borromean_rings">Borromean rings - Wikipedia</a>。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://www.jstor.org/stable/2685037">On the Construction of Independence Counterexamples on JSTOR</a>（<a href="https://sci-hub.se/https://doi.org/10.2307/2685037">Sci-Hub</a>）</p>
+<h2 id="2-随机变量">§2 随机变量<a class="headerlink" href="#2-随机变量" title="Permanent link">&para;</a></h2>
+<h3 id="分布">分布<a class="headerlink" href="#分布" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年10月15日。</p>
+</blockquote>
+<h4 id="二项分布-Bnp">二项分布 <span class="arithmatex">\(B(n,p)\)</span><a class="headerlink" href="#二项分布-Bnp" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>（Binomial）</p>
+</blockquote>
+<p><span class="arithmatex">\(n\)</span> 次<u>独立</u>重复试验的成功次数。</p>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(n\)</span>：试验次数。</li>
+<li><span class="arithmatex">\(p\)</span>：单次试验成功概率。</li>
+<li><span class="arithmatex">\(q = 1-p\)</span>。</li>
+</ul>
+</blockquote>
+<div class="arithmatex">\[
+\begin{array}{l}
+    \xi \sim {B}(n,p). \\
+    \displaystyle
+    \Pr(\xi=k) = \binom{n}{k} p^k q^{n-k}, \quad
+    k = 0,\cdots, n.
+\end{array}
+\]</div>
+<hr />
+<p>单次试验的成功次数服从 <span class="arithmatex">\(B(1,p)\)</span>，称作二点／伯努利（Bernoulli）分布。</p>
+<h4 id="超几何分布-HnMN">超几何分布 <span class="arithmatex">\(H(n,M,N)\)</span><a class="headerlink" href="#超几何分布-HnMN" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>（Hypergeometric）</p>
+</blockquote>
+<p><span class="arithmatex">\(n\)</span> 次不放回抽样中“好”的数量。</p>
+<div class="arithmatex">\[
+\begin{array}{l}
+    \xi \sim {H}(n,M,N). \\
+    \displaystyle
+    \Pr(\xi=m) = \frac{\binom{M}{m} \binom{N-M}{n-m}}{\binom{N}{n}} = \frac{\binom{n}{m} \binom{N-n}{M-m}}{\binom{N}{M}}, \\
+    \quad m = \max[0, n-(N-M)], \cdots, \min[n, M].
+\end{array}
+\]</div>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(n\)</span>：样本量。</li>
+<li><span class="arithmatex">\(N\)</span>：总体。</li>
+<li><span class="arithmatex">\(M\)</span>：总体中“好”的数量。</li>
+</ul>
+</blockquote>
+<h4 id="几何分布-Gp">几何分布 <span class="arithmatex">\(G(p)\)</span><a class="headerlink" href="#几何分布-Gp" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>（Geometric）</p>
+</blockquote>
+<p>独立重复试验中第一次成功时的试验次数。（重复直至成功）</p>
+<div class="arithmatex">\[
+\begin{array}{l}
+    \xi \sim {G}(p). \\
+    \Pr(\xi = n) = p q^{1-n}, \quad
+    n \in \N_+.
+\end{array}
+\]</div>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(p\)</span>：单次试验成功概率。</li>
+<li><span class="arithmatex">\(q = 1-p\)</span>。</li>
+</ul>
+</blockquote>
+<hr />
+<p>独立重复试验中第 <span class="arithmatex">\(r\)</span> 次成功时的试验次数服从负二项（negative binomial）分布 <span class="arithmatex">\({NB}(r,p)\)</span>，又名 Pascal 分布。</p>
+<div class="arithmatex">\[
+\Pr(\xi = n) = \binom{n-1}{r-1} p^r q^{n-r} , \quad n \in [r, +\infty) \cap \Z.
+\]</div>
+<p><span class="arithmatex">\({NB}(1,p)\)</span> 即 <span class="arithmatex">\({G}(p)\)</span>。</p>
+<blockquote>
+<p>这两个分布的定义都比较混乱，有的指成功次数，有的指失败次数。</p>
+</blockquote>
+<h4 id="泊松分布-pilambda">泊松分布 <span class="arithmatex">\(\pi(\lambda)\)</span><a class="headerlink" href="#泊松分布-pilambda" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>（Poisson，<code>/ˈpwɑːsɒn/</code>）</p>
+</blockquote>
+<p>一段时间内发生的事件次数。（这种事件以恒定可能性独立发生）</p>
+<div class="arithmatex">\[
+\begin{array}{l}
+    \xi \sim \pi(\lambda). \\
+    \displaystyle
+    \Pr(\xi=k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad
+    k \in \N.
+\end{array}
+\]</div>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(\lambda\)</span>：期望，或者说发生率×时长。</li>
+</ul>
+</blockquote>
+<h4 id="均匀分布-Ulr">均匀分布 <span class="arithmatex">\(U(l,r)\)</span><a class="headerlink" href="#均匀分布-Ulr" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>（Uniform）</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{array}{l}
+    X \sim U(l,r),\quad X \in [l,r]. \\
+    \displaystyle
+    \dv{P}{x} \equiv \frac{1}{r-l}. \\
+    \displaystyle
+    \Pr(X&lt;x) = \frac{x-l}{r-l}.
+\end{array}
+\]</div>
+<h4 id="指数分布-Elambda">指数分布 <span class="arithmatex">\(E(\lambda)\)</span><a class="headerlink" href="#指数分布-Elambda" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>（Exponential）</p>
+</blockquote>
+<p>无后效连续型随机变量。</p>
+<div class="arithmatex">\[
+\begin{array}{l}
+    X \sim E(\lambda),\quad X \in [0,\infty). \\
+    \displaystyle
+    \dv{P}{x} = \lambda e^{-\lambda x}. \\
+    \displaystyle
+    \Pr(X&lt;x) = 1 - e^{-\lambda x}.
+\end{array}
+\]</div>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(\lambda\)</span>：<span class="arithmatex">\(\eval{\dv{P}{x}}_{x=0^+}\)</span>。</li>
+</ul>
+<p>以上 PDF、CDF 仅限 <span class="arithmatex">\(x \geq 0\)</span>。</p>
+</blockquote>
+<h4 id="正态分布-Nmu-sigma2">正态分布 <span class="arithmatex">\(N(\mu, \sigma^2)\)</span><a class="headerlink" href="#正态分布-Nmu-sigma2" title="Permanent link">&para;</a></h4>
+<p>→中心极限定理。</p>
+<div class="arithmatex">\[
+\begin{array}{l}
+    X \sim N(\mu, \sigma^2),\quad X \in \R. \\
+    \displaystyle
+    \dv{P}{x} = \frac{\exp( -\frac{(x-\mu)^2}{2\sigma^2})}{\sqrt{2\pi} \sigma}. \\
+    \displaystyle
+    \Pr(X&lt;x) = \Phi\qty(\frac{x-\mu}{\sigma}).
+\end{array}
+\]</div>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(\mu\)</span>：期望。</li>
+<li><span class="arithmatex">\(\sigma^2\)</span>：方差。</li>
+</ul>
+</blockquote>
+<h2 id="5-极限定理">§5 极限定理<a class="headerlink" href="#5-极限定理" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年11月15日。</p>
+</blockquote>
+<ul>
+<li>大数定律：算术平均值稳定。<ul>
+<li>Chebyshev：独立序列 <span class="arithmatex">\(\xi_i\)</span>，<span class="arithmatex">\(E\xi_i = \mu_i\)</span>，<span class="arithmatex">\(D\xi_i\)</span> 存在且有公共<u>上界</u>，则 <span class="arithmatex">\(\bar \xi \overset{P}{\to} \bar \mu\)</span>。</li>
+<li>伯努利：独立<u>重复</u>试验，<span class="arithmatex">\(f \overset{P}{\to} P\)</span>。</li>
+<li>Khintchine（Алекса́ндр Я́ковлевич Хи́нчин）：独立<u>同分布</u>序列 <span class="arithmatex">\(\xi_i\)</span>，<span class="arithmatex">\(E\xi_i = \mu\)</span>，则 <span class="arithmatex">\(\bar\xi \overset{P}{\to} \mu\)</span>。</li>
+</ul>
+</li>
+<li>中心极限定理：算术和标准化后的渐近分布是标准正态分布。<ul>
+<li>Linderberg – Levy：独立<u>同分布</u>序列 <span class="arithmatex">\(\xi_i\)</span>，<u>方差</u>存在，则 <span class="arithmatex">\(\sum\xi\)</span> 标准化后服从标准正态分布。</li>
+<li>De Moivre – Laplace：独立重复试验，结论类似。</li>
+<li>Lyapunov（Алекса́ндр Миха́йлович Ляпуно́в）：独立序列，标准差存在且其方均根为 <span class="arithmatex">\(B_n\)</span>，同时 <span class="arithmatex">\(2+\delta\)</span> 阶中心矩是 <span class="arithmatex">\(o(B_n^{2+\delta})\)</span>，则算术和服从标准正态分布。</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-抽样分布">§6 抽样分布<a class="headerlink" href="#6-抽样分布" title="Permanent link">&para;</a></h2>
+<h3 id="抽样分布">抽样分布<a class="headerlink" href="#抽样分布" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年11月15日。</p>
+</blockquote>
+<p>抽样分布指样本的统计量的分布。</p>
+<p>都需要各个随机变量相互独立。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\chi^2(n)\)</span>：<span class="arithmatex">\(\sum_i \xi_i^2\)</span>，<span class="arithmatex">\(\xi_i\)</span> 来自标准正态总体。（Pearson）</p>
+<p><span class="arithmatex">\(E\chi^2 = n\)</span>，<span class="arithmatex">\(D\chi^2 = 2n\)</span>。（标准正态变量的四阶矩是 <span class="arithmatex">\(3\)</span>）</p>
+<p><span class="arithmatex">\(n=2\)</span> 时恰为指数分布。</p>
+<p><span class="arithmatex">\(\text{PDF} \propto x^{n/2-1} e^{-x/2}\)</span>。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><span class="arithmatex">\(t(n)\)</span>：<span class="arithmatex">\(\frac{\xi}{\sqrt{\chi^2/n}}\)</span>，<span class="arithmatex">\(\xi\sim N(0,1)\)</span>，<span class="arithmatex">\(\chi^2 \sim \chi^2(n)\)</span>。（W. S. Gosset，<em>student</em>）</p>
+<blockquote>
+<p><span class="arithmatex">\(E\xi=0\)</span>，<span class="arithmatex">\(E\frac{\chi}{\sqrt{n}} = 1\)</span>。</p>
+</blockquote>
+<p><span class="arithmatex">\(ET=0\)</span>（<span class="arithmatex">\(n \geq 2\)</span>），<span class="arithmatex">\(DT = \frac{n}{n-2}\)</span>（<span class="arithmatex">\(n\geq 3\)</span>）。</p>
+<p><span class="arithmatex">\(\text{PDF} \propto \qty(1+\frac{t^2}{n})^{-(n+1)/2}\)</span>。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p><span class="arithmatex">\(F(m,n)\)</span>：<span class="arithmatex">\(\frac{M/m}{N/n}\)</span>，<span class="arithmatex">\(M\sim \chi^2(m)\)</span>，<span class="arithmatex">\(N\sim\chi^2(n)\)</span>。（Fisher）</p>
+<p><span class="arithmatex">\(\text{PDF} \propto x^{\frac{m}{2}-1} \qty(1+\frac{m}{n}x)^{-(m+n)/2}\)</span>。</p>
+</li>
+</ul>
+<h3 id="抽样分布定理">抽样分布定理<a class="headerlink" href="#抽样分布定理" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年11月15日。</p>
+</blockquote>
+<p><span class="arithmatex">\(E\bar\xi = \mu\)</span>，<span class="arithmatex">\(D\bar\xi = \frac{1}{n} \sigma^2\)</span>，<span class="arithmatex">\(Es^2 = \sigma^2\)</span>。</p>
+<p>对于正态总体 <span class="arithmatex">\(N(\mu,\sigma^2)\)</span>，<span class="arithmatex">\(\bar\xi\)</span> 与 <span class="arithmatex">\(s^2\)</span> 独立，且</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\bar\xi &amp;\sim N\qty(\mu, \frac{\sigma^2}{n}). \\
+\sum_i \qty(\xi_i-\bar\xi)^2 &amp;\sim \sigma^2 \chi^2_{n-1}. \\
+\frac{\bar\xi - \mu}{s/\sqrt{n}} &amp;\sim t(n-1). \\
+\end{aligned}
+\]</div>
+<p>对于两个相互<u>独立</u>的不同均值、<u>相同方差</u>的正态总体，</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\sqrt{m^{-1} + n^{-1}} U &amp;= (\bar\xi-\mu_\xi) - (\bar\eta - \mu_\eta), \\
+(m+n-2) V &amp;= \sqrt{\sum_i \qty(\xi-\bar\xi)^2 + \sum_i \qty(\eta-\bar\eta)^2}. \\
+%
+\implies \frac{U}{V} \sim t(m+n-2).
+\end{aligned}
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(U \sim N(0,\sigma^2)\)</span>，<span class="arithmatex">\(V \sim \sigma^2 \chi^2_{m+n-2}\)</span>。</p>
+</blockquote>
+<p>对于两个相互<u>独立</u>的正态总体，</p>
+<div class="arithmatex">\[
+\frac{s_\xi^2}{s_\eta^2} \sim \frac{\sigma_\xi^2}{\sigma_\eta^2} F(m-1,n-1).
+\]</div>
+<h2 id="7-参数估计">§7 参数估计<a class="headerlink" href="#7-参数估计" title="Permanent link">&para;</a></h2>
+<h3 id="无偏与相合">无偏与相合<a class="headerlink" href="#无偏与相合" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月17日。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> <a href="https://math.stackexchange.com/a/239199/1031068">probability - Consistency and asymptotically unbiasedness? - Mathematics Stack Exchange</a>.</p>
+</blockquote>
+<p>相合和大数定律有几分相像，而无偏只描述准确性（渐近无偏是更弱的条件）。</p>
+<p>即使是渐近无偏和相合，两个概念也没有蕴含关系。</p>
+<p>下面用估计值的 μ、σ 举几个比喻式的例子。</p>
+<ul>
+<li>相合但有偏：μ+σ = 真值，σ = 1/n。（类似例子：样本均值，不过最大的样本多算一遍。）</li>
+<li>相合但渐近也有偏：估计值取零的概率为 1-1/n，取 n 的概率为 1/n，真值为零。</li>
+<li>无偏但不相合：μ = 真值，σ = 1。（类似例子：只用第一个样本。） </li>
+</ul>
+<p>用切比雪夫不等式能证明：渐近无偏 ∧ 方差收敛到零 ⇒ 相合。</p>
+<p>// 是“渐近”，而非“渐进”。</p>
+<h1 id="后备箱">后备箱<a class="headerlink" href="#后备箱" title="Permanent link">&para;</a></h1>
+<ul>
+<li>计数时注意是否放回。</li>
+<li>区分条件和无条件概率。</li>
+<li>求级数时注意求和范围。</li>
+<li>注意随机变量的<u>范围</u>，尤其是写概率密度时。</li>
+<li>求随机变量的函数的概率密度时，注意是否是<u>一一映射</u>。</li>
+<li>区分概率密度和累计分布。</li>
+<li>区分泊松分布和指数分布。</li>
+<li>按定义验证抽样分布时，强调<u>独立</u>性。</li>
+<li>矩估计时，强调用样本矩代替总体矩。</li>
+<li>若 <span class="arithmatex">\(\xi \sim N(0,1)\)</span>，则 <span class="arithmatex">\(-\xi\)</span> 也服从。</li>
+<li>累积分布是分段函数时，概率密度往往也是。</li>
+</ul>
+
+
+  
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Snippet generated by giscus.app -->
+  <script src="https://giscus.app/client.js"
+          data-repo="YDX-2147483647/summaries"
+          data-repo-id="R_kgDOIpJG0Q"
+          data-category="General"
+          data-category-id="DIC_kwDOIpJG0c4CTQqa"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://ydx-2147483647.github.io/summaries/feed_rss_updated.xml" target="_blank" rel="noopener" title="RSS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
