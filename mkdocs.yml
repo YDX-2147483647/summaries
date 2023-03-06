@@ -48,7 +48,9 @@ plugins:
   - search
 
   # Extra plugins
-  - rss
+  - rss:
+      # Disable RSS for faster build times in development
+      enabled: !ENV [MKDOCS_ENABLE_RSS_PLUGIN, True]
 
 extra_javascript:
   - javascripts/mathjax.js
