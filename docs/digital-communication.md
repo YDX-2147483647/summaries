@@ -1,3 +1,7 @@
+---
+relevant: ./digital-signal-processing.md
+---
+
 # 数字通信原理
 
 $$

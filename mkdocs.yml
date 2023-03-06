@@ -52,6 +52,9 @@ plugins:
       # Disable RSS for faster build times in development
       enabled: !ENV [MKDOCS_ENABLE_RSS_PLUGIN, True]
 
+hooks:
+  - hooks/relationship.py
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6

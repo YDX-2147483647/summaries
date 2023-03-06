@@ -1,3 +1,7 @@
+---
+relevant: ./digital-communication.md
+---
+
 # 数字信号处理
 
 $$

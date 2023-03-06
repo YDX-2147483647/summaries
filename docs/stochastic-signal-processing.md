@@ -1,3 +1,7 @@
+---
+relevant: ./probability-and-statistics.md
+---
+
 # 随机信号分析
 
 $$

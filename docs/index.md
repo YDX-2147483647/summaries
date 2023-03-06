@@ -2,6 +2,8 @@
 
 各种课程的总结、随记等。
 
+<!-- hooks/relationship.py -->
+
 ## 图例
 
 :material-clock-edit-outline: 2022年12月26日。

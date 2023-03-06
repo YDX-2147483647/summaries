@@ -1,3 +1,7 @@
+---
+relevant: ./physics-1.md
+---
+
 # 物理2
 
 $$

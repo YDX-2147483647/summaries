@@ -13,6 +13,7 @@ mkdocs := python + " -m mkdocs"
 bootstrap:
     {{ pip }} install mkdocs-material --upgrade
     {{ pip }} install mdx_truly_sane_lists mkdocs-rss-plugin --upgrade
+    {{ pip }} install graphviz --upgrade
 
 # Start the live-reloading docs server
 serve *ARGS:
