@@ -11,3 +11,7 @@
     text-underline-position: under;
     text-decoration-color: var(--md-primary-fg-color);
 }
+
+.md-typeset svg.hooks-relationship .node {
+    fill: var(--md-primary-fg-color);
+}
