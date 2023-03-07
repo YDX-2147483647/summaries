@@ -1,5 +1,6 @@
 ---
-relevant: ./digital-communication.md
+relevant:
+  - ./signals-and-systems.md
 ---
 
 # 数字信号处理

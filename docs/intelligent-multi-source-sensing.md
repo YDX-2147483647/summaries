@@ -1,3 +1,9 @@
+---
+relevant:
+  - ./signals-and-systems.md
+  - ./artificial-intelligence.md
+---
+
 # 智能多源感知
 
 ## 3 距离分辨率和角分辨率

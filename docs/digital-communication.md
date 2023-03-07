@@ -1,5 +1,11 @@
 ---
-relevant: ./digital-signal-processing.md
+relevant:
+  - ./digital-signal-processing.md:
+      dir: both
+  - ./stochastic-signal-processing.md:
+      dir: both
+  - ./information-theory-and-coding.md:
+      dir: both
 ---
 
 # 数字通信原理

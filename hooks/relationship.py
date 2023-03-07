@@ -2,7 +2,23 @@
 
 ## Usage
 
-Add `relevant: str | list[str]` to pages' metadata. Paths should be relative, as in `[title](link)`.
+Add `relevant` to pages' metadata. Paths should be relative, as in `[title](link)`.
+
+Formats:
+
+- ```yaml
+  relevant: <destination>
+  ```
+
+- ```yaml
+  relevant:
+    - <destination>
+  ```
+
+- ```yaml
+  relevant:
+    - <destination>: <edge_attributes>
+  ```
 
 ## Inspired by
 
@@ -25,7 +41,7 @@ from typing import TYPE_CHECKING, TypedDict
 from graphviz import Digraph
 
 if TYPE_CHECKING:
-    from typing import Final
+    from typing import Final, Any
 
     from jinja2.environment import Environment
     from mkdocs.config.defaults import MkDocsConfig
@@ -51,6 +67,9 @@ class Edge(TypedDict):
 
     dst_uri: str
     """page where the edge points to"""
+
+    attr: dict[str, Any]
+    """[edge attributes](https://graphviz.org/docs/edges/)"""
 
 
 class State:
@@ -96,16 +115,33 @@ def on_page_content(html: str, page: Page, config: MkDocsConfig, files: Files) -
         )
     )
 
-    if page.meta and (relevant := page.meta["relevant"]):
-        # Normalize `relevant` to `list[str]`
-        if not isinstance(relevant, list):
-            relevant: list[str] = [relevant]
+    if page.meta and (raw_relevant := page.meta["relevant"]):
+        raw_relevant: str | list[str | dict[str, dict[str, Any]]]
 
-        for r in relevant:
+        # Normalize `relevant`
+        # → `list[<dst> | dict[<dst>, <attr>]]`
+        raw_relevant = (
+            raw_relevant if isinstance(raw_relevant, list) else [raw_relevant]
+        )
+        # → `dict[<dst>, <attr>]`
+        relevant: dict[str, dict[str, Any]] = {}
+        for r in raw_relevant:
+            if isinstance(r, str):
+                relevant[r] = {}
+            else:
+                assert (
+                    len(r) == 1
+                ), "Every edge should target to exactly one destination"
+
+                relevant.update(r)
+
+        # Add the edge
+        for dst, attr in relevant.items():
             _state.edges.append(
                 Edge(
                     src_uri=page.file.src_uri,
-                    dst_uri=files.get_file_from_path(r).src_uri,
+                    dst_uri=files.get_file_from_path(dst).src_uri,
+                    attr=attr,
                 )
             )
 
@@ -140,7 +176,7 @@ def paint(nodes: list[Node], edges: list[Edge]) -> bytes:
         graph.node(name=n["src_uri"], label=n["title"], URL=n["abs_url"])
 
     for e in edges:
-        graph.edge(tail_name=e["dst_uri"], head_name=e["src_uri"])
+        graph.edge(tail_name=e["dst_uri"], head_name=e["src_uri"], **e["attr"])
 
     data = graph.pipe()
     # Remove DOCTYPE, etc. We'll put the SVG inline in HTML.

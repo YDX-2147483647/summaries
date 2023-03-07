@@ -1,3 +1,7 @@
+---
+relevant: ./probability-and-statistics.md
+---
+
 # 信息论与编码
 
 > :material-eye-arrow-right: [国防科技大学-信息论与编码基础（国家级精品课）](https://www.bilibili.com/video/BV1pJ411U7G8)

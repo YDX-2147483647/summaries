@@ -1,6 +1,7 @@
 ---
 relevant:
   - ./physics-2.md
+  - ./complex-functions-and-equations-of-mathematical-physics.md
 ---
 
 # 电磁场与电磁波

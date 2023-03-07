@@ -1,3 +1,7 @@
+---
+relevant: ./digital-circuits-and-systems.md
+---
+
 # 集成电路设计实践
 
 !!! note 后来退课了

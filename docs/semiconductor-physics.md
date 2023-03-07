@@ -1,3 +1,7 @@
+---
+relevant: ./theoretical-physics-intro.md
+---
+
 # 半导体物理
 
 $$

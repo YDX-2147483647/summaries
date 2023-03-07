@@ -1,5 +1,7 @@
 ---
-relevant: ./physics-1.md
+relevant:
+  - ./physics-1.md
+  - ./probability-and-statistics.md
 ---
 
 # 物理2

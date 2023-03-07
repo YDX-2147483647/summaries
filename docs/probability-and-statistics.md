@@ -1,3 +1,7 @@
+---
+relevant: ./set-theory.md
+---
+
 # 概率论与数理统计
 
 $$

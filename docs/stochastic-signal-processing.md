@@ -1,5 +1,7 @@
 ---
-relevant: ./probability-and-statistics.md
+relevant:
+  - ./probability-and-statistics.md
+  - ./signals-and-systems.md
 ---
 
 # 随机信号分析
