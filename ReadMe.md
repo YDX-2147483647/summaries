@@ -2,6 +2,8 @@
 
 各种课程的总结、随记等。
 
+[![ci](https://github.com/YDX-2147483647/summaries/actions/workflows/ci.yml/badge.svg)](https://github.com/YDX-2147483647/summaries/actions/workflows/ci.yml)
+
 ## 🤝改进此项目
 
 ### ✍简单修改
