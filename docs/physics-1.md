@@ -1,3 +1,10 @@
+---
+relevant:
+  - ./calculus-1.md
+  - ./calculus-2.md
+  - ./linear-algebra.md
+---
+
 # 物理1
 
 $$

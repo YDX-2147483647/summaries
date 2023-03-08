@@ -1,3 +1,8 @@
+---
+relevant:
+  - ./set-theory.md
+---
+
 # 工科数学分析1
 
 $$

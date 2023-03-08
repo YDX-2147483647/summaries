@@ -1,6 +1,7 @@
 ---
 relevant:
   - ./physics-1.md
+  - ./calculus-2.md
   - ./probability-and-statistics.md
 ---
 

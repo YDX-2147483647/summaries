@@ -1,3 +1,7 @@
+---
+relevant: ./linear-algebra.md
+---
+
 # 人工智能导论
 
 ## Bias vs. Variance

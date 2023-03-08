@@ -1,3 +1,7 @@
+---
+relevant: ./set-theory.md
+---
+
 # 数字电路与系统
 
 $$

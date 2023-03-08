@@ -1,3 +1,9 @@
+---
+relevant:
+  - ./calculus-2.md:
+      dir: both
+---
+
 # 线性代数
 
 $$

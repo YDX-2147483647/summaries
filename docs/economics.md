@@ -1,3 +1,9 @@
+---
+relevant:
+  - ./calculus-1.md
+  - ./calculus-2.md
+---
+
 # 经济学概论
 
 ## 商品分类

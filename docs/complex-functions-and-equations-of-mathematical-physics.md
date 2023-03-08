@@ -1,3 +1,7 @@
+---
+relevant: ./calculus-2.md
+---
+
 # 复变函数与数理方程
 
 $$

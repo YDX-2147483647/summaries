@@ -167,7 +167,7 @@ def paint(nodes: list[Node], edges: list[Edge]) -> bytes:
 
     graph = Digraph(format="svg")
     graph.attr(bgcolor="transparent")
-    graph.attr(rankdir="LR")
+    graph.attr(rankdir="TB")
     graph.node_attr["shape"] = "plaintext"
 
     for n in nodes:

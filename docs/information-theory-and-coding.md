@@ -1,5 +1,7 @@
 ---
-relevant: ./probability-and-statistics.md
+relevant:
+  - ./probability-and-statistics.md
+  - ./linear-algebra.md
 ---
 
 # 信息论与编码

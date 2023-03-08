@@ -1,3 +1,8 @@
+---
+relevant:
+  - ./calculus-1.md
+---
+
 # 工科数学分析 2
 
 $$
