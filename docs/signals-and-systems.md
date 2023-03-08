@@ -1,5 +1,7 @@
 ---
-relevant: ./calculus-1.md
+relevant:
+  - ./calculus-1.md
+  - ./complex-functions-and-equations-of-mathematical-physics.md
 ---
 
 # 信号与系统

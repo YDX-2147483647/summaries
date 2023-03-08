@@ -1,5 +1,8 @@
 ---
-relevant: ./set-theory.md
+relevant:
+  - ./set-theory.md
+  - ./calculus-1.md
+  - ./calculus-2.md
 ---
 
 # 概率论与数理统计

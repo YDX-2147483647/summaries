@@ -1,6 +1,7 @@
 ---
 relevant:
   - ./signals-and-systems.md
+  - ./linear-algebra.md
 ---
 
 # 数字信号处理

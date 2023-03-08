@@ -1,5 +1,7 @@
 ---
-relevant: ./linear-algebra.md
+relevant:
+  - ./linear-algebra.md
+  - ./calculus-2.md
 ---
 
 # 人工智能导论

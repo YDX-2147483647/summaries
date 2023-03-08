@@ -2,6 +2,8 @@
 relevant:
   - ./probability-and-statistics.md
   - ./signals-and-systems.md
+  - ./information-theory-and-coding.md:
+      dir: both
 ---
 
 # 随机信号分析
