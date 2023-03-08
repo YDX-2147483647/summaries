@@ -50,6 +50,17 @@
 
 - `just normalize +FILES`.
 - MathJax: `\N`, `\Z`, `\Q`, `\R`, `\C`.
+
+  TeX/LaTeX ≠ (canonical) MathJax ≠ Typora. Not all commands are [supported](https://docs.mathjax.org/en/latest/input/tex/macros/).
+
+  > **Note**
+  >
+  > Add the following to `window.MathJax.tex.packages` in [`mathjax.js`](./docs/javascripts/mathjax.js), then [undefined control sequences will generate error messages](https://docs.mathjax.org/en/latest/input/tex/extensions/noundefined.html).
+  >
+  > ```javascript
+  > '[-]': ['noundefined']
+  > ```
+
 - Ordered list: 3 spaces → 2-space indent.
 - `:material-eye-arrow-right:`, etc.
 - assets
