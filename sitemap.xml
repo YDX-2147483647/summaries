@@ -11,6 +11,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ydx-2147483647.github.io/summaries/calculus-1/</loc>
+         <lastmod>2023-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ydx-2147483647.github.io/summaries/calculus-2/</loc>
+         <lastmod>2023-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ydx-2147483647.github.io/summaries/complex-functions-and-equations-of-mathematical-physics/</loc>
          <lastmod>2023-03-08</lastmod>
          <changefreq>daily</changefreq>
@@ -36,6 +46,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ydx-2147483647.github.io/summaries/economics/</loc>
+         <lastmod>2023-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ydx-2147483647.github.io/summaries/electromagnetic-field-and-wave/</loc>
          <lastmod>2023-03-08</lastmod>
          <changefreq>daily</changefreq>
@@ -52,6 +67,11 @@
     </url>
     <url>
          <loc>https://ydx-2147483647.github.io/summaries/intelligent-multi-source-sensing/</loc>
+         <lastmod>2023-03-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ydx-2147483647.github.io/summaries/linear-algebra/</loc>
          <lastmod>2023-03-08</lastmod>
          <changefreq>daily</changefreq>
     </url>

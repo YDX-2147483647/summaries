@@ -1,0 +1,1803 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="各种课程的总结、随记等。">
+      
+      
+      
+        <link rel="canonical" href="https://ydx-2147483647.github.io/summaries/calculus-2/">
+      
+      
+        <link rel="prev" href="../calculus-1/">
+      
+      
+        <link rel="next" href="../complex-functions-and-equations-of-mathematical-physics/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+    
+    
+      
+        <title>工科数学分析 2 - 总结</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>  
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="新增内容的 RSS 源" href="../feed_rss_created.xml">
+  <link rel="alternate" type="application/rss+xml" title="更新内容的 RSS 源" href="../feed_rss_updated.xml">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#工科数学分析-2" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="总结" class="md-header__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            总结
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              工科数学分析 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="总结" class="md-nav__button md-logo" aria-label="总结" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    总结
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/YDX-2147483647/summaries" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    YDX-2147483647/summaries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Summaries
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../artificial-intelligence/" class="md-nav__link">
+        人工智能导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calculus-1/" class="md-nav__link">
+        工科数学分析1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          工科数学分析 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        工科数学分析 2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-向量代数与空间解析几何" class="md-nav__link">
+    §1 向量代数与空间解析几何
+  </a>
+  
+    <nav class="md-nav" aria-label="§1 向量代数与空间解析几何">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二次曲面" class="md-nav__link">
+    二次曲面
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-多元函数微分学" class="md-nav__link">
+    §2 多元函数微分学
+  </a>
+  
+    <nav class="md-nav" aria-label="§2 多元函数微分学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#连续偏导数可微" class="md-nav__link">
+    连续、偏导数、可微
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#混合偏导数" class="md-nav__link">
+    混合偏导数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-重积分" class="md-nav__link">
+    §3 重积分
+  </a>
+  
+    <nav class="md-nav" aria-label="§3 重积分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#累次积分换序" class="md-nav__link">
+    累次积分换序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#积分元素" class="md-nav__link">
+    积分元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#三角函数单项式的定积分" class="md-nav__link">
+    三角函数单项式的定积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#对称性线性" class="md-nav__link">
+    对称性、线性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-曲线积分与曲面积分" class="md-nav__link">
+    §9 曲线积分与曲面积分
+  </a>
+  
+    <nav class="md-nav" aria-label="§9 曲线积分与曲面积分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#曲线积分" class="md-nav__link">
+    曲线积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#化简全微分" class="md-nav__link">
+    化简全微分
+  </a>
+  
+    <nav class="md-nav" aria-label="化简全微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#凑微分" class="md-nav__link">
+    凑微分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#曲线积分_1" class="md-nav__link">
+    曲线积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#偏微分方程" class="md-nav__link">
+    偏微分方程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#面积元" class="md-nav__link">
+    面积元
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-级数" class="md-nav__link">
+    §10 级数
+  </a>
+  
+    <nav class="md-nav" aria-label="§10 级数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#双阶乘" class="md-nav__link">
+    双阶乘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#比阶法" class="md-nav__link">
+    比阶法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#杂项" class="md-nav__link">
+    杂项
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#全微分与留数" class="md-nav__link">
+    全微分与留数
+  </a>
+  
+    <nav class="md-nav" aria-label="全微分与留数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#曲线积分_2" class="md-nav__link">
+    曲线积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Cauchy-公式" class="md-nav__link">
+    Cauchy 公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第三维" class="md-nav__link">
+    第三维
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complex-functions-and-equations-of-mathematical-physics/" class="md-nav__link">
+        复变函数与数理方程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-and-data-structure/" class="md-nav__link">
+        数据结构
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-circuits-and-systems/" class="md-nav__link">
+        数字电路与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-communication/" class="md-nav__link">
+        数字通信原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-signal-processing/" class="md-nav__link">
+        数字信号处理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../economics/" class="md-nav__link">
+        经济学概论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electromagnetic-field-and-wave/" class="md-nav__link">
+        电磁场与电磁波
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../information-theory-and-coding/" class="md-nav__link">
+        信息论与编码
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrated-circuits/" class="md-nav__link">
+        集成电路设计实践
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligent-multi-source-sensing/" class="md-nav__link">
+        智能多源感知
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear-algebra/" class="md-nav__link">
+        线性代数
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microwave-circuits/" class="md-nav__link">
+        微波电路与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modern-chinese-history/" class="md-nav__link">
+        中国近现代史纲要
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../morals-ethics-law/" class="md-nav__link">
+        思想道德修养与法律基础
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-system/" class="md-nav__link">
+        操作系统原理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-1/" class="md-nav__link">
+        物理1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics-2/" class="md-nav__link">
+        物理2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probability-and-statistics/" class="md-nav__link">
+        概率论与数理统计
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roller-skating/" class="md-nav__link">
+        轮滑
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semiconductor-physics/" class="md-nav__link">
+        半导体物理
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-theory/" class="md-nav__link">
+        集合论——开启理性思维的钥匙
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signals-and-systems/" class="md-nav__link">
+        信号与系统
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stochastic-signal-processing/" class="md-nav__link">
+        随机信号分析
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theoretical-physics-intro/" class="md-nav__link">
+        理论物理导论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xi-thought/" class="md-nav__link">
+        习近平新时代中国特色社会主义思想概论
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-向量代数与空间解析几何" class="md-nav__link">
+    §1 向量代数与空间解析几何
+  </a>
+  
+    <nav class="md-nav" aria-label="§1 向量代数与空间解析几何">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二次曲面" class="md-nav__link">
+    二次曲面
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-多元函数微分学" class="md-nav__link">
+    §2 多元函数微分学
+  </a>
+  
+    <nav class="md-nav" aria-label="§2 多元函数微分学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#连续偏导数可微" class="md-nav__link">
+    连续、偏导数、可微
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#混合偏导数" class="md-nav__link">
+    混合偏导数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-重积分" class="md-nav__link">
+    §3 重积分
+  </a>
+  
+    <nav class="md-nav" aria-label="§3 重积分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#累次积分换序" class="md-nav__link">
+    累次积分换序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#积分元素" class="md-nav__link">
+    积分元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#三角函数单项式的定积分" class="md-nav__link">
+    三角函数单项式的定积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#对称性线性" class="md-nav__link">
+    对称性、线性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-曲线积分与曲面积分" class="md-nav__link">
+    §9 曲线积分与曲面积分
+  </a>
+  
+    <nav class="md-nav" aria-label="§9 曲线积分与曲面积分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#曲线积分" class="md-nav__link">
+    曲线积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#化简全微分" class="md-nav__link">
+    化简全微分
+  </a>
+  
+    <nav class="md-nav" aria-label="化简全微分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#凑微分" class="md-nav__link">
+    凑微分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#曲线积分_1" class="md-nav__link">
+    曲线积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#偏微分方程" class="md-nav__link">
+    偏微分方程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#面积元" class="md-nav__link">
+    面积元
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-级数" class="md-nav__link">
+    §10 级数
+  </a>
+  
+    <nav class="md-nav" aria-label="§10 级数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#双阶乘" class="md-nav__link">
+    双阶乘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#比阶法" class="md-nav__link">
+    比阶法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#杂项" class="md-nav__link">
+    杂项
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#全微分与留数" class="md-nav__link">
+    全微分与留数
+  </a>
+  
+    <nav class="md-nav" aria-label="全微分与留数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#曲线积分_2" class="md-nav__link">
+    曲线积分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Cauchy-公式" class="md-nav__link">
+    Cauchy 公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第三维" class="md-nav__link">
+    第三维
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/YDX-2147483647/summaries/blob/main/docs/calculus-2.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/YDX-2147483647/summaries/raw/main/docs/calculus-2.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="工科数学分析-2">工科数学分析 2<a class="headerlink" href="#工科数学分析-2" title="Permanent link">&para;</a></h1>
+<div class="arithmatex">\[
+\def\Z{\mathbb{Z}}
+%
+\def\i{\mathrm{i}}
+\def\e{\mathrm{e}}
+%
+\def\d{\mathop{}\!\mathrm{d}}
+\def\const{\mathrm{Const.}}
+\def\tran{\mathsf T}
+%
+\def\arsinh{\operatorname{arsinh}}
+\def\arcosh{\operatorname{arcosh}}
+\def\artanh{\operatorname{artanh}}
+%
+\def\rank{\operatorname{rank}}
+\]</div>
+<h2 id="1-向量代数与空间解析几何">§1 向量代数与空间解析几何<a class="headerlink" href="#1-向量代数与空间解析几何" title="Permanent link">&para;</a></h2>
+<h3 id="二次曲面">二次曲面<a class="headerlink" href="#二次曲面" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年3月15日。</p>
+<p><a href="https://mathworld.wolfram.com/QuadraticSurface.html">Quadratic Surface - MathWorld</a></p>
+</blockquote>
+<p>方程：<span class="arithmatex">\(x^2,y^2,z^2,2yz,2zx,2xy,2x,2y,2z,1\)</span> 的线性组合为零。（暂记 <span class="arithmatex">\(x^2\)</span> 的系数为 <span class="arithmatex">\([x^2]\)</span>，以此类推）</p>
+<div class="arithmatex">\[
+\displaylines{
+e \triangleq \begin{bmatrix}
+    [x^2] &amp; [2xy] &amp; [2zx] \\
+    [2xy] &amp; [y^2] &amp; [2yz] \\
+    [2zx] &amp; [2yz] &amp; [z^2]
+\end{bmatrix}
+\\
+E \triangleq \begin{bmatrix}
+    [x^2] &amp; [2xy] &amp; [2zx] &amp; [2x] \\
+    [2xy] &amp; [y^2] &amp; [2yz] &amp; [2y] \\
+    [2zx] &amp; [2yz] &amp; [z^2] &amp; [2z] \\
+    [2x] &amp; [2y] &amp; [2z] &amp; [1]
+\end{bmatrix}
+\\
+\rho_3 \triangleq \rank e \\
+\rho_4 \triangleq \rank E \\
+\Delta \triangleq \det E \\
+k \triangleq \begin{cases}
+    1 &amp;  \text{if the signs of $e$'s nonzero eigenvalues are the same} \\
+    0 &amp; \text{otherwise}
+\end{cases}
+}
+\]</div>
+<blockquote>
+<p>下表未区分实虚曲面。名称中的“1”“0”指<span class="arithmatex">\(k\)</span>。</p>
+</blockquote>
+<table style="text-align: center; vertical-align: middle;">
+    <thead>
+        <tr>
+            <td colspan="2" rowspan="2"></td>
+            <th scope="colgroup" colspan="3">rank <i>e</i></th>
+        </tr>
+        <tr>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="rowgroup" rowspan="4"><span style="/* writing-mode: vertical-rl; */">rank <i>E</i></span></th>
+            <th scope="row">1</th>
+            <td>重合平面</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>平行平面</td>
+            <td>相交平面</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>抛物柱面</td>
+            <td>
+                1 椭圆柱面<br>
+                0 双曲柱面<br>
+            </td>
+            <td>椭圆锥面</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td></td>
+            <td>
+                1 椭圆抛物面<br>
+                0 双曲抛物面<br>
+            </td>
+            <td>
+                1 椭球面<br>
+                0 单/双叶双曲面<br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="2-多元函数微分学">§2 多元函数微分学<a class="headerlink" href="#2-多元函数微分学" title="Permanent link">&para;</a></h2>
+<h3 id="连续偏导数可微">连续、偏导数、可微<a class="headerlink" href="#连续偏导数可微" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年3月24日，2021年3月30日，2021年4月4日。</p>
+</blockquote>
+<p>在 <span class="arithmatex">\((0,0)\)</span> 不可微的例子：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">连续</th>
+<th align="center">不连续</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>存在偏导数</strong></td>
+<td align="center"><span class="arithmatex">\(r\sin(2\theta) = \dfrac{2xy}r\)</span></td>
+<td align="center"><span class="arithmatex">\(\sin(2\theta)=\dfrac{2xy}{r^2}\)</span></td>
+</tr>
+<tr>
+<td align="center"><strong>不存在偏导数</strong></td>
+<td align="center"><span class="arithmatex">\(x\sin\frac 1x + y\sin\frac 1y\)</span>（去间断）</td>
+<td align="center"><span class="arithmatex">\(\operatorname{Dirichlet}(xy)\)</span></td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>graph LR
+0["所有偏导数连续&lt;br&gt;（连续可微）"] --&gt; 1["一个偏导数存在，&lt;br&gt;其它偏导数连续"] --&gt; 2["可微"] --&gt; 3["偏导数都存在"]
+2 --&gt; 4["连续"]</code></pre>
+<p>在 <span class="arithmatex">\((0,0)\)</span> 不存在累次极限，而存在重极限的例子：<span class="arithmatex">\(x \sin\frac1y + y \sin\frac1x\)</span>。</p>
+<p>在闭矩形域内，若<span class="arithmatex">\(z\)</span>对于<span class="arithmatex">\(y\)</span>处处连续，对于<span class="arithmatex">\(x\)</span>（且<strong>关于<span class="arithmatex">\(y\)</span></strong>）处处一致连续，则<span class="arithmatex">\(z\)</span>连续。</p>
+<blockquote>
+<p>“且关于<span class="arithmatex">\(y\)</span>”：</p>
+<div class="arithmatex">\[
+\forall\varepsilon&gt;0, \exists\delta&gt;0, \forall x,\forall x'\in U(x;\delta),
+\underline{\forall y}, \quad
+z(x',y) \in U\left( z(x,y); \varepsilon \right)
+\]</div>
+<p>另外，若去掉“关于<span class="arithmatex">\(y\)</span>”，则“对<span class="arithmatex">\(x\)</span>连续”即可说明“对<span class="arithmatex">\(x\)</span>一致连续”。（因为是闭矩形域）</p>
+</blockquote>
+<h3 id="混合偏导数">混合偏导数<a class="headerlink" href="#混合偏导数" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年4月4日。</p>
+</blockquote>
+<p>不同混合偏导数的极限式一致，只是极限过程不同，然而累次极限和重极限的存在性没有必然的蕴含关系（虽然都存在时必然都相等），导致累次极限不总能换序。</p>
+<blockquote>
+<p>华东师大教材下册 §17. 4 的习题 17.（151–152页）。</p>
+</blockquote>
+<p>若 <span class="arithmatex">\(f_x',f_y',f_{yx}''\)</span> 在原点的某邻域内存在，且 <span class="arithmatex">\(f_{yx}''\)</span> 在原点连续，则 <span class="arithmatex">\(f_{xy}''\)</span> 在原点也存在，且与 <span class="arithmatex">\(f_{yx}''(0,0)\)</span> 相等。（换为其它点也类似，只是原点写起来方便）这是因为用两次 Lagrange 中值定理可将极限式 <span class="arithmatex">\(\dfrac{\Delta^2 f}{\d x\d y}\)</span> 写成 <span class="arithmatex">\(f_{yx}''(\theta_x \d x, \theta_y \d y)\)</span>，从而证明累次极限和重极限都存在，保证累次极限可以换序。</p>
+<h2 id="3-重积分">§3 重积分<a class="headerlink" href="#3-重积分" title="Permanent link">&para;</a></h2>
+<h3 id="累次积分换序">累次积分换序<a class="headerlink" href="#累次积分换序" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年4月17日。</p>
+</blockquote>
+<p>这可能简化积分。</p>
+<blockquote>
+<p>设 <span class="arithmatex">\(F(x) \triangleq \int_0^x \exp t^2 \d t\)</span>，则 <span class="arithmatex">\(F'(x) = \exp x^2, F(0) = 0\)</span>。</p>
+<div class="arithmatex">\[
+\begin{split}
+    &amp; \int_0^1\d y \int_y^1 \left (\frac{\e^{x^2}}x - \e^{y^2} \right) \d x \\
+    &amp;= \int_0^1\d x \int_0^x \left (\frac{\e^{x^2}}x - \e^{y^2} \right) \d y \\
+    &amp;= \int_0^1 (\e^{x^2} - F(x)) \d x \\
+    &amp;= F(1) - \int_0^1 F(x) \d x \\
+    &amp;= F(1) - \left( F(1) - \int_0^1 x \e^{x^2} \d x\right) \\
+    &amp;= \frac12 \int_0^1 \e^{x^2} \d(x^2) \\
+    &amp;= \frac12 (\e - 1)
+\end{split}
+\]</div>
+</blockquote>
+<p>另外，累次积分</p>
+<div class="arithmatex">\[
+\int_{y_0}^{y_1} \int_{x_0(y)}^{x_1(y)} \d x \d y
+\]</div>
+<p>的积分区域相当于 <span class="arithmatex">\(y=y_0, y=y_1, x = x_0(y), x = x_1(y)\)</span> 四条曲线围成的区域。</p>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年6月23日。</p>
+</blockquote>
+<p>如果某些时候 <span class="arithmatex">\(x_0(y) &gt; x_1(y)\)</span>，那么建议分段写，并且某一段是负号的。</p>
+<h3 id="积分元素">积分元素<a class="headerlink" href="#积分元素" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年4月24日。</p>
+</blockquote>
+<p>（此处球坐标的<span class="arithmatex">\(\varphi\)</span>为与 <span class="arithmatex">\(+z\)</span> 的夹角，而非纬度）</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+    \d x &amp; \d x\d y &amp; \d x\d y\d z \\
+    &amp; \rho\d\theta\d\rho &amp; \rho\d\theta\d\rho\d z \\
+    &amp; &amp; r\sin\varphi\d\theta\ r\d\varphi \d r \\
+    &amp; &amp; = \d\theta \sin\varphi\d\varphi\ r^2\d r 
+\end{array}
+\]</div>
+<h3 id="三角函数单项式的定积分">三角函数单项式的定积分<a class="headerlink" href="#三角函数单项式的定积分" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年4月28日。</p>
+</blockquote>
+<div class="arithmatex">\[
+\begin{split}
+    &amp; (m+n)\sin^m\theta \cos^n\theta \d\theta \\
+    &amp;= -\d(\sin^{m-1}\theta \cos^{n+1}\theta) + (m-1)\sin^{m-2}\theta\cos^n\theta \d\theta \\
+    &amp;= \d(\sin^{m+1}\theta \cos^{n-1}\theta) + (n-1)\sin^m\theta\cos^{n-2}\theta \d\theta \\
+\end{split}
+\]</div>
+<p>这第一项很容易是零，因此结果的形式往往类似于 <span class="arithmatex">\(\frac{(n-1)!!}{n!!}\pi,\ \frac{(m-1)!!(n-1)!!}{(m+n)!!}\frac{(n-1)!!}{n!!}\)</span>。</p>
+<h3 id="对称性线性">对称性、线性<a class="headerlink" href="#对称性线性" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年4月28日。</p>
+</blockquote>
+<p>往往能利用它化简。</p>
+<p>例如积分区域是关于<span class="arithmatex">\(z\)</span>轴对称的圆柱体，则</p>
+<div class="arithmatex">\[
+\iint y^2\d V = \iint x^2\d V = \frac12 \iint(x^2+y^2)\d V = \frac12 \iint \rho^2\d V
+\]</div>
+<p>由此还可由物理上若干常用的转动惯量计算某些积分。</p>
+<p>有些函数，例如 <span class="arithmatex">\(y(1+x \exp\frac{x^2+y^2}2)\)</span>，可以拆成几部分，每部分各有各的对称性。</p>
+<h2 id="9-曲线积分与曲面积分">§9 曲线积分与曲面积分<a class="headerlink" href="#9-曲线积分与曲面积分" title="Permanent link">&para;</a></h2>
+<h3 id="曲线积分">曲线积分<a class="headerlink" href="#曲线积分" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年5月8日。</p>
+</blockquote>
+<p>先化简再求值！</p>
+<blockquote>
+<p>求下式可以上来就代入 <span class="arithmatex">\(\rho = 2r\cos\theta\)</span>，也不太难。</p>
+<div class="arithmatex">\[
+\oint\limits_{x^2+y^2 = 2rx} \left( x^2 + (y+1)^2 \right) \d l
+\]</div>
+<p>先化简会更简单：</p>
+<div class="arithmatex">\[
+\begin{split}
+    \text{原式}
+    &amp;= \oint\limits_{x^2+y^2 = 2rx} \left( x^2+y^2 + 2y + 1 \right) \d l \\
+    &amp;= \oint\limits_{x^2+y^2 = 2rx} \left( 2rx + 2y + 1 \right) \d l \\
+    &amp;= \overline{2rx+2y+1} \oint\limits_{x^2+y^2 = 2rx} \d l \\
+    &amp;= (2r\overline x + 2\overline y + 1) \cdot 2\pi r \\
+    &amp;= (2r\cdot r + 0 + 1) 2\pi r \\
+    &amp;= 2\pi r(2r^2+1).
+\end{split}
+\]</div>
+<p>甚至可以口算。</p>
+</blockquote>
+<h3 id="化简全微分">化简全微分<a class="headerlink" href="#化简全微分" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年5月14日。</p>
+</blockquote>
+<p>先验证旋度为零，确保原函数确实存在。</p>
+<h4 id="凑微分">凑微分<a class="headerlink" href="#凑微分" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>已知<span class="arithmatex">\(\d u = \dfrac{y\d x - x\d y}{(x+y)^2}\)</span>，求<span class="arithmatex">\(u\)</span>。</p>
+<p>观察，分母可能是 <span class="arithmatex">\(\d\dfrac1{x+y}\)</span>，来的，想办法搞出 <span class="arithmatex">\(\d(x+y)\)</span></p>
+<div class="arithmatex">\[
+\begin{split}
+    \d u=\frac{y\d x - x\d y}{(x+y)^2}
+    &amp;= \frac{(x+y)\d x - x(\d x+\d y)}{(x+y)^2} \\
+    &amp;= \frac{\d x}{x+y} + x\d\frac1{x+y} \\
+    &amp;= \d\frac{x}{x+y}
+\end{split}
+\]</div>
+<p>故 <span class="arithmatex">\(u = \dfrac{x}{x+y} + \const\)</span>.</p>
+<p>如果凑的是 <span class="arithmatex">\(y\d y\)</span> 而非 <span class="arithmatex">\(x\d x\)</span>，也能做，先得到的结果是 <span class="arithmatex">\(-\dfrac{y}{x+y} = \dfrac{x}{x+y}-1\)</span>。</p>
+<p>另：</p>
+<div class="arithmatex">\[
+\begin{split}
+    \d u = \dfrac{y\d x - x\d y}{(x+y)^2}
+    &amp;= \frac{y^2 \d\frac xy}{(x+y)^2} \\
+    &amp;= \frac{\d \frac xy}{\left( 1 + \frac xy \right)^2} \\
+    &amp;= -\d \frac 1{1+\frac xy} \\
+    &amp;= -\d \frac y{x+y}
+\end{split}
+\]</div>
+<p>若用 <span class="arithmatex">\(x\d y - y\d x = x^2 \d\dfrac yx\)</span>，情况类似。</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年6月24日。</p>
+</blockquote>
+<p>常见的形式：</p>
+<ul>
+<li><span class="arithmatex">\(f\d g + g\d f = \d(fg).\)</span></li>
+<li><span class="arithmatex">\(f\d g - g\d f = f^2 \d\frac gf.\)</span></li>
+<li><span class="arithmatex">\(f\d x + \d f = \e^{-x} \d(\e^x f).\)</span></li>
+</ul>
+<h4 id="曲线积分_1">曲线积分<a class="headerlink" href="#曲线积分_1" title="Permanent link">&para;</a></h4>
+<p>已能说明积分只与路径始末有关，所以选择一条好算的路径即可。</p>
+<blockquote>
+<p>已知<span class="arithmatex">\(\d u = \dfrac{y\d x - x\d y}{(x+y)^2}\)</span>，求<span class="arithmatex">\(u\)</span>。</p>
+<div class="arithmatex">\[
+\begin{split}
+    u\vert_{(0,0)}^{x_0,y_0}
+    &amp;= \int\limits_{(0,0)}^{(x_0,y_0)} \frac{y\d x - x\d y}{(x+y)^2} \\
+    &amp;= \int_0^{x_0} \frac{0\d x}{(x+0)^2} + \int_0^{y_0} \frac{- x_0\d y}{(x_0+y)^2} \\
+    &amp;= 0 + \frac{x_0}{x_0+y} \Bigg\vert_{y=0}^{y_0} \\
+    &amp;= \frac{x_0}{x_0+y_0} -1
+\end{split}
+\]</div>
+<p>故 <span class="arithmatex">\(u\vert_{(x,y)} = u\vert_{(0,0)} + u\vert_{(0,0)}^{(x,y)} = \dfrac{x}{x+y} + \const\)</span>。</p>
+</blockquote>
+<h4 id="偏微分方程">偏微分方程<a class="headerlink" href="#偏微分方程" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\d u = X\d x + Y\d y\)</span>，则 <span class="arithmatex">\(\partial_x u = X,\ \partial_y u =Y\)</span>。</p>
+<blockquote>
+<p>已知<span class="arithmatex">\(\d u = \dfrac{y\d x - x\d y}{(x+y)^2}\)</span>，求<span class="arithmatex">\(u\)</span>。</p>
+<div class="arithmatex">\[
+\displaylines{
+\left\{ \begin{aligned}
+  \pdv{u}{x} &amp;= \frac{y}{(x+y)^2} \\
+  \pdv{u}{y} &amp;= -\frac{x}{(x+y)^2} \\
+\end{aligned} \right.
+\\
+\begin{split}
+ \therefore u
+ &amp;= \int\frac{y\d x}{(x+y)^2} + C\vert_y \\
+ &amp;= -\frac{y}{x+y} + C\vert_y
+\end{split}
+\\
+\begin{split}
+ \therefore \frac{\d C }{\d y}
+ &amp;= \pdv{u}{y} + \pdv{y} \frac{y}{x+y} \\
+ &amp;= -\frac{x}{(x+y)^2} + \frac{x+y-y}{(x+y)^2} \\
+ &amp;= 0
+\end{split}
+\\
+\therefore C\vert_y = \const \\
+}
+\]</div>
+<p>故 <span class="arithmatex">\(u = -\dfrac y{x+y} + \const\)</span>。</p>
+</blockquote>
+<h3 id="面积元">面积元<a class="headerlink" href="#面积元" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年6月20日。</p>
+</blockquote>
+<p>设 <span class="arithmatex">\(\vec n = (n_x,n_y,n_z) = \lvert \vec n \rvert \hat n\)</span>。</p>
+<div class="arithmatex">\[
+\displaylines{
+\d\vec S = \hat n \d S = \frac{\vec n}{n_z} \d S_z, \\
+\d S = \frac{\lvert \vec n \rvert}{n_z} \d S_z.
+}
+\]</div>
+<h2 id="10-级数">§10 级数<a class="headerlink" href="#10-级数" title="Permanent link">&para;</a></h2>
+<h3 id="双阶乘">双阶乘<a class="headerlink" href="#双阶乘" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年6月14日。</p>
+</blockquote>
+<p><span class="arithmatex">\((2n)!!=2^n\times n!\)</span>。</p>
+<div class="arithmatex">\[
+\displaylines{
+(2i-1)(2i+1) &lt; (2i)^2
+\implies
+\frac{(2n-1)!!}{(2n)!!} &lt; \frac{(2n)!!}{(2n+1)!!}.
+\\
+\begin{split}
+    \therefore \frac{(2n-1)!!}{(2n)!!}
+    &amp;&lt; \sqrt{\frac{(2n-1)!!}{(2n)!!} \times \frac{(2n)!!}{(2n+1)!!}} \\
+    &amp;= \sqrt{\frac1{2n+1}} = \frac1{\sqrt{2n+1}}.
+\end{split}
+}
+\]</div>
+<blockquote>
+<p><sub>~似乎</sub>~用数学归纳法可得还小于等于 <span class="arithmatex">\(\frac1{\sqrt{\pi i}}\)</span>。二者都只在<span class="arithmatex">\(\Z\)</span>上成立。</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年6月20日。</p>
+<p>→<a href="https://en.wikipedia.org/wiki/Wallis_product">Wallis product</a>、<a href="https://en.wikipedia.org/wiki/Wallis'_integrals">Wallis' integrals</a>。</p>
+</blockquote>
+<p>利用<a href="#三角函数单项式的定积分">三角函数单项式的定积分</a>，</p>
+<div class="arithmatex">\[
+\displaylines{
+I_{2n} = \int_0^\frac{\pi}{2} \sin^{2n} x\d x
+= \frac{(2n-1)!!}{(2n)!!} \times \frac\pi2, \\
+I_{2n+1} =\int_0^\frac{\pi}{2} \sin^{2n+1} x\d x
+= \frac{(2n)!!}{(2n+1)!!} \times 1.
+}
+\]</div>
+<p>由 <span class="arithmatex">\(\{\sin^n x\}\)</span> 是减数列，<span class="arithmatex">\(\{I_n\}\)</span> 也是减数列，故</p>
+<div class="arithmatex">\[
+\frac{(2n-1)!!}{(2n)!!}
+= \sqrt{\frac2\pi I_{2n} \times \frac{1}{2n\ I_{2n-1}}}
+&lt; \frac1{\sqrt{\pi n}}.
+\]</div>
+<p>也可提供下界：</p>
+<div class="arithmatex">\[
+\frac{(2n-1)!!}{(2n)!!}
+= \sqrt{\frac2\pi I_{2n} \times \frac{1}{(2n+1) I_{2n+1}}}
+&gt; \frac1{\sqrt{\pi (n+\frac12)}}.
+\]</div>
+<p>另外可归结为阶乘的问题，因为</p>
+<div class="arithmatex">\[
+(2n)!! = 2^n \times n!,\quad (2n)!! \times (2n+1)!! = (2n+1)!.
+\]</div>
+<p>故</p>
+<div class="arithmatex">\[
+\frac{(2n-1)!!}{(2n)!!} = \frac{(2n)!}{(2n)!!^2} = \frac{(2n)!}{2^{2n} n!^2}.
+\]</div>
+<p>再——例如——由<a href="https://en.wikipedia.org/wiki/Stirling's_approximation">Stirling's_approximation</a>，上式等价于</p>
+<div class="arithmatex">\[
+\frac{\sqrt{2\pi} \times (2n)^{2n+\frac12} \e^{-2n}}{2^{2n} \times 2\pi \times n^{2n+1} \e^{-2n}}
+= \frac{1}{\sqrt{\pi n}}.
+\]</div>
+<h3 id="比阶法">比阶法<a class="headerlink" href="#比阶法" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2021年6月23日。</p>
+</blockquote>
+<p>构造同阶无穷小永远可以判断数项级数是否收敛，只是有时很难构造，有时不存在简单的同阶无穷小。</p>
+<h2 id="杂项">杂项<a class="headerlink" href="#杂项" title="Permanent link">&para;</a></h2>
+<h3 id="全微分与留数">全微分与留数<a class="headerlink" href="#全微分与留数" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg></span> 2022年11月21日。</p>
+<p>这是2021年5月12日、24日在例6夹的纸。</p>
+</blockquote>
+<p>求证下式，其中 <span class="arithmatex">\(L\)</span> 是任意绕原点的正向简单闭曲线。</p>
+<div class="arithmatex">\[
+\oint\limits_L \frac{y\dd{x} - x \dd{y}}{x^2 + y^2} = -2\pi.
+\]</div>
+<h4 id="曲线积分_2">曲线积分<a class="headerlink" href="#曲线积分_2" title="Permanent link">&para;</a></h4>
+<p>设以原点为圆心，<span class="arithmatex">\(\varepsilon\)</span> 为半径的圆。<span class="arithmatex">\(\varepsilon\)</span> 充分小，使之在 <span class="arithmatex">\(L\)</span> 内。</p>
+<p>注意被积函数无旋：</p>
+<div class="arithmatex">\[
+\curl \frac{(y, -x)}{x^2 + y^2} = -\frac{y^2-x^2}{\qty(x^2+y^2)^2} - \frac{x^2-y^2}{\qty(x^2+y^2)^2} = 0.
+\]</div>
+<p>故</p>
+<div class="arithmatex">\[
+\begin{split}
+\text{LHS}
+&amp;= \oint\limits_\varepsilon \frac{y\dd{x} - x \dd{y}}{x^2 + y^2} \\
+&amp;= -\frac{1}{\varepsilon^2} \oint\limits_\varepsilon \qty(x\dd{y} - y\dd{x}) \\
+&amp;= -\frac{1}{\varepsilon^2} \oint\limits_\varepsilon \varepsilon \\
+&amp;= -\frac{1}{\varepsilon^2} \times 2\pi\varepsilon \times \varepsilon \\
+&amp;= -2\pi.
+\end{split}
+\]</div>
+<h4 id="Cauchy-公式">Cauchy 公式<a class="headerlink" href="#Cauchy-公式" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+2\pi i \eval{f}_z = \oint \frac{\eval{f}_\zeta \dd{\zeta} }{\zeta - z}.
+\]</div>
+<p>取 <span class="arithmatex">\(z = 1\)</span>，<span class="arithmatex">\(f \equiv 1\)</span>，则 <span class="arithmatex">\(2\pi i = \oint \dd{\zeta} / \zeta\)</span>。</p>
+<p>记 <span class="arithmatex">\(\zeta = x + yi\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{split}
+\frac{\dd{\zeta}}{\zeta}
+&amp;= \frac{\bar \zeta \dd{\zeta}}{\abs{\zeta}^2} \\
+&amp;= \frac{x - yi}{x^2 + y^2} \qty(\dd{x} + \dd{y} i) \\
+&amp;= \frac{x\dd{x} + y\dd{y}}{x^2 + y^2} - \frac{y\dd{x} - x\dd{y}}{x^2 + y^2} i.
+\end{split}
+\]</div>
+<p>又第一项是全微分，<span class="arithmatex">\(\oint\)</span> 为零，所以 <span class="arithmatex">\(2\pi i\)</span> 等于第二项的 <span class="arithmatex">\(\oint\)</span>，即为所求。</p>
+<h4 id="第三维">第三维<a class="headerlink" href="#第三维" title="Permanent link">&para;</a></h4>
+<p>事实上</p>
+<div class="arithmatex">\[
+\frac{(y, -x, 0)}{x^2 + y^2} = \curl \qty(\vu*{z} \ln \rho).
+\]</div>
+<blockquote>
+<p>其中 <span class="arithmatex">\(\rho = \sqrt{x^2+y^2}\)</span>。</p>
+</blockquote>
+<p>所以</p>
+<div class="arithmatex">\[
+\begin{split}
+\text{LHS}
+&amp;= \oint\limits_L \frac{y\dd{x} - x \dd{y} + 0 \dd{z}}{x^2 + y^2} \\
+&amp;= \oint \curl \qty(\vu*{z} \ln \rho) \vdot \dd{\vb*l} \\
+&amp;\overset?= \iint \vu*{z} \ln \rho \vdot \dd{\vb*S} \\
+&amp;= \iint \ln\rho \dd{S}.
+\end{split}
+\]</div>
+<p>该函数在原点无定义，走不下去……</p>
+<h1 id="注意">注意<a class="headerlink" href="#注意" title="Permanent link">&para;</a></h1>
+<ul>
+<li>平行向量可能同向、反向，也可能为零。</li>
+<li>区分“四面体”与“平行六面体”的体积公式。</li>
+<li>利用梯度求方向导数时需要<u>单位化方向向量</u>，一般的投影也是。</li>
+<li><span class="arithmatex">\(y=y_0+\sqrt{r^2-(x-x_0)^2}\)</span> 只表示半圆弧。</li>
+<li>若干曲面所围成的区域与所有曲面相邻。</li>
+<li>移动坐标系原点时记得修改所有坐标的所有分量。</li>
+<li><span class="arithmatex">\(\int \sqrt{1-\cos^2\theta}\d\theta = \int \lvert\sin\theta\rvert \d\theta\)</span>，有个<u>绝对值</u>。</li>
+<li>注意<u>正负</u>：<ul>
+<li>区间的正负：重积分的各积分区间应当是正向区间。</li>
+<li>曲面的侧。</li>
+<li>曲线的方向。</li>
+</ul>
+</li>
+<li>注意形心、质心表达式的<u>分母</u>。</li>
+<li>投影有方向，投影的数量没有。</li>
+<li>多元函数的偏导数也是多元函数。</li>
+<li>星形线的参数方程不是极坐标方程。</li>
+<li>牟合方盖与坐标面的截面有两个是圆，有一个是正方形。</li>
+<li>“所围立体的外侧”是闭曲面。</li>
+<li>收敛域的中心不一定是原点。</li>
+<li>幂级数可能有<u>缺项</u>。</li>
+<li><u>向量曲面积分给的三项的顺序</u>可能不是 <span class="arithmatex">\((\d y\d z, \d z\d x, \d x\d y)\)</span>。</li>
+</ul>
+<h1 id="后备箱">后备箱<a class="headerlink" href="#后备箱" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1H44y1B7ho">工数串讲6月19日</a>：有我的笔记，还有欧景行。</li>
+</ul>
+
+
+  
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Snippet generated by giscus.app -->
+  <script src="https://giscus.app/client.js"
+          data-repo="YDX-2147483647/summaries"
+          data-repo-id="R_kgDOIpJG0Q"
+          data-category="General"
+          data-category-id="DIC_kwDOIpJG0c4CTQqa"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://ydx-2147483647.github.io/summaries/feed_rss_updated.xml" target="_blank" rel="noopener" title="RSS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415a3.3 3.3 0 0 1 3.293 3.295A3.303 3.303 0 0 1 3.283 24C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
