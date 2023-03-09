@@ -136,7 +136,7 @@ def main():
 
         # Save
         if changed:
-            file.write_text("\n".join(lines), encoding="utf-8")
+            file.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
