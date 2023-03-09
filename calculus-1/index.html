@@ -1609,39 +1609,43 @@ x &amp;\sim \ln(1+x) \sim \e^x-1 \\
 <h4 id="dfrac-00"><span class="arithmatex">\(\dfrac 00\)</span><a class="headerlink" href="#dfrac-00" title="Permanent link">&para;</a></h4>
 <p>除以零因子。整式也可分解成无理式。</p>
 <blockquote>
-<p>$$
+<div class="arithmatex">\[
 \displaylines{
 x\to1:\quad
-\frac{x(x-1)}{x-1} = x \to 1 \</p>
-<p>x\to1:\quad
+\frac{x(x-1)}{x-1} = x \to 1 \\
+%
+x\to1:\quad
 \frac{x-1}{\sqrt x-1}
 = \lim_{x\to1}\frac{(\sqrt x+1)(\sqrt x-1)}{\sqrt x-1}
-= \cdots \</p>
-<p>\lim_{x\to a} \frac{x-a}{\sqrt[3]x - \sqrt[3]a}
+= \cdots \\
+%
+\lim_{x\to a} \frac{x-a}{\sqrt[3]x - \sqrt[3]a}
 = \lim_{X=\sqrt[3]x \to \sqrt[3]a = A} \frac{X^3-A^3}{X-A}
 = \lim_{X\to  A} (X^2 + XA + A^2)
 = 3A^2 = 3a^{\frac 23}
 }
-$$</p>
+\]</div>
 </blockquote>
 <p>等价无穷小替换。由于更为熟悉 <span class="arithmatex">\(x\to0\)</span> 时的无穷小，所以可借助换元。不完全分解（如 <span class="arithmatex">\((1-\alpha\beta) = (1-\beta) + \beta(1-\alpha)\)</span> ）有时也有帮助。</p>
 <blockquote>
-<p>$$
+<div class="arithmatex">\[
 \displaylines{
 x\to0:\quad
-\dfrac{\tan x - \sin x}{x^3} = \dfrac{\tan x}{x} \cdot\dfrac{1-\cos x}{x^2} \to \dfrac{x}{x} \cdot \dfrac{\frac{x^2}2}{x^2} = \frac 12 \</p>
-<p>\lim_{x\to\frac{\pi}4} \tan(2x)\tan(\frac{\pi}4-x)
+\dfrac{\tan x - \sin x}{x^3} = \dfrac{\tan x}{x} \cdot\dfrac{1-\cos x}{x^2} \to \dfrac{x}{x} \cdot \dfrac{\frac{x^2}2}{x^2} = \frac 12 \\
+%
+\lim_{x\to\frac{\pi}4} \tan(2x)\tan(\frac{\pi}4-x)
 = \lim_{h = \frac\pi4-x \to 0} \tan(\frac{\pi}2 - 2h)\tan h
 = \lim_{h\to0} \frac{\tan h}{\tan(2h)}
 = \lim_{h\to0} \frac{h}{2h}
-= \frac 12 \</p>
-<p>x\to1:\quad
+= \frac 12 \\
+%
+x\to1:\quad
 \frac{x-1}{\sqrt x-1}
 = \frac{x-1}{(1+(x-1))^{1/2}-1}
 \to \frac{x-1}{\frac12(x-1)}
-= 2 \
+= 2 \\
 }
-$$</p>
+\]</div>
 </blockquote>
 <h4 id="1infty-0infty"><span class="arithmatex">\(1^\infty,\ 0^\infty\)</span><a class="headerlink" href="#1infty-0infty" title="Permanent link">&para;</a></h4>
 <p><span class="arithmatex">\(1^\infty\)</span>型极限往往可利用 <span class="arithmatex">\(\lim_{x\to\infty} (1+\frac 1x)^x\)</span> 。</p>
@@ -1760,26 +1764,27 @@ n\to\infty:\quad
 <h3 id="将有理真分式分解为简单分式的和">将有理真分式分解为简单分式的和<a class="headerlink" href="#将有理真分式分解为简单分式的和" title="Permanent link">&para;</a></h3>
 <h4 id="目的">目的<a class="headerlink" href="#目的" title="Permanent link">&para;</a></h4>
 <p>简单分式是形如 <span class="arithmatex">\(\dfrac{c}{(x-\xi)^\lambda},\ \lambda\in\N_+\)</span> 或 <span class="arithmatex">\(\dfrac{c_1x + c_0}{(x^2 - 2\alpha x + \beta)^\mu},\ 0\leq\alpha^2&lt;\beta\ \land\ \mu\in\N_+\)</span> 的分式。因为<span class="arithmatex">\(\int \d x\)</span>是线性的，所以可通过计算简单分式的积分来计算有理真分数的积分。</p>
-<p>$$
+<div class="arithmatex">\[
 \displaylines{
 \int\dfrac{c \d x}{(x-\xi)^\lambda}
 = c\int\dfrac{\d(x-\xi)}{(x-\xi)^\lambda}
 \rightarrow
 \int \dfrac{\d x}{x^\lambda} = \begin{cases}
-\ln x &amp; \lambda = 1 \
-- \frac 1{(\lambda-1) x^{\lambda-1}} &amp; \lambda \geq 2 \
+\ln x &amp; \lambda = 1 \\
+- \frac 1{(\lambda-1) x^{\lambda-1}} &amp; \lambda \geq 2 \\
 \end{cases}
-\</p>
-<p>\begin{split}
+\\
+%
+\begin{split}
 \int \dfrac{c_1x + c_0}{(x^2 - 2\alpha x + \beta)^\mu} \d x
-&amp;= \int \dfrac{c_1(x-\alpha) + c_1\alpha + c_0}{((x-\alpha)^2 + \beta - \alpha^2)^\mu} \d x \
+&amp;= \int \dfrac{c_1(x-\alpha) + c_1\alpha + c_0}{((x-\alpha)^2 + \beta - \alpha^2)^\mu} \d x \\
 &amp;= \frac{c_1}{2(\beta-\alpha^2)^{\mu-1}} \cdot \int\frac{\d \frac{(x-\alpha)^2}{\beta-\alpha^2}} {\left(\frac{(x-\alpha)^2}{\beta-\alpha^2} + 1 \right)^\mu} + 
-\frac{c_1\alpha + c_0}{(\beta-\alpha^2)^{\mu-\frac12}} \cdot \int\frac{\d \frac{x-\alpha}{\sqrt{\beta-\alpha^2}}} {\left(\frac{(x-\alpha)^2}{\beta-\alpha^2} + 1 \right)^\mu} \
+\frac{c_1\alpha + c_0}{(\beta-\alpha^2)^{\mu-\frac12}} \cdot \int\frac{\d \frac{x-\alpha}{\sqrt{\beta-\alpha^2}}} {\left(\frac{(x-\alpha)^2}{\beta-\alpha^2} + 1 \right)^\mu} \\
 &amp;\rightarrow
 \int \frac{\d u}{(u+1)^\mu} + \int \frac{\d x}{(x^2+1)^\mu}
 \end{split}
 }
-$$</p>
+\]</div>
 <blockquote>
 <p>第二项可用三角换元 <span class="arithmatex">\(x = \tan \theta, \d x = \frac{\d\theta}{\cos^2 \theta}\)</span> 求出：</p>
 <div class="arithmatex">\[
@@ -1877,31 +1882,33 @@ V = \int_0^{\frac\pi2} \frac13 \cdot 2\pi\rho\sin\theta \cdot \rho \cdot \rho\d\
 }
 \]</div>
 <blockquote>
-<p>$$
+<div class="arithmatex">\[
 \displaylines{
 \begin{split}
 \frac{V}{\pi}
-&amp;= \int_0^{\frac\pi2} \rho^2\sin^2\theta \cdot \left( \rho\sin\theta - \frac{\d\rho}{\d\theta}\cos\theta \right) \d\theta \
-&amp;= \int_0^{\frac\pi2} \left( \rho^3\sin^3\theta - \rho^2\frac{\d\rho}{\d\theta}\sin^2\theta\cos\theta \right) \d\theta \
+&amp;= \int_0^{\frac\pi2} \rho^2\sin^2\theta \cdot \left( \rho\sin\theta - \frac{\d\rho}{\d\theta}\cos\theta \right) \d\theta \\
+&amp;= \int_0^{\frac\pi2} \left( \rho^3\sin^3\theta - \rho^2\frac{\d\rho}{\d\theta}\sin^2\theta\cos\theta \right) \d\theta \\
 &amp;= \int \rho^3\sin^3\theta \d\theta -
-\frac13 \int \sin^2\theta\cos\theta \cdot \frac{\d \rho^3}{\d\theta} \d\theta \
-\end{split} \</p>
-<p>\begin{split}
+\frac13 \int \sin^2\theta\cos\theta \cdot \frac{\d \rho^3}{\d\theta} \d\theta \\
+\end{split} \\
+%
+\begin{split}
 \text{in which}
-&amp; \int_0^{\frac\pi2} \sin^2\theta\cos\theta \cdot \frac{\d \rho^3}{\d\theta} \d\theta \
-&amp;= \rho^3\sin^2\theta\cos\theta \Big|_0^{\frac\pi2} - \int_0^{\frac\pi2} \rho^3 \d(\sin^2\theta \cos\theta) \
-&amp;= 0 - \int_0^{\frac\pi2} \rho^3 (2\sin\theta\cos^2\theta - \sin^3\theta) \d\theta \
-&amp;= - \int_0^{\frac\pi2} \rho^3 \sin\theta (2\cos^2\theta-\sin^2\theta) \d\theta \
-&amp;= - \int_0^{\frac\pi2} \rho^3 \sin\theta (2-3\sin^2\theta) \d\theta \
-\end{split} \</p>
-<p>\begin{split}
+&amp; \int_0^{\frac\pi2} \sin^2\theta\cos\theta \cdot \frac{\d \rho^3}{\d\theta} \d\theta \\
+&amp;= \rho^3\sin^2\theta\cos\theta \Big|_0^{\frac\pi2} - \int_0^{\frac\pi2} \rho^3 \d(\sin^2\theta \cos\theta) \\
+&amp;= 0 - \int_0^{\frac\pi2} \rho^3 (2\sin\theta\cos^2\theta - \sin^3\theta) \d\theta \\
+&amp;= - \int_0^{\frac\pi2} \rho^3 \sin\theta (2\cos^2\theta-\sin^2\theta) \d\theta \\
+&amp;= - \int_0^{\frac\pi2} \rho^3 \sin\theta (2-3\sin^2\theta) \d\theta \\
+\end{split} \\
+%
+\begin{split}
 \therefore \frac{V}{\pi}
-&amp;= \int_0^{\frac\pi2} \rho^3\sin^3 \d\theta + \frac13 \int_0^{\frac\pi2} \rho^3 \sin\theta (2-3\sin^2\theta) \d\theta \
-&amp;= \int_0^{\frac\pi2} \rho^3 \left( \sin^3 + \frac{2\sin\theta - 3\sin^3\theta}3 \right) \d\theta \
+&amp;= \int_0^{\frac\pi2} \rho^3\sin^3 \d\theta + \frac13 \int_0^{\frac\pi2} \rho^3 \sin\theta (2-3\sin^2\theta) \d\theta \\
+&amp;= \int_0^{\frac\pi2} \rho^3 \left( \sin^3 + \frac{2\sin\theta - 3\sin^3\theta}3 \right) \d\theta \\
 &amp;= \int_0^\frac\pi2 \rho^3 \sin^3\theta \d\theta
-\end{split} \
+\end{split} \\
 }
-$$</p>
+\]</div>
 </blockquote>
 <h2 id="零点存在性问题">零点存在性问题<a class="headerlink" href="#零点存在性问题" title="Permanent link">&para;</a></h2>
 <blockquote>
