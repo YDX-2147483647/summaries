@@ -3,6 +3,7 @@
 各种课程的总结、随记等。
 
 [![ci](https://github.com/YDX-2147483647/summaries/actions/workflows/ci.yml/badge.svg)](https://github.com/YDX-2147483647/summaries/actions/workflows/ci.yml)
+[![RSS](https://img.shields.io/badge/RSS-valid-orange?logo=rss)](http://validator.w3.org/feed/check.cgi?url=https%3A//ydx-2147483647.github.io/summaries/feed_rss_updated.xml)
 
 ## 🤝改进此项目
 
@@ -72,3 +73,5 @@
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 - [giscus](https://giscus.app/)
 - [Mdx Truly Sane Lists](https://github.com/radude/mdx_truly_sane_lists)
+- [MkDocs RSS plugin](https://guts.github.io/mkdocs-rss-plugin/)
+- [Graphviz](https://www.graphviz.org/)
