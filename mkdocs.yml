@@ -19,6 +19,12 @@ theme:
     - navigation.top
     - content.action.view
     - content.action.edit
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  # U+1F5C3 (🗃️) from [twemoji](https://twemoji.twitter.com/).
+  # https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f5c3.svg
+  # https://emojipedia.org/card-file-box/
+  # https://util.unicode.org/UnicodeJsps/character.jsp?a=1F5C3
 
 markdown_extensions:
   - admonition
