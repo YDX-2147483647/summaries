@@ -284,12 +284,12 @@ $$
 > \displaylines{
 > x\to1:\quad
 > \frac{x(x-1)}{x-1} = x \to 1 \\
-> 
+> %
 > x\to1:\quad
 > \frac{x-1}{\sqrt x-1}
 > = \lim_{x\to1}\frac{(\sqrt x+1)(\sqrt x-1)}{\sqrt x-1}
 > = \cdots \\
-> 
+> %
 > \lim_{x\to a} \frac{x-a}{\sqrt[3]x - \sqrt[3]a}
 > = \lim_{X=\sqrt[3]x \to \sqrt[3]a = A} \frac{X^3-A^3}{X-A}
 > = \lim_{X\to  A} (X^2 + XA + A^2)
@@ -303,13 +303,13 @@ $$
 > \displaylines{
 > x\to0:\quad
 > \dfrac{\tan x - \sin x}{x^3} = \dfrac{\tan x}{x} \cdot\dfrac{1-\cos x}{x^2} \to \dfrac{x}{x} \cdot \dfrac{\frac{x^2}2}{x^2} = \frac 12 \\
-> 
+> %
 > \lim_{x\to\frac{\pi}4} \tan(2x)\tan(\frac{\pi}4-x)
 > = \lim_{h = \frac\pi4-x \to 0} \tan(\frac{\pi}2 - 2h)\tan h
 > = \lim_{h\to0} \frac{\tan h}{\tan(2h)}
 > = \lim_{h\to0} \frac{h}{2h}
 > = \frac 12 \\
-> 
+> %
 > x\to1:\quad
 > \frac{x-1}{\sqrt x-1}
 > = \frac{x-1}{(1+(x-1))^{1/2}-1}
@@ -462,7 +462,7 @@ $$
 - \frac 1{(\lambda-1) x^{\lambda-1}} & \lambda \geq 2 \\
 \end{cases}
 \\
-
+%
 \begin{split}
 \int \dfrac{c_1x + c_0}{(x^2 - 2\alpha x + \beta)^\mu} \d x
 &= \int \dfrac{c_1(x-\alpha) + c_1\alpha + c_0}{((x-\alpha)^2 + \beta - \alpha^2)^\mu} \d x \\
@@ -600,7 +600,7 @@ $$
 > &= \int \rho^3\sin^3\theta \d\theta -
 > \frac13 \int \sin^2\theta\cos\theta \cdot \frac{\d \rho^3}{\d\theta} \d\theta \\
 > \end{split} \\
-> 
+> %
 > \begin{split}
 > \text{in which}
 > & \int_0^{\frac\pi2} \sin^2\theta\cos\theta \cdot \frac{\d \rho^3}{\d\theta} \d\theta \\
@@ -609,7 +609,7 @@ $$
 > &= - \int_0^{\frac\pi2} \rho^3 \sin\theta (2\cos^2\theta-\sin^2\theta) \d\theta \\
 > &= - \int_0^{\frac\pi2} \rho^3 \sin\theta (2-3\sin^2\theta) \d\theta \\
 > \end{split} \\
-> 
+> %
 > \begin{split}
 > \therefore \frac{V}{\pi}
 > &= \int_0^{\frac\pi2} \rho^3\sin^3 \d\theta + \frac13 \int_0^{\frac\pi2} \rho^3 \sin\theta (2-3\sin^2\theta) \d\theta \\
