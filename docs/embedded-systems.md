@@ -29,7 +29,7 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 
 ### 工作模式与寄存器组
 
-> :material-clock-edit-outline: 2023年3月9日。
+> :material-clock-edit-outline: 2023年3月9日，2023年3月10日。
 
 <u>工作模式</u>如下。
 
@@ -44,14 +44,27 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
   - `und` (undefined)
   - `mon` (secure monitor)
 
+!!! info "优先级"
+
+     除了`usr`、`sys`，所有模式都可由异常进入。这些异常按优先级从高到低如下。（此处优先数与优先级负相关）
+     
+     1. `svc`（复位）
+     2. `abt`（data abort）
+     3. `fiq`
+     4. `irq`
+     5. `und`（保护而不允许，prefetch abort）
+     6. `svc`（正常调用子程序，software interrupt，SWI）、`und`（未定义或转给协处理器）
+
 处理器有许多<u>通用寄存器</u>，但每种模式同时只用 16 个（R0–R15）。
 
 - 前一半（R0–R7）所有模式通用。
 - R8–R12 在 FIQ 专用，其余模式通用。
-- R13 是 stack pointer（SP），用于函数调用、局部变量；R14 是 link register（LR），保存返回地址。这两个寄存器每种异常模式自己专用。
+- R13 是 stack pointer（SP），用于函数调用、局部变量（堆栈指针）；R14 是 link register（LR），保存返回地址（断点地址）。这两个寄存器每种异常模式自己专用。
 - R15 是 program counter（PC），记录程序当前运行的译码后的地址。
 
-除了通用寄存器，还有<u>状态寄存器</u>，共用一个 current program status register（CPSR），6种异常模式各自专用 saved program status register（SPSR）。状态寄存器内容如下。
+除了通用寄存器，还有<u>状态寄存器</u>，共用一个 current program status register（CPSR），6种异常模式各自专用 saved program status register（SPSR）。处理异常时，原来的 CPSR 会备份至 SPSR。
+
+状态寄存器内容如下。
 
 - 条件标志位
 
@@ -59,7 +72,7 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 
 - 控制位：
 
-  - 中断屏蔽位 I（IRQ）、F（FIQ）可屏蔽所有中断。
+  - 中断屏蔽位 I（IRQ）、F（FIQ）可屏蔽所有来源的中断，处理异常时会用这两位实现优先级。
   - 状态控制位 T 表明处理器在 ARM 还是 Thumb 状态。（有多套指令集）
   - 模式控制位决定处理器的工作模式。虽只有 8 种模式，但用了 5 位。
 
