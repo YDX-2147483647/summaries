@@ -29,7 +29,7 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 
 ### 工作模式与寄存器组
 
-> :material-clock-edit-outline: 2023年3月9日，2023年3月10日。
+> :material-clock-edit-outline: 2023年3月9日，2023年3月10日，2023年3月13日。
 
 <u>工作模式</u>如下。
 
@@ -66,11 +66,11 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 
 状态寄存器内容如下。
 
-- 条件标志位
+- 条件标志位（flag field）
 
   N（negative）、Z（zero）、C（carry）、V（overflow）。有许多指令会判断这些标志位。
 
-- 控制位：
+- 控制位（control field）：
 
   - 中断屏蔽位 I（IRQ）、F（FIQ）可屏蔽所有来源的中断，处理异常时会用这两位实现优先级。
   - 状态控制位 T 表明处理器在 ARM 还是 Thumb 状态。（有多套指令集）
@@ -118,3 +118,121 @@ assert_eq!(6, mem::size_of::<FieldStruct>());
 !!! tip "🦀 Rust"
 
     数据对齐部分参考了 [Rust Doc](https://doc.rust-lang.org/std/mem/fn.size_of.html#size-of-reprc-items)。
+
+## ARM 指令集
+
+### 指令
+
+> :material-clock-edit-outline: 2023年3月13日。
+>
+> :material-eye-arrow-right: [ARM Compiler armasm User Guide](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/arm-and-thumb-instruction-summary).
+
+- **跳转**（B, BL, BX, BLX）
+
+  - B: Branch.
+  - –L: …with link (set [R14 link register](#工作模式与寄存器组)).
+  - –X: …change instruction set (ARM / Thumb).
+
+- **处理数据**
+
+  - **复制**
+
+    - MOV: Move.
+
+    - MVN: Move not.
+
+  - **算术**（ADD, ADC; SUB, SBC, RSB, RSC）
+
+    - ADD, AD–: Add.
+    - SUB, SB–, –S–: Subtract.
+    - R–: Reverse…
+    - –C: …with carry (from flag field).
+
+  - **位、逻辑**
+
+    - AND: Logical and.
+    - ORR: Logical or.
+    - EOR: Exclusive or.
+    - BIC: Bit clear.
+
+  - **比较**
+
+    这些指令只设置标志位，中间结果不存储到通用寄存器。
+
+    - CMP: Compare.
+    - CMN: Compare negative (sum).
+    - TST: Test.
+    - TEQ: Test equivalence.
+
+- **状态寄存器**
+
+  - MRS: Move from PSR / system coprocessor to register.
+  - MSR: Move from register to PSR / system coprocessor.
+
+- **存储器**（LDR, LDM; STR, STM; SWP）
+
+  ```mermaid
+  flowchart LR
+      Rn[Rn<br><small>address base</small>] -.-> memory
+      Rt[Rt<br><small>target</small>]
+      Rt -->|"STR Rt, [Rn]"| memory([memory])
+      memory -->|"LDR Rt, [Rn]"| Rt
+  ```
+
+  - LDR, LD–: load register with word.
+
+  - STR, ST–: Store register with word.
+
+  - [–M](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/stm): …multiple registers.
+
+    !!! note "顺序"
+
+        `LDR Rt, [Rn]`，但是`LDM Rn, {Rt, …}`。
+
+    - Address mode
+
+      - I– / D–: Increase / decrease address…
+      - –A / – B: …after / before each transfer.
+
+      IA is the default.
+
+      PUSH = STMDB, POP = LDMIA.
+
+      [Alternatively](https://developer.arm.com/documentation/ddi0597/2022-12/Base-Instructions/STMDA--STMED--Store-Multiple-Decrement-After--Empty-Descending--),
+
+      - F– / E–: Full / empty… (equivalent to –B / –A)
+      - –A / –D: …ascending / descending stack. (equivalent to I– / D–)
+
+      !!! info "Full / empty stack"
+
+          In an empty stack, the stack pointer points to the next empty location on the stack. In a full stack, it points to the top-most item.
+
+  - `!` is an optional suffix for the address register. If present, the final address is written back into base register.
+
+    !!! info "[Addressing modes](https://developer.arm.com/documentation/den0042/a/Unified-Assembly-Language-Instructions/Memory-instructions/Addressing-modes)"
+
+        | Instruction          | Addressing mode | Address | Write back               |
+        | -------------------- | --------------- | ------- | ------------------------ |
+        | `LDR R0, [R1]`       | Register        | R1      | ✗                        |
+        | `LDR R0, [R1, #2]`   | Pre-indexed     | R1 + 2  | ✗                        |
+        | `LDR R0, [R1, #2]!`  | Pre-indexed     | R1 + 2  | R1 ≔ R1 + 2              |
+        | `LDR R0, [R1], #2`   | Post-indexed    | R1      | R1 ≔ R1 + 2              |
+        | `LDMIA R1!, {R2-R7}` | Pre-indexed     | R1      | R1 ≔ R1 + 1 (many times) |
+        
+        Additionally, the offset (`#2` here) can also be `R2` or `R2, LSL #3` (R2 × 2³).
+  
+  - SWP: Swap between registers and memory. (deprecated in ARMv6 and above)
+  
+    ```assembly
+    LDR <destination>, <source>, [<address>]
+    ```
+  
+    ```mermaid
+    flowchart LR
+        source[Rt2<br><small>source</small>] --> memory([memory]) --> destination[Rt1<br><small>destination</small>]
+        address[Rn<br><small>address base</small>] -.-> memory
+    ```
+  
+    source ≠ address ≠ destination. (source can be the same register as destination.)
+  
+  
