@@ -235,4 +235,7 @@ assert_eq!(6, mem::size_of::<FieldStruct>());
   
     source ≠ address ≠ destination. (source can be the same register as destination.)
   
-  
+
+# 后备箱
+
+- 十六进制最大数码是 F（15）。
