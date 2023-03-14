@@ -37,6 +37,17 @@ flowchart TB
 - S: Supply.
 - D: Demand.
 - E: Elasticity.
+- R: Revenue.
 - MRS: Marginal rate of substitution.
-- TU: Total utility.
-- MU: Marginal utility.
+- U: Utility.
+- P: Production.
+- L: Labour.
+- C: Cost.
+- FC, VC: Fixed / variable cost. (FC + VC = TC)
+- LRATC, SRATC: Long/short-run average total cost.
+
+Prefixes:
+
+- T–: Total…
+- M–: Marginal…
+- A–: Average…
