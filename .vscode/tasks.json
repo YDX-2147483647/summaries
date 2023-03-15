@@ -4,12 +4,30 @@
         {
             "label": "Serve",
             "command": "just",
-            "type": "shell",
+            "type": "process",
             "args": [
                 "serve"
             ],
-            "problemMatcher": [],
             "group": "build",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "mkdocs",
+                "pattern": {
+                    "regexp": "^(WARNING|ERROR)\\s+-\\s+(.+)$",
+                    "kind": "file",
+                    "severity": 1,
+                    "message": 2,
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^INFO\\s+-\\s+\\[\\d{2}:\\d{2}:\\d{2}\\]\\s+Detected file changes",
+                    "endsPattern": "^INFO\\s+-\\s+(\\[\\d{2}:\\d{2}:\\d{2}\\]\\s+Reloading browsers|Documentation built in)",
+                },
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+            }
         },
         {
             "label": "Normalize",
