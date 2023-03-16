@@ -12,6 +12,7 @@ $$
 \DeclareMathOperator\expect{\mathbb{E}}
 \def\tran{\mathsf T}
 \def\R{\mathbb{R}}
+\newcommand\mark[1]{{\color{teal}#1}}
 $$
 
 ## §1 概率论
@@ -117,13 +118,13 @@ $$
     !!! info "最小二乘法"
 
         模型为 $y_i = A_{ij}\, x_j$，收到样本（samples）$y_{is}$ 与 $x_{js}$。试图解 $y_{is} = A_{ij}\, x_{js}$，但无解，转而考虑方程
-      
+          
         $$
         y_{is}\ x_{sk} = A_{ij}\ x_{js}\ x_{sk},
         $$
-      
+          
         于是 $\hat A_{ij} = \qty(y_{is}\ x_{sk}) \times \qty(x_{js} x_{sk})^{-1}$。
-      
+          
         把样本均值转为期望便是 $\hat A = \Sigma_{YX} {\Sigma_{XX}}^{-1}$。
   
   - $\Phi_{\vb*Y | \vb*x} = \Phi_{YY}$。
@@ -148,3 +149,80 @@ $$
 !!! note "验证"
 
     将上式展开，反复利用 $\Phi \Sigma = I = \Sigma \Phi$ 的分块形式即可。
+
+## §2 随机过程
+
+### 化循环平稳为平稳
+
+> :material-clock-edit-outline: 2023年3月16日。
+
+!!! note "平稳"
+
+    此处指[广义平稳](./information-theory-and-coding.md#平稳与遍历)。
+
+设 $X$ 是周期为 $T$ 的[循环平稳随机过程](https://en.wikipedia.org/wiki/Cyclostationary_process)，即
+
+$$
+\begin{cases}
+    \forall t\in\R, \quad&
+        \expect \eval{X}_t = \expect \eval{X}_{t+T}. \\
+    \forall t_1, t_2 \in\R, \quad&
+        \expect(\eval{X}_{t_1} \eval{X}_{t_2}) = \expect(\eval{X}_{t_1+T} \eval{X}_{t_2+T}). \\
+\end{cases}
+$$
+
+另取与之独立的随机变量 $A \sim U(0,T)$，则 $\eval{Y}_t \coloneqq \eval{X}_{t-a}$ 平稳。
+
+例如 $Y$ 的均值时间平移不变：
+
+$$
+\begin{split}
+    \expect \eval{Y}_t
+    &= \underset{a}\expect\
+        \underset{x | a}\expect\
+        \eval{x}_{t-a} \\
+    &= \underset{a}\expect\
+        \underset{x}\expect\
+        \eval{x}_{t-a} \\
+    &= \int\limits_0^T \frac{\dd{a}}{T} \times \underset{x}\expect\
+        \eval{x}_{t-a} \\
+    &= \int\limits_0^T \frac{\dd{a}}{T} \times \underset{x}\expect\
+        \eval{x}_{a}, \\
+\end{split}
+$$
+
+从而不含 $t$。这些等号的依据如下。
+
+1. $Y$ 的构造。
+
+   $\expect_{x|a}$ 表示在 $A=a$ 条件下考虑 $X$ 的分布。
+
+2. $A,X$ 独立：$p(x,t | a) = p(x,t)$。（$p$ 是概率密度）
+
+  若考虑自相关，则进一步需要二维联合分布与 $A$ 独立。
+
+3. $A$ 均匀分布。
+
+4. 周期函数的性质。
+
+  将 $u \mapsto \expect_x \eval{x}_{u}$ 记作 $f$，它具有周期 $T$。
+
+  $$
+  \begin{split}
+      \int\limits_0^T \eval{f}_{t-a} \dd{a}
+      &= \int\limits_{t-T}^{t} \eval{f}_u \dd{u} \\
+      &= \int\limits_0^t \eval{f}_u \dd{u} - \int\limits_0^{t-T} \eval{f}_u \dd{u} \\
+      &= \int\limits_0^t \eval{f}_u \dd{u} - \int\limits_0^{t-T} \eval{f}_\mark{u+T} \dd{u} \\
+      &= \int\limits_0^t \eval{f}_u \dd{u} - \int\limits_\mark{T}^\mark{t} \eval{f}_\mark{u} \dd{u} \\
+      &= \int\limits_0^T \eval{f}_u \dd{u}. \\
+  \end{split}
+  $$
+
+  若考虑自相关，此处 $f$ 是
+
+  $$
+  \qty(\frac{t_1+t_2}2,\ t_2-t_1)
+  \mapsto \underset{x}\expect\qty(\eval{x}_{t_1-a} \eval{x}_{t_2-a}),
+  $$
+
+  它对第一个自变量具有周期 $T$，推理仍适用。
