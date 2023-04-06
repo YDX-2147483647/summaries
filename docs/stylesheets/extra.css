@@ -12,6 +12,6 @@
     text-decoration-color: var(--md-primary-fg-color);
 }
 
-.md-typeset svg.hooks-relationship .node {
+.md-typeset svg.hooks-relationship .node a {
     fill: var(--md-primary-fg-color);
 }
