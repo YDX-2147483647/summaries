@@ -270,9 +270,9 @@ $$
 |     过渡     |                  （由 $n_0=p_0+N_D$ 解出）                   |            $E_i + k_B T \arsinh\frac{N_D}{2n_i}$            |
 | 高温本征激发 |          $n_i = \sqrt{(\cdots) \exp(-E_g / k_B T)}$          | $E_i = \frac12(E_c+E_v) + \frac12 k_B T \ln\frac{N_v}{N_c}$ |
 
-![ch3.4-3.5_page20](assets/semi-ch3.4-3.5_page20.png){: style="zoom: 20%;" }
+![ch3.4-3.5_page20](../assets/semi-ch3.4-3.5_page20.png){: style="zoom: 20%;" }
 
-![ch3.4-3.5_page18](assets/semi-ch3.4-3.5_page18.png){: style="zoom: 20%;" }
+![ch3.4-3.5_page18](../assets/semi-ch3.4-3.5_page18.png){: style="zoom: 20%;" }
 
 ### 重制版
 
@@ -404,7 +404,7 @@ $$
 
 > 若无 $n_{p0} \ll p_{p0}$（此时可能应写成 $n_0,\ p_0$），则 $u \approx 0$ 时近似为 $u \frac{n_0+p_0}{p_0}$。
 
-![电荷分布](assets/semi-rho-u.png){: style="zoom:67%;" }
+![电荷分布](../assets/semi-rho-u.png){: style="zoom:67%;" }
 
 #### 总电荷
 
@@ -462,7 +462,7 @@ $$
 >
 > $F$ 的各段近似也可直接由 $\frac{\rho}{q p_{p0}}$ 的近似得到。
 
-![F函数](assets/semi-f-function.png){: style="zoom:67%;" }
+![F函数](../assets/semi-f-function.png){: style="zoom:67%;" }
 
 综合上述内容，得
 

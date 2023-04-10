@@ -1,0 +1,34 @@
+# Redirects for moved/renamed pages
+
+plugins:
+  redirects:
+    redirect_maps:
+      artificial-intelligence.md: course/artificial-intelligence.md
+      calculus-1.md: course/calculus-1.md
+      calculus-2.md: course/calculus-2.md
+      complex-functions-and-equations-of-mathematical-physics.md: course/complex-functions-and-equations-of-mathematical-physics.md
+      cpp-and-data-structure.md: course/cpp-and-data-structure.md
+      digital-circuits-and-systems.md: course/digital-circuits-and-systems.md
+      digital-communication.md: course/digital-communication.md
+      digital-signal-processing.md: course/digital-signal-processing.md
+      economics.md: course/economics.md
+      electromagnetic-field-and-wave.md: course/electromagnetic-field-and-wave.md
+      embedded-systems.md: course/embedded-systems.md
+      information-theory-and-coding.md: course/information-theory-and-coding.md
+      integrated-circuits.md: course/integrated-circuits.md
+      intelligent-multi-source-sensing.md: course/intelligent-multi-source-sensing.md
+      linear-algebra.md: course/linear-algebra.md
+      microwave-circuits.md: course/microwave-circuits.md
+      modern-chinese-history.md: course/modern-chinese-history.md
+      morals-ethics-law.md: course/morals-ethics-law.md
+      operating-system.md: course/operating-system.md
+      physics-1.md: course/physics-1.md
+      physics-2.md: course/physics-2.md
+      probability-and-statistics.md: course/probability-and-statistics.md
+      roller-skating.md: course/roller-skating.md
+      semiconductor-physics.md: course/semiconductor-physics.md
+      set-theory.md: course/set-theory.md
+      signals-and-systems.md: course/signals-and-systems.md
+      stochastic-signal-processing.md: course/stochastic-signal-processing.md
+      theoretical-physics-intro.md: course/theoretical-physics-intro.md
+      xi-thought.md: course/xi-thought.md

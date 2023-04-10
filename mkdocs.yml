@@ -1,3 +1,5 @@
+INHERIT: ./mkdocs-redirects.yml
+
 site_name: 总结
 site_description: 各种课程的总结、随记等。
 site_url: https://ydx-2147483647.github.io/summaries/
@@ -17,6 +19,7 @@ theme:
   custom_dir: overrides
   features:
     - navigation.top
+    - navigation.tabs
     - content.action.view
     - content.action.edit
   logo: assets/logo.svg
@@ -51,15 +54,16 @@ markdown_extensions:
 
 plugins:
   # If no plugins entry is set, MkDocs enables search by default, otherwise I have to declare it explicitly.
-  - search
+  search: {}
 
   # Extra plugins
-  - rss:
-      # Disable RSS for faster build times in development
-      enabled: !ENV [MKDOCS_ENABLE_RSS_PLUGIN, true]
-      # Only include `<h1>` in abstract
-      abstract_delimiter: "\n"
-      image: https://ydx-2147483647.github.io/summaries/assets/logo.png
+  rss:
+    # Disable RSS for faster build times in development
+    enabled: !ENV [MKDOCS_ENABLE_RSS_PLUGIN, true]
+    # Only include `<h1>` in abstract
+    abstract_delimiter: "\n"
+    image: https://ydx-2147483647.github.io/summaries/assets/logo.png
+  redirects: {} # inherited
 
 hooks:
   - hooks/relationship.py

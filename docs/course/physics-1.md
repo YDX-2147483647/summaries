@@ -203,7 +203,7 @@ $$
 在堤岸顶上用绳子拉小船。设岸顶离水面的高度$h$为20m，收绳子的速率$u$为3m/s，且保持不变， 若当船与岸顶的距离$x$为40m时开始计时，则5秒时小船速率$v$与加速度大小$a$各几何？
 
 <figure markdown='span'>
-![拉小船-题图](assets/boat.png)
+![拉小船-题图](../assets/boat.png)
 <figcaption markdown='1'>拉小船｜[MOOC](https://edu-image.nosdn.127.net/1B4FCA5AA71BBCDA6AA581619D047E4B.png)</figcaption>
 </figure>
 
@@ -324,7 +324,7 @@ $$
 > :material-clock-edit-outline: 2021年5月1日，[第九周作业](https://www.icourse163.org/learn/BIT-46002?tid=1463232449#/learn/hw?id=1237092622)。
 
 <figure markdown='span'>
-![伪卡诺循环](assets/psuedo-carnot-cycle.png)
+![伪卡诺循环](../assets/psuedo-carnot-cycle.png)
 <figcaption>伪卡诺循环｜MOOC</figcaption>
 </figure>
 

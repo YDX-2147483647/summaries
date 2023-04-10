@@ -348,7 +348,7 @@ $$
 > :material-eye-arrow-right: [Fast Fourier transform - Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 
 <figure markdown='span'>
-![](assets/Cooley-tukey-general.png)
+![](../assets/Cooley-tukey-general.png)
 <figcaption markdown='1'>推广算法｜[Wikipedia](https://en.wikipedia.org/wiki/File:Cooley-tukey-general.png)</figcaption>
 </figure>
 
@@ -439,7 +439,7 @@ $$
 > decimation 为何以 dec- 开头？其词源很血腥。
 
 <figure markdown='span'>
-![](assets/discremation-in-time.svg)
+![](../assets/discremation-in-time.svg)
 <figcaption>Radix-2 DIT FFT | <code>data-flow-diagram</code></figcaption>
 </figure>
 
@@ -449,9 +449,9 @@ $$
 
 <figure markdown='1'>
 <div style='display: grid; grid-template-columns: repeat(3, auto);' markdown='span'>
-  ![](assets/radix-2.png)
-  ![](assets/radix-4.png)
-  ![](assets/split-radix.png)
+  ![](../assets/radix-2.png)
+  ![](../assets/radix-4.png)
+  ![](../assets/split-radix.png)
 </div>
 <figcaption markdown='1'>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions</a>, revised</figcaption>
 </figure>
@@ -470,8 +470,8 @@ $$
   
   <figure markdown='1'>
   <div style='display: grid; grid-template-columns: repeat(2, auto); gap: 1em;' markdown='span'>
-    ![](assets/radix-2-or-4-to-split-radix-1.svg)
-    ![](assets/radix-2-or-4-to-split-radix-2.svg)
+    ![](../assets/radix-2-or-4-to-split-radix-1.svg)
+    ![](../assets/radix-2-or-4-to-split-radix-2.svg)
   </div>
   <figcaption>Radix-2 or -4 to split-radix | <code>data-flow-diagram</code></figcaption>
   </figure>
@@ -714,7 +714,7 @@ $$
 >
 > 由于 $e^{j\omega\tau} H \in \R$，共轭［反］对称就是奇／偶对称。
 
-![](assets/linphase-15.png){: style="width: 60%;" }
+![](../assets/linphase-15.png){: style="width: 60%;" }
 
 #### 时域实序列及其零点分布
 

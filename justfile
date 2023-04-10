@@ -12,7 +12,7 @@ mkdocs := python + " -m mkdocs"
 # Install/upgrade MkDocs, its plugins, and markdown extensions
 bootstrap:
     {{ pip }} install mkdocs-material --upgrade
-    {{ pip }} install mdx_truly_sane_lists mkdocs-rss-plugin --upgrade
+    {{ pip }} install mdx_truly_sane_lists mkdocs-rss-plugin mkdocs-redirects --upgrade
     dot -V  # Graphviz / dot is also needed for hooks/relationship.py. https://www.graphviz.org/download/
     {{ pip }} install graphviz --upgrade
 

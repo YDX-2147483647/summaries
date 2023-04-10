@@ -41,7 +41,7 @@ $$
 - 信源编码。
 
 <figure markdown='span'>
-![Entropy-mutual-information-relative-entropy-relation-diagram](assets/Entropy-mutual-information-relative-entropy-relation-diagram.svg){: style="zoom:67%;" }
+![Entropy-mutual-information-relative-entropy-relation-diagram](../assets/Entropy-mutual-information-relative-entropy-relation-diagram.svg){: style="zoom:67%;" }
 <figcaption>互信息熵 | <a href='https://commons.wikimedia.org/wiki/File:Entropy-mutual-information-relative-entropy-relation-diagram.svg'>Wikimedia Commons</a></figcaption>
 </figure>
 

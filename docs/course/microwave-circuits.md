@@ -26,7 +26,7 @@ $z = \frac{Z_\text{in}}{Z_c}$，$\Gamma = \frac{z-1}{z+1}$。（一种 [Möbius 
 | 纯驻波 | $j\times\R$ | $e^{j\times[0,2\pi)}$ |
 
 <figure markdown='span'>
-![](assets/Smith_chart_explanation.svg)
+![](../assets/Smith_chart_explanation.svg)
 <figcaption markdown='1'>Smith圆图｜[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Smith_chart_explanation.svg)</figcaption>
 </figure>
 
@@ -162,7 +162,7 @@ $$
 3. 两种运动共同效果是 electron/hole exchange is determined by the relative position of the Fermi energies。
 
 <figure markdown='span'>
-    ![](assets/Diode_quasi-fermi_levels.svg)
+    ![](../assets/Diode_quasi-fermi_levels.svg)
     <figcaption markdown='1'>Quasi-fermi levels in p-n diode in forward bias｜[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Diode_quasi-fermi_levels.svg)</figcaption>
 </figure>
 

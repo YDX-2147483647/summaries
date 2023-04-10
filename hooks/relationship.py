@@ -36,12 +36,13 @@ https://github.com/mkdocs/mkdocs/issues/3141
 
 from __future__ import annotations
 
+from pathlib import PurePath
 from typing import TYPE_CHECKING, TypedDict
 
 from graphviz import Digraph
 
 if TYPE_CHECKING:
-    from typing import Final, Any
+    from typing import Any, Final
 
     from jinja2.environment import Environment
     from mkdocs.config.defaults import MkDocsConfig
@@ -103,7 +104,7 @@ def on_page_content(html: str, page: Page, config: MkDocsConfig, files: Files) -
     """
 
     # Ignore index page
-    if page.file.src_uri == "index.md":
+    if PurePath(page.file.src_uri).stem == "index":
         return
 
     _state.nodes.append(
@@ -114,7 +115,7 @@ def on_page_content(html: str, page: Page, config: MkDocsConfig, files: Files) -
         )
     )
 
-    if page.meta and (raw_relevant := page.meta["relevant"]):
+    if page.meta and (raw_relevant := page.meta.get("relevant")):
         raw_relevant: str | list[str | dict[str, dict[str, Any]]]
 
         # Normalize `relevant`
@@ -136,10 +137,14 @@ def on_page_content(html: str, page: Page, config: MkDocsConfig, files: Files) -
 
         # Add the edge
         for dst, attr in relevant.items():
+            dst_uri = (PurePath(page.file.src_uri).parent / dst).as_posix()
+            # This is roughly equivalent to `files.get_file_from_path(dst)`.
+            # https://github.com/mkdocs/mkdocs/blob/56b235a8ad43f2300d17f87e6fa4de7a3d764397/mkdocs/structure/files.py#L67-L69
+
             _state.edges.append(
                 Edge(
                     src_uri=page.file.src_uri,
-                    dst_uri=files.get_file_from_path(dst).src_uri,
+                    dst_uri=files.src_uris[dst_uri].src_uri,
                     attr=attr,
                 )
             )
