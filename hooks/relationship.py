@@ -36,6 +36,7 @@ https://github.com/mkdocs/mkdocs/issues/3141
 
 from __future__ import annotations
 
+from fnmatch import fnmatch
 from pathlib import PurePath
 from typing import TYPE_CHECKING, TypedDict
 
@@ -50,6 +51,7 @@ if TYPE_CHECKING:
     from mkdocs.structure.pages import Page
 
 HOOK_CONFIG: Final = {
+    "patterns": ["course/*.md", "!course/index.md"],
     "insert_signal": "<!-- hooks/relationship.py -->",
     "insert_in": ["index.md"],
 }
@@ -103,8 +105,8 @@ def on_page_content(html: str, page: Page, config: MkDocsConfig, files: Files) -
     Record the relationship defined in page's metadata when populating it.
     """
 
-    # Ignore index page
-    if PurePath(page.file.src_uri).stem == "index":
+    # Only include files of concern
+    if not match(page.file.src_uri, HOOK_CONFIG["patterns"]):
         return
 
     _state.nodes.append(
@@ -165,6 +167,19 @@ def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
     ):
         assert _state.image is not None
         return output.replace(HOOK_CONFIG["insert_signal"], _state.image)
+
+
+def match(filename: str, patterns: list[str]) -> bool:
+    """Test whether the filename (src_uri) match patterns"""
+
+    if not any(fnmatch(filename, p) for p in patterns if not p.startswith("!")):
+        return False
+    elif any(
+        fnmatch(filename, p.removeprefix("!")) for p in patterns if p.startswith("!")
+    ):
+        return False
+    else:
+        return True
 
 
 def paint(nodes: list[Node], edges: list[Edge]) -> bytes:
