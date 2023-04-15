@@ -226,3 +226,20 @@ $$
   $$
 
   它对第一个自变量具有周期 $T$，推理仍适用。
+
+## §3 谱分析
+
+### Wiener–Хи́нчин–Einstein 定理
+
+> :material-clock-edit-outline: 2023年4月13日。
+> 
+> :material-eye-arrow-right: [The Wiener-Khinchin Theorem](https://www.comm.utoronto.ca/frank/notes/wk.pdf).
+
+该定理不仅限于平稳随机信号，也适用于确定信号和一般随机信号；而且即使 Fourier 变换不存在，该定理仍有某种形式。
+
+Einstein 识别出了自相关与功率谱密度的关系，Wiener 研究了确定信号，Хи́нчин 研究了随机信号。
+
+# 后备箱
+
+- $\omega = 2\pi f$。
+- 复向量的内积共轭对称。

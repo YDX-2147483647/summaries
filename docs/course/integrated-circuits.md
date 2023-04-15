@@ -4,7 +4,7 @@ relevant: ./digital-circuits-and-systems.md
 
 # 集成电路设计实践
 
-!!! note 后来退课了
+!!! note "后来退课了"
 
     因为用 VHDL 而非更新的 Verilog，且要写文献综述，我退课了。
 

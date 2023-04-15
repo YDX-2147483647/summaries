@@ -45,6 +45,10 @@ flowchart TB
 - C: Cost.
 - FC, VC: Fixed / variable cost. (FC + VC = TC)
 - LRATC, SRATC: Long/short-run average total cost.
+- C: Consumption.
+- G: Government.
+- I: Investment.
+- NX: Net export.
 
 Prefixes:
 

@@ -486,7 +486,7 @@ $$
 
 > :material-clock-edit-outline: 2022年11月27日，2022年12月3日。
 
-!!! note "CASIO fx-911 的功能"
+!!! tip "CASIO fx-911 的功能"
 
     - $\C$ 上的四则运算。
     - 求 $\R$ 上某点的导数值。

@@ -7,6 +7,8 @@ relevant:
 # 微波电路与系统
 
 $$
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
 \def\R{\mathbb{R}}
 $$
 
@@ -262,3 +264,54 @@ M–S结中金属内部均一，接触表面有势垒，半导体内部有缓一
 - **转移电子效应管**（transfer electron diode）
 
   第三代半导体产物。利用多能谷材料的 Gunn 氏效应天然产生振荡。（这种二极管无需结）
+
+## 频率变换器
+
+### 一般原理
+
+> :material-clock-edit-outline: 2023年4月15日。
+
+- 下变频：(source, local) ↦ out
+
+  一般用阻性变换器，核心是非线性电阻。
+
+- 上变频：(source, pumping) ↦ out
+
+  一般用参量变频器，核心是非线性电容。
+
+线性器件无法改变频率（频域仅仅是相乘，不能搬移），变换频率关键在于非线性。
+
+举个例子。某一器件的输入输出关系 $u_\text{in} \mapsto u_\text{out}$ <u>非线性</u>，想实现下变频 $(u_\text{source},\ u_\text{local}) \mapsto u_\text{out}$。
+
+1. 用线性电路实现 $u_i = u_l + u_s$。
+2. 只考虑小信号（$u_s \ll u_l$），则 $u_i \mapsto u_o$ 微分关系只由 $u_l$ 决定。比如 $\dd{u_o} = g \dd{u_i}$，其中 <u>$g$ 与 local 有关</u>而与 source 无关。
+3. 至此，$\dd{u_o} = g \dd{u_i} = g \times u_s$ ——输出（的微分）是 $g$（取决于 local）与 $u_s$（source）的<u>积</u>。时域相乘对应频域卷积，可搬移频谱，变换频率。
+
+!!! note "必须非线性"
+
+    若是线性器件，虽仍有相乘，但 $g$ 也不随 local 变化……于是工作不了。
+
+!!! note "大信号也差不多"
+
+    大信号时，微分关系为 Taylor 级数，形式仍是“local、source 决定量”之积（的线性组合）。
+
+再仔细考察上述关系。设 $u_l$ 单频 $\omega_l$，则 $g$ 也具有相同周期，频谱包含 $\Z \omega_l$。
+
+!!! note "都是时间的函数"
+
+    $g$ 是 $u_l$ 的函数，$u_l$ 是时间 $t$ 的函数。为方便 Fourier 分析，我们把 $g$ 也看成 $t$ 的函数。
+
+各频率成分如下表。
+
+|          $g$          |     $u_s$      |    $\dd{u_o} = g \times u_s$     |   $u_o$    |     称呼     |
+| :-------------------: | :------------: | :------------------------------: | :--------: | :----------: |
+|           –           |       –        |                –                 | local 本身 |     本振     |
+|  $\pm \Z^+ \omega_l$  | $\pm \omega_s$ |  $\pm(\omega_s + \Z^+\omega_l)$  |  （同左）  |     和频     |
+|          $0$          | $\pm \omega_s$ |          $\pm\omega_s$           |  （同左）  |   信号基波   |
+|    $\mp \omega_l$     | $\pm \omega_s$ |    $\pm(\omega_s - \omega_l)$    |  （同左）  | **所需中频** |
+|   $\mp 2 \omega_l$    | $\pm \omega_s$ |   $\mp(2 \omega_l - \omega_s)$   |  （同左）  |     镜像     |
+| $\mp (3+\N) \omega_l$ | $\pm \omega_s$ | $\mp((3+\N)\omega_l - \omega_s)$ |  （同左）  |  更高次差频  |
+
+!!! tip "频率大小关系"
+
+    下变频时，$\omega_s \gtrsim \omega_l \gg \omega_s - \omega_l$。
