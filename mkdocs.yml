@@ -18,6 +18,7 @@ theme:
   language: zh
   custom_dir: overrides
   features:
+    - navigation.instant
     - navigation.top
     - navigation.tabs
     - content.action.view

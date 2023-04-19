@@ -6,7 +6,8 @@
             "command": "just",
             "type": "process",
             "args": [
-                "serve"
+                "serve",
+                "--dirtyreload",
             ],
             "group": "build",
             "isBackground": true,
