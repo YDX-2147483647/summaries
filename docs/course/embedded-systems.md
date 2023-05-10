@@ -12,6 +12,8 @@ relevant:
 
     [网络教室](https://lexue.bit.edu.cn/course/view.php?id=12984)向所有同学开放——`justforfun`。
 
+> :material-file-move-outline: [《嵌入式系统原理与应用》复习要点](https://mp.weixin.qq.com/s/wKfp-C6usm6yX7lrgeIZaQ)。
+
 ## 概述
 
 ### 嵌入式系统的处理器

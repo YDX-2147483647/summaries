@@ -10,6 +10,7 @@ $$
 \def\N{\mathbb{N}}
 \def\Z{\mathbb{Z}}
 \def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
 $$
 
 ## 无源器件和半导体器件
@@ -261,7 +262,7 @@ M–S结中金属内部均一，接触表面有势垒，半导体内部有缓一
 
   大功率时，还可改用 trapped plasma avalanche triggered transit（TRATT）管，P⁺–N–N⁺，整个N区雪崩击穿。
 
-- **转移电子效应管**（transfer electron diode）
+- **转移电子效应管**（transfer electron diode，TED）
 
   第三代半导体产物。利用多能谷材料的 Gunn 氏效应天然产生振荡。（这种二极管无需结）
 
@@ -315,3 +316,378 @@ M–S结中金属内部均一，接触表面有势垒，半导体内部有缓一
 !!! tip "频率大小关系"
 
     下变频时，$\omega_s \gtrsim \omega_l \gg \omega_s - \omega_l$。
+
+## 放大器
+
+### 实际功率与资用功率
+
+> :material-clock-edit-outline: 2023年4月24日，2023年5月1日。
+
+考虑单端口负载，给定电源及其阻抗，则传给负载的<u>实际功率</u>随负载阻抗变化。共轭匹配时实际功率取最大，称作<u>资用（available）功率</u>。（前述“阻抗”可全部换作（电压）“反射系数”）实际功率与资用功率之比称作<u>失配系数</u> $M$。
+
+- 低频电路
+  - 负载阻抗太小 ⇒ 负载分压小 ⇒ 给负载的功率小。
+  - 负载阻抗太大 ⇒ 电流太小 ⇒ 给负载的功率小。
+  - 源、负载阻抗相加未能抵消虚部 ⇒ 电源输出电流、电压不同相 ⇒ 总功率小 ⇒ 给负载的功率小。
+- 波
+  - 负载反射系数太大 ⇒ 负载吸收太少 ⇒ 给负载的功率小。
+  - 负载反射系数太小 ⇒ 再经电源反射的功率小 ⇒ 给负载的功率小。
+  - 源、负载反射系数相乘未能抵消相位 ⇒ 波在源、负载间反射时不能完全同相叠加 ⇒ 存在内阻振荡 ⇒ 给负载的功率小。
+
+详细论证如下。
+
+先考虑简单的低频电路：源（source）端输入 $V_s$（有效值）::，有内阻 $Z_s$，接上负载（load） $Z_l$。
+
+可知 $I_l = V_s / (Z_s + Z_l)$，$V_l = I_l Z_l$，从而传给负载的功率
+
+$$
+\begin{split}
+   P_l
+   &= \operatorname{\Re} V_l {I_l}^* \\
+   &= \operatorname{\Re} \frac{\abs{V_s}^2 Z_l}{\abs{Z_s + Z_l}^2} \\
+   &\leq \frac{\abs{V_s}^2 \operatorname{\Re} Z_s}{\abs{2 \operatorname{\Re} Z_s}^2}.
+\end{split}
+$$
+
+!!! note "记号"
+
+    上标 $*$ 表共轭。
+
+当 $Z_s = {Z_l}^*$（共轭匹配）时取等。（分实虚，转化为实函数可证）
+
+再考虑波。
+
+```mermaid
+flowchart LR
+    source
+    -.->|"a<sub>l</sub>"| load
+    -.->|"b<sub>l</sub>"| source
+
+    subgraph source
+       a_s["a<sub>s</sub>"]
+    end
+```
+
+!!! info "记号"
+
+    一般入射波记作 $a$，反射波记作 $b$。（按幅度计）
+
+```mermaid
+flowchart LR
+    a_s["a<sub>s</sub>"]
+    -->|1| a_l["a<sub>1</sub>"]
+    -->|"Γ<sub>l</sub>"| b_l["b<sub>l</sub>"]
+    -->|"Γ<sub>s</sub>"| a_l
+```
+
+各量间算术关系如上图，可解得比例如下。
+
+$$
+\begin{array}{c|c|c}
+    a_s & a_1 & b_1 \\
+    \hline
+    1 - Γ_l Γ_s & 1 & Γ_l \\
+\end{array}
+$$
+
+因此传给负载的功率
+
+$$
+\begin{split}
+    P_l
+    &= \abs{a_l}^2 - \abs{b_l}^2 \\
+    &= \frac{1 - \abs{Γ_l}^2}{\abs{1 - Γ_l Γ_s}^2} \times \abs{a_s}^2 \\
+    &\leq \frac{\abs{a_s}^2}{1 - \abs{Γ_s}^2}. \\
+\end{split}
+$$
+
+当 $Γ_s = {Γ_l}^*$（共轭匹配）时取等。
+
+!!! note "不等式的证明"
+
+    一般 $\abs{Γ_l}, \abs{Γ_s} \in [0,1]$。
+
+    先优化 $Γ_l$ 的辐角。由三角不等式，
+
+    $$
+    \abs{1 - Γ_l Γ_s} \geq \abs{1 - \abs{Γ_l Γ_s}},
+    $$
+    
+    当 $Γ_l Γ_s \in \R^+$ 时取等。
+
+    再优化 $Γ_l$ 的模。设 $\abs{Γ_l} = λ \abs{Γ_s}$，$λ \geq 0$，则
+
+    $$
+    \frac{1 - \abs{Γ_l}^2}{\abs{1 - \abs{Γ_l Γ_s}}^2}
+    = \frac{1 - \lambda^2 \abs{Γ_s}^2}{\abs{1 - \lambda \abs{Γ_s}^2}^2}.
+    $$
+
+    设 $u = 1 - \lambda \abs{Γ_s}^2$，$\lambda = \frac{1 - u}{\abs{Γ_s}^2}$，则上式可化为 $u^{-1}$ 的二次函数
+
+    $$
+    \frac{1 - (u-1)^2 / \abs{Γ_s}^2}{u^2}
+    = \frac{1 - 1 / \abs{Γ_s}^2}{u^2} + \frac{2}{\abs{Γ_s}^2 u} - \frac{1}{\abs{Γ_s}^2},
+    $$
+
+    从而求极值。
+
+### 各种增益
+
+> :material-clock-edit-outline: 2023年4月24日，2023年5月1日。
+>
+> :material-eye-arrow-right: [Calculate power gain from two-port S-parameters - MATLAB `powergain`](https://ww2.mathworks.cn/help/rf/ref/powergain.html).
+> :material-eye-arrow-right: [2.3: Amplifier Gain Definitions - Engineering LibreTexts](https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Microwave_and_RF_Design_V%3A_Amplifiers_and_Oscillators_(Steer)/02%3A_Linear_Amplifiers/2.03%3A_Amplifier_Gain_Definitions).
+
+```mermaid
+flowchart LR
+    源([源]) -->|输入匹配网络| 放大器 -->|输出匹配网络| 负载([负载])
+```
+
+输出、输入比是增益。放大器是双端口器件，它有两处匹配问题，可定义多种功率增益（power gain）。
+
+```mermaid
+flowchart LR
+    subgraph 输入端
+        1a["资用<br>P<sub>1a</sub>"]
+        -.->|"M<sub>1</sub>"| 1["实际<br>P<sub>1</sub>"]
+    end
+    subgraph 输出端
+        2a["资用<br>P<sub>2a</sub>"]
+        -.->|"M<sub>2</sub>"| 2["实际<br>P<sub>2</sub>"]
+    end
+
+    1a --->|"转换<br>transducer<br>G<sub>t</sub>"| 2
+    1 --->|"工作<br>operating<br>G<sub>p</sub>"| 2
+    1a --->|"资用<br>available <br>G<sub>p</sub>"| 2a
+```
+
+!!! note "影响因素"
+
+    $M_1$ 与 $Γ_s$ 有关，$M_2$ 与 $Γ_l$ 有关，各种增益都与放大器散射参量有关。
+
+对于绝对稳定的放大器，可以实现双共轭匹配（两端口同时共轭匹配），$M_1 = 1 = M_2$，从而 $G_p = G_t = G_a$。这一值称作<u>最大</u>功率增益 $G_m$。可推出 $G_m = \abs{S_{21} / S_{12}} \times \qty(K_s - \sqrt{{K_s}^2 - 1})$，其中 $K_s$ 为放大器的稳定系数。人为规定临界稳定（$K_s = 1$）时的最大功率增益为<u>最大稳定</u>功率增益 $G_s = \abs{S_{21} / S_{12}}$。
+
+另外，若假设放大器只能“1端 → 2端”（$\abs{S_{12}} \ll \abs{S_{21}}$），则可计算<u>单向化</u>（unilateral）转换功率增益。
+
+```mermaid
+flowchart LR
+    a_s["a<sub>s</sub>"]
+    a_1["a<sub>1</sub>"]
+    b_1["b<sub>1</sub>"]
+    a_2["a<sub>2</sub>"]
+    b_2["b<sub>2</sub>"]
+
+    a_s
+    --> a_1
+    --->|"S<sub>21</sub>"| b_2
+    -->|"Γ<sub>l</sub>"| a_2
+    -->|"S<sub>22</sub>"| b_2
+
+    a_1
+    -->|"S<sub>11</sub>"| b_1
+    -->|"Γ<sub>s</sub>"| a_1
+```
+
+$$
+G_\text{tu}
+= \frac{1 - \abs{Γ_s}^2}{\abs{1 - S_{11} Γ_s}^2}
+    \times \abs{S_{21}}^2
+    \times \frac{1 - \abs{Γ_l}^2}{\abs{1 - S_{22} Γ_l}^2}.
+$$
+
+### 稳定性判据
+
+> :material-clock-edit-outline: 2023年5月1–2日。
+>
+> :material-eye-arrow-right: [2.6: Amplifier Stability - Engineering LibreTexts](https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Microwave_and_RF_Design_V%3A_Amplifiers_and_Oscillators_(Steer)/02%3A_Linear_Amplifiers/2.06%3A_Amplifier_Stability).
+
+应当要求放大器稳定——所有端口的反射系数的模都小于一。这些反射系数不仅与放大器的散射参量 $S$ 有关，还取决于 $Z_\text{source},\ Z_\text{load}$。因此，要想保证放大器稳定，应同时限制 $Z_s, Z_l$。
+
+分别考虑每个端口。
+
+以 $x$ 端为例，需求 $\qty{Γ_Y : \abs{Γ_x} < 1}$。
+
+```mermaid
+flowchart LR
+    a_x["a<sub>x</sub>"]
+    b_x["b<sub>x</sub>"]
+    a_y["a<sub>y</sub>"]
+    b_y["b<sub>y</sub>"]
+    
+    a_x
+    -->|"S<sub>yx</sub>"| b_y
+    -->|"Γ<sub>Y</sub>"| a_y
+    -->|"S<sub>xy</sub>"| b_x
+
+    a_y -->|"S<sub>yy</sub>"| b_y
+    a_x -->|"S<sub>xx</sub>"| b_x
+```
+
+算术关系如上图，可得 $x$ 端各种因素总的反射系数
+
+$$
+Γ_x
+= S_{xx} + S_{yx} \times \frac{Γ_Y}{1 - Γ_Y S_{yy}} \times S_{xy}
+= \frac{\square - \square Γ_Y}{\square - \square Γ_Y}.
+$$
+
+!!! note "记号"
+
+    此处下标小写字母指放大器，下标大写字母指放大器以外部分（源、负载等）。
+
+!!! tip "Möbius变换"
+
+    > :material-eye-arrow-right: [3.2: Inversion - Mathematics LibreTexts](https://math.libretexts.org/Bookshelves/Geometry/Geometry_with_an_Introduction_to_Cosmic_Topology_(Hitchman)/03%3A_Transformations/3.02%3A_Inversion)
+    >
+    > :material-eye-arrow-right: [3.4: Möbius Transformations - Mathematics LibreTexts](https://math.libretexts.org/Bookshelves/Geometry/Geometry_with_an_Introduction_to_Cosmic_Topology_(Hitchman)/03%3A_Transformations/3.04%3A_Mobius_Transformations).
+
+    $$
+    a^{-1} - b^{-1} = - \frac{1}{ab} \times (a-b).
+    $$
+
+    Möbius变这种形式保交比，保广义圆。
+
+    $$
+    \begin{split}
+        & \abs{\frac{az+b}{cz+d}} < 1. \\
+        &\iff \abs{az+b}^2 < \abs{cz+d}^2. \\
+        &\iff \begin{bmatrix}
+            z^* & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            a a^* - c c^* & a^* b - c^* d \\
+            a b^* - c d^* & b b^* - d d^* \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            z \\ 1
+        \end{bmatrix}
+        < 1.
+    \end{split}
+    $$
+
+    这种 Hermitian 阵对应广义圆或 $\varnothing$。事实上，若 $A,C \in \R$，$B \in \C$，则
+
+    $$
+    \begin{bmatrix}
+            z^* & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        A & B \\
+        B^* & C \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        z \\ 1
+    \end{bmatrix}
+    = A \times \abs{z + \frac{B}{A}}^2
+        + \frac{1}{A^2} \times
+        \begin{vmatrix}
+            A & B \\
+            B^* & C \\
+        \end{vmatrix},
+    $$
+
+    与 $B \in \R$ 时类似。
+
+电路无源时 $\abs{Γ_Y} < 1$。为降低后续设计难度，可要求放大器<u>绝对稳定</u>（只要 $\abs{Γ_Y} < 1$ 即稳定），问题归结为
+
+$$
+\max_{\abs{Γ_Y} < 1} \abs{Γ_1} \overset?< 1.
+$$
+
+Rollett 绝对稳定性（stability）判据：
+
+$$
+K_s \coloneqq \frac{1 - \abs{S_{11}}^2 - \abs{S_{22}}^2 + \abs{\det S}^2}{2 \abs{S_{12} S_{21}}}
+\overset{?}{>} 1.
+$$
+
+这只是必要条件。下面是充要条件。
+
+$$
+\begin{cases}
+    K_s &> 1. \\
+    1 - \abs{S_{11}}^2 &> \abs{S_{12} S_{21}}. \\
+    1 - \abs{S_{22}}^2 &> \abs{S_{12} S_{21}}. \\
+\end{cases}
+$$
+
+另外，放大器实际接入电路后，要求可从 $\abs{Γ_x} < 1$ 放松为 $\abs{Γ_x Γ_X} < 1$。
+
+### 设计匹配网络
+
+> :material-clock-edit-outline: 2023年5月2日。
+
+1. 验证放大器绝对稳定。（条件稳定的放大器设计困难，一般不考虑）
+2. 按目标计算需要的输入、输出反射系数。
+   - 追求大功率增益：双共轭匹配。
+   - 追求低噪声系数：输入端取 $Γ_{s, \text{optimal}}$，输出端共轭匹配。
+3. 利用 Smith 圆变换阻抗。
+
+## 振荡器
+
+### Kurokawa 负阻理论
+
+> :material-clock-edit-outline: 2023年5月10日。
+
+在一定电压范围内，器件可以呈现微分负阻，直流能量转化到交流，实现放大。
+
+将电路划分为器件、谐振电路两个单端口器件。器件非线性，微分阻抗 $-Z_D$ 与直流工作点 $I$ 强相关，随频率缓慢变化，实部为负。谐振电路由电阻、电感或电容组成，阻抗 $Z$ 只与频率有关，不过实部几乎不随频率变化。
+
+- **起振**：总电阻以负阻为主（$\Re(-Z_D + Z) < 0$），电量振幅指数增长。
+- **平衡**：电量幅度、相位都进入稳态，$-Z_D + Z = 0$，振幅稳定。
+- **稳定性**：微扰可恢复，条件是平衡点处 $\Im( \pdv{I}(-Z_D)^* \pdv{\omega} Z ) < 0$。（这是向量积的正负，即手性）
+
+调谐时，$\omega \mapsto Z$ 会变化，移动平衡点。若 $\qty{Z}$ 有环，$\omega \mapsto Z$ 时平衡点可能突然消失，导致工作点被迫移动，频率、功率跳变。而且即使调谐到原位置，平衡点也未必恢复，轨迹会滞后。
+
+### TED振荡器的工作模式
+
+> :material-clock-edit-outline: 2023年5月10日。
+
+TED 天然负阻，可用来实现振荡器。外围谐振电路有多种选择。
+
+!!! note "记号"
+
+    TED的阈值电压（增大电压时电流的极大值点）记作 $V_\text{threshold}$，维持电压（减小电压时电流的极大值点）记作 $V_\text{sustain}$。（$V_\text{sustain} \lesssim V_\text{threshold}$）
+    
+    TED中偶极畴的生长时间记作 $T_\text{domain}$，渡越时间记作 $T_\text{transit}$。谐振电路的周期记作 $T_\text{resonate}$。
+
+    TED的长度指畴移动的距离，充分长指大于 $10^{-12} / \text{cm}^2$ 比载流子浓度。
+
+!!! note "注"
+
+    $T_\text{transit}$ 与器件尺寸正相关，而尺寸会影响功率容量。
+
+    高场畴会降低其它地方的电场强度，减小电流。
+
+    电流越接近正弦型函数，能量越集中于单频，效率越高。
+
+- **纯粹渡越时间**（John Battiscombe Gunn）
+
+  - TED充分长。
+  - 器件上的电压始终超过 $V_\text{threshold}$。（⇒ 交流分量不能太强）
+  - $T_\text{domain} < T_\text{resonate}$，成熟畴。
+  - $T_\text{resonate} = T_\text{transit}$，一畴被吸收后，随即形成另一畴。（另 ⇒ 无法调谐）
+  - 电流为脉冲串。
+
+- **猝灭畴**
+
+  - TED充分长。
+  - 器件上的电压大部分时间超过 $V_\text{threshold}$，不时摆动到 $V_\text{sustain}$ 以下。
+  - $T_\text{domain} < T_\text{resonate}$，成熟畴。
+  - $T_\text{resonate} < T_\text{transit}$，畴来不及渡越完，就会因电压低于 $V_\text{sustain}$ 而猝灭。
+  - 电流峰更宽，更接近正弦型函数。
+
+- **延迟畴**
+
+  - TED充分长。
+  - 器件上的电压大部分时间超过 $V_\text{threshold}$，不时摆动到 $V_\text{sustain}$ 与 $V_\text{threshold}$ 之间。
+  - $T_\text{domain} < T_\text{transit}$，成熟畴。
+  - $T_\text{resonate} \in (T_\text{transit}, 2T_\text{transit})$，一畴被吸收后，端压还没升到 $V_\text{threshold}$，等一会儿才能形成另一畴。
+  - 电流较大的时间占比不小，进一步接近正弦型函数。
+
+- **限制空间电荷积累**（猝灭积累层，limited space-charged accumulation）
+
+  - $T_\text{resonate} < T_\text{domain}$，畴积累不到成熟。不过 $T_\text{resonate}$ 仍远大于弛豫时间。
+  - 器件大小适当，掺杂均匀，内部始终是匀强电场。（直接利用负微分电导）
+  - 器件上的电压大而振荡剧烈，从 $V_\text{sustain}$ 到正微分电导区都有分布。
+  - 效率在这几种模式中最高。
