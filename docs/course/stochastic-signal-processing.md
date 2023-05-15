@@ -13,6 +13,7 @@ $$
 \def\tran{\mathsf T}
 \def\R{\mathbb{R}}
 \newcommand\mark[1]{{\color{teal}#1}}
+\DeclareMathOperator\sgn{sgn}
 $$
 
 ## §1 概率论
@@ -150,6 +151,39 @@ $$
 
     将上式展开，反复利用 $\Phi \Sigma = I = \Sigma \Phi$ 的分块形式即可。
 
+### 特征函数
+
+> :material-clock-edit-outline: 2023年5月14日。
+
+!!! note "变体"
+
+    存在多种定义，它们只有自变量不同：$\pm u$（characteristic function）或 $\pm t = \pm j u$（moment-generating function）。
+
+$$
+C_\vb*{X} = \expect e^{j \vb*{u} \vdot \vb*{X}}
+= \sum_{n\in\Z} \frac{\expect (j \vb*{X} \vdot \vb*{u})^n}{n!},
+$$
+
+——各阶原点矩的线性组合。
+
+### 随机变量序列的收敛性
+
+> :material-clock-edit-outline: 2023年5月14日。
+>
+> :material-eye-arrow-right: [Convergence of random variables - Wikipedia](https://en.wikipedia.org/wiki/Convergence_of_random_variables).
+
+```mermaid
+flowchart LR
+    L_s[ℒ<sup>s</sup>]
+    L_r["r-th mean<br>ℒ<sup>r</sup>-norm<br>𝔼[|X<sub>n</sub> - X|<sup>r</sup>] → 0"]
+    as["almost sure<br>P(X<sub>n</sub> → X) = 1"]
+    p["probability<br>P(Δ<sub>n</sub> > ε) → 0"]
+    d["distribution<br>CDF<sub>n</sub> → CDF"]
+
+    L_s -->|"s > r ≥ 1"| L_r -->|"Чебышёв<br>不等式"| p --> d
+    as --> p
+```
+
 ## §2 随机过程
 
 ### 化循环平稳为平稳
@@ -207,7 +241,7 @@ $$
 
   将 $u \mapsto \expect_x \eval{x}_{u}$ 记作 $f$，它具有周期 $T$。
 
-  $$
+$$
   \begin{split}
       \int\limits_0^T \eval{f}_{t-a} \dd{a}
       &= \int\limits_{t-T}^{t} \eval{f}_u \dd{u} \\
@@ -216,14 +250,14 @@ $$
       &= \int\limits_0^t \eval{f}_u \dd{u} - \int\limits_\mark{T}^\mark{t} \eval{f}_\mark{u} \dd{u} \\
       &= \int\limits_0^T \eval{f}_u \dd{u}. \\
   \end{split}
-  $$
+$$
 
   若考虑自相关，此处 $f$ 是
 
-  $$
+$$
   \qty(\frac{t_1+t_2}2,\ t_2-t_1)
   \mapsto \underset{x}\expect\qty(\eval{x}_{t_1-a} \eval{x}_{t_2-a}),
-  $$
+$$
 
   它对第一个自变量具有周期 $T$，推理仍适用。
 
@@ -239,8 +273,247 @@ $$
 
 Einstein 识别出了自相关与功率谱密度的关系，Wiener 研究了确定信号，Хи́нчин 研究了随机信号。
 
+### $A \cos(\Omega t + \Theta)$
+
+> :material-clock-edit-outline: 2023年5月15日。
+
+$A, \Omega, \Theta \in \R$ 是相互独立的三个随机变量。
+
+随机过程 $A \cos(\Omega t + \Theta)$ 的自相关
+
+$$
+\begin{split}
+R
+&\coloneqq \expect[A \cos(\Omega t_1 + \Theta) \times A \cos(\Omega t_2 + \Theta)] \\
+&= \expect[A^2] \times \frac{\expect[\cos(\Omega \tau)] + \expect[\cos(\Omega (t_1+t_2) + 2\Theta)]}{2}.
+\end{split}
+$$
+
+!!! note "平稳性"
+
+    这一般并不平稳。若再考虑时间平均，最后一项化为零。（除非 $\Omega = 0$）
+
+若 $2\Theta$ 在一周内均匀分布，则 $\expect[\cos(\cdots + 2\Theta)] = 0$，从而 $R = \frac12 \expect A^2 \times \expect\cos(\Omega \tau)$。事实上
+
+$$
+\begin{split}
+\expect\cos(\Omega \tau)
+= \int f_\Omega \cos(\omega \tau) \dd{\omega}
+= \Re \int f_\Omega e^{j \omega \tau} \dd{\omega},
+\end{split}
+$$
+
+与 Fourier 变换相关，其功率谱密度与直观一致，具体来说是
+
+$$
+2\pi \times \frac{\eval{f_\Omega}_\omega + \eval{f_\Omega}_{-\omega}}{2}.
+$$
+
+随机过程 $A e^{j(\Omega t + \Theta)}$ 则更简单：
+
+$$
+\begin{split}
+R
+&\coloneqq \expect[A e^{-j(\Omega t_1 + \Theta)} \times A e^{j(\Omega t_2 + \Theta)}] \\
+&= \expect A^2 \times \expect e^{j\Omega \tau}.
+\end{split}
+$$
+
+$$
+S = \expect A^2 \times 2\pi f_\Omega.
+$$
+
+!!! note "关系"
+
+    $2 A \cos(\Omega t + \Phi) = \sum A e^{j(\pm\Omega t \pm\Phi)}$，后两项的自相关分别是
+
+    $$
+    R_{\pm \pm} = \expect A^2 \times \expect e^{\pm j\Omega \tau},
+    $$
+
+    而互相关是
+
+    $$
+    \begin{split}
+    R_{-+}
+    &\coloneqq \expect[A e^{-j(-\Omega t_1 - \Theta)} \times A e^{j(\Omega t_2 + \Theta)}] \\
+    &= \expect A^2 \times \expect e^{j(\Omega (t_1 + t_2) + 2\Theta)},
+    \end{split}
+    $$
+
+    一般并不为零。
+
+    因此，$A \cos(\Omega t + \Phi)$ 的自相关
+
+    $$
+    \begin{split}
+    R
+    &\coloneqq \frac{R_{++} + R_{+-} + R_{-+} + R_{--}}{4} \\
+    &= \frac{R_{++} + R_{--}}{4} + \frac{R_{-+} + R_{+-}}{4} \\
+    &= \frac{1}{2} \Re[R_{++} + R_{-+}]. \\
+    \end{split}
+    $$
+
+## §5 窄带随机过程
+
+### 实信号表示为解析信号
+
+> :material-clock-edit-outline: 2023年5月15日。
+
+解析信号是相量（phasor）的推广。
+
+给定确定实信号 $x$，可构造解析信号 $\tilde x = x + j \hat x$，保证只有正频率。
+
+$$
+\begin{aligned}
+   j \hat X &= X \sgn \omega. \\
+   \tilde X &= 2 X u = 2 j\hat X u.
+\end{aligned}
+$$
+
+!!! note "时域"
+
+    $\sgn t \leftarrow e^{0^- t} \sgn t \leftrightarrow \frac{2}{0^+ + j\omega} \rightarrow \frac{2}{j\omega}$，$-\frac{1}{j\pi t} \leftrightarrow \sgn \omega$，$\frac{1}{\pi t} \leftrightarrow \sgn \omega / j$。
+
+    $x \mapsto \hat x$ 称作 Hilbert 变换 $\mathcal H$。这是一种线性时不变系统，并且 $\delta$ 响应 $\frac{1}{\pi t}$ 是奇函数。
+
+!!! note "功率谱"
+
+    频谱乘单位复数不改变功率谱密度，$S_x = S_{j \hat x} = S_{\hat x}$。
+
+    $\tilde x = x + j\hat x$ 的功率谱在负频率反相相消，在正频谱同相叠加，于是 $S_{\tilde x} = 4 S_x u$。
+
+    若谈总功率，$E_{\tilde x} = 2 E_x = 2 E_{\hat x}$。
+
+若 $x$ 的频谱集中在 $\pm\omega_0$ 附近，正负频率无交叠（例如 $x = \cos(\omega_0 t)$），则容易采用复信号表示：
+
+$$
+\tilde x = \tilde A e^{j\omega_0t},
+$$
+
+其中 $\tilde A$ 称作复振幅（复包络），频谱集中在 $0$ 附近，形状、强度同 $\tilde X$。
+
+上式详细写开如下。
+
+$$
+\begin{array}{c|cc}
+\tilde x & e^{j \omega_0 t} & \tilde A \\
+\hline
+x + j\hat x & \cos(\omega_0 t) + j \sin(\omega_0 t) & A_c + jA_s \\
+\end{array}
+$$
+
+$$
+\begin{cases}
+x &= \begin{bmatrix} \cos(\omega_0t) \\ -\sin(\omega_0t) \end{bmatrix} \vdot \begin{bmatrix} A_c \\ A_s \end{bmatrix}. \\
+\hat x &= \begin{bmatrix} \cos(\omega_0t) \\ -\sin(\omega_0t) \end{bmatrix} \cross \begin{bmatrix} A_c \\ A_s \end{bmatrix}.
+\end{cases}
+$$
+
+!!! note "记号"
+
+    $A_c, A_s \in \R$。它们也被记作 $X_I, X_Q$（in-phase, quadrature）或 $a,b$。
+
+也可反过来：
+
+$$
+\begin{array}{c|cc}
+\tilde A & e^{-j \omega_0 t} & \tilde x \\
+\hline
+A_c + j\hat A_s & \cos(\omega_0 t) - j \sin(\omega_0 t) & x + j \hat x \\
+\end{array}
+$$
+
+$$
+\begin{cases}
+A_c &= \begin{bmatrix} \cos(\omega_0t) \\ \sin(\omega_0t) \end{bmatrix} \vdot \begin{bmatrix} x \\ \hat x \end{bmatrix}. \\
+A_s &= \begin{bmatrix} \cos(\omega_0t) \\ \sin(\omega_0t) \end{bmatrix} \cross \begin{bmatrix} x \\ \hat x \end{bmatrix}.
+\end{cases}
+$$
+
+### 解析随机过程
+
+> :material-clock-edit-outline: 2023年5月15日。
+
+|        相关         | 用相量比喻 |
+| :-----------------: | :--------: |
+|      $R_{X X}$      |     →→     |
+| $R_{\hat X \hat X}$ |     ↑↑     |
+|   $R_{X \hat X}$    |     →↑     |
+|   $R_{\hat X X}$    |     ↑→     |
+
+于是 $R_{X X} = R_{\hat X \hat X} \xrightarrow{\mathcal H} R_{X \hat X} = - R_{\hat X X}$，以及 $R_{\tilde X} = 2\tilde{R}_{X}$。
+
+!!! note "奇偶性"
+
+    实随机过程的自相关偶对称，$\mathcal H$ 把偶函数变换为奇函数。
+
+!!! note "内积"
+
+    $$
+    \begin{split}
+        R_{x+j y, x+j y}
+        &= R_{xx} + R_{jy, jy} + R_{x, jy} + R_{jy, x} \\
+        &= R_{xx} + R_{yy} + j R_{xy} - j R_{yx}. \\
+    \end{split}
+    $$
+
+    $\tau = 0$ 时交叉项抵消，$R_{x+jy, x+jy} = R_{xx} + R_{yy}$。
+
+这些从频域（功率谱密度）也能理解。
+
+$$
+\begin{aligned}
+    S_{\hat X} &= S_{j \hat X} = S_{X}. \\
+    j S_{X \hat X} &= S_{X, j \hat X} = S_X \sgn \omega. \\
+    S_{\tilde X} &= 4 S_{X} u = 4 S_{\hat X} u. \\
+\end{aligned}
+$$
+
+### 窄带随机过程
+
+> :material-clock-edit-outline: 2023年5月15日。
+
+有实平稳随机过程 $X$，若功率谱只分布于 $\pm \omega_0$ 附近 $\Delta \omega$，$\Delta \omega \ll \omega_0$，则称窄带。可应用前面的理论。
+
+!!! note "定义只是存在"
+
+    对某一 $X$，$\omega_0, \Delta \omega$ 其实有多种选择，不过按哪种算都是窄带。
+
+$$
+\begin{aligned}
+    X + j\hat X &= (A_c + j A_s) e^{j\omega_0 t}. \\
+    R_{XX} + j R_{X \hat X} &= (R_{cc} + j R_{cs}) e^{j \omega_0 \tau}. \\
+\end{aligned}
+$$
+
+再看频域。设 $S_X = \eval{\alpha}_{\omega + \omega_0} + \eval{\beta}_{\omega - \omega_0}$，其中 $\alpha, \beta$ 对应低通随机过程。
+
+$$
+\begin{array}{rl|rl}
+    S_{X} = S_{\hat X} &= \eval{\alpha}_{\omega + \omega_0} + \eval{\beta}_{\omega - \omega_0} &
+    S_{A_c} = S_{A_s} &= \alpha + \beta \\
+    \hline
+    j S_{X \hat X} = -j S_{\hat X X} &= -\eval{\alpha}_{\omega + \omega_0} + \eval{\beta}_{\omega - \omega_0} &
+    j S_{A_c A_s} = -j S_{A_s A_c} &= - \alpha + \beta \\
+    \hline
+    S_{\tilde X} &= 4\eval{\beta}_{\omega - \omega_0} &
+    S_{\tilde A} &= 4\beta \\
+\end{array}
+$$
+
+$X \in \R$ 时，$\eval{\beta}_\omega = \eval{\alpha}_{-\omega}$，$\beta \mp \alpha$ 是奇偶部。
+
 # 后备箱
 
-- $\omega = 2\pi f$。
+- 区分角频率与普通频率：$\omega = 2\pi f$。
 - 复向量的内积共轭对称。
 - 系统的噪声等效带宽由信号转化定义，故有模方。
+- 注意随机变量的取值范围。
+- 联合宽平稳也要求每一随机过程自身平稳。
+- 分析随机过程时，区分样本函数和概率密度。
+- 概率密度一定非负。
+- 随机变量的函数可能一对一、多对一、无穷多对一，不过若只需数字特征，不求解函数的分布也可。
+- 存在可预测随机过程。
+- 单位白噪声是指（双边）功率谱密度为 $1$。
+- 区分成形滤波器和白化滤波器，它们作用相反。
