@@ -261,6 +261,28 @@ $$
 
   它对第一个自变量具有周期 $T$，推理仍适用。
 
+### 自相关的周期分量
+
+> :material-clock-edit-outline: 2023年4月21日，2023年5月16日。
+>
+> :material-eye-arrow-right: [autocorrelation - Does the auto-correlation function of stationary random process always converge? - Signal Processing Stack Exchange](https://dsp.stackexchange.com/questions/51877/does-the-auto-correlation-function-of-stationary-random-process-always-converge).
+>
+> :material-eye-arrow-right: [Wold's theorem - Wikipedia](https://en.wikipedia.org/wiki/Wold%27s_theorem).
+
+平稳信号的自相关在 $\tau \to +\infty$ 时极限可能不存在，例如随机相位信号，$\lim \frac12 \cos(\omega_0 \tau)$ 就不存在。
+
+根据 Wold 定理，随机信号似乎可被分解为三部分：
+
+- 确定信号，如 $\sin(\omega_0 t)$。
+- 可预测随机信号，如 $\sin(\omega_0 t + \Phi)$。
+- 不可预测随机信号，如白噪声。（innovations part）
+
+可预测部分提供自相关的周期分量。
+
+!!! question "仍存在疑问"
+
+    任给函数，如何定义它的周期分量？
+
 ## §3 谱分析
 
 ### Wiener–Хи́нчин–Einstein 定理
@@ -353,6 +375,56 @@ $$
     &= \frac{1}{2} \Re[R_{++} + R_{-+}]. \\
     \end{split}
     $$
+
+## §4 随机信号通过系统
+
+### 中心极限定理
+
+> :material-clock-edit-outline: 2023年5月16日。
+
+<u>大量</u>相互<u>独立</u>的随机变量的<u>算术和</u>标准化后服从正态分布。
+
+下面以独立同分布随机变量序列 $\qty{X_i}$ 为例。
+
+!!! note "推广"
+
+    分布不一致但均值、方差一致的随机向量序列。
+
+记每一 $X$ 的特征函数为 $C \coloneqq \expect e^{j u X}$。不妨设 $\expect X = 0$、$\expect {X}^2 = 1$。于是 $\eval{\dv{C}{u}}_{u=0} = j \times 0 = 0$，$\eval{\dv[2]{C}{u}}_{u=0} = j^2 \times 1 = -1$，即 $u \to 0$ 时，$C = 1 - u^2 / 2 + o(u^2)$。
+
+由于独立，$\sum_{i=1}^n X_i$ 的特征函数为 $\prod_{i=1}^n C = C^n$。
+
+注意 $\sum X$ 的均值为零，方差为 $n$，标准化后为 $\sum X / \sqrt{n}$，它的特征函数
+
+$$
+\begin{split}
+   C_n
+   &= \eval{C^n}_{u / \sqrt{n}} \\
+   &= \qty(1 - \frac12 \qty(u / \sqrt{n})^2 + o\qty(\qty(u / \sqrt{n})^2))^n \\
+   &= \qty(1 - \frac{u^2}{2n} + o\qty(\frac{u^2}{n}))^n. \\
+\end{split}
+$$
+
+$n \to +\infty$ 时，这是 $1^\infty$ 型极限，
+
+$$
+\begin{split}
+    \ln C_\infty
+    &= \lim
+       n \qty(- \frac{u^2}{2n} + o\qty(\frac{u^2}{n})) \\
+    &= \lim
+       \frac{o(u^2 / n)}{u^2 / n} \times u^2 - \frac{u^2}{2} \\
+    &= -\frac{u^2}{2}.
+\end{split}
+$$
+
+——这正对应标准正态分布。
+
+随机信号通过线性时不变系统时，即使输入不服从正态分布，输出也可能因中心极限定理而服从（联合）正态分布。
+
+- 算术和——线性系统的输出是各时刻输入的线性组合。
+- 大量——这种线性组合是个积分。
+- 独立——若输入的相关时间远小于系统的相关时间（即输入的带宽远大于系统的带宽），可认为输入不同时刻相互独立。
 
 ## §5 窄带随机过程
 
@@ -506,7 +578,7 @@ $X \in \R$ 时，$\eval{\beta}_\omega = \eval{\alpha}_{-\omega}$，$\beta \mp \a
 
 # 后备箱
 
-- 区分角频率与普通频率：$\omega = 2\pi f$。
+- 区分角频率与普通频率：$\omega = 2\pi f$，$\int \dd{\omega} = 2\pi \int \dd{f}$。
 - 复向量的内积共轭对称。
 - 系统的噪声等效带宽由信号转化定义，故有模方。
 - 注意随机变量的取值范围。
@@ -517,3 +589,4 @@ $X \in \R$ 时，$\eval{\beta}_\omega = \eval{\alpha}_{-\omega}$，$\beta \mp \a
 - 存在可预测随机过程。
 - 单位白噪声是指（双边）功率谱密度为 $1$。
 - 区分成形滤波器和白化滤波器，它们作用相反。
+- 区分单边、双边功率谱密度。
