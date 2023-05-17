@@ -11,6 +11,7 @@ relevant:
 $$
 \DeclareMathOperator\expect{\mathbb{E}}
 \def\tran{\mathsf T}
+\def\Z{\mathbb{Z}}
 \def\R{\mathbb{R}}
 \newcommand\mark[1]{{\color{teal}#1}}
 \DeclareMathOperator\sgn{sgn}
