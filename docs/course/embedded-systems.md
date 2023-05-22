@@ -14,7 +14,7 @@ relevant:
 
 > :material-file-move-outline: [《嵌入式系统原理与应用》复习要点](https://mp.weixin.qq.com/s/wKfp-C6usm6yX7lrgeIZaQ)。
 
-## 概述
+## §1 概述
 
 ### 嵌入式系统的处理器
 
@@ -27,7 +27,7 @@ relevant:
 
 MCU 没有存储管理单元（memory management unit，MMU），一般无法安装 Linux；MPU 一般可以。
 
-## ARM 处理器体系结构
+## §2 ARM 处理器体系结构
 
 ### 工作模式与寄存器组
 
@@ -121,13 +121,89 @@ assert_eq!(6, mem::size_of::<FieldStruct>());
 
     数据对齐部分参考了 [Rust Doc](https://doc.rust-lang.org/std/mem/fn.size_of.html#size-of-reprc-items)。
 
-## ARM 指令集
+## §3 ARM 指令集
+
+### Bit string & integer
+
+> :material-clock-edit-outline: 2023年5月22日。
+>
+> :material-eye-arrow-right: [Bitstring manipulation - Operators and built-in functions | ARMv6-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0419/c/Appendices/Pseudocode-Definition/Operators-and-built-in-functions/Bitstring-manipulation?lang=en).
+>
+> :material-eye-arrow-right: [Arithmetic - Operators and built-in functions | ARMv6-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0419/c/Appendices/Pseudocode-Definition/Operators-and-built-in-functions/Arithmetic).
+> 
+> :material-eye-arrow-right: [Integer arithmetic | ARMv6-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0419/c/Application-Level-Architecture/Application-Level-Programmers--Model/ARM-processor-data-types-and-arithmetic/Integer-arithmetic?lang=en#:~:text=Pseudocode%20details%20of%20addition%20and%20subtraction%20In%20pseudocode%2C,bitstrings%2C%20the%20bitstrings%20must%20be%20identical%20in%20length).
+
+计算机用有限长 bit string 表示无符号或有符号整数，这是三个域。
+
+| integer  |                  bit string                  |
+| :------: | :------------------------------------------: |
+| unsigned |                    二进制                    |
+|  signed  | 在 $[0, 2^N)$ 内同余的唯一无符号整数的二进制 |
+
+!!! note "bit string → integer"
+
+    对于整数`x`，`x<i>`（bit）定义如下。
+    
+    > Let `y` be the unique integer in $[0, 2^{i+1}-1)$ that is congruent to `x` modulo $2^{i+1}$. Then `x<i>` is `'0'` if `y < 2^i` and `'1'` if `y >= 2^i`.
+
+带进位的加法在结果上等价于如下伪代码，在实现上只是简单的加法器。
+
+```rust
+fn add_with_carry(x: bits[N], y: bits[N], carry_in: bit) -> (bits[N], bit, bit) {
+    let unsigned_sum: integer = UInt(x) + UInt(y) + UInt(carry_in);
+    let signed_sum: integer = SInt(x) + SInt(y) + UInt(carry_in);
+
+    let result: bits[N] = unsigned_sum<N-1:0>;
+    assert!(result == signed_sum<N-1:0>); // Always true
+
+    let carry_out = if UInt(result) == unsigned_sum { '0' } else { '1' };
+    let overflow = if SInt(result) == signed_sum { '0' } else { '1' };
+    (result, carry_out, overflow)
+}
+```
+
+<figure markdown='span'>
+  ![](../assets/bits-int.png)
+  <figcaption markdown='1'>加减法的结果</figcaption>
+</figure>
+
+`add_with_carry(x, Not(y), '1')`可以实现减法`x - y`（$-y \equiv 2^N - y = (2^N-1 - y) + 1 = \operatorname{Not}(y) + 1$），`add_with_carry(x, Not(y), '0')`则是借一位的减法。**此时 carry out 相当于 no borrow。**
+
+下面举几个 N = 32 的例子。（为简洁，整数全都按有符号理解，留空则为零。）
+
+|      “指令”[^instruction]      |   result    | carry | overflow |
+| :----------------------------: | :---------: | :---: | :------: |
+|             1 + 2              |      3      |       |          |
+|            (-1) + 2            |      1      |   1   |          |
+|            (-2) + 1            |     -1      |       |          |
+|          (-2) + (-1)           |     -3      |   1   |          |
+|            (-2) - 1            |     -3      |   1   |          |
+|            2 + (-1)            |      1      |   1   |          |
+|             2 - 1              |      1      |   1   |          |
+|             1 + 0              |      1      |       |          |
+|             1 - 0              |      1      |   1   |          |
+|             0 + 1              |      1      |       |          |
+|             0 - 1              |     -1      |       |          |
+|             0 - 0              |      0      |   1   |          |
+|             1 - 1              |      0      |   1   |          |
+|          (-1) - (-1)           |      0      |   1   |          |
+|         2147483647 + 1         | -2147483648 |       |    1     |
+|    2147483647 + 2147483647     |     -2      |       |    1     |
+| (-2147483648) + (-2147483648)  |      0      |   1   |    1     |
+| (-2147483648) - (-2147483648)  |      0      |   1   |          |
+|   (-2147483648) + 2147483647   |     -1      |       |          |
+| (-2147483648) + 2147483647 + 1 |      0      |   1   |          |
+
+
+[^instruction]: 真的指令要求至少有一个操作数是寄存器，不能都是直接数，太繁琐。而且存在不合法直接数，还要用`LDR □, =○`伪指令。
+
+加减相关指令（含 CMP、CMN，它们只是不存结果的 SUBS、ADDS）对标志位 C、V 的影响都源于此。
 
 ### 指令
 
 > :material-clock-edit-outline: 2023年3月13日。
 >
-> :material-eye-arrow-right: [ARM Compiler armasm User Guide](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/arm-and-thumb-instruction-summary).
+> :material-eye-arrow-right: [ARM and Thumb instruction summary | ARM Compiler armasm User Guide](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/arm-and-thumb-instruction-summary).
 
 - **跳转**（B, BL, BX, BLX）
 
@@ -236,8 +312,190 @@ assert_eq!(6, mem::size_of::<FieldStruct>());
     ```
   
     source ≠ address ≠ destination. (source can be the same register as destination.)
-  
+
+### 条件标志位
+
+> :material-clock-edit-outline: 2023年5月22日。
+>
+> :material-eye-arrow-right: [Updates to the condition flags | ARM Compiler armasm User Guide Version 5.06](https://developer.arm.com/documentation/dui0473/m/condition-codes/updates-to-the-condition-flags).
+>
+> :material-eye-arrow-right: [Condition code suffixes and related flags | ARM Compiler armasm User Guide Version 5.06](https://developer.arm.com/documentation/dui0473/m/condition-codes/condition-code-suffixes-and-related-flags?lang=en).
+
+Most instructions only update the condition flags if you append an S suffix to the mnemonic, except that CMP, CMN, TEQ, and TST always update the flags. These instructions can update all or a subset of the flags.
+
+指令加后缀可让它只在某些条件下执行。
+
+|        后缀        |                              意义                               |           条件            |
+| :----------------: | :-------------------------------------------------------------: | :-----------------------: |
+|      EQ / NE       |                          (not)? equal                           |         Z = (1,0)         |
+|      MI / PL       |                  (negative, positive or zero)                   |         N = (1,0)         |
+|      VS / VC       |                      overflow (set, clear)                      |         V = (1,0)         |
+| CC / CS<br>HS / LO | carry (set, clear)<br>(higher or same, lower)<br>unsigned (≥,<) |         C = (1,0)         |
+|      HI / LS       |            (Higher, lower or same)<br>unsigned (>,≤)            | C = (1,0) (∧,∨) Z = (0,1) |
+|      GE / LT       |       (greater than or equal, less than)<br>signed (≥,<)        |         N (=,≠) V         |
+|      GT / LE       |       (greater than, less than or equal)<br>signed (>,≤)        | N (=,≠) V (∧,∨) Z = (0,1) |
+
+## §4 微处理器与接口
+
+### 如何看电路图
+
+> :material-clock-edit-outline: 2023年4月3日，2023年5月21日。
+
+|         关系          |                 例子                  |                                                 依据                                                 |
+| :-------------------: | :-----------------------------------: | :--------------------------------------------------------------------------------------------------: |
+|  物理设备 🡘 设备名称  |         LEFT 按键开关 🡘 `SW1`         |                      `开发板文档和例程/x210v3s硬件手册.pdf`<br>电路板上印的标号                      |
+|  设备名称 🡘 芯片端口  |            `SW1` 🡘 `EINT2`            |                           `开发板文档和例程/原理图/Study210底板原理图.pdf`                           |
+|     芯片端口别名      | `EINT2` = `EXT_INT[2]` = `GPH0CON[2]` |                         `芯片手册/三星S5PC110和5PV210/S5PV210_UM_REV1.1.pdf`                         |
+| 芯片端口 🡘 寄存器地址 |       `GPH0CON` 🡘 `0xE020_0C00`       | `芯片手册/三星S5PC110和5PV210/S5PV210_UM_REV1.1.pdf`<br>厂商库`include/hardware/s5pv210/reg-timer.h` |
+|  物理设备 🡘 芯片端口  |     LEFT 按键开关 🡘 `GPH0CON[2]`      |                                   厂商库`source/hardware/hw-key.c`                                   |
+
+### 处理器组成
+
+> :material-clock-edit-outline: 2023年5月21日。
+
+系统报告CPU核心、系统外设（RTC、定时器、ADC等）、多媒体（摄像头接口、图形编解码器等）、电源管理（睡眠等低功耗模式控制）、存储器接口、连接模块（音频、存储、通用接口，如 USB）。CPU 与设备之间通过多层次总线通信。
+
+### 时钟系统
+
+> :material-clock-edit-outline: 2023年5月21日。
+
+晶振产生最初信号，锁相环（phase-locked loop，PLL）倍频再一步步分频，得各频率时钟源。
+
+可用循环抢占地延时，如下，使用时还要将循环次数与时间换算（`loops_per_jiffy`）。
+
+```c
+void __attribute__ ((noinline)) delay(volatile u32_t loop) {
+    while (loop > 0) {
+        loop--;
+    }
+}
+```
+
+- `noinline`是 GNU 的语法，禁用`inline`函数优化，避免`delay`的时间与预想的不一致。（`inline`可能比不优化快）
+- `volatile`标明`loop`可能在外部被修改。若不标，`while`循环因为字面上是无用逻辑，优化时会被删掉。多次设置寄存器也有这个问题，例如`*x = 3; *x = 5`不该被优化为`*x = 5`。
+
+基于时钟，可实现 PMW（pulse width modulation）定时器，原理如下。输出信号边沿有中断服务程序，这段程序可以编程更改定时器设置。
+
+1. 系统时钟分频，得到所需信号频率。寄存器中的 prescaler 几位设置预分频器，diverder MUX 几位设置时钟分频。
+2. 定时器维护 counter 计数器，与 compare 比较，大小关系决定输出高低电平。counter 初值、compare 由寄存器设定，调节 compare 可调整脉冲宽度。（counter 可以循环计数，也能只计一次，都能设置）
+
+!!! note "另一种理解"
+
+    counter 生成锯齿波，门限 compare 出矩形波。
+
+### GPIO
+
+> :material-clock-edit-outline: 2023年5月21–22日。
+
+GPIO（general-purpose input/output）是芯片引脚的接口。每个 GPIO 使用多个寄存器；在芯片手册上，多个 GPIO 可能会被记在同一寄存器，只是所用的位不同。
+
+- CON（control）设置输入输出方向（一般 0x0000 表输入，0x0001 表输出）。若引脚复用，还可选择功能。
+- DAT（data）存或写数据。
+- PUD（pull-up/down）设置是否上拉或下拉，高阻态时会决定电平。
+- ……
+
+### UART
+
+> :material-clock-edit-outline: 2023年5月22日。
+
+数据有下面两种传输方式。
+
+  - 串行：在一根线上每次传一位，慢。
+
+    若收发双方时钟不同步，则称为异步串行通信（UART）。
+
+  - 并行：在多根线上同时传输多位。如数据、地址总线。
+
+UART 的帧结构包括起始位（固定一位零）、数据位、奇偶校验位、停止位（固定一，位数需具体约定）。
+
+UART 可以使用 RS-232C 接口传输。这种接口包括 RXD（receive）、TXD（transmit）、SGND（ground），有的还有 VCC 甚至更多引脚。
+
+### 中断处理
+
+> :material-clock-edit-outline: 2023年5月22日。
+
+```assembly title="key-interrupt/source/startup/start.S"
+    .global irq
+irq:
+    // get irq's sp (stack pointer)
+    ldr sp, _stack_irq_end
+
+    // 1. 保存用户寄存器
+    // 1.0 在堆栈中开辟空间
+    // 要保存了中断之前的现场，计划完成后内存如下。（低地址在前）
+    //   r0_old - lr_old ← r0 == sp == sp_old - #72
+    //   lr, spsr, r0    ← r8 == sp_old - #60
+    // 一共 (15 + 3) × 4 B = 72 B，所以减了 72。
+    sub sp, sp, #72
+    
+    // 1.1a 保存 r0 - r12——各模式（除了 FIQ）通用
+    stmia sp, {r0 - r12}
+    add r8, sp, #60  // 60 = 72 - (13 + 2) × 4
+    // 1.1b 保存 sp, lr——每种异常模式专用，要用“^”标记存的是用户模式的
+    // 若不存 sp, lr，无法处理嵌套的中断
+    stmdb r8, {sp, lr}^
+    // 1.2 保存 calling pc
+    str lr, [r8, #0]
+    // 1.3 保存 saved program status register
+    mrs r6, spsr
+    str r6, [r8, #4]
+    // 1.4 save r0_old, and replace it with sp
+    str r0, [r8, #8]
+    mov r0, sp
+
+    // 2. 调用中断服务程序
+    // 跳转前将下一条指令的地址存到 lr，完成后返回
+    bl  do_irqs
+    // do_irqs 定义在 key-interrupt/source/hardware/s5pv210-irq.c 中
+
+    // 3. 恢复用户寄存器
+    // 3.1 恢复 r0 - lr
+    ldmia sp, {r0 - lr}^
+    // 歇会儿？
+    mov r0, r0
+    // 3.2 恢复 calling pc
+    ldr lr, [sp, #60]
+    // 3.3 释放堆栈
+    add sp, sp, #72
+
+    // 4. 继续执行原来程序
+    // lr 是取到的地址，减 4 就是原来运行的地方
+    subs pc, lr, #4
+```
+
+```c title="key-interrupt/source/hardware/s5pv210-irq.c"
+
+void do_irqs(struct pt_regs_t * regs)
+{
+    // Read vector interrupt controller's irq status.
+    u32_t vic0 = readl(S5PV210_VIC0_IRQSTATUS);
+    … // 还有 vic1 – vic3
+
+    if(vic0 != 0) {
+        // 1. 根据 vic 获得中断处理函数
+        u32_t offset = irq_offset(vic0);
+
+        // 2. 处理中断
+        (s5pv210_irq_handler[offset].func)(s5pv210_irq_handler[offset].data);
+
+        // 3. 标记已完成
+        /* clear software interrupt */
+        writel(S5PV210_VIC0_SOFTINTCLEAR, 0x1<<offset);
+        /* set vic address to zero */
+        writel(S5PV210_VIC0_ADDRESS, 0x00000000);
+    }
+    else {
+        … // 检查 vic1 – vic3，同理应对
+
+        // 若全都没有，clear all software interrupts，set all vic address to zero
+        writel(S5PV210_VIC0_SOFTINTCLEAR, 0xffffffff);
+        writel(S5PV210_VIC0_ADDRESS, 0x00000000);
+        … // 还有 vic1 – vic3
+    }
+```
 
 # 后备箱
 
 - 十六进制最大数码是 F（15）。
+- 用波特率计算 UART 传输时间时，应当考虑所有位，包括起始位。
+- UART 的数据位有限，需约定几位有效。超出部分无意义，不用传输。
