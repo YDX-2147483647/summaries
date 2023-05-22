@@ -439,7 +439,7 @@ irq:
     // 1.3 保存 saved program status register
     mrs r6, spsr
     str r6, [r8, #4]
-    // 1.4 save r0_old, and replace it with sp
+    // 1.4 save r0_old, and replace it with sp（没用？）
     str r0, [r8, #8]
     mov r0, sp
 
@@ -459,7 +459,8 @@ irq:
     add sp, sp, #72
 
     // 4. 继续执行原来程序
-    // lr 是取到的地址，减 4 就是原来运行的地方
+    // ARM 流水线并行 fetch, decode, execute 三步
+    // lr 之前存的是 execute 时取到的地址，即下下条指令，再减一个指令的长度才是下面要运行的指令
     subs pc, lr, #4
 ```
 
@@ -492,6 +493,7 @@ void do_irqs(struct pt_regs_t * regs)
         writel(S5PV210_VIC0_ADDRESS, 0x00000000);
         … // 还有 vic1 – vic3
     }
+}
 ```
 
 # 后备箱
