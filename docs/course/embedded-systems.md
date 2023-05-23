@@ -412,7 +412,9 @@ UART 可以使用 RS-232C 接口传输。这种接口包括 RXD（receive）、T
 
 ### 中断处理
 
-> :material-clock-edit-outline: 2023年5月22日。
+> :material-clock-edit-outline: 2023年5月22日，2023年5月23日。
+
+设备发起中断，中断控制器收集，CPU 响应。
 
 ```assembly title="key-interrupt/source/startup/start.S"
     .global irq
@@ -494,6 +496,171 @@ void do_irqs(struct pt_regs_t * regs)
         … // 还有 vic1 – vic3
     }
 }
+```
+
+## §5–§6 Linux
+
+### 组件
+
+> :material-clock-edit-outline: 2023年5月23日。
+
+Linux 内核管理整个系统的进程、进程间通信（POSIX）、内存、文件和设备（特别是虚拟文件系统 virtual file system，VFS）、网络。
+
+- **进程管理**
+
+  - 内核的基本架构
+
+    ```mermaid
+    flowchart
+      subgraph service[OS services]
+        api[API]
+      end
+
+      subgraph process[process scheduler]
+        sci["system call interface"]
+        --> all[architecture independent scheduler]
+        ---> arch[architecture specific scheduler]
+
+        all --- policy[scheduling policy]
+      end
+
+      subgraph hardware
+        cpu[CPU]
+      end
+
+      api ---> sci
+      arch ---> cpu
+
+      all --- other[inter-process communication<br>network<br>memory management<br>file system]
+    ```
+
+  - `task_struct`
+
+    - process ID
+    - 状态
+    - 优先级
+    - program counter
+    - 内存指针
+    - 上下文寄存器数据
+    - I/O 信息
+    - 记账（时间等）
+
+  - 状态及切换
+
+    ```mermaid
+    flowchart LR
+      创建
+      -->|fork| ready["Running<br>准备好但未执行"]
+      -->|schedule| running["Running<br>执行"]
+      -->|exit| 终止
+
+      running
+      -->|sleep on| waiting["Interruptible / uninterruptible<br>等待"]
+      -->|wake up| ready
+
+      running -->|"被抢占"| ready
+    ```
+
+    - 创建：用户模调用`fork()`（copy on write）、`clone()`（精确控制与父进程共享的资源）等API，软中断进入内核，再调用相应系统服务。
+    - 执行：`exec`函数族有`(list|vector)(env_var|path)?`。用某个可执行文件的数据段、代码段和堆栈段覆盖当前进程。（PID 不变）
+    - 终止：释放资源（不再排队，恢复引用计数），告知父进程（zombie）。终止有正常结束、信号、`exit()`三种方法。
+
+  - 各种 task
+
+    - 进程：分配资源最小单位。
+    - 线程：独立运行基本单位。独享栈、寄存器、PC、状态字，其余资源共享。
+    - 内核中的 task：既可称线程也可称进程。永远在内核模，无法调用用户空间的函数。只能使用地址空间高于 3 GiB 的部分。
+
+  - 进程调度
+
+    分时、动态优先级。
+
+- **进程间通信**
+
+  在内核中开辟缓冲区，交换两个进程的用户区数据。
+  
+  有以下几种通信方式。
+
+  - 管道：最基本。无名管道仅限父子进程。
+  - 共享内存：及时，同步难（互斥锁或信号量）。
+  - 消息传递：信息量可任意大。
+  
+  再具体一些其实如下。
+
+  - 信号（signal）：如`SIGABRT`。软件模拟的中断。处理异步事件。
+  - 信号量（semaphore）。
+  - 套接字（socket）：用于网络。
+
+- **内存管理**
+
+  分配、回收，转换地址，扩充，共享、保护。
+
+  请求页式虚拟存储。
+
+  在用户模，物理地址、虚拟地址并不相同，动态映射。另外，虚拟地址除了可映射到物理内存，还可映射到 I/O 设备，如寄存器、小块存储器。
+
+  进程在内存中从低地址起有如下内容。
+
+  1. 代码段`.text`——代码，一般只读。常数字面量也可能在此。
+  2. 数据段`.data`——初始化的全局变量。`static`变量也在此。
+  3. `.bss`（block started by symbol）——未初始化的全局变量。在可执行文件中，BSS 只存占位符，几乎不占空间；运行时再由操作系统初始化。
+  4. 堆 heap——动态分配的内存（`malloc()`、`free()`）。
+  5. 栈 stack——临时（如函数中）创建的局部变量。
+  6. 参数、环境变量等。
+  7. 内核空间（3 GiB 以上）。
+
+  内存映射`mmap()`将一片内存（`start` + `length`）映射到文件或设备（`open()`得到的`fd` + `offset`）上，可指定读写权限（如`PROT_READ`）和共享策略（如`MAP_SHARED`）。
+
+  分页机制将物理内存看成一系列存储块。虚拟地址空间称作页（page），物理地址空间称作页框（frame）。
+
+- **设备**
+
+  字符设备、块设备、网络设备。
+
+### 内核模块
+
+> :material-clock-edit-outline: 2023年5月23日。
+>
+> :material-eye-arrow-right: [c - Linux Kernel Module Development "module: x86/modules: Skipping invalid relocation target, existing value is nonzero for type 1" - Stack Overflow](https://stackoverflow.com/questions/71746914/).
+
+```c title="hello.c"
+#include <linux/init.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+
+static int __init hello_init(void)
+{
+    printk(KERN_ALERT "Hello, world!\n");
+    return 0;
+}
+
+static void __exit hello_exit(void)
+{
+    printk(KERN_ALERT "Goodbye, cruel world!\n");
+}
+
+// 用宏标记
+module_init(hello_init);
+module_exit(hello_exit);
+
+MODULE_LICENSE("GPL");
+```
+
+```makefile title="Makefile"
+obj-m   += hello.o
+KDIR    := /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+
+all:
+    $(MAKE) -C $(KDIR) M=$(PWD) modules
+
+clean:
+    @rm -rf *.o *.ko *.mod *.mod.* *.symvers *.order
+```
+
+```shell
+$ sudo make
+$ sudo insmod hello
 ```
 
 # 后备箱
