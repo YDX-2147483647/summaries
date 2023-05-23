@@ -201,7 +201,7 @@ fn add_with_carry(x: bits[N], y: bits[N], carry_in: bit) -> (bits[N], bit, bit) 
 
 ### 指令
 
-> :material-clock-edit-outline: 2023年3月13日。
+> :material-clock-edit-outline: 2023年3月13日，2023年5月23日。
 >
 > :material-eye-arrow-right: [ARM and Thumb instruction summary | ARM Compiler armasm User Guide](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/arm-and-thumb-instruction-summary).
 
@@ -278,8 +278,8 @@ fn add_with_carry(x: bits[N], y: bits[N], carry_in: bit) -> (bits[N], bit, bit) 
 
       [Alternatively](https://developer.arm.com/documentation/ddi0597/2022-12/Base-Instructions/STMDA--STMED--Store-Multiple-Decrement-After--Empty-Descending--),
 
-      - F– / E–: Full / empty… (equivalent to –B / –A)
-      - –A / –D: …ascending / descending stack. (equivalent to I– / D–)
+      - F– / E–: Full / empty… (equivalent to LDM–A / LDM–B and STM–B / STM–A)
+      - –A / –D: …ascending / descending stack. (equivalent to LDMD– / LDMI– and STMI– / STMD–)
 
       !!! info "Full / empty stack"
 
