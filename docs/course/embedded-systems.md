@@ -18,7 +18,7 @@ relevant:
 
 ### 嵌入式系统的处理器
 
-> :material-clock-edit-outline: 2023年3月9日。
+> :material-clock-edit-outline: 2023年3月9日，2023年5月24日。
 
 1. MCU: Micro controller unit.
 2. DSP: Digital signal processor.
@@ -27,11 +27,40 @@ relevant:
 
 MCU 没有存储管理单元（memory management unit，MMU），一般无法安装 Linux；MPU 一般可以。
 
+嵌入式处理器大量使用寄存器（为实时多任务），看重存储区保护，可扩展，小、低功耗、低成本。
+
+### 层次
+
+> :material-clock-edit-outline: 2023年5月24日。
+
+1. 物理和数据链路：Wi-Fi、Ethernet、MAC等。
+2. 网络：IP。
+3. 传输：TCP、UDP。
+4. 应用：FTP、SSL、HTTP、WebSocket、MQTT等。
+
 ## §2 ARM 处理器体系结构
+
+### 架构特点
+
+> :material-clock-edit-outline: 2023年5月24日。
+
+- RISC（reduced instruction set computer）
+  - 指令个数少，绝大部分单周期执行。
+  - 定长，易解码。（ARM 4 B，Thumb 2 B，Thumb-2 则为 2 B 或 4 B）
+
+- Harvard 结构——指令和数据存储的总线分开（两套 control、data、address bus），可同时进出 CPU，采用流水线（fetch、decode、execute，若涉及内存还有 memory、write）。
+
+  PC 指向流水线上当前 fetch 的指令。
+
+- 寻址方式简单，hard-wiring，无微代码。
+
+- 只有 load/store，无直接寄存器、存储器运算的指令。
+
+- 寄存器多：至少 32 个，其中 16 个通用。
 
 ### 工作模式与寄存器组
 
-> :material-clock-edit-outline: 2023年3月9日，2023年3月10日，2023年3月13日。
+> :material-clock-edit-outline: 2023年3月9日，2023年3月10日，2023年3月13日，2023年5月24日。
 
 <u>工作模式</u>如下。
 
@@ -51,11 +80,19 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
      除了`usr`、`sys`，所有模式都可由异常进入。这些异常按优先级从高到低如下。（此处优先数与优先级负相关）
      
      1. `svc`（复位）
-     2. `abt`（data abort）
-     3. `fiq`
-     4. `irq`
-     5. `und`（保护而不允许，prefetch abort）
-     6. `svc`（正常调用子程序，software interrupt，SWI）、`und`（未定义或转给协处理器）
+     2. `abt`（data abort，目标地址无法或禁止访问）
+     3. `fiq`（传送数据）
+     4. `irq`（外设）
+     5. `abt`（所取指令保护而不允许，prefetch abort）
+     6. `svc`（正常调用子程序，software interrupt，SWI）、`und`（undefined，译码时未定义或转给协处理器）
+   
+     这和异常返回地址（`sub pc, lr, ○○`）一致。
+
+     1. 复位不用返回。
+     2. data abort 返回到数据异常的指令，即 lr - 8。
+     3. fiq、irq 返回到异常时正要执行的指令，即 lr - 4。
+     4. prefetch abort 返回到预取失败的指令，即 lr - 4。
+     5. SWI、undefined 返回到下一条指令，即 lr。
 
 处理器有许多<u>通用寄存器</u>，但每种模式同时只用 16 个（R0–R15）。
 
@@ -75,7 +112,7 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 - 控制位（control field）：
 
   - 中断屏蔽位 I（IRQ）、F（FIQ）可屏蔽所有来源的中断，处理异常时会用这两位实现优先级。
-  - 状态控制位 T 表明处理器在 ARM 还是 Thumb 状态。（有多套指令集）
+  - 状态控制位 T 表明处理器在 ARM 还是 Thumb 状态。（有多套指令集）Thumb 和 ThumbEE（已废弃）进一步靠 J 区分。
   - 模式控制位决定处理器的工作模式。虽只有 8 种模式，但用了 5 位。
 
 - ……
@@ -120,6 +157,21 @@ assert_eq!(6, mem::size_of::<FieldStruct>());
 !!! tip "🦀 Rust"
 
     数据对齐部分参考了 [Rust Doc](https://doc.rust-lang.org/std/mem/fn.size_of.html#size-of-reprc-items)。
+
+### 存储体系
+
+> :material-clock-edit-outline: 2023年5月24日。
+
+按速度递减、容量递增、成本递减，有如下存储器。
+
+1. 寄存器
+2. cache
+3. 主存（SDRAM）
+4. 辅存（硬盘、flash）
+
+高级嵌入式操作系统有 MMU，实现虚拟内存（请求页式）的地址映射。另外 MMU 还能实现保护、缓冲。
+
+Cache 对编程透明，和 CPU 在同一芯片，维护先入先出写缓存，减少 CPU 访问主存的等待时间。
 
 ## §3 ARM 指令集
 
@@ -231,16 +283,16 @@ fn add_with_carry(x: bits[N], y: bits[N], carry_in: bit) -> (bits[N], bit, bit) 
     - AND: Logical and.
     - ORR: Logical or.
     - EOR: Exclusive or.
-    - BIC: Bit clear.
+    - BIC: Bit clear. (and not)
 
   - **比较**
 
     这些指令只设置标志位，中间结果不存储到通用寄存器。
 
-    - CMP: Compare.
-    - CMN: Compare negative (sum).
-    - TST: Test.
-    - TEQ: Test equivalence.
+    - CMP: Compare. (SUB)
+    - CMN: Compare negative (sum). (ADD)
+    - TST: Test. (AND)
+    - TEQ: Test equivalence. (EOR)
 
 - **状态寄存器**
 
@@ -400,11 +452,11 @@ GPIO（general-purpose input/output）是芯片引脚的接口。每个 GPIO 使
 
 数据有下面两种传输方式。
 
-  - 串行：在一根线上每次传一位，慢。
+- 串行：在一根线上每次传一位，慢。
 
-    若收发双方时钟不同步，则称为异步串行通信（UART）。
+  若收发双方时钟不同步，则称为异步串行通信（UART）。
 
-  - 并行：在多根线上同时传输多位。如数据、地址总线。
+- 并行：在多根线上同时传输多位。如数据、地址总线。
 
 UART 的帧结构包括起始位（固定一位零）、数据位、奇偶校验位、停止位（固定一，位数需具体约定）。
 
@@ -412,9 +464,19 @@ UART 可以使用 RS-232C 接口传输。这种接口包括 RXD（receive）、T
 
 ### 中断处理
 
-> :material-clock-edit-outline: 2023年5月22日，2023年5月23日。
+> :material-clock-edit-outline: 2023年5月22日，2023年5月23日，2023年5月24日。
 
 设备发起中断，中断控制器收集，CPU 响应。
+
+1. 保存现场，进入相应工作模式。
+   - 保存现场：保存原有寄存器（fiq有自己的寄存器，可不保存），原有 CPSR 存入 SPSR，将原本下一条指令的地址存入 lr（BL 的“L”）。
+   - 进入响应工作模式：设定 CPSR_c，例如屏蔽其它中断。
+2. 跳转到中断向量，寻找中断入口，执行中断程序。
+3. （复位异常除外）恢复现场（寄存器、CPSR），清除工作模式，返回（[用 lr 设定 pc](#工作模式与寄存器组)）。
+
+!!! note "同步"
+
+    在 ARM 处理器中，除了复位，异常都是同步的——处理器线执行完当前指令，再处理异常。
 
 ```assembly title="key-interrupt/source/startup/start.S"
     .global irq
@@ -497,6 +559,13 @@ void do_irqs(struct pt_regs_t * regs)
     }
 }
 ```
+
+处理中断与调用函数不同。
+
+- 处理中断的时机随机。
+- 中断服务程序和主程序平行，中断服务程序无参数、不返回。
+- 处理中断后可能引发进程调度。
+- 响应中断涉及硬件电路。
 
 ## §5–§6 Linux
 
