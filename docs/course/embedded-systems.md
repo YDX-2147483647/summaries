@@ -382,7 +382,7 @@ Most instructions only update the condition flags if you append an S suffix to t
 |      EQ / NE       |                          (not)? equal                           |         Z = (1,0)         |
 |      MI / PL       |                  (negative, positive or zero)                   |         N = (1,0)         |
 |      VS / VC       |                      overflow (set, clear)                      |         V = (1,0)         |
-| CC / CS<br>HS / LO | carry (set, clear)<br>(higher or same, lower)<br>unsigned (≥,<) |         C = (1,0)         |
+| CS / CC<br>HS / LO | carry (set, clear)<br>(higher or same, lower)<br>unsigned (≥,<) |         C = (1,0)         |
 |      HI / LS       |            (Higher, lower or same)<br>unsigned (>,≤)            | C = (1,0) (∧,∨) Z = (0,1) |
 |      GE / LT       |       (greater than or equal, less than)<br>signed (≥,<)        |         N (=,≠) V         |
 |      GT / LE       |       (greater than, less than or equal)<br>signed (>,≤)        | N (=,≠) V (∧,∨) Z = (0,1) |
