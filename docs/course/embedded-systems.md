@@ -32,6 +32,8 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 ### 层次
 
 > :material-clock-edit-outline: 2023年5月24日。
+> 
+> :material-eye-arrow-right: [2.1 TCP/IP 网络模型有哪几层？ | 小林coding](https://www.xiaolincoding.com/network/1_base/tcp_ip_model.html#%E5%BA%94%E7%94%A8%E5%B1%82)。
 
 1. 物理和数据链路：Wi-Fi、Ethernet、MAC等。
 2. 网络：IP。
@@ -256,6 +258,8 @@ fn add_with_carry(x: bits[N], y: bits[N], carry_in: bit) -> (bits[N], bit, bit) 
 > :material-clock-edit-outline: 2023年3月13日，2023年5月23日。
 >
 > :material-eye-arrow-right: [ARM and Thumb instruction summary | ARM Compiler armasm User Guide](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/arm-and-thumb-instruction-summary).
+>
+> :material-eye-arrow-right: [VisUAL2 - A User-friendly Educational Assembler and Simulator for ARM UAL. | visual2.github.io](https://tomcl.github.io/visual2.github.io/).
 
 - **跳转**（B, BL, BX, BLX）
 
@@ -387,6 +391,16 @@ Most instructions only update the condition flags if you append an S suffix to t
 |      GE / LT       |       (greater than or equal, less than)<br>signed (≥,<)        |         N (=,≠) V         |
 |      GT / LE       |       (greater than, less than or equal)<br>signed (>,≤)        | N (=,≠) V (∧,∨) Z = (0,1) |
 
+### 阅读汇编程序
+
+> :material-clock-edit-outline: 2023年5月26–27日。
+
+- 跳转可制造分支、循环，对程序结构很重要。
+- 除了所有指令的序列，涉及某一寄存器的所有指令序列也对理解有帮助。
+- 有些场景中，一组指令内的顺序并不重要。
+
+分析复杂程序时，可将指令按时序、寄存器组织成表格。
+
 ## §4 微处理器与接口
 
 ### 如何看电路图
@@ -405,7 +419,7 @@ Most instructions only update the condition flags if you append an S suffix to t
 
 > :material-clock-edit-outline: 2023年5月21日。
 
-系统报告CPU核心、系统外设（RTC、定时器、ADC等）、多媒体（摄像头接口、图形编解码器等）、电源管理（睡眠等低功耗模式控制）、存储器接口、连接模块（音频、存储、通用接口，如 USB）。CPU 与设备之间通过多层次总线通信。
+系统包括CPU核心、系统外设（RTC、定时器、ADC等）、多媒体（摄像头接口、图形编解码器等）、电源管理（睡眠等低功耗模式控制）、存储器接口、连接模块（音频、存储、通用接口，如 USB）。CPU 与设备之间通过多层次总线通信。
 
 ### 时钟系统
 
