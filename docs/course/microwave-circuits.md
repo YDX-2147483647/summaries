@@ -491,7 +491,7 @@ $$
 
 详细论证如下。
 
-先考虑简单的低频电路：源（source）端输入 $V_s$（有效值）::，有内阻 $Z_s$，接上负载（load） $Z_l$。
+先考虑简单的低频电路：源（source）端输入 $V_s$（有效值），有内阻 $Z_s$，接上负载（load） $Z_l$。
 
 可知 $I_l = V_s / (Z_s + Z_l)$，$V_l = I_l Z_l$，从而传给负载的功率
 
@@ -613,7 +613,7 @@ flowchart LR
 
     1a --->|"转换<br>transducer<br>G<sub>t</sub>"| 2
     1 --->|"工作<br>operating<br>G<sub>p</sub>"| 2
-    1a --->|"资用<br>available <br>G<sub>p</sub>"| 2a
+    1a --->|"资用<br>available <br>G<sub>a</sub>"| 2a
 ```
 
 !!! note "影响因素"
