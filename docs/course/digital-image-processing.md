@@ -69,7 +69,49 @@ relevant:
 
 由此引出灰度直方图，可用于评估成像条件（动态范围）、增强图像（<u>直方图均衡化</u>）、分割图像、压缩图像（统计编码）。
 
-## §4 频域
+### 空间滤波
+
+> :material-clock-edit-outline: 2023年6月18日。
+
+用空间子图像掩模增强图像，邻域处理。
+
+- 平滑：加权均值（模糊扩散），统计排序（不会模糊图像）。
+- 锐化：一阶微分（梯度模，斜坡），二阶微分（Laplacian，点、线），
+
+## §4 频率域
+
+### 多维 DFT
+
+> :material-clock-edit-outline: 2023年6月18日。
+>
+> :material-eye-arrow-right: [Discrete Fourier transform - Wikipedia](https://en.wikipedia.org/w/index.php?title=Discrete_Fourier_transform&oldid=1153873152#Multidimensional_DFT)。
+
+$$
+\begin{aligned}
+  X_\vb*{k} &= \sum_{\vb*n} e^{-2 \pi j \times \vb*{k} \vdot \frac{\vb*n}{\vb*N}} x_\vb*{n}. \\
+  x_\vb*{n} &= \frac{1}{\prod \vb*{N}} \sum_{\vb*n} e^{2 \pi j \times \vb*{k} \vdot \frac{\vb*n}{\vb*N}} x_\vb*{k}. \\
+\end{aligned}
+$$
+
+(The division is element-wise.)
+
+The multidimensional DFT expresses the input as a superposition of plane waves, or multidimensional sinusoids. It can be computed by the composition of a sequence of one-dimensional DFTs along each dimension. 
+
+时域因变量共轭对应频域两次因变量共轭、自变量反转，两次共轭抵消了。
+
+频谱因变量中，相位反映图像空间特征内容，幅度反映灰度；自变量中，直流对应平均，低频对应缓变，高频对应边缘和突变。关于方向性，请参考单缝衍射。
+
+### 滤波
+
+> :material-clock-edit-outline: 2023年6月18日。
+
+基本步骤如下。
+
+1. 时域补零，然后实现频域中心化。
+2. 正变换。
+3. 乘滤波器。
+4. 反变换。
+5. 时域取结果实部，恢复频域中心化，丢弃之前补零多的部分。
 
 ## §5 复原与重建
 
