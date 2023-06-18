@@ -324,7 +324,7 @@ $$
 > :material-clock-edit-outline: 2021年5月1日，[第九周作业](https://www.icourse163.org/learn/BIT-46002?tid=1463232449#/learn/hw?id=1237092622)。
 
 <figure markdown='span'>
-![伪卡诺循环](../assets/psuedo-carnot-cycle.png)
+![伪卡诺循环](../assets/pseudo-carnot-cycle.png)
 <figcaption>伪卡诺循环｜MOOC</figcaption>
 </figure>
 

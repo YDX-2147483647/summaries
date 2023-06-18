@@ -130,7 +130,7 @@ MSI: medium-scale integration.
 |  74 LS 283  |          4位全加           | 146页§4.2.3.4 | 超前进位。                   |
 |  74 LS 290  |      异步 2–5–10 计数      |  236页§6.4.1  | 异步清零、置九。             |
 
-- EI/O: enable input / ouput.
+- EI/O: enable input / output.
 - GS: group select.
 - RBI/O: ripple blanking input / output.
 - LT: lamp test.

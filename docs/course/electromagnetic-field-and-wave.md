@@ -18,7 +18,7 @@ $$
 
 物理上采用的基是单位化后的自然基（除以了度量因子（scale factor））。
 
-详情请参考《[A Practical Introduction to Differential Forms](https://www.cefns.nau.edu/~schulz/diff.pdf)》。（在[differential geometry - Short way to find the grad, curl and div in curvilinear coordiantes? - Mathematics Stack Exchange](https://math.stackexchange.com/a/2930027/1031068)看到的）
+详情请参考《[A Practical Introduction to Differential Forms](https://www.cefns.nau.edu/~schulz/diff.pdf)》。（在[differential geometry - Short way to find the grad, curl and div in curvilinear coordinates? - Mathematics Stack Exchange](https://math.stackexchange.com/a/2930027/1031068)看到的）
 
 ## §4 恒定磁场
 
