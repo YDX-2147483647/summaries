@@ -117,7 +117,7 @@ The multidimensional DFT expresses the input as a superposition of plane waves, 
 4. 反变换。
 5. 时域取结果实部，恢复频域中心化，丢弃之前补零多的部分。
 
-- 平滑：门（理想，振铃），Butterworth（仅高阶振铃明显），Gaussian。
+- 平滑：门（理想，振铃），Butterworth（仅高阶振铃明显），Gaussian。（对小物体、边界效果也有区别）
 - 锐化：平滑滤波器的补，Laplacian（频谱数值数量级可能增大）。增强图像时高频提升（时域加常数）或高频加强（频域加常数），并结合直方图均衡化。
 
 ### 同态滤波
@@ -132,7 +132,7 @@ The multidimensional DFT expresses the input as a superposition of plane waves, 
 
 > :material-clock-edit-outline: 2023年6月19日。
 
-退化模型：线性位置不变算子、加性噪声。物理上是获取图像时光的波动性、成像时运动、大气湍流等，和传输图像时的干扰。
+退化模型：线性位置不变算子、加性噪声。物理上是获取图像时光的波动性、成像器材散焦或缺陷、成像时运动、大气湍流等，和传输图像时的干扰。
 
 - **空间滤波抑制噪声**
 
@@ -301,6 +301,8 @@ Opening $A \circ B \coloneqq (A \ominus B) \oplus B$, closing $A \bullet B \colo
 - Canny
 
   > :material-eye-arrow-right: [Canny edge detector - Wikipedia](https://en.wikipedia.org/wiki/Canny_edge_detector).
+
+  实现全面检测、准确定位、最小响应。
 
   1. Gaussian 平滑。
   2. 检测梯度幅度、方向，其中方向可以分成几个扇区。
