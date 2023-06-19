@@ -225,6 +225,8 @@ The multidimensional DFT expresses the input as a superposition of plane waves, 
 
   将累积联合概率表示为二进制小数。
 
+  若无确定概率模型，也可依序列中频率动态估计。
+
 - **变换**
 
   变换集中信号，像素解相关，适应心理视觉。编码步骤为分块、正变换、量化、熵编码，解码反之。
