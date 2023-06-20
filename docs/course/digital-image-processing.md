@@ -122,11 +122,11 @@ The multidimensional DFT expresses the input as a superposition of plane waves, 
 
 ### 同态滤波
 
-> :material-clock-edit-outline: 2023年6月19日。
+> :material-clock-edit-outline: 2023年6月19日，2023年6月20日。
 
 采用 illumination–reflectance 模型，希望去除照度分量的影响，压缩动态范围，增强对比度。
 
-时域取对数，改积为和，再滤波。
+时域取对数，改积为和，再抑制低频（照度分量变化慢，反射分量什么频率都有）。
 
 ## §5 复原与重建
 
