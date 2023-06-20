@@ -265,7 +265,7 @@ Opening $A \circ B \coloneqq (A \ominus B) \oplus B$, closing $A \bullet B \colo
 
 |       操作        |        作用        |
 | :---------------: | :----------------: |
-| erosion, opening  | 清楚细物，断开窄桥 |
+| erosion, opening  | 清除细物，断开窄桥 |
 | dilution, closing | 填充孔洞，连接断口 |
 
 若结构元光滑（如圆盘），则 opening, closing 也会让图形光滑，二者区别在于 opening 只对凸处有效，而 closing 只对凹处有效。（它们对偶）
