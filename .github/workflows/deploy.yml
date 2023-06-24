@@ -1,11 +1,12 @@
 # https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
-name: ci
+name: deploy
 on:
   push:
     branches:
       - main
     paths-ignore:
       - '.vscode/**'
+      - '.github/**'
       - 'scripts/**'
 permissions:
   contents: write
