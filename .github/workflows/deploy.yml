@@ -20,6 +20,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
+          cache: pip
       - uses: extractions/setup-just@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
