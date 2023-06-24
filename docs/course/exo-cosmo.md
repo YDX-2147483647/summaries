@@ -18,7 +18,7 @@ relevant:
 
 ### Radiation dilution in the expanding universe
 
-> 2023年5月1日。
+> :material-clock-edit-outline: 2023年5月1日。
 
 空间膨胀时，辐射（如光）的能量除了分布范围扩大（与物质一样），还会直接减少（与物质不同）—— $E = h c / \lambda$，$\lambda$ 会变。
 
@@ -29,7 +29,7 @@ relevant:
 
 ### Virial 定理
 
-> 2023年4月30日。
+> :material-clock-edit-outline: 2023年4月30日。
 >
 > :material-eye-arrow-right: [2.11: Virial Theorem - Physics LibreTexts](https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Variational_Principles_in_Classical_Mechanics_(Cline)/02%3A_Review_of_Newtonian_Mechanics/2.11%3A_Virial_Theorem).
 
