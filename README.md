@@ -3,6 +3,7 @@
 各种课程的总结、随记等。
 
 [![ci](https://github.com/YDX-2147483647/summaries/actions/workflows/ci.yml/badge.svg)](https://github.com/YDX-2147483647/summaries/actions/workflows/ci.yml)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![RSS](https://img.shields.io/badge/RSS-valid-orange?logo=rss)](http://validator.w3.org/feed/check.cgi?url=https%3A//ydx-2147483647.github.io/summaries/feed_rss_updated.xml)
 
 ## 🤝改进此项目
