@@ -132,13 +132,13 @@ graph LR
 在闭矩形域内，若$z$对于$y$处处连续，对于$x$（且**关于$y$**）处处一致连续，则$z$连续。
 
 > “且关于$y$”：
-> 
+>
 > $$
 > \forall\varepsilon>0, \exists\delta>0, \forall x,\forall x'\in U(x;\delta),
 > \underline{\forall y}, \quad
 > z(x',y) \in U\left( z(x,y); \varepsilon \right)
 > $$
-> 
+>
 > 另外，若去掉“关于$y$”，则“对$x$连续”即可说明“对$x$一致连续”。（因为是闭矩形域）
 
 ### 混合偏导数
@@ -160,7 +160,7 @@ graph LR
 这可能简化积分。
 
 > 设 $F(x) \triangleq \int_0^x \exp t^2 \d t$，则 $F'(x) = \exp x^2, F(0) = 0$。
-> 
+>
 > $$
 > \begin{split}
 >     & \int_0^1\d y \int_y^1 \left (\frac{\e^{x^2}}x - \e^{y^2} \right) \d x \\
@@ -196,7 +196,7 @@ $$
     \d x & \d x\d y & \d x\d y\d z \\
     & \rho\d\theta\d\rho & \rho\d\theta\d\rho\d z \\
     & & r\sin\varphi\d\theta\ r\d\varphi \d r \\
-    & & = \d\theta \sin\varphi\d\varphi\ r^2\d r 
+    & & = \d\theta \sin\varphi\d\varphi\ r^2\d r
 \end{array}
 $$
 
@@ -239,13 +239,13 @@ $$
 先化简再求值！
 
 > 求下式可以上来就代入 $\rho = 2r\cos\theta$，也不太难。
-> 
+>
 > $$
 > \oint\limits_{x^2+y^2 = 2rx} \left( x^2 + (y+1)^2 \right) \d l
 > $$
-> 
+>
 > 先化简会更简单：
-> 
+>
 > $$
 > \begin{split}
 >     \text{原式}
@@ -257,7 +257,7 @@ $$
 >     &= 2\pi r(2r^2+1).
 > \end{split}
 > $$
-> 
+>
 > 甚至可以口算。
 
 ### 化简全微分
@@ -271,7 +271,7 @@ $$
 > 已知$\d u = \dfrac{y\d x - x\d y}{(x+y)^2}$，求$u$。
 >
 > 观察，分母可能是 $\d\dfrac1{x+y}$，来的，想办法搞出 $\d(x+y)$
-> 
+>
 > $$
 > \begin{split}
 >     \d u=\frac{y\d x - x\d y}{(x+y)^2}
@@ -280,13 +280,13 @@ $$
 >     &= \d\frac{x}{x+y}
 > \end{split}
 > $$
-> 
+>
 > 故 $u = \dfrac{x}{x+y} + \const$.
 >
 > 如果凑的是 $y\d y$ 而非 $x\d x$，也能做，先得到的结果是 $-\dfrac{y}{x+y} = \dfrac{x}{x+y}-1$。
 >
 > 另：
-> 
+>
 > $$
 > \begin{split}
 >     \d u = \dfrac{y\d x - x\d y}{(x+y)^2}
@@ -296,7 +296,7 @@ $$
 >     &= -\d \frac y{x+y}
 > \end{split}
 > $$
-> 
+>
 > 若用 $x\d y - y\d x = x^2 \d\dfrac yx$，情况类似。
 
 > :material-clock-edit-outline: 2021年6月24日。
@@ -312,7 +312,7 @@ $$
 已能说明积分只与路径始末有关，所以选择一条好算的路径即可。
 
 > 已知$\d u = \dfrac{y\d x - x\d y}{(x+y)^2}$，求$u$。
-> 
+>
 > $$
 > \begin{split}
 >     u\vert_{(0,0)}^{x_0,y_0}
@@ -322,7 +322,7 @@ $$
 >     &= \frac{x_0}{x_0+y_0} -1
 > \end{split}
 > $$
-> 
+>
 > 故 $u\vert_{(x,y)} = u\vert_{(0,0)} + u\vert_{(0,0)}^{(x,y)} = \dfrac{x}{x+y} + \const$。
 
 #### 偏微分方程
@@ -330,7 +330,7 @@ $$
 $\d u = X\d x + Y\d y$，则 $\partial_x u = X,\ \partial_y u =Y$。
 
 > 已知$\d u = \dfrac{y\d x - x\d y}{(x+y)^2}$，求$u$。
-> 
+>
 > $$
 > \displaylines{
 > \left\{ \begin{aligned}
@@ -354,7 +354,7 @@ $\d u = X\d x + Y\d y$，则 $\partial_x u = X,\ \partial_y u =Y$。
 > \therefore C\vert_y = \const \\
 > }
 > $$
-> 
+>
 > 故 $u = -\dfrac y{x+y} + \const$。
 
 ### 面积元

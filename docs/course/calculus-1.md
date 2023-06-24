@@ -45,23 +45,23 @@ $$
 ### 函数
 
 > 一些特殊而又一般的函数：
-> 
+>
 > $$
 > \operatorname{Dirichlet}(x) = \begin{cases}
 > 1& x\in\Q \\
 > 0& x\notin\Q
 > \end{cases}
 > $$
-> 
+>
 > 在任意点不连续， $Dirichlet(x)\cdot\Pi_i(x-x_i)$ 只在 $x_i$ 处连续。
-> 
+>
 > $$
 > \operatorname{Riemann}(x) = \begin{cases}
 > \frac 1q & x=\frac pq \in \Q \\
 > 0 & x \notin\Q
 > \end{cases}
 > $$
-> 
+>
 > 在有理点间断而在无理点连续。
 
 性质：有界（bounded）性、单调（monotonic）性、对称性（奇偶性（parity）、周期（period）性）。
@@ -116,17 +116,17 @@ $$
 > 2021年4月23日：
 >
 > 事实上双曲函数与三角函数的关系和反关系一样。例如
-> 
+>
 > $$
-> \sinh x 
+> \sinh x
 > = \i \sin\frac x\i
 > = \i \sin\frac{\i x}{\i^2}
 > = \i \sin(-\i x)
 > = -\i \sin(\i x)
 > = \frac{\sin(\i x)}{\i}
 > $$
-> 
-> 这与 $\sin x =\frac{\sinh(\i x)}{\i}$ 完全一致。 
+>
+> 这与 $\sin x =\frac{\sinh(\i x)}{\i}$ 完全一致。
 
 #### 一些等式
 
@@ -173,8 +173,8 @@ $$
 
 $$
 \lim_{x_1\to L_1} f_{12}(x_1) = L_2 \land
-f_{12}(x_1)\neq L_2 \land 
-\lim_{x_2\to L_2} f_{23}(x_2) = L_3 
+f_{12}(x_1)\neq L_2 \land
+\lim_{x_2\to L_2} f_{23}(x_2) = L_3
 \quad\Rightarrow\quad
 \lim_{x_1\to L_1} f_{23}\circ f_{12} \circ x_1 = L_3
 $$
@@ -205,17 +205,17 @@ $$
 求极限时，作为因子的无穷小可作等价替换，其它情况有时可通过四则运算转化出无穷小因子。
 
 > $x\to0$ 时，
-> 
+>
 > $$
 > \dfrac{\tan x - \sin x}{x^3} = \dfrac{\tan x}{x} \cdot\dfrac{1-\cos x}{x^2} = \dfrac{x}{x} \cdot \dfrac{\frac{x^2}2}{x^2} = \frac 12
 > $$
-> 
+>
 > 但
-> 
+>
 > $$
 > \dfrac{\tan x - \sin x}{x^3} = \dfrac{\tan x}{x^3} -\dfrac{\sin x}{x^3} = \infty - \infty
 > $$
-> 
+>
 > 无法进一步求解。
 
 等价无穷小的例子：
@@ -325,7 +325,7 @@ $1^\infty$型极限往往可利用 $\lim_{x\to\infty} (1+\frac 1x)^x$ 。
 $$
 \displaylines{
 \alpha \to 0,\ \beta \to \infty,\ \alpha\beta \to L \\
-\Rightarrow (1+\alpha)^\beta 
+\Rightarrow (1+\alpha)^\beta
 = (1+\alpha)^{\frac{1}{\alpha} \cdot \alpha\beta}
 = \left( (1+\alpha)^{\frac 1\alpha}\right) ^ {\alpha\beta}
 \to \e^L
@@ -392,7 +392,7 @@ $\infty^0$型有时可转化为$1^\infty$型。
 >\begin{split}
 >\lim_{x\to0} \frac{\sqrt{1+x}+\sqrt{1-x}-2}{x^2}
 >&= \lim_{x\to0} \frac{\left(1 +\frac{x}2 -\frac{x^2}{8} + o(x^2) \right) +
->\left(1 +\frac{-x}2 -\frac{(-x)^2}{8} + o(x^2) \right) - 
+>\left(1 +\frac{-x}2 -\frac{(-x)^2}{8} + o(x^2) \right) -
 >2}{x^2} \\
 >&= \lim_{x\to0} \frac{-\frac{x^2}4 + o(x^2)}{x^2}
 >= -\frac14
@@ -438,7 +438,7 @@ $$
 $$
 
 > 一些变形：
-> 
+>
 > $$
 > \displaylines{
 > \int\frac{\d x}{\sqrt{a^2x^2 \pm b^2}} = \frac{1}{a} \ln(ax + \sqrt{a^2x^2 \pm b^2}) + \const \\
@@ -466,7 +466,7 @@ $$
 \begin{split}
 \int \dfrac{c_1x + c_0}{(x^2 - 2\alpha x + \beta)^\mu} \d x
 &= \int \dfrac{c_1(x-\alpha) + c_1\alpha + c_0}{((x-\alpha)^2 + \beta - \alpha^2)^\mu} \d x \\
-&= \frac{c_1}{2(\beta-\alpha^2)^{\mu-1}} \cdot \int\frac{\d \frac{(x-\alpha)^2}{\beta-\alpha^2}} {\left(\frac{(x-\alpha)^2}{\beta-\alpha^2} + 1 \right)^\mu} + 
+&= \frac{c_1}{2(\beta-\alpha^2)^{\mu-1}} \cdot \int\frac{\d \frac{(x-\alpha)^2}{\beta-\alpha^2}} {\left(\frac{(x-\alpha)^2}{\beta-\alpha^2} + 1 \right)^\mu} +
 \frac{c_1\alpha + c_0}{(\beta-\alpha^2)^{\mu-\frac12}} \cdot \int\frac{\d \frac{x-\alpha}{\sqrt{\beta-\alpha^2}}} {\left(\frac{(x-\alpha)^2}{\beta-\alpha^2} + 1 \right)^\mu} \\
 &\rightarrow
 \int \frac{\d u}{(u+1)^\mu} + \int \frac{\d x}{(x^2+1)^\mu}
@@ -475,7 +475,7 @@ $$
 $$
 
 > 第二项可用三角换元 $x = \tan \theta, \d x = \frac{\d\theta}{\cos^2 \theta}$ 求出：
-> 
+>
 > $$
 > \begin{split}
 > \int \frac{\d x}{(x^2 + 1)^\mu}
@@ -483,13 +483,13 @@ $$
 > &= \int \cos^{2(\mu-1)}\theta \d\theta
 > \end{split}
 > $$
-> 
+>
 > $\cos^{2n}x$ 可降幂为 $\sum_{i=0}^n a_{i,n}\cos(2ix)$ （第一类切比雪夫多项式），逐项积分后再升幂为 $\cos x$ 的函数，然后代入 $\cos^2\theta = \frac 1{1 + x^2}$ 及 $\theta = \arctan x$ 即可。
 >
 > 或者利用 $m\int\cos^nx \d x = \sin x \cos^{m-1}x + (m-1) \int\cos^{m-2}x\d x$ 逐渐求出。
 >
 > 也可直接分部积分得出递推式，从而求出：
-> 
+>
 > $$
 > \displaylines{
 > I_1 = \int \frac{\d x}{x^2+1} = \arctan x + \const \\
@@ -506,7 +506,7 @@ $$
 > \therefore \forall \mu \in \N_+, \quad 2\mu I_{\mu+1} = (1+2\mu)I_\mu - \frac{x}{(x^2+1)^\mu}
 > }
 > $$
-> 
+>
 > 然而一般题的次数都不高，所以很可能用不到这些。
 
 #### 一般
@@ -544,7 +544,7 @@ $$
 \begin{split}
 \int \frac{c_1x + c_0}{x^2 - 2\alpha x + \beta} \d x
 &= \frac{c_1}2 \ln(x^2 - 2\alpha x + \beta) + \int \frac{c_1 \alpha + c_0}{x^2 - 2\alpha x + \beta}\d x \\
-&= \frac{c_1}2 \ln(x^2 - 2\alpha x + \beta) + 
+&= \frac{c_1}2 \ln(x^2 - 2\alpha x + \beta) +
 \frac{c_1\alpha+c_0}{\sqrt{\beta-\alpha^2}}\cdot \arctan \frac{x-\alpha}{\sqrt{\beta - \alpha^2}} +
 \const
 \end{split}
@@ -568,8 +568,8 @@ $$
 > \displaylines{
 > \int \tan^2 x\d x = \int (\sec^2 x - 1)\d x = \tan(x) - x + \const \\
 > \begin{split}
-> \int \frac{x\d x}{1+\cos x} 
-> &= \int \frac{x}{2} \sec^2\frac{x}{2} \d x 
+> \int \frac{x\d x}{1+\cos x}
+> &= \int \frac{x}{2} \sec^2\frac{x}{2} \d x
 > = \int x\d \tan\frac{x}{2} \\
 > &= x \tan\frac{x}{2} - \int \tan\frac{x}{2}\d x  \\
 > &= x \tan\frac{x}{2} + 2\ln \cos\frac{x}{2} + \const

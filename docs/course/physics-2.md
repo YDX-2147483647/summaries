@@ -141,9 +141,9 @@ $$
 
 $$
 \begin{split}
-    -4\pi\varepsilon_0 r_0^4 \boldsymbol E 
+    -4\pi\varepsilon_0 r_0^4 \boldsymbol E
     &\approx \sum_i q_i \left( r_0 - 3 \boldsymbol{\hat r_0} \cdot \boldsymbol\delta_i \right) \boldsymbol r_i \\
-    &= r_0 \sum_i q_i \boldsymbol r_i 
+    &= r_0 \sum_i q_i \boldsymbol r_i
         - 3 \sum_i q_i \left( \boldsymbol{\hat r_0} \cdot \boldsymbol\delta_i \right) \boldsymbol r_i \\
     &= r_0 \boldsymbol p
         - 3 \sum_i q_i \left( \boldsymbol{\hat r_0} \cdot \boldsymbol\delta_i \right) \boldsymbol r_0
@@ -219,7 +219,7 @@ $$
 
 $$
 \begin{split}
-\vb*M 
+\vb*M
 &= \oint \dd{\vb*M} \\
 &= R f_m \int\limits_0^{2\pi} (-\sin\theta, \cos\theta, 0) \cos\theta \dd{\theta} \\
 &= R f_m \pi \vu*y

@@ -17,7 +17,7 @@ $$
 &= \overline{(\hat y - \overline{\hat y})^2}
     + \overline{\qty(\overline{\hat y} - y)^2}
     + 2 \overline{\qty(\hat y - \overline{\hat y}) (\overline{\hat y} - y)} \\
-&= 
+&=
 \end{split}
 $$
 

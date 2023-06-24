@@ -111,26 +111,26 @@ $$
 - **边缘分布 $\vb*X$**
   - $\mu_{\vb*X} = \vb*0$。
   - $\Sigma_{\vb*X} = \Sigma_{XX}$。
-  
+
 - **条件分布 $\vb*Y|\vb*x$**
   - $\mu_{\vb*Y | \vb*x} = \Sigma_{YX} {\Sigma_{XX}}^{-1} \vb*x$。
-  
+
     这与最小二乘法一致。
-  
+
     !!! info "最小二乘法"
 
         模型为 $y_i = A_{ij}\, x_j$，收到样本（samples）$y_{is}$ 与 $x_{js}$。试图解 $y_{is} = A_{ij}\, x_{js}$，但无解，转而考虑方程
-          
+
         $$
         y_{is}\ x_{sk} = A_{ij}\ x_{js}\ x_{sk},
         $$
-          
+
         于是 $\hat A_{ij} = \qty(y_{is}\ x_{sk}) \times \qty(x_{js} x_{sk})^{-1}$。
-          
+
         把样本均值转为期望便是 $\hat A = \Sigma_{YX} {\Sigma_{XX}}^{-1}$。
-  
+
   - $\Phi_{\vb*Y | \vb*x} = \Phi_{YY}$。
-  
+
     若用 $\Sigma$ 表示，则为 $\Sigma / \Sigma_{XX}$（$\Sigma_{XX}$ 在 $\Sigma$ 中的 [Schur complement](https://en.wikipedia.org/wiki/Schur_complement)）。
 
 这可以理解为配方：
@@ -289,7 +289,7 @@ $$
 ### Wiener–Хи́нчин–Einstein 定理
 
 > :material-clock-edit-outline: 2023年4月13日。
-> 
+>
 > :material-eye-arrow-right: [The Wiener-Khinchin Theorem](https://www.comm.utoronto.ca/frank/notes/wk.pdf).
 
 该定理不仅限于平稳随机信号，也适用于确定信号和一般随机信号；而且即使 Fourier 变换不存在，该定理仍有某种形式。

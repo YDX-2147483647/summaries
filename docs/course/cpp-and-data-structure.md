@@ -286,25 +286,25 @@ graph TB
     {
         return _top == max_size - 1;
     }
-    
+
     bool empty() const
     {
         return _top == -1;
     }
-    
+
     void push(const int &x)
     {
         assert(!full());
         _top++;
         _data[_top] = x;
     }
-    
+
     void pop()
     {
         assert(!empty());
         _top--;
     }
-    
+
     int &top()
     {
         assert(!empty());
@@ -321,11 +321,11 @@ graph TB
 - 队列（stack）：进出分别在两端。
 
   - 顺序存储（循环）
-  
+
     属性：`_data[]`、`_begin`、`_end`、`max_size`。
-  
+
     假溢出。
-  
+
     ```c++
     size_t shift(size_t p, int x = 0) const
     {
@@ -333,60 +333,60 @@ graph TB
             x += max_size + 1;
         return (p + x) % (max_size + 1);
     }
-    
+
     bool full() const
     {
         return _begin == shift(_end, 1);
     }
-    
+
     bool empty() const
     {
         return _begin == _end;
     }
-    
+
     void Push(const int &x)
     {
         assert(!full());
         _end = shift(_end, 1);
         _data[_end] = x;
     }
-    
+
     void Pop()
     {
         assert(!empty());
         _begin = shift(_begin, 1);
     }
-    
+
     int &front()
     {
         assert(!empty());
         return _data[_begin];
     }
-    
+
     int &back()
     {
         assert(!empty());
         return _data[shift(_end, -1)];
     }
-    
+
     size_t len() const
     {
         return shift(_end - _begin);
     }
     ```
-  
+
   - 链式存储
-  
+
     属性：`_front`、`_back`。
-  
+
     由于不可能像顺序存储一样指向队尾的“下一结点”，添加第一个结点或删除最后一个结点时，两个指针都要修改。
-  
+
     ```c++
     bool empty() const
     {
         return _front == nullptr;
     }
-    
+
     void Push(Data data)
     {
         if (empty()) {
@@ -396,15 +396,15 @@ graph TB
             _back = _back->next;
         }
     }
-    
+
     void Pop()
     {
         assert(!empty());
-    
+
         auto delete_node = _front;
         _front = _front->next;
         delete delete_node;
-    
+
         if (empty())
             _back = _front;
     }
@@ -591,7 +591,7 @@ graph TB
 - 删除
   - 被删结点存在空子树时，很简单。
   - 被删结点的左右子树均非空时，选左子树结点中最靠右的（它的右子树为空）替换被删结点即可。
-  
+
 - 平衡（没讲）
 
 #### 散列表（Hash 表）

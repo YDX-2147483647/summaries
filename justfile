@@ -24,6 +24,10 @@ serve *ARGS:
 build:
     {{ mkdocs }} build
 
+# Run pre-commit
+check *ARGS:
+    pre-commit run {{ ARGS }}
+
 # Normalize markdown files
 [no-cd]
 normalize +FILES:

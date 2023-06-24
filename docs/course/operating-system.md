@@ -5,7 +5,7 @@ relevant: ./cpp-and-data-structure.md
 # 操作系统原理
 
 > :material-eye-arrow-right: 实验与作业：[os_homework](https://github.com/YDX-2147483647/os_homework/)。
-> 
+>
 > :material-eye-arrow-right: 问答：[os_qa](https://github.com/YDX-2147483647/os_qa)。
 
 ## §1 概论

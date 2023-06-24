@@ -275,7 +275,7 @@ $$
 这一过程针对离散信号，并且其时域有限（最多在 $[0,N) \cap \Z$ 有值）。
 
 1. 频域取样就是
-   
+
 $$
   \hat X
   = \eval{X}_\omega \times \qty(\sum_k \eval{\delta}_{\omega - \omega_k})
@@ -310,7 +310,7 @@ $$
 > :material-eye-arrow-right: [Overlap Add, Overlap Save Visual Explanation](https://blog.robertelder.org/overlap-add-overlap-save)
 
 -   **重叠相加**（overlap add）
-  
+
     利用线性卷积的线性，将输入拆成多段，每一段用圆周卷积补零计算线性卷积。
 
 -   **重叠保留**（overlap save）
@@ -457,17 +457,17 @@ $$
 </figure>
 
 - **radix-2**
-  
+
   - 系数是旋转因子，画在两列蝶形之间也许更科学。
   - 这是递归算法，但所有系数都要求换算为 $W_N$。每一列系数的指数总是等间隔分布于 $[0, \frac{N}{2})$。
   - 如果系数标在线上，那么出现位置与输入的二进制表示相同。（0 没有，1 有，且可能为 $W_0$）
   - 序列反序与远距离蝶形的用意相同，因此不可能出现在流图的同一侧。例如 DIT 输入反序，输入一侧便是近距离蝶形。
   - 不同列蝶形的线平行时更好看，为此远距离蝶形的宽度要画得大一些。
-  
+
 - **other mixed-radix**
-  
+
   - radix-4 中的 4 点变换既可按 DFT 定义（矩阵乘法）处理，也可用 $2\times 2 = 4$ 的 radix-2 FFT 处理。后者增加的旋转因子中 $3/4$ 是一，$1/4$ 是 $-j$，都可不计运算量；并且流图与 radix-2 相同，$N$ 较小时系数也会退化成纯粹的 radix-2。
-  
+
   <figure markdown='1'>
   <div style='display: grid; grid-template-columns: repeat(2, auto); gap: 1em;' markdown='span'>
     ![](../assets/radix-2-or-4-to-split-radix-1.svg)
@@ -546,9 +546,9 @@ $$
   $1 - 0.9x + 0.81x^2 \to 0$，即 $x \to \gamma$ 或 $x \to \bar\gamma$ 时，
 
   - 由分解后形式，$\qty(1 - 0.9x + 0.81x^2) f \to \square + \square \gamma$ 或 $\square + \square \bar\gamma$。
-   
+
   -   由原始形式，
-  
+
     $$
     \begin{split}
     \qty(1 - 0.9x + 0.81x^2) f
@@ -557,7 +557,7 @@ $$
     &= 3.894\cdots \mp 1.536\cdots i,
     \end{split}
     $$
-    
+
     记作 $A$ 和 $\bar A$。
 
     > 因为最初 $f: \R \to \R$，这里必为一对共轭复数 $A,\bar A$。
@@ -572,7 +572,7 @@ $$
   \begin{bmatrix}
      \square \\ \square
   \end{bmatrix}
-  = 
+  =
   \begin{bmatrix}
      A \\ \bar A
   \end{bmatrix}.
@@ -628,7 +628,7 @@ $$
 > 另：由 $\eval{h}_{\tau+t} = \eval{h^*}_{\tau-t}$。
 
 - $\tau \in \Z$，$N \in 2\Z+1$
-  
+
   $$
   \begin{split}
   e^{j\omega\tau} H
@@ -649,7 +649,7 @@ $$
 - $\tau \in \Z + \frac12$，$N \in 2\Z$
 
   与前一情况类似，只是没有单独的 $\eval{h}_\tau$ 项。
-  
+
   $$
   \begin{split}
   e^{j\omega\tau} H
@@ -721,31 +721,31 @@ $$
 下面讨论两种特殊情况。
 
 - $h \in \R$
-  
+
   $$
   \Re{\eval{h}_{\tau - m} e^{mj\omega}}
   = \eval{h}_{\tau - m} \cos(m\omega).
   $$
-  
+
   最开始的时域条件化为
-  
+
   $$
   \eval{h}_{\tau+m} \equiv \eval{h}_{\tau-m}.
   $$
-  
+
 - $h \in \R/j$
-  
+
   $$
   \Re{\eval{h}_{\tau - m} e^{mj\omega}}
   = \eval{(jh)}_{\tau - m} \sin(m\omega).
   $$
-  
+
   设 $h' = jh \in \R$，$H' = jH$，则 $\operatorname{Arg} H' = \frac\pi2 - \omega\tau$，系统广义线性。
 
   > $\R \to \qty{j}$ 共轭反对称，故 $H' = jH$ 与 $H$ 的共轭对称性相反。不过 $H’$ 对应的幅度函数不再是 $e^{j\omega\tau}H' \in j\R$，而是 $e^{j\omega\tau}H' / j = e^{j\omega\tau}H \in \R$，与 $H$ 的相同。
-  
+
   最开始的时域条件化为
-  
+
   $$
   \eval{h'}_{\tau+m} \equiv -\eval{h'}_{\tau-m}.
   $$
@@ -790,7 +790,7 @@ IIR: Infinite impulse response.
   - **双线性变换法**：$\frac{\Omega T}{2} = \tan\frac{\omega T}{2}$。
 
 3.  确定模拟原型 Butterworth 滤波器的**参数**
-    
+
 $$
   \begin{cases}
   1 + \qty(\Omega_s / \Omega_c)^{2N} > \alpha_s. \\
@@ -1026,13 +1026,13 @@ $$
 - **系数**
 
   抽取一侧全为 $W^0$，另一侧为 $W^0, W^1, \ldots, W^{N/2 - 1}$。
-  
+
   从另一侧向抽取一侧推进，每次只剩偶序号那一半。
 
 - **蝶形跨度**
 
   抽取一侧最小，相邻（相差一）；另一侧最大，相差 $N/2$。
-  
+
   从抽取一侧向另一侧推进，每次跨度增加一倍。
 
 以上主要针对 radix-2，但 split-radix 基本一致，只是系数有挪动。
@@ -1080,7 +1080,7 @@ $$
 & \text{by definition} & \text{FFT} \\
 \hline
 \times & NM & 3 \times \frac12 L\nu + L \\
-+ & (N-1)(M-1) & 3 \times L\nu 
++ & (N-1)(M-1) & 3 \times L\nu
 \end{array}
 $$
 

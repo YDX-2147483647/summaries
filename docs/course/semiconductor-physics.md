@@ -65,7 +65,7 @@ $$
 
 $$
 \begin{split}
-    g 
+    g
     &:= \dv{Z}{E} \\
     &= \dv{Z}{\Omega_p} \dv{\Omega_p}{p} \dv{p}{E} \\
     &= 2 \qty(\frac{L}{2\pi \hbar})^3 \times 4\pi p^2 \times \frac{1}{v_\text{group}} \\
@@ -94,7 +94,7 @@ $$
 > - $x\to +\infty$ 时，$\FD(x) \sim \exp(-x)$ ——Fermi—Dirac 分布退化为 Maxwell—Boltzmann 分布，此时称“非简并半导体”。
 >
 > - $\FD(x + \ln \gamma) + \FD(-x + \ln{\gamma^{-1}}) = 1$，即
-> 
+>
 >   $$
 >   \frac{1}{1+\gamma \exp{x}} + \frac{1}{1 + \gamma^{-1} \exp(-x)} = 1.
 >   $$
@@ -191,7 +191,7 @@ $$
 1. 低温：“非主流”载流子可忽略（$\boxed{ p_0 = 0 }$，$n_0 = n_D^+$）。
 
   1. 弱电离：$n_D^+ \ll N_D$，施主电离部分退化为 Maxwell—Boltzmann 分布。
-      
+
     $$
     n_D^+ = \frac{N_D}{g_D} \exp\frac{E_D - E_F}{k_B T}.
     $$
@@ -243,13 +243,13 @@ $$
     由电中性条件 $n_0 = N_D + p_0$，结合 $n_0 p_0 = n_i^2$ 得 $n_0^2 = N_Dn_0 + n_i^2$，从而可解得 $n_0$。从图象可知 $N_D \ll n_i$ 时 $n_0 \approx p_0$，$N_D \gg n_i$ 时 $n_0 \gg p_0$。
 
     又，$N_D = n_0 - p_0 = 2 n_i \sinh\frac{E_F - E_i}{k_B T}$，故
-      
+
     $$
     E_F = E_i + k_B T \arsinh\frac{N_D}{2n_i}.
     $$
 
   2. 高温本征激发：与 $n_0, p_0$ 相比，$N_D \approx 0$。
-   
+
     $2E_F \approx E_c + E_v$，载流子浓度取决于对温度非常敏感的本征激发载流子。
 
 ##### 总结
@@ -316,11 +316,11 @@ flowchart RL
         pt["n<sub>t</sub><sup>+</sup>"]
         pv["p"]
     end
-    
+
     nc -.-|导带| pc
     nt -.-|陷阱| pt
     nv -.-|价带| pv
-    
+
     %% nc --- pt --- nv
     %% pc --- nt --- pv
 

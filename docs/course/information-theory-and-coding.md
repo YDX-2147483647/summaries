@@ -108,7 +108,7 @@ $$
 $$
 
 > 第二行体现“独立界”：
-> 
+>
 > $$
 > H_{X_1, \ldots,X_n} \leq \sum_i H_{X_i}.
 > $$
@@ -129,11 +129,11 @@ $$
 > $\expect_p$ 应只在 $p>0$ 部分求和，而 $p=0$ 部分对应的 $q$ 可能不是 $0$，因此第二个“$\geq$”不能改成“$=$”。
 
 > 该非负性可改写成下面的不等式。
-> 
+>
 > $$
 > 0 \geq \expect_p\log p \geq \expect_p \log q.
 > $$
-> 
+>
 > 反过来说，$\log$ 与分布一致时更大。或者说，错误估计 $\log$，则倾向于高估熵。
 
 $\implies$ 平稳序列的条件熵（不严格地）递减。
@@ -147,11 +147,11 @@ $I(X;Y |Z)$ is not always less than $I(X;Y)$ — The *area* of $X \cap Y \cap Z$
 [Chapter 2: Entropy and Mutual Information (cs.uic.edu)](https://www.cs.uic.edu/pub/ECE534/WebHome/ch2.pdf), page 28; Mackay’s textbook:
 
 > (The Venn diagram) correctly shows relationship such as
-> 
+>
 > $$
 > H(X) + H(Z|X) + H(Y|X,Z) = H(X,Y,Z).
 > $$
-> 
+>
 > But it gives the misleading impression that the conditional mutual information $I(X;Y|Z)$ is *less than* the mutual information $I(X;Y)$. If fact the area (that represents $X \cap Y \cap Z$) can correspond to a *negative* quantity. Consider the joint ensemble $(X,Y,Z)$ in which $x,y\in \qty{0,1}$ are independent binary variables and $z\in\qty{0,1}$ is defined to be $z = x+y \pmod 2$. Then clearly $H(X) + H(Y) = \SI{1}{bit}$. Also $H(Z) = \SI{1}{bit}$. And $H(Y|X) = H(Y) = 1$ since the two variables are independent. So the mutual information between $X$ and $Y$ is zero. $I(X;Y) = 0$. However, if $z$ is observed, $X$ and $Y$ become dependent — knowing $x$, given $z$, telss you what $y$ is: $y = z-x \pmod 2$. So $I(X;Y|Z) = \SI{1}{bit}$. Thus the area labelled $A$ must correspond to $\SI{-1}{bit}$ for the figure to give the correct answers.
 >
 > The above example is not at all a capricious or exceptional illustration. The binary symmetric channel with input $X$, noise $Y$, and output $Z$ is a situation in which $I(X;Y) = 0$ (input and noise are independent) but $I(X;Y|Z) > 0$ (once you see the output, the unknown input and the unknown noise are intimately related!).

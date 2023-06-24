@@ -86,7 +86,7 @@ $$
 $$
 
 > 看起来并不用具体解出 $\alpha,\beta$，因为答案等于 $\pi / \abs{\beta^2-\alpha^2}$，而
-> 
+>
 > $$
 > \begin{split}
 > (\beta^2-\alpha^2)^2

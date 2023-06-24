@@ -39,7 +39,7 @@
 - “不充分”的发展：<u>民主、法治、公平、正义、安全、环境</u>等方面及其相互关系不充分，不协调。
 
 > :material-file-move-outline: 《十九大报告·一、过去五年的工作和历史性变革》结尾。
-> 
+>
 > :material-eye-arrow-right: 李慎明，《[正确认识中国特色社会主义新时代社会主要矛盾](http://www.qstheory.cn/dukan/hqwg/2018-03/08/c_1122505893.htm)》，《红旗文稿》，求是网。
 
 ---
@@ -67,9 +67,9 @@
 - 拓展发展中国家走向<u>现代化的途径</u>，提供中国方案。（我国特色道路）
 
 > :material-file-move-outline: 《十九大报告·一、过去五年的工作和历史性变革》结尾。
-> 
+>
 > :material-eye-arrow-right: 张银霞，《[如何理解“中国特色社会主义进入新时代”](http://www.qstheory.cn/zhuanqu/bkjx/2017-12/01/c_1122044946.htm)》，《宁夏日报》，求是网。
-> 
+>
 > :material-eye-arrow-right: 杨建荣，《[如何认识中国特色社会主义进入新时代](http://www.yqnews.com.cn/lt/201711/t20171126_473110.html)》，《阳泉日报》，阳泉新闻网。
 
 ---
@@ -118,7 +118,7 @@
 各方面相互贯通、促进，在整体上一致。
 
 > :material-eye-arrow-right: 《[习近平这样阐释新发展理念](http://www.xinhuanet.com/politics/xxjxs/2019-10/24/c_1125144509.htm)》，新华网。
-> 
+>
 > :material-eye-arrow-right: 《[十八届五中全会公报](http://www.xinhuanet.com/politics/2015-10/29/c_1116983078.htm)》。
 
 ## 5 政治建设：坚持走中国特色社会主义政治发展道路
@@ -257,9 +257,9 @@
   - 各方面制度更加成熟更加定型。
 
 > :material-eye-arrow-right: 《[十三五规划建议](http://news.cnr.cn/native/gd/20151103/t20151103_520379989.shtml)》（2015年）。
-> 
+>
 > :material-eye-arrow-right: 若干用户，《[全面建成小康社会的内涵是什么？](https://www.zhihu.com/question/348974164/answer/1571478667)》，知乎问答。
-> 
+>
 > :material-eye-arrow-right: 齐卫平，《[全面建成小康社会的深刻意蕴](http://www.xinhuanet.com/politics/2020-04/27/c_1125910050.htm)》，《北京日报》，新华网。
 
 ## 11 四个全面：全面深化改革的总目标
@@ -281,9 +281,9 @@
   <u>治理能力</u>指利用这套制度管理社会事务的能力，包括改革发展稳定、内政外交国防、治党治国治军等，将制度优势转化为管理国家的效能。
 
 > :material-eye-arrow-right: 《[中共中央关于全面深化改革若干重大问题的决定](http://www.audit.gov.cn/n4/n18/c4169/content.html)》（2013年）。
-> 
+>
 > :material-eye-arrow-right: 习近平，《[切实把思想统一到党的十八届三中全会精神上来](https://www.guancha.cn/politics/2014_01_01_196638.shtml)》，新华网，观察者网。
-> 
+>
 > :material-eye-arrow-right: 穆虹，《[正确把握全面深化改革的总目标和基本要求](http://www.qstheory.cn/dukan/qs/2018-09/17/c_1123429045.htm)》，求是网。
 
 ## 12 外交：构建人类命运共同体思想的科学内涵
@@ -312,7 +312,7 @@
 另外，明确这一点还表明了党承担使命的自觉和全面从严治党的决心。
 
 > :material-eye-arrow-right: 李海青，《[党的领导是中国特色社会主义的最本质特征](http://www.qstheory.cn/zhuanqu/bkjx/2019-07/03/c_1124705610.htm)》，《光明日报》，求是网。
-> 
+>
 > :material-eye-arrow-right: 丁俊萍，《[党的领导是中国特色社会主义最本质的特征和最大优势](http://www.qstheory.cn/dukan/hqwg/2017-01/09/c_1120271315.htm)》，《红旗文稿》，求是网。
 
 ## 参考

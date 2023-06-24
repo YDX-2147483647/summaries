@@ -153,7 +153,7 @@ $$
 $$
 \displaylines{
 \begin{split}
-    (X-\lambda I) \left(X+(b+\lambda)I \right) 
+    (X-\lambda I) \left(X+(b+\lambda)I \right)
     &= X^2 +bX -\lambda(b+\lambda)I \\
     &= -(\lambda^2+b\lambda+c)I.
 \end{split}\\
@@ -163,19 +163,19 @@ $$
 $$
 
 > 如果取$\lambda$为上述复数方程的根，则 $Y=X-\lambda I$ 满足方程
-> 
+>
 > $$
 > Y \left( Y+(b+2\lambda)I \right) = Y^2+(b+2\lambda)Y = O
 > $$
-> 
+>
 > 即消除了零次项。若$\lambda$是重根，则进一步变为 $Y^2=O$ 。
 >
 > 如果取 $\lambda = -\frac12 b$ 且不是重根，则 $Y=X-\lambda I$ 满足方程
-> 
+>
 > $$
 > Y^2 = (\cdots) I
 > $$
-> 
+>
 > 据说，这样的矩阵称为对合矩阵。
 
 另外，对于两个同型方阵 $A,B$ 有下式，这可用于解某些矩阵方程。

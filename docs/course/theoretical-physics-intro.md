@@ -90,7 +90,7 @@ $$
 $$
 
 > 证明：
-> 
+>
 > $$
 > \begin{split}
 >     \qty( \int\limits_{\R} \exp(-\frac{x^2}{2})\dd{x} )^2
@@ -100,7 +100,7 @@ $$
 >     &= 2\pi. \\
 > \end{split}
 > $$
-> 
+>
 > 又 $\int_{\R} \exp(-x^2/2) \dd{x} > 0$，故为 $\sqrt{2\pi}$。
 
 乘上 $x^n$：
@@ -122,7 +122,7 @@ $$
 $$
 
 > 证明：
-> 
+>
 > $$
 > \begin{aligned}
 >  \int\limits_\R x^n \exp(-\frac{x^2}{2}) \dd{x}
@@ -133,7 +133,7 @@ $$
 >     &= (n-1) \int\limits_\R x^{n-2} \exp(-\frac{x^2}{2}) \dd{x}.
 > \end{aligned}
 > $$
-> 
+>
 > （积分区间改为 $[0,+\infty)$ 也可）
 >
 > 另外，《新概念》上有不同的证明，利用 $\pdv{a} x^n e^{-ax^2} = -x^{n+2}e^{-ax^2}$。
@@ -208,9 +208,9 @@ $$
 #### 记号
 
 - 共轭上标 $*$，共轭转置上标 $\dagger$。例如 $i^* = -i$，$H^\dagger = H$。
-  
+
 - 实际的东西加上划线，$n$ 级近似项加 $n$ 个撇号，或者上标 $(n)$。例如
-  
+
   $$
   \begin{aligned}
   \bar H &= H + H'. \\
@@ -219,7 +219,7 @@ $$
   $$
 
 - 类似矩阵的东西用大写字母，类似向量或数的东西用小写字母。例如
-  
+
   $$
   \Phi = \begin{bmatrix}
   \varphi_1 & \varphi_2 & \varphi_3 & \cdots
@@ -314,12 +314,12 @@ $$
 - 对角线上是 $e’_i$。由于 $EC'-C'E$ 不提供对角线，所以 $e_i'$ 只来自 $\Phi^\dagger H\Phi$。因此 $e'_i = \varphi_i^\dagger H' \varphi_i$。
 
 - 除此以外全是零。$EC'-C'E$ 要抵消 $\Phi^\dagger H' \Phi$ 的非对角元，所以 $(e_i-e_j) c'_{ij} = - \varphi_i^\dagger H' \varphi_j$。
-  
+
   $$
   c'_{ij} = - \frac{\mel{\varphi_i}{H'}{\varphi_j}} {e_i - e_j}
   $$
-  
-  
+
+
   > 顺带得到 $c_{ij} = -c_{ji}^\dagger$，反 Hermitian。
 
 至此确定了 $E'$ 和 $C'$（除了对角线）。

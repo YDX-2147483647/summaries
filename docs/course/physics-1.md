@@ -10,17 +10,17 @@ relevant:
 $$
 \def\i{\mathrm{i}}
 \def\e{\mathrm{e}}
-% 
+%
 \def\d{\mathop{}\!\mathrm{d}}
 \def\dbar{\mathop{}\!\bar{} \hspace{-0.5em} \mathrm{d}}
 \def\const{\mathrm{Const.}}
-% 
+%
 \newcommand\SI[2]{#1\ \mathrm{#2}}  % siunitx (package)
-% 
+%
 \def\arsinh{\operatorname{arsinh}}
 \def\arcosh{\operatorname{arcosh}}
 \def\artanh{\operatorname{artanh}}
-% 
+%
 \def\R{\mathbb{R}}
 $$
 
@@ -66,7 +66,7 @@ $$
 $$
 
 > 另证：设概率密度函数为 $\operatorname{pdf} v$，累积分布函数为 $\operatorname{cdf} v$，则 $\frac{\d}{\d v} \operatorname{cdf} v = \operatorname{pdf} v$。于是
-> 
+>
 > $$
 > \begin{split}
 >     \overline{v^2}
@@ -81,7 +81,7 @@ $$
 >     &= \bar v^2
 > \end{split}
 > $$
-> 
+>
 >  这将加权平均转化成了普通算术平均。
 
 ### Maxwell 分布的特征速率
@@ -136,7 +136,7 @@ $$
 
 $$
 \begin{aligned}
-    W &= \nu R T \cdot \Delta\ln V 
+    W &= \nu R T \cdot \Delta\ln V
         = -\nu R T \cdot \Delta\ln p .\\
     Q &= W. \\
     \Delta S &= \frac QT
@@ -286,7 +286,7 @@ CoM = \frac{aE+bF+cG}{a+b+c}
 $$
 
 > 另：
-> 
+>
 > $$
 > \begin{split}
 >     CoM &= \frac{a\frac{B+C}2 + b\frac{C+A}2 + c\frac{A+B}2}{a+b+c} \\

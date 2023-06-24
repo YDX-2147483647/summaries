@@ -32,7 +32,7 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 ### 层次
 
 > :material-clock-edit-outline: 2023年5月24日。
-> 
+>
 > :material-eye-arrow-right: [2.1 TCP/IP 网络模型有哪几层？ | 小林coding](https://www.xiaolincoding.com/network/1_base/tcp_ip_model.html#%E5%BA%94%E7%94%A8%E5%B1%82)。
 
 1. 物理和数据链路：Wi-Fi、Ethernet、MAC等。
@@ -80,14 +80,14 @@ MCU 没有存储管理单元（memory management unit，MMU），一般无法安
 !!! info "优先级"
 
      除了`usr`、`sys`，所有模式都可由异常进入。这些异常按优先级从高到低如下。（此处优先数与优先级负相关）
-     
+
      1. `svc`（复位）
      2. `abt`（data abort，目标地址无法或禁止访问）
      3. `fiq`（传送数据）
      4. `irq`（外设）
      5. `abt`（所取指令保护而不允许，prefetch abort）
      6. `svc`（正常调用子程序，software interrupt，SWI）、`und`（undefined，译码时未定义或转给协处理器）
-   
+
      这和异常返回地址（`sub pc, lr, ○○`）一致。
 
      1. 复位不用返回。
@@ -184,7 +184,7 @@ Cache 对编程透明，和 CPU 在同一芯片，维护先入先出写缓存，
 > :material-eye-arrow-right: [Bitstring manipulation - Operators and built-in functions | ARMv6-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0419/c/Appendices/Pseudocode-Definition/Operators-and-built-in-functions/Bitstring-manipulation?lang=en).
 >
 > :material-eye-arrow-right: [Arithmetic - Operators and built-in functions | ARMv6-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0419/c/Appendices/Pseudocode-Definition/Operators-and-built-in-functions/Arithmetic).
-> 
+>
 > :material-eye-arrow-right: [Integer arithmetic | ARMv6-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0419/c/Application-Level-Architecture/Application-Level-Programmers--Model/ARM-processor-data-types-and-arithmetic/Integer-arithmetic?lang=en#:~:text=Pseudocode%20details%20of%20addition%20and%20subtraction%20In%20pseudocode%2C,bitstrings%2C%20the%20bitstrings%20must%20be%20identical%20in%20length).
 
 计算机用有限长 bit string 表示无符号或有符号整数，这是三个域。
@@ -197,7 +197,7 @@ Cache 对编程透明，和 CPU 在同一芯片，维护先入先出写缓存，
 !!! note "bit string → integer"
 
     对于整数`x`，`x<i>`（bit）定义如下。
-    
+
     > Let `y` be the unique integer in $[0, 2^{i+1}-1)$ that is congruent to `x` modulo $2^{i+1}$. Then `x<i>` is `'0'` if `y < 2^i` and `'1'` if `y >= 2^i`.
 
 带进位的加法在结果上等价于如下伪代码，在实现上只是简单的加法器。
@@ -352,21 +352,21 @@ fn add_with_carry(x: bits[N], y: bits[N], carry_in: bit) -> (bits[N], bit, bit) 
         | `LDR R0, [R1, #2]!`  | Pre-indexed     | R1 + 2  | R1 ≔ R1 + 2              |
         | `LDR R0, [R1], #2`   | Post-indexed    | R1      | R1 ≔ R1 + 2              |
         | `LDMIA R1!, {R2-R7}` | Pre-indexed     | R1      | R1 ≔ R1 + 1 (many times) |
-        
+
         Additionally, the offset (`#2` here) can also be `R2` or `R2, LSL #3` (R2 × 2³).
-  
+
   - SWP: Swap between registers and memory. (deprecated in ARMv6 and above)
-  
+
     ```assembly
     LDR <destination>, <source>, [<address>]
     ```
-  
+
     ```mermaid
     flowchart LR
         source[Rt2<br><small>source</small>] --> memory([memory]) --> destination[Rt1<br><small>destination</small>]
         address[Rn<br><small>address base</small>] -.-> memory
     ```
-  
+
     source ≠ address ≠ destination. (source can be the same register as destination.)
 
 ### 条件标志位
@@ -505,7 +505,7 @@ irq:
     //   lr, spsr, r0    ← r8 == sp_old - #60
     // 一共 (15 + 3) × 4 B = 72 B，所以减了 72。
     sub sp, sp, #72
-    
+
     // 1.1a 保存 r0 - r12——各模式（除了 FIQ）通用
     stmia sp, {r0 - r12}
     add r8, sp, #60  // 60 = 72 - (13 + 2) × 4
@@ -661,13 +661,13 @@ Linux 内核管理整个系统的进程、进程间通信（POSIX）、内存、
 - **进程间通信**
 
   在内核中开辟缓冲区，交换两个进程的用户区数据。
-  
+
   有以下几种通信方式。
 
   - 管道：最基本。无名管道仅限父子进程。
   - 共享内存：及时，同步难（互斥锁或信号量）。
   - 消息传递：信息量可任意大。
-  
+
   再具体一些其实如下。
 
   - 信号（signal）：如`SIGABRT`。软件模拟的中断。处理异步事件。

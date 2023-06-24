@@ -99,7 +99,7 @@ $$
 
 (The division is element-wise.)
 
-The multidimensional DFT expresses the input as a superposition of plane waves, or multidimensional sinusoids. It can be computed by the composition of a sequence of one-dimensional DFTs along each dimension. 
+The multidimensional DFT expresses the input as a superposition of plane waves, or multidimensional sinusoids. It can be computed by the composition of a sequence of one-dimensional DFTs along each dimension.
 
 时域因变量共轭对应频域两次因变量共轭、自变量反转，两次共轭抵消了。
 

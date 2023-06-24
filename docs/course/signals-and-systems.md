@@ -30,7 +30,7 @@ graph TB
     dn[离散非周期]
     cp[连续周期]
     cn[连续非周期]
-    
+
     dp --DFS--> dp
     dn --DTFT--> cp
     cp --FS--> dn
@@ -201,15 +201,15 @@ $$
 
 - 范围
   - 解微分方程时注意自变量的范围。（或乘上 $u$）
-  
+
   - 区分单边信号和双边信号。双边信号可能是 LTI 系统的**特征函数**。
-  
+
     例如，Laplace 变换涉及 $\sin(\omega_c t) u$ 时应考虑卷积，而涉及 $\sin(\omega_c t)$ 时应考虑频移定理。
-  
+
   - 注意系统函数的**<u>收敛域</u>**，尤其是 Laplace 变换的。
-  
+
   - 单边 Laplace 变换默认是右边。
-  
+
 - 注意 $\eval{\delta}_{x/a} = a\eval{\delta}_x$，$a > 0$。
 
 - 频域卷积定理、Parseval 定理、对偶性质有 $\boxed{\frac{1}{2\pi}}$。

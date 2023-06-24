@@ -166,7 +166,7 @@ $$
 \begin{aligned}
 \eval{\vb*{E}}_{\vb*{r}, t}
     &= \Re{ \eval{\vb*{E}}_\vb*{r} \exp(j\omega t) }. \\
-\pdv{t} \eval{\vb*{E}}_{\vb*{r}, t} 
+\pdv{t} \eval{\vb*{E}}_{\vb*{r}, t}
     &= \Re{ j\omega \eval{\vb*{E}}_\vb*{r} \exp(j\omega t) }. \\
 \end{aligned}
 $$
@@ -293,13 +293,13 @@ $$
   $\beta_{mn} \in \R$（$\gamma = j \beta_{mn}$）。高频短波（粒子性强）易传播。
 
   临界时 $\beta_{mn} = 0$，此时 $\omega$ 的值是截止角频率
-  
+
   $$
   \omega_{mn} = c \sqrt{{k_x}^2 + {k_y}^2}.
   $$
-  
+
   也可用 $\omega_{mn}$ 表示 $\beta_{mn}$：
-  
+
   $$
   \beta_{mn} = \frac1c \sqrt{ \omega^2 - {\omega_{mn}}^2 }
   = \frac{\omega}{c} \sqrt{1 - \qty(\frac{\omega_{mn}}{\omega})^2} .

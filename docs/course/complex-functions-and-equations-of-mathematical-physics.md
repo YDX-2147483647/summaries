@@ -73,7 +73,7 @@ $C: \abs{z} = 3$。
 $$
 \begin{split}
     &\oint\limits_C \frac{z^{15} \dd{z}} {\qty(z^2-1)^2 \qty(z^4+2)} \\
-    &= \oint\limits_{2C} \frac{u^{7} \dd{\frac u2}} {\qty(u-1)^2 \qty(u^2+2)} 
+    &= \oint\limits_{2C} \frac{u^{7} \dd{\frac u2}} {\qty(u-1)^2 \qty(u^2+2)}
         \qquad (u=z^2) \\
     &= \oint\limits_{C} \frac{u^{7} \dd{u}} {\qty(u-1)^2 \qty(u^2+2)} \\
     &= - 2\pi i\ \Res(\frac{u^7} {\qty(u-1)^2 \qty(u^2+2)}, \infty) \\
@@ -304,7 +304,7 @@ $$
 
 $$
 \begin{split}
-e^{2ikx} u' 
+e^{2ikx} u'
 &= 0+ \int\limits_0^x \eval{\qty(e^{2ikx}u')'}_\xi \dd{\xi} \\
 &= \int\limits_0^x e^{ik\xi} \eval{f}_\xi \dd{\xi}. \\
 \end{split}
@@ -365,7 +365,7 @@ $$
 $$
 
 > 二维：
-> 
+>
 > $$
 > \oint (\phi\grad\psi - \psi\grad\phi) \vdot \vb*{\dd l}
 >     = \iint (\phi\laplacian\psi - \psi\laplacian\phi) \dd{S}.
@@ -407,7 +407,7 @@ $$
 移项，
 
 $$
-\eval{u}_{\vb* x} 
+\eval{u}_{\vb* x}
 = \iiint \eval{G}_{\vb* x, \vb* x_0} \eval{F}_{\vb* x_0} \dd{V_0}
     + \oiint \eval{(u \grad_0 G - G \grad_0 u)}_{\vb* x_0} \vdot \dd{\vb* S_0}.
 $$
@@ -514,7 +514,7 @@ $$
 > 这里的性质只在 $n \in \N$ 时认真检验过。
 
 - 定义
-  
+
   $$
   x^2 J_n'' + x J_n' + (x^2-n^2) J_n = 0.
   $$
@@ -527,7 +527,7 @@ $$
 - 导数递推
 
   这两个是最基本的性质，可导出以下所有性质。
-  
+
   $$
   \begin{aligned}
   \dv{x}(x^n J_n) &= x^n J_{n-1}. \\
@@ -540,15 +540,15 @@ $$
   特别地，$\dv{x} J_0 = -J_1$，$\dv{x}(xJ_1) = xJ_0$。
 
 - 降阶
-  
+
   $$
   \frac{J_{n-1} + J_{n+1}}{2} = \frac{n J_n}{x}.
   $$
-  
+
   另外 $J_{n+1} - J_{n-1}= -2\dv{x} J_n$。
 
 - 近似
-  
+
   $$
   J_n + iY_n \approx \sqrt{\frac{2}{\pi x}} \exp(i \qty(x - \frac\pi4 - \frac{n\pi}{2})).
   $$
