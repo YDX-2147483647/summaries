@@ -28,7 +28,7 @@ $$
 
 > :material-clock-edit-outline: 2022年12月3日。
 >
-> :material-eye-arrow-right: [“信息论与编码”同名小节](../information-theory-and-coding/#平稳与遍历)。
+> :material-eye-arrow-right: [“信息论与编码”同名小节](./information-theory-and-coding.md#平稳与遍历)。
 
 - stationary but not ergodic (for any sense)：$Y$ 为一随机变量，$\eval{X}_t \equiv Y$。
 - wide-sense stationary but neither stationary (for any order) nor ergodic (for any sense)：$\Theta$ 服从 $\qty{0, \frac12\pi, \pi, \frac32\pi}$ 上的均匀分布，$\eval{X}_t = \cos(\omega t + \Theta)$，其中 $\omega > 0$。
@@ -714,7 +714,7 @@ $$
 
 > :material-clock-edit-outline: 2022年8月31日。
 >
-> :material-eye-arrow-right: [“数字信号处理”同名小节](../digital-signal-processing/#Fourier-参数之间的关系)。
+> :material-eye-arrow-right: [“数字信号处理”同名小节](./digital-signal-processing.md#Fourier-参数之间的关系)。
 
 频域可用频率 $f$ 或角频率 $\omega$ 度量。
 
