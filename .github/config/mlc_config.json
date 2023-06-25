@@ -1,0 +1,13 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^https://[^.]+\\.bit\\.edu\\.cn"
+        },
+        {
+            "pattern": "^https://www\\.jstor\\.org"
+        },
+        {
+            "pattern": "^http://opinion\\.people\\.com\\.cn"
+        }
+    ]
+}

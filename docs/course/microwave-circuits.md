@@ -150,7 +150,7 @@ $$
 
 其中 $u = q V / \qty(k_B T)$，有时还要除以一个（略大于一的）修正因子。
 
-> :material-eye-arrow-right: [`ECE531-Fall-19-Lecture-07-PN Junctions Electrostatics.pdf`](https://web.eecs.utk.edu/~azeumaul/courses/ee531/fall2019/lecturenotes/ECE531-Fall-19-Lecture-07-PN Junctions Electrostatics.pdf).
+> :material-eye-arrow-right: [`ECE531-Fall-19-Lecture-07-PN Junctions Electrostatics.pdf`](https://web.eecs.utk.edu/~azeumaul/courses/ee531/fall2019/lecturenotes/ECE531-Fall-19-Lecture-07-PN%20Junctions%20Electrostatics.pdf).
 
 这很大程度上是经验公式，不过也能推导。考虑突变结，采用耗尽层假设（空间电荷区多子耗尽，电荷密度分别等于杂质浓度，从而电荷分别均匀分布），电势在突变处两侧分别为半抛物线状分布。
 
