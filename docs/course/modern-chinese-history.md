@@ -223,4 +223,4 @@ relevant:
   - 习近平《[在纪念孙中山先生诞辰150周年大会上的讲话](http://cpc.people.com.cn/n1/2016/1111/c64094-28854791.html)》（2016年11月11日）。
 - 中编综述
   - 毛泽东《[论人民民主专政](https://www.chinacourt.org/article/detail/2003/09/id/80193.shtml)》（1949年6月30日）。
-  - 毛泽东《[唯心历史观的破产](http://www.cssn.cn/lsx/lishixuezhuanti/bwcxljsm/lxzyls/mzd/201801/t20180104_3803925.shtml)》（1949年9月16日）。
+  - 毛泽东《[唯心历史观的破产](https://www.marxists.org/chinese/maozedong/marxist.org-chinese-mao-19490916.htm)》（1949年9月16日）。
