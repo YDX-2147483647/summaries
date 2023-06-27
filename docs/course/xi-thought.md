@@ -68,7 +68,7 @@
 
 > :material-file-move-outline: 《十九大报告·一、过去五年的工作和历史性变革》结尾。
 >
-> :material-eye-arrow-right: 张银霞，《[如何理解“中国特色社会主义进入新时代”](http://www.qstheory.cn/zhuanqu/bkjx/2017-12/01/c_1122044946.htm)》，《宁夏日报》，求是网。
+> :material-eye-arrow-right: 张银霞，《[如何理解“中国特色社会主义进入新时代”](https://www.nxnews.net/sz/gdjn/201712/t20171201_4421466.html)》，《宁夏日报》，求是网、宁夏新闻网。
 >
 > :material-eye-arrow-right: 杨建荣，《[如何认识中国特色社会主义进入新时代](http://www.yqnews.com.cn/lt/201711/t20171126_473110.html)》，《阳泉日报》，阳泉新闻网。
 
@@ -317,7 +317,7 @@
 
 ## 参考
 
-- 《[十九大报告：决胜全面建成小康社会，夺取新时代中国特色社会主义伟大胜利](http://www.qstheory.cn/llqikan/2017-12/03/c_1122049424.htm)》。
+- 《[十九大报告：决胜全面建成小康社会，夺取新时代中国特色社会主义伟大胜利](https://china.huanqiu.com/article/9CaKrnK5Acp)》。
 - 《[在庆祝改革开放40周年大会上的讲话](http://www.xinhuanet.com/politics/leaders/2018-12/18/c_1123872025.htm)》。
 
 # 后备箱
