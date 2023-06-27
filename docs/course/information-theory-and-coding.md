@@ -144,7 +144,7 @@ $\implies$ 平稳序列的条件熵（不严格地）递减。
 
 $I(X;Y |Z)$ is not always less than $I(X;Y)$ — The *area* of $X \cap Y \cap Z$ can be negative.
 
-[Chapter 2: Entropy and Mutual Information (cs.uic.edu)](https://www.cs.uic.edu/pub/ECE534/WebHome/ch2.pdf), page 28; Mackay’s textbook:
+[Chapter 2: Entropy and Mutual Information (cs.uic.edu)](https://www3.cs.uic.edu/pub/ECE534/WebHome/ch2.pdf), page 28; Mackay’s textbook:
 
 > (The Venn diagram) correctly shows relationship such as
 >
