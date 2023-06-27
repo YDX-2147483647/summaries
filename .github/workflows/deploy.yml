@@ -8,6 +8,7 @@ on:
       - '.vscode/**'
       - '.github/**'
       - 'scripts/**'
+      - '.pre-commit-config.yaml'
 permissions:
   contents: write
 jobs:
