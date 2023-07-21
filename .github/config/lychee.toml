@@ -2,14 +2,20 @@ cache = true
 max_cache_age = "2d"
 
 exclude = [
-  '^https://[^.]+\.bit\.edu\.cn',
-  '^https://www\.jstor\.org',
-  '^http://opinion\.people\.com\.cn',
-  ".*'feed_rss_(updated|created).xml'.*",
+  # Domain
+  '^https://www\.jstor\.org', # 403 Forbidden
+  '^https://[^.]+\.bit\.edu\.cn', # Too far
+  '^http://opinion\.people\.com\.cn', # Too far
+
+  # URL
+  '^https://www3\.cs\.uic\.edu/pub/ECE534/WebHome/ch2\.pdf$', # Expired certificate
+
+  # MkDocs, etc
+  "'feed_rss_(updated|created).xml'", # To be generated
   # {{ base_url }}
-  'file:///.*(%7B){2}(%20)*base_url(%20)*(%7D){2}',
+  '^file:///.*(%7B){2}(%20)*base_url(%20)*(%7D){2}$',
   # {{ … | url }}
   # Remap with name capturing is implemented but not released yet.
   # https://github.com/lycheeverse/lychee/pull/1133
-  '''file:///.*(%7B){2}(%20)*'(?P<url>.+)'(%20)*\|(%20)*url(%20)*(%7D){2}''',
+  '''^file:///.*(%7B){2}(%20)*'(?P<url>.+)'(%20)*\|(%20)*url(%20)*(%7D){2}$''',
 ]
