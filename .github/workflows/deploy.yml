@@ -28,4 +28,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: ts-graphviz/setup-graphviz@v1
       - run: just bootstrap
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs gh-deploy --force --no-history
