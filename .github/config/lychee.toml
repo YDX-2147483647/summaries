@@ -8,7 +8,11 @@ exclude = [
   '^http://opinion\.people\.com\.cn', # Too far
 
   # URL
-  '^https://www3\.cs\.uic\.edu/pub/ECE534/WebHome/ch2\.pdf$', # Expired certificate
+  # Expired certificate
+  '^https://www3\.cs\.uic\.edu/pub/ECE534/WebHome/ch2\.pdf$',
+  '^https://eeweb\.engineering\.nyu\.edu/iselesni/EL713/zoom/linphase\.pdf$',
+  # 401 Unauthorized from time to time
+  '^https://ai-master\.gitbooks\.io/svm/content/lagrange-multiplier-and-dual-formulation\.html$',
 
   # MkDocs, etc
   "'feed_rss_(updated|created).xml'", # To be generated
