@@ -13,6 +13,7 @@ mkdocs := python + " -m mkdocs"
 bootstrap:
     {{ pip }} install mkdocs-material --upgrade
     {{ pip }} install mdx_truly_sane_lists mkdocs-rss-plugin mkdocs-redirects --upgrade
+    {{ pip }} install jieba  # 搜索中文
     dot -V  # Graphviz / dot is also needed for hooks/relationship.py. https://www.graphviz.org/download/
     {{ pip }} install graphviz --upgrade
 

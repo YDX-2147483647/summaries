@@ -19,10 +19,13 @@ theme:
   custom_dir: overrides
   features:
     - navigation.instant
+    - navigation.prune
     - navigation.top
     - navigation.tabs
     - content.action.view
     - content.action.edit
+    - search.highlight
+    - search.share
   logo: assets/logo.svg
   favicon: assets/logo.png
   # U+1F5C3 (🗃️) from [twemoji](https://twemoji.twitter.com/).
@@ -55,8 +58,10 @@ markdown_extensions:
   - mdx_truly_sane_lists
 
 plugins:
-  # If no plugins entry is set, MkDocs enables search by default, otherwise I have to declare it explicitly.
-  search: {}
+  # Default plugins
+  search:
+    separator: '[\s\u200b\-]'
+    # 零宽空格用于中文分词
 
   # Extra plugins
   rss:
