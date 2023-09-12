@@ -53,9 +53,29 @@ relevant:
 
 ## 4 信号检测、匹配滤波、雷达方程
 
+### 模糊
+
 > :material-clock-edit-outline: 2022年4月17日。
 
 距离“不模糊”指回波周期性不会有影响。
+
+### 雷达方程
+
+> :material-clock-edit-outline: 2023年9月12日。
+
+信号：
+
+- Power $P_\text{transmit}$。
+- Gain $G_\text{transmit}$，由方向特性决定。
+- $\sigma / \qty(4 \pi R^2)$，其中 $\sigma$ 是 radar cross section。
+- $A / \qty(4\pi R^2)$，其中 $A$ 是雷达天线面积。另外 $A = G_\text{receive} \times \lambda^2 / \qty(4\pi)$。
+
+噪声：
+
+- $k_B T$。
+- Band width $B$。
+
+另外还有损耗 $L$。
 
 ## 10 代价函数匹配激活函数
 
