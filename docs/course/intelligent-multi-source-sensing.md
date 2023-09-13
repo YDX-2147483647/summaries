@@ -6,6 +6,10 @@ relevant:
 
 # 智能多源感知
 
+$$
+\def\R{\mathbb{R}}
+$$
+
 ## 3 距离分辨率和角分辨率
 
 > :material-clock-edit-outline: 2022年3月17日。
@@ -76,6 +80,67 @@ relevant:
 - Band width $B$。
 
 另外还有损耗 $L$。
+
+### Stationary Phase Approximation
+
+> :material-clock-edit-outline: 2023年9月13日。
+>
+> :material-eye-arrow-right: [Stationary phase approximation - Wikipedia](https://en.wikipedia.org/w/index.php?title=Stationary_phase_approximation&oldid=1153005878).
+>
+> :material-eye-arrow-right: [Via stationary phase method - Chirp spectrum - Wikipedia](https://en.wikipedia.org/w/index.php?title=Chirp_spectrum&oldid=1150891958#Via_stationary_phase_method).
+
+若 $x \mapsto \theta = K \frac{x^2}{2} + o(x^2)$ 且 $x \mapsto A$ 缓变，则定积分
+
+$$
+\int\limits_\R A e^{j \theta} \dd{x}
+$$
+
+可近似计算。
+
+- $x \to 0$ 时，$\dv{\theta}{x} \approx 0$，被积函数近似同相，能积累起来。
+- 其余 $x$ 时，$\dv{\theta}{x}$ 较大，被积函数相位变化剧烈，难以积累，近似为零。
+
+因此原积分近似化为
+
+$$
+\begin{split}
+& \int\limits_\R \eval{A}_{x=0} e^{j \theta} \dd{x} \\
+&\approx \eval{A}_{x=0} \int\limits_\R e^{j \theta} \dd{x} \\
+&\approx \eval{A}_{x=0} \int\limits_\R e^{j K \frac{x^2}{2}} \dd{x}. \\
+\end{split}
+$$
+
+现在计算剩下的定积分。考虑解析函数 $e^{- z^2 / 2}$ 在辐角属于 $\qty[0, \frac\pi4]$ 扇形的边界上的围道积分，结合 $\int_{\R^+} e^{-x^2/2} \dd{x} = \sqrt{\pi / 2}$，可得
+
+$$
+\int\limits_\R e^{j K \frac{x^2}{2}} \dd{x}
+= \sqrt{\frac{2\pi j}{K}}.
+$$
+
+!!! note "算术平方根"
+
+    规定 $\sqrt{j}$ 表示 $e^{j \pi / 4}$。
+
+计算啁啾信号的频谱时，积分变量是 $t$，定积分带参数 $\omega$。
+
+- $t \mapsto A$ 是门函数，确实缓变（除了个别点）。
+
+- $t \mapsto \theta$ 不符合原来的要求，但它是二次函数，总存在唯一驻点 $t_0$（它含 $\omega$）。在 $t_0$ 处按幂级数展开：
+
+  $$
+  \theta = \eval{\theta}_{t_0} + \eval{\dv[2]{\theta}{t}}_{t_0} \times \frac{(t-t_0)^2}{2} + o\qty((t-t_0)^2).
+  $$
+
+  这就可以处理了。
+
+最终可知啁啾信号的频谱与 $\operatorname{sinc}$ 的类似，但相位没对齐，而是按 $\omega \mapsto t_0 \mapsto \eval{\theta}_{t_0}$ 变化。具体来说，若 $t \mapsto \theta = \qty(\alpha + \beta t + \gamma \frac{t^2}{2}) - \omega t$，则
+
+$$
+\omega \mapsto t_0 \mapsto \eval{\theta}_{t_0}
+= a - \frac{(\beta-\omega)^2}{2 \gamma},
+$$
+
+还是二次函数。
 
 ## 10 代价函数匹配激活函数
 
