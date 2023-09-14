@@ -10,6 +10,97 @@ $$
 \def\R{\mathbb{R}}
 $$
 
+## 1 雷达系统与信号模型
+
+### Doppler 效应
+
+> :material-clock-edit-outline: 2023年9月14日。
+
+始终采用雷达参考系。
+
+设 $t_\text{transmit}$ 到 $t'_\text{transmit}$ 发射，$t_\text{receive}$ 到 $t'_\text{receive}$ 接收到回波。
+
+!!! note "四个时刻，两种增量"
+
+    四个时刻的先后顺序如下，注意 $t_r, t'_t$ 顺序不确定。
+
+    ```mermaid
+    flowchart LR
+        t_t[t<sub>transmit</sub>]
+        t_r[t<sub>receive</sub>]
+        t_t_[t'<sub>transmit</sub>]
+        t_r_[t'<sub>receive</sub>]
+
+        t_t --> t_r -.-> t_r_
+        t_t -.-> t_t_ --> t_r_
+    ```
+
+    可见这里有两种增量：起止（虚线）、收发（实线）。
+
+    $$
+    \begin{aligned}
+      \Delta (\cdot) &\coloneqq (\cdot)' - (\cdot). \\
+      \eval{(\cdot)}_t^r &\coloneqq (\cdot)_\text{receive} - (\cdot)_\text{transmit}. \\
+    \end{aligned}
+    $$
+
+由物理过程，$2 r = c\eval{t}_t^r$，其中 $r$ 是目标反射这束光时的位置，即 $\frac{t_r + t_t}{2}$ 时刻的位置。考查起止增量：
+
+$$
+\frac{2 \Delta r}{c} = \Delta \qty(\eval{t}_t^r) = \eval{\qty(\Delta t)}_t^r.
+$$
+
+注意 $\eval{\qty(\Delta t)}_t^r \neq 0$ 正是 Doppler 效应——接收的光与发射的不同，它刚好反映 Doppler 效应对周期 $T$ 的影响。考查相对变化：
+
+$$
+\frac{\eval{T}_t^r}{T_t}
+= \frac{\eval{\qty(\Delta t)}_t^r}{\Delta t_t}
+= \frac{2}{c} \frac{\Delta r}{\Delta t_t}
+\approx \frac{2}{c} v,
+$$
+
+其中 $v$ 是目标的速度。“$\approx$”是因为 $v$ 应当对应 $t_t$ 的起止增量，而 $\Delta r$ 对应 $\frac{t_r + t_t}{2}$ 的起止增量，多了 $\frac12 \Delta \eval{t}_t^r$。**走停假设**认为这可以忽略。
+
+另外 $T$ 的偏移与频率 $f$ 的偏移紧密相关。$T f \equiv 1$，则 $\dd{f} / f = \dd \ln f = - \dd \ln T = - \dd{T} / T$。故 Doppler 效应不太显著（$v \ll c$）时，Doppler 频偏约等于
+
+$$
+- f \times \frac{2}{c}v = - \frac{2 v}{\lambda}.
+$$
+
+!!! note "只差相对论效应的严格版本"
+
+    $\Delta r$ 对应时间与 $v$ 对应时间之比
+
+    $$
+    \frac{\Delta \eval{\frac{t_r + t_t}{2}}_t^r}{\Delta t_t}
+    = \frac{\frac{\Delta r}{v}}{\frac{\Delta r}{v} - \frac{\Delta r}{c}}
+    = \frac{1}{1 - \frac{v}{c}}.
+    $$
+
+    因此 Doppler 效应的周期相对变化
+
+    $$
+    \frac{\eval{T}_t^r}{T_t}
+    = \frac{2v}{c} \times \frac{1}{1 - \frac{v}{c}}.
+    $$
+
+    再看第二处近似。由 $T f \equiv 1$，不用 $\dd \ln$ 近似，严格来说是
+
+    $$
+    \frac{\eval{f}_t^r}{f_t}
+    = - \frac{\eval{T}_t^r / T_t}{1 + \eval{T}_t^r / T_t}
+    = - \frac{2v}{c} \times \frac{1}{1 + \frac{v}{c}}.
+    $$
+
+    代入得
+
+    $$
+    \eval{f}_t^r
+    = - \frac{2 v}{\lambda_t} \times \frac{1}{1 + \frac{v}{c}}.
+    $$
+
+    ——“走停”恐怕并不准确，这种近似只要求 $v \ll c$（从而 $\Delta r \approx v \Delta t$）和 $v$ 恒定，而与 $\Delta r \lesseqgtr \lambda$ 之类的无关。
+
 ## 3 距离分辨率和角分辨率
 
 > :material-clock-edit-outline: 2022年3月17日。
