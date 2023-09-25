@@ -118,4 +118,4 @@ $$
 \geq \frac{1}{- \expect \pdv[2]{\ln p}{\theta}}.
 $$
 
-Moreover, the two sides are equal if and only if $\qty(\hat\theta - \theta) \parallel \pdv{\theta}\ln p$ with respect to $\xi$. In other words, exists a function $\theta \mapsto \lambda$, such that $\pdv{\theta} \ln p = \lambda \qty(\hat\theta - \theta)$ (assuming $\hat\theta \not\equiv \theta$). Note that in this case, $1 = \expect\abs{\hat\theta - \theta}^2 \times \expect\abs{\lambda \qty(\hat\theta - \theta)}^2$, therefore $\expect\abs{\hat\theta - \theta}^2 = 1 / \abs{\lambda}$.
+Moreover, the two sides are equal if and only if $\qty(\hat\theta - \theta) \parallel \pdv{\theta}\ln p$ with respect to $\xi$. In other words, there exists a function $\theta \mapsto \lambda$, such that $\pdv{\theta} \ln p = \lambda \qty(\hat\theta - \theta)$ (assuming $\hat\theta \not\equiv \theta$). Note that in this case, $1 = \expect\abs{\hat\theta - \theta}^2 \times \expect\abs{\lambda \qty(\hat\theta - \theta)}^2$, therefore $\expect\abs{\hat\theta - \theta}^2 = 1 / \abs{\lambda}$.
