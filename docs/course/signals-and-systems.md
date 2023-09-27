@@ -122,7 +122,7 @@ graph LR
 |         $\alpha^nu$         |        $\frac{1}{1-\alpha/z}$         | $\abs{z} > \abs{\alpha}$ |
 | $-\alpha^n \eval{u}_{-n-1}$ |               （同上）                | $\abs{z} < \abs{\alpha}$ |
 |     $(n+1) \alpha^n u$      |    $\frac{1}{\qty(1-\alpha/z)^2}$     | $\abs{z} > \abs{\alpha}$ |
-|     $(n+1) \alpha^n u$      | $\frac{\alpha z}{\qty(z - \alpha)^2}$ |         （同上）         |
+|     $n \alpha^n u$      | $\frac{\alpha z}{\qty(z - \alpha)^2}$ |         （同上）         |
 
 ### 一些容易忘的性质
 
