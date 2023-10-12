@@ -5,10 +5,56 @@ relevant:
 
 # Statistical Digital Signal Processing
 
+!!! info "课程名称"
+
+    本课有多个名字。
+
+    - 随机数字信号处理
+    - Statistical Digital Signal Processing
+    - Random Digital Signal Processing
+
 $$
 \DeclareMathOperator\expect{\mathbb{E}}
+\DeclareMathOperator\variant{\mathbb{V}}
 \def\R{\mathbb{R}}
 $$
+
+## §1 Performance
+
+### Criteria of performance
+
+> :material-clock-edit-outline: 2023年10月12日。
+>
+> :material-eye-arrow-right: [“概率论与数理统计”讨论的无偏与相合](./probability-and-statistics.md#无偏与相合)。
+
+Fisher 拨开迷雾，驱散阴影，指明了评价估计的标准：
+
+- Unbiased 无偏——期望
+- Consistent 相合——依概率收敛
+- Effective 有效——方差
+
+本课讨论了方差的下界，让“有效”有了绝对意义。此外还增加了以下标准：
+
+- Valid 合法——可操作
+
+  严格来说这不算评价标准，只是明确讨论范围，不许用未知信息耍赖。
+
+- Sufficient 充分——信息
+
+## §2 Minimum variance unbiased estimation
+
+### Error, variance, and bias
+
+> :material-clock-edit-outline: 2023年10月12日。
+
+$\theta$ is a parameter. $\hat \theta$ is a random variable aiming at estimating $\theta$.
+
+$$
+\expect(\hat\theta - \theta)^2
+= \variant \hat\theta + (\expect\hat\theta - \theta)^2.
+$$
+
+:material-eye-arrow-right: [“人工智能导论”类似讨论](./artificial-intelligence.md#bias-vs-variance)。
 
 ## §3 Cramér–Rao lower bound
 
