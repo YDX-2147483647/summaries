@@ -81,6 +81,10 @@ $$
 
     Product ($\times$) takes precedence over expectation ($\expect$), and the latter is over sum ($+$). 而且 $\expect(X \expect Y) \equiv (\expect X) \expect Y$。
 
+!!! note "期望"
+
+    这里求的是给定 $\theta$ 下的条件期望。
+
 $\pdv{\theta}$ 与 $\int \dd{\xi}$ 总能交换吗？这是累次极限换序问题。“This is generally true except when the domain of the PDF for which it is nonzero depends on the unknown parameter.”
 
 ### Regular
@@ -98,6 +102,16 @@ $$
 &= 0.
 \end{split}
 $$
+
+To be rigorous, this is a corollary of the regular conditions, rather than the reverse.
+
+:material-eye-arrow-right: [Fisher information - Wikipedia](https://en.wikipedia.org/wiki/Fisher_information)
+
+*Real* regular conditions:
+
+- $\pdv{\theta} p$ exists almost everywhere.
+- The support of $p$ does not depend on $\theta$.
+- $\pdv{\theta} \int p \dd{\xi}$ exists.
 
 ### Yet another form of Cauchy–Schwartz inequality
 
@@ -138,6 +152,8 @@ $$
 
     另一角度是假装参数是 $\alpha$，当成直接估计，把上式所有 $\theta$ 相关量替换为 $\alpha$ 的，再利用 $\pdv{\alpha} = \pdv{\theta}{\alpha} \pdv{\theta}$ 转为原来那样 $\theta$ 的表达式。
 
+    若 $g$ 是一次函数，MVU 变换后还是 MVU；即使不是一次函数，当 $N \to +\infty$ 时，PDF 会按大数定律集中，若 $g$ 可微，则它在局部仍是一次函数——statistical linear (affine)。
+
 ### The theorem
 
 $$
@@ -177,3 +193,7 @@ $$
 $$
 
 Moreover, the two sides are equal if and only if $\qty(\hat\theta - \theta) \parallel \pdv{\theta}\ln p$ with respect to $\xi$. In other words, there exists a function $\theta \mapsto \lambda$, such that $\pdv{\theta} \ln p = \lambda \qty(\hat\theta - \theta)$ (assuming $\hat\theta \not\equiv \theta$). Note that in this case, $1 = \expect\abs{\hat\theta - \theta}^2 \times \expect\abs{\lambda \qty(\hat\theta - \theta)}^2$, therefore $\expect\abs{\hat\theta - \theta}^2 = 1 / \abs{\lambda}$.
+
+!!! info "最大似然"
+
+    如果 $\pdv{\theta} \ln p = \lambda \qty(\hat\theta - \theta)$，那么 $\hat\theta$ 最大似然。
