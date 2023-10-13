@@ -58,7 +58,7 @@ $$
 
 ## §3 Cramér–Rao lower bound
 
-> :material-clock-edit-outline: 2023年9月18日。
+> :material-clock-edit-outline: 2023年9月18日，2023年10月13日。
 
 随机变量 $\xi$ 服从参数为 $\theta$ 的分布，概率密度 $p$ 是 $\xi, \theta$ 的函数。Likelihood is $\theta \mapsto p$ when $\xi$ is given as a sample.
 
@@ -81,7 +81,7 @@ $$
 
     Product ($\times$) takes precedence over expectation ($\expect$), and the latter is over sum ($+$). 而且 $\expect(X \expect Y) \equiv (\expect X) \expect Y$。
 
-$\pdv{\theta}$ 与 $\int \dd{\xi}$ 总能交换吗？这是累次极限换序问题。
+$\pdv{\theta}$ 与 $\int \dd{\xi}$ 总能交换吗？这是累次极限换序问题。“This is generally true except when the domain of the PDF for which it is nonzero depends on the unknown parameter.”
 
 ### Regular
 
@@ -132,6 +132,12 @@ $$
 1 = \expect \qty(\hat\theta - \theta) \pdv{\ln p}{\theta}.
 $$
 
+!!! tip "间接估计"
+
+    有时并不想估计 $\theta$，而想用 $\hat\alpha$ 估计 $\alpha = g(\theta)$。这时 $\expect\pdv{\theta}{\theta}$ 变为 $\expect\pdv{\alpha}{\theta} = \pdv{\alpha}{\theta}$。
+
+    另一角度是假装参数是 $\alpha$，当成直接估计，把上式所有 $\theta$ 相关量替换为 $\alpha$ 的，再利用 $\pdv{\alpha} = \pdv{\theta}{\alpha} \pdv{\theta}$ 转为原来那样 $\theta$ 的表达式。
+
 ### The theorem
 
 $$
@@ -156,6 +162,12 @@ $$
 &= - \expect \pdv[2]{\ln p}{\theta}. \\
 \end{split}
 $$
+
+!!! note "这一步的意义"
+
+    这一步没有意义，变换前后都是含 $\theta$ 而不含 $\xi$ 的数。之所以变一下，是因为一些情况下二阶导数天然不含 $\xi$，从而 $\expect$ 更容易计算。
+
+    由变换前的形式，其相反数恒非负；由变换后的形式，增多相互独立的 $\xi$ 时可加（将 $p$ 换为 $p_1 \times p_2$，值是 $p_1,p_2$ 对应值之和）。如此种种，人们把它的相反数称作 Fisher information。
 
 To wrap up,
 
