@@ -895,7 +895,7 @@ $$
 \end{split}
 $$
 
-补上虚部，再由 Cachy – Schwartz 不等式，
+补上虚部，再由 Cachy – Schwarz 不等式，
 
 $$
 \begin{split}

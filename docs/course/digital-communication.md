@@ -528,7 +528,7 @@ r
 &= \frac {\qty(H^*,\ S e^{j\omega t_0})^2} {\frac{n_0}{2} \qty(H,H)}
     \qq{(inverse Fourier transform)} \\
 &\leq \frac {\qty(H^*,\ H^*) \times \qty(S e^{j\omega t_0},\ S e^{j\omega t_0})} {\frac{n_0}{2} \qty(H,H)}
-    \qq{(Cauchy–Schwartz inequality)} \\
+    \qq{(Cauchy–Schwarz inequality)} \\
 &= \frac {(H,H) \times (S,S)} {\frac{n_0}{2} \qty(H,H)} \\
 &= \frac{(S,S)}{n_0 / 2}
 \eqqcolon \frac{E}{n_0/2}.

@@ -113,7 +113,7 @@ To be rigorous, this is a corollary of the regular conditions, rather than the r
 - The support of $p$ does not depend on $\theta$.
 - $\pdv{\theta} \int p \dd{\xi}$ exists.
 
-### Yet another form of Cauchy–Schwartz inequality
+### Yet another form of Cauchy–Schwarz inequality
 
 对于 $\xi$ 的两个函数 $X,Y$，
 
@@ -123,7 +123,7 @@ $$
 
 Because $(X, Y) \mapsto \expect \bar{X} Y$ is an inner product.
 
-另外这也相当于对函数 $\xi \mapsto \sqrt{p} X$ 和 $\xi \mapsto \sqrt{p} Y$ 应用定积分形式的 Cauchy–Schwartz 不等式。
+另外这也相当于对函数 $\xi \mapsto \sqrt{p} X$ 和 $\xi \mapsto \sqrt{p} Y$ 应用定积分形式的 Cauchy–Schwarz 不等式。
 
 ### Unbiased
 
