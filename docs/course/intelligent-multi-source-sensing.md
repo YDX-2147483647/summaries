@@ -235,7 +235,7 @@ $$
 
 ## 10 代价函数匹配激活函数
 
-> :material-clock-edit-outline: 2022年5月3日。
+> :material-clock-edit-outline: 2022年5月3日，2023年10月15日。
 
 避免导数太小。
 
@@ -275,10 +275,32 @@ $$
     &= \frac{a_\mu - y_\mu}{a_\mu - \frac{a_\mu}{\sum \exp z} \times \exp z_\mu} \\
     &= \frac{a_\mu - y_\mu}{a_\mu (1 - a_\mu)} \\
     &= \begin{cases}
-        - \frac{1}{1-a_\mu}, & y_\mu = 0. \\
+        \frac{1}{1-a_\mu}, & y_\mu = 0. \\
         - \frac{1}{a_\mu}, & y_\mu = 1.
     \end{cases}
 \end{split}
 $$
 
 若忽略 $y=0$，则对应对数似然代价函数 $y \log a$。（其它输出不会放任自流，有其它样本限制着。）
+
+!!! tip "交叉熵和 soft-max"
+
+    $y$ 是 one-hot 向量，$a_i = \exp z_i / \sum_j \exp z_j$，那么
+
+    $$
+    \begin{split}
+      J &\coloneqq -\sum_i y_i \ln a_i \\
+      &= \sum_i y_i \qty(\ln \sum_j \exp z_j - z_i) \\
+      &= \sum_i \qty(y_i \ln \sum_j \exp z_j) - \sum_i y_i z_i \\
+      &= \qty(\sum_i y_i) \ln \sum_j \exp z_j - \sum_i y_i z_i \\
+      &= \ln \sum_j \exp z_j - \sum_i y_i z_i. \\
+    \end{split}
+    $$
+
+    从而
+
+    $$
+    \pdv{J}{z_i}
+    = \frac{\exp z_i}{\sum_j \exp z_j} - y_i
+    = a_i - y_i.
+    $$
