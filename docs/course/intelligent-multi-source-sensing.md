@@ -196,7 +196,7 @@ $$
 $$
 \begin{split}
 & \int\limits_\R \eval{A}_{x=0} e^{j \theta} \dd{x} \\
-&\approx \eval{A}_{x=0} \int\limits_\R e^{j \theta} \dd{x} \\
+&= \eval{A}_{x=0} \int\limits_\R e^{j \theta} \dd{x} \\
 &\approx \eval{A}_{x=0} \int\limits_\R e^{j K \frac{x^2}{2}} \dd{x}. \\
 \end{split}
 $$
