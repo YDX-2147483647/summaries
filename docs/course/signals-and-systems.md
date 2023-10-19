@@ -128,8 +128,26 @@ graph LR
 
 > :material-clock-edit-outline: 2022年6月19日。
 
-- 对偶：$\eval{X}_t \leftrightarrow 2\pi \eval{x}_{-\omega}$
+- 对偶：$\eval{X}_t \leftrightarrow 2\pi \eval{x}_{-\omega}$ 或 $\eval{X^*}_t \leftrightarrow 2\pi \eval{x^*}_\omega$。
 - Z 域尺度变换、频移：$a^n x \leftrightarrow \eval{X}_{z/a}$。（ROC 会变化）
+
+### Fourier 变换与 Laplace 变换
+
+> :material-clock-edit-outline: 2023年10月19日。
+
+$j \omega = \lim_{\Re\ s \to 0} s$。
+
+例如 $u$ 的 Fourier 变换是 $\frac{1}{j\omega} + \pi \delta$，Laplace 变换是 $\frac{1}{s}$。$\Im\ s \neq 0$ 的常规区域自不必说，$s \to 0$ 时 $\frac{1}{s} \to \infty$，但这是 $\delta$ 吗？确实如此。设 $\sigma \coloneqq \Re\ s > 0$，则
+
+$$
+\begin{split}
+\int_\R \frac{\dd{\omega}}{s}
+&= \int_{\sigma + j\R} \frac{\dd{s}}{s} \\
+&= \eval{\ln s}_{\sigma-j\infty}^{\sigma+j\infty} \\
+&\equiv \frac\pi2 - \qty(- \frac\pi2) \\
+&= \pi. \\
+\end{split}
+$$
 
 ## Z 变换
 
