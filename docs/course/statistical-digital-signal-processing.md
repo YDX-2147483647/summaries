@@ -336,7 +336,7 @@ Counterexamples:
 
 ### Rao–Blackwell–Lehmann–Scheffé theorem
 
-> :material-clock-edit-outline: 2023年10月25日。
+> :material-clock-edit-outline: 2023年10月25日，2023年10月29日。
 
 In fact there are two independent theorems.
 
@@ -392,3 +392,11 @@ Let $\expect \mapsto \expect(\cdot|T)$, $X \mapsto \delta$, $m \mapsto \theta$, 
 Besides, the inequality is also implied by Jensen's inequality, yielding out a more general Rao–Blackwell theorem where the square function can be changed to any convex “loss” function.
 
 The **third** part is because $\expect \delta' = \expect \expect(\delta|T) = \expect \delta$.
+
+#### Lehmann–Scheffé theorem
+
+Suppose $\psi$ is another candidate unbiased estimator. By Rao–Blackwell theorem, $\psi' := \expect(\psi|T)$ is a valid unbiased estimator with smaller $\variant$.
+
+Note that both $\delta$ and $\psi'$ are functions of $T$, so is $\delta - \psi'$, and $\expect(\delta - \psi') \equiv 0$ becaus they are both unbiased.
+
+As $T$ is complete for $\theta$, $\expect(\delta - \psi') \equiv 0$ implies $\delta \equiv \psi'$ almost surely. Therefore, $\variant \delta = \variant \psi' \leq \variant \psi$.
