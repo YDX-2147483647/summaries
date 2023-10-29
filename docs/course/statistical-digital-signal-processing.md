@@ -290,19 +290,49 @@ The conditions for equality are $(\hat{\alpha}_a - \alpha_a) \parallel \pdv{\ln 
 > :material-eye-arrow-right: [Lecture 1 - SF3961 Graduate Course in Statistical Inference](https://www.math.kth.se/matstat/gru/Statistical%20inference/Lecture1_2015.pdf).
 >
 > :material-eye-arrow-right: [Lecture 4 - SF3961 Graduate Course in Statistical Inference](https://www.math.kth.se/matstat/gru/Statistical%20inference/Lecture2_2015.pdf).
+>
+> :material-eye-arrow-right: [exponential family - Are complete statistics always sufficient? - Cross Validated](https://stats.stackexchange.com/questions/187869/).
+>
+> :material-eye-arrow-right: [Is a minimal sufficient statistic also a complete statistic - Cross Validated](https://stats.stackexchange.com/questions/272531/is-a-minimal-sufficient-statistic-also-a-complete-statistic).
+>
+> :material-eye-arrow-right: [Basic intuition about minimal sufficient statistic - Cross Validated](https://stats.stackexchange.com/questions/166661/basic-intuition-about-minimal-sufficient-statistic).
+>
+> :material-eye-arrow-right: [st.statistics - Is a function of complete statistics again complete? - MathOverflow](https://mathoverflow.net/a/182661).
 
-- **Sufficient**: $\Pr(\vb{x}|T)$ does not depend on $\theta$.
+- **Sufficient**——Information of $\vb{X}$ from $T$
 
-- **Complete**: For any measurable function $g$, $\expect g(T) \equiv 0$ implies $\Pr(g(T) = 0) \equiv 1$. (“$\equiv$” means $\forall \theta$)
+  $\Pr(\vb{x}|T)$ does not depend on $\theta$.
+
+- **Complete**——Family of distributions of $T$
+
+  For any measurable function $g$, $\expect g(T) \equiv 0$ implies $\Pr(g(T) = 0) \equiv 1$. (“$\equiv$” means $\forall \theta$)
+
+  Equivalently, $\qty{P_{T|\theta}: \theta \in \text{parameter space}}$ spans the whole $\mathcal{T} \to \mathbb{R}$ functions. (Hint: $\expect g(T)$ is an inner product of $P_{T|\theta}$ and $g$)
 
 > Consider the map $f:p_{\theta }\mapsto p_{T|\theta}$ which takes each distribution on model parameter $\theta$ to its induced distribution on statistic $T$. The statistic $T$ is said to be complete when $f$ is surjective, and sufficient when $f$ is injective.
 
-1. Probability triple $(\Omega, \mathcal{F}, \mu)$, where $\Omega$ is the sample space, $\mathcal{F}$ is the event space, and $\mu$ is the probability function.
+:material-eye-arrow-right: [function - Sufficient/complete statistic $\leftrightarrow$ injective/surjective map? - Cross Validated](https://stats.stackexchange.com/a/629917/399511).
+
+1. Probability triple $(\Omega, \mathcal{F}, \mu)$:
+   - $\Omega$ is the sample space,
+   - $\mathcal{F} \subset 2^\Omega$ is the event space, and
+   - $\mu: \mathcal{F} \to [0,1]$ is the probability function.
 2. Random variable $X: \Omega \to \mathcal{X}$, where $\mathcal{X}$ is a measurable space with $\sigma$-field $\mathcal{B}$.
 3. Statistic $T: \mathcal{X} \to \mathcal{T}$, where $\mathcal{T}$ is another measurable space with $\sigma$-field $\mathcal{C}$ contains all singletons. Besides, we can also think the random variable $T \circ X: \Omega \to \mathcal{T}$ as the statistic.
 4. Sufficiency: $\mu_{T|\Theta}(C|\theta) = \mu_{X|\Theta}(T^{-1} C|\theta)$ is probability measure on $\mathcal{C}$.
 5. Sufficiency (in the Bayesian sense): For every prior $\mu_\Theta$, there exists versions of the posterior distributions $\mu_{\Theta|X}, \mu_{\Theta|T}$ such that, $\forall A \in \text{parameter space}$, $\mu_{\Theta|X}(A|x) = \mu_{\Theta|T}(A|T(x))$, $\mu_X$-almost surely, where $\mu_X$ is the marginal distribution of $X$.
 6. One should note that completeness is a statement about the entire family $\qty{\mu_{T|\Theta}(\cdot|\theta) : \theta \in \text{parameter space}}$ and not only about the individual conditional distributions $\mu_{T|\Theta}(\cdot|\theta)$.
+
+Counterexamples:
+
+- Sufficient but not complete
+
+  - $X \sim \mathcal{U}(\theta, \theta+2\pi)$ itself is a sufficient (and even minimal sufficient) statistic. However $\expect \sin X \equiv 0$ and it tells nothing about the distribution of $\sin X$.
+
+- Complete but not sufficient
+
+  - Constant statistics.
+  - First we work out a complete and sufficient statistic for $n$ samples. Now we're given more samples but we stick to the old statistic. Then this statistic is still complete but not sufficient any more.
 
 ### Rao–Blackwell–Lehmann–Scheffé theorem
 
