@@ -14,8 +14,8 @@ relevant:
     - Random Digital Signal Processing
 
 $$
-\DeclareMathOperator\expect{\mathbb{E}}
-\DeclareMathOperator\variant{\mathbb{V}}
+\DeclareMathOperator\expect{\operatorname{\mathbb{E}}}
+\DeclareMathOperator\variant{\operatorname{\mathbb{V}}}
 \def\R{\mathbb{R}}
 $$
 
@@ -58,9 +58,13 @@ $$
 
 ## §3 Cramér–Rao lower bound
 
-> :material-clock-edit-outline: 2023年9月18日，2023年10月13日，2023年10月14日。
+> :material-clock-edit-outline: 2023年9月18日，2023年10月13日，2023年10月14日，2023年10月25日。
 
 随机变量 $\xi$ 服从参数为 $\theta$ 的分布，概率密度 $p$ 是 $\xi, \theta$ 的函数。Likelihood is $\theta \mapsto p$ when $\xi$ is given as a sample.
+
+!!! info "Cramér"
+
+    Harald Cramér (Swedish: `[kraˈmeːr]`, `eː` ≈ m**ay**or in English) was a Swedish mathematician, actuary, and statistician.
 
 ### Lemma: Derivative of expectation
 
@@ -274,3 +278,87 @@ $$
 The conditions for equality are $(\hat{\alpha}_a - \alpha_a) \parallel \pdv{\ln p}{\theta^c}$ with respect to samples (i.e. the factor does not depend on samples). In factor the factor is $\pdv{\alpha_a}{\theta^b} I^{bc}$ or $\pdv{\theta^b}{\alpha_a} I_{bc}$.
 
 :material-eye-arrow-right: [“随机信号分析”提到的最小二乘法](./stochastic-signal-processing.md#边缘分布和条件分布)
+
+## §5 General Minimum Variance Unbiased Estimation
+
+### Properties of a statistic
+
+> :material-clock-edit-outline: 2023年10月25日，2023年10月29日。
+>
+> :material-eye-arrow-right: [Completeness (statistics) - Wikipedia](https://en.wikipedia.org/wiki/Completeness_(statistics)).
+>
+> :material-eye-arrow-right: [Lecture 1 - SF3961 Graduate Course in Statistical Inference](https://www.math.kth.se/matstat/gru/Statistical%20inference/Lecture1_2015.pdf).
+>
+> :material-eye-arrow-right: [Lecture 4 - SF3961 Graduate Course in Statistical Inference](https://www.math.kth.se/matstat/gru/Statistical%20inference/Lecture2_2015.pdf).
+
+- **Sufficient**: $\Pr(\vb{x}|T)$ does not depend on $\theta$.
+
+- **Complete**: For any measurable function $g$, $\expect g(T) \equiv 0$ implies $\Pr(g(T) = 0) \equiv 1$. (“$\equiv$” means $\forall \theta$)
+
+> Consider the map $f:p_{\theta }\mapsto p_{T|\theta}$ which takes each distribution on model parameter $\theta$ to its induced distribution on statistic $T$. The statistic $T$ is said to be complete when $f$ is surjective, and sufficient when $f$ is injective.
+
+1. Probability triple $(\Omega, \mathcal{F}, \mu)$, where $\Omega$ is the sample space, $\mathcal{F}$ is the event space, and $\mu$ is the probability function.
+2. Random variable $X: \Omega \to \mathcal{X}$, where $\mathcal{X}$ is a measurable space with $\sigma$-field $\mathcal{B}$.
+3. Statistic $T: \mathcal{X} \to \mathcal{T}$, where $\mathcal{T}$ is another measurable space with $\sigma$-field $\mathcal{C}$ contains all singletons. Besides, we can also think the random variable $T \circ X: \Omega \to \mathcal{T}$ as the statistic.
+4. Sufficiency: $\mu_{T|\Theta}(C|\theta) = \mu_{X|\Theta}(T^{-1} C|\theta)$ is probability measure on $\mathcal{C}$.
+5. Sufficiency (in the Bayesian sense): For every prior $\mu_\Theta$, there exists versions of the posterior distributions $\mu_{\Theta|X}, \mu_{\Theta|T}$ such that, $\forall A \in \text{parameter space}$, $\mu_{\Theta|X}(A|x) = \mu_{\Theta|T}(A|T(x))$, $\mu_X$-almost surely, where $\mu_X$ is the marginal distribution of $X$.
+6. One should note that completeness is a statement about the entire family $\qty{\mu_{T|\Theta}(\cdot|\theta) : \theta \in \text{parameter space}}$ and not only about the individual conditional distributions $\mu_{T|\Theta}(\cdot|\theta)$.
+
+### Rao–Blackwell–Lehmann–Scheffé theorem
+
+> :material-clock-edit-outline: 2023年10月25日。
+
+In fact there are two independent theorems.
+
+- C.R. **Rao** (Indian-American) and David **Blackwell** (American):
+
+  For any estimator $\delta$ used for estimating $\theta$ and a <u>sufficient</u> statistic $T$, we have
+
+  - $\delta' \coloneqq \expect(\delta | T)$ is a <u>valid</u> estimator.
+  - And it has <u>smaller mean-squared error</u>: $\expect (\delta' - \theta)^2 \leq \expect (\delta - \theta)^2$.
+  - Additionally, the improved estimator is unbiased iff. the original estimator is unbiased: $\expect \delta' \equiv \theta \iff \expect \delta \equiv \theta$.
+
+- Erich Leo **Lehmann** (German-born American) and Henry **Scheffé** (American):
+
+  If an <u>unbiased</u> estimator $\delta$ <u>only</u> depends on samples through a <u>complete</u> <u>sufficient</u> statistic $T$, then it's the <u>minimum variance</u> unbiased estimator.
+
+!!! tip "Conditional expectation"
+
+    While $\expect X$ is a simple _number_, the conditional expectation $\expect(X|Y)$ is a _random_ variable depends on the value of $Y$. In other words, $\expect(X|Y)$ is a function of the random variable $Y$.
+
+    We can take $Y = y$ as an event depends on $y$, then $\expect(X|Y = y)$ (conditioning on the _event_) is a number depends on $y$.
+
+    Since $\expect(X|Y)$ is random, we can take another $\expect$. This is the law of total expectation: $\expect \expect(X|Y) = \expect X$.
+
+#### Rao–Blackwell theorem
+
+**First**, $\delta'$ does not depend on $\theta$ (therefore it's valid) because $T$ is sufficient (thus $\Pr(\delta|T)$ does not depend on $\theta$).
+
+The **second** part can be proved by the following decomposition.
+
+$$
+\expect (\delta - \theta)^2
+= \expect (\delta' - \theta)^2 + \expect \variant(\delta | T)
+\geq \expect (\delta' - \theta)^2.
+$$
+
+Consider the well-known formula
+
+$$
+\expect (X-m)^2
+= \qty(\expect X - m)^2 + \expect \qty(X-\expect X)^2
+= \qty(\expect X - m)^2 + \variant X.
+$$
+
+Let $\expect \mapsto \expect(\cdot|T)$, $X \mapsto \delta$, $m \mapsto \theta$, and $\expect X \mapsto \expect(\delta|T) = \delta'$. After substitution, take a real $\expect$ to both sides of the equation, and you'll get the decomposition.
+
+!!! note "Old version of this proof"
+
+    The decomposition holds because
+
+    - $\expect \variant(\delta|T) = \expect \expect \left(\qty(\delta - \expect(\delta|T))^2 \middle| T\right) = \expect\qty(\delta-\delta')^2$ by definition and law of total expectation.
+    - $2 \expect (\delta-\delta')(\delta'-\theta) = \expect \expect(\cdots|T)$. Given $T$, we know $\delta', \theta$, thus $(\delta-\delta')(\delta'-\theta)$ is an affine function of $\delta$. And by definition, $\expect(\delta|T) - \delta' = 0$, therefore the whole cross term is zero.
+
+Besides, the inequality is also implied by Jensen's inequality, yielding out a more general Rao–Blackwell theorem where the square function can be changed to any convex “loss” function.
+
+The **third** part is because $\expect \delta' = \expect \expect(\delta|T) = \expect \delta$.
