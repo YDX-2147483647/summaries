@@ -299,9 +299,9 @@ The conditions for equality are $(\hat{\alpha}_a - \alpha_a) \parallel \pdv{\ln 
 >
 > :material-eye-arrow-right: [st.statistics - Is a function of complete statistics again complete? - MathOverflow](https://mathoverflow.net/a/182661).
 
-- **Sufficient**——Information of $\vb{X}$ from $T$
+- **Sufficient**——Information of $\vb*{X}$ from $T$
 
-  $\Pr(\vb{x}|T)$ does not depend on $\theta$.
+  $\Pr(\vb*{x}|T)$ does not depend on $\theta$.
 
 - **Complete**——Family of distributions of $T$
 
@@ -400,3 +400,50 @@ Suppose $\psi$ is another candidate unbiased estimator. By Rao–Blackwell theor
 Note that both $\delta$ and $\psi'$ are functions of $T$, so is $\delta - \psi'$, and $\expect(\delta - \psi') \equiv 0$ becaus they are both unbiased.
 
 As $T$ is complete for $\theta$, $\expect(\delta - \psi') \equiv 0$ implies $\delta \equiv \psi'$ almost surely. Therefore, $\variant \delta = \variant \psi' \leq \variant \psi$.
+
+## §3 Linear Models and §6 Best Linear Unbiased Estimation
+
+### Setup
+
+> :material-clock-edit-outline: 2023年10月30日。
+
+There are two maps that can be assumed to be linear.
+
+- **Data model** (parameters → distributions)
+
+  $\theta \mapsto \expect X$ is linear, and $X - \expect X$ is exponentially distributed independently to $\theta$.
+
+  $$
+  \vb*{X} \sim \mathcal{N}(H \vb*{\theta}, C),
+  $$
+
+  where $H,C$ are known matrices.
+
+- **Estimators** (samples → estimators)
+
+  $X \mapsto \delta$ is linear.
+
+  $$
+  \vb*{\delta} = A \vb*{X},
+  $$
+
+  where $A$ is to be chosen. To work out a solution, we need to assume moments:
+
+  $$
+  \begin{aligned}
+    \expect \vb*{X} &= H \vb*{\theta}, \\
+    \variant \vb*{X} &= C, \\
+  \end{aligned}
+  $$
+
+  where $H,C$ are known matrices.
+
+In both cases, the _best_ unbiased estimator turns out to be
+
+$$
+\vb*{\delta} = (H^\dagger \Phi H)^{-1} H^\dagger \Phi \vb*{X},
+$$
+
+where $\Phi = C^{-1}$ is the precision matrix. In addition, $\variant \vb*{\delta} = (H^\dagger \Phi H)^{-1}$.
+
+Note that _best_ in linear model means minimum variance among _all_ estimators, but _best_ in linear estimator means minimum variance among _linear_ estimators.
