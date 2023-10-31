@@ -216,6 +216,10 @@ $$
 
 Fisher information matrix $I_{ab} \coloneqq \expect \pdv{\ln p}{\theta^a} \pdv{\ln p}{\theta^b}$ is always positive semidefinite ($I_{ab} \succeq 0$), and it's positive definite ($I_{ab} \succ 0$) for regular statistical models. We'll only discuss the latter case.
 
+!!! info "Loewner order"
+
+    Let $A,B$ be two Hermitian matrices with same shape. We say that $A \succeq B$ if $A − B$ is positive semidefinite. Similarly, we say that $A \succ B$ if $A − B$ is positive definite.
+
 同标量形式，另一形式是
 
 $$
@@ -405,7 +409,7 @@ As $T$ is complete for $\theta$, $\expect(\delta - \psi') \equiv 0$ implies $\de
 
 ### Setup
 
-> :material-clock-edit-outline: 2023年10月30日。
+> :material-clock-edit-outline: 2023年10月30日，2023年10月31日。
 
 There are two maps that can be assumed to be linear.
 
@@ -447,3 +451,30 @@ $$
 where $\Phi = C^{-1}$ is the precision matrix. In addition, $\variant \vb*{\delta} = (H^\dagger \Phi H)^{-1}$.
 
 Note that _best_ in linear model means minimum variance among _all_ estimators, but _best_ in linear estimator means minimum variance among _linear_ estimators.
+
+:material-eye-arrow-right: [Best Linear Unbiased Estimation (stat.duke.edu)](https://www2.stat.duke.edu/~pdh10/Teaching/721/Materials/ch2blue.pdf).
+
+This is highly related to ordinary/generalized least squares, projection matrices and Moore–Penrose inverse.
+
+1. If $\vb*{\delta}, \vb*{\delta'}$ are both linear unbiased estimator, then the difference $\vb*{\delta'} - \vb*{\delta} = B^\dagger \vb*{X}$, where $B \perp H$ (their columns spaces are perpendicular, or $B^\dagger H = O$) ——linearity throws the “$\expect$”.
+
+2. If $\vb*{\delta} = A \vb*{X}$, then
+
+  $$
+  \begin{split}
+     \variant \vb*{\delta'}
+     &= (A + B^\dagger) (\variant \vb*{X}) (A^\dagger + B) \\
+     &= A C A^\dagger + B^\dagger C B + A C B + (A C B)^\dagger.
+  \end{split}
+  $$
+
+  The first term is $\variant \vb*{\delta}$, the second $\succeq 0$, and the last two terms are zero if $A = (H^\dagger \Phi H)^{-1} H^\dagger \Phi$ (a generalized inverse of $H$), because
+
+  $$
+  A C B
+  = (\cdots) H^\dagger \Phi C B
+  = (\cdots) H^\dagger B
+  = (\cdots) O.
+  $$
+
+3. Therefore, for any $\vb*{\delta'}$, $\variant \vb*{\delta'} \succeq \variant \vb*{\delta}$ if $\delta$ is with that $A$.
