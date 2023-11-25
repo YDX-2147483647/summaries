@@ -11,6 +11,7 @@ exclude = [
   # Expired certificate
   '^https://www3\.cs\.uic\.edu/pub/ECE534/WebHome/ch2\.pdf$',
   '^https://eeweb\.engineering\.nyu\.edu/iselesni/EL713/zoom/linphase\.pdf$',
+  '^https://www2\.stat\.duke\.edu/',
   # 401 Unauthorized from time to time
   '^https://ai-master\.gitbooks\.io/svm/content/lagrange-multiplier-and-dual-formulation\.html$',
 
