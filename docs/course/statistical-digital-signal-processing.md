@@ -401,7 +401,7 @@ The **third** part is because $\expect \delta' = \expect \expect(\delta|T) = \ex
 
 Suppose $\psi$ is another candidate unbiased estimator. By Rao–Blackwell theorem, $\psi' := \expect(\psi|T)$ is a valid unbiased estimator with smaller $\variant$.
 
-Note that both $\delta$ and $\psi'$ are functions of $T$, so is $\delta - \psi'$, and $\expect(\delta - \psi') \equiv 0$ becaus they are both unbiased.
+Note that both $\delta$ and $\psi'$ are functions of $T$, so is $\delta - \psi'$, and $\expect(\delta - \psi') \equiv 0$ because they are both unbiased.
 
 As $T$ is complete for $\theta$, $\expect(\delta - \psi') \equiv 0$ implies $\delta \equiv \psi'$ almost surely. Therefore, $\variant \delta = \variant \psi' \leq \variant \psi$.
 
