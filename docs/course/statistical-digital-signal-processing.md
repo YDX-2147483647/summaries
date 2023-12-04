@@ -405,7 +405,7 @@ Note that both $\delta$ and $\psi'$ are functions of $T$, so is $\delta - \psi'$
 
 As $T$ is complete for $\theta$, $\expect(\delta - \psi') \equiv 0$ implies $\delta \equiv \psi'$ almost surely. Therefore, $\variant \delta = \variant \psi' \leq \variant \psi$.
 
-## §3 Linear Models and §6 Best Linear Unbiased Estimation
+## §3 Linear Models, §6 Best Linear Unbiased Estimation, and §8 Least Squares
 
 ### Setup
 
@@ -478,3 +478,33 @@ This is highly related to ordinary/generalized least squares, projection matrice
   $$
 
 3. Therefore, for any $\vb*{\delta'}$, $\variant \vb*{\delta'} \succeq \variant \vb*{\delta}$ if $\delta$ is with that $A$.
+
+### Constrained least squares
+
+> :material-clock-edit-outline: 2023年12月4日。
+
+Lagrangian multipliers:
+
+$$
+J = \frac12 (\vb*{x} -  H \vb*{\theta})^\dagger \Phi (\vb*{x} -  H \vb*{\theta}) + \vb*{\lambda}^\dagger (A \vb*{\theta} - \vb*{b}).
+$$
+
+Setting its $\pdv{\vb*{\theta}}$ and constraints to zero produces
+
+$$
+\begin{bmatrix}
+  H^\dagger \Phi H & A^\dagger \\
+  A & O \\
+\end{bmatrix}
+\begin{bmatrix}
+  \vb*{\theta} \\ \vb*{\lambda}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  H^\dagger \Phi \vb*{x} \\ \vb*{b}
+\end{bmatrix}.
+$$
+
+# 注意
+
+- Always check the prerequisite of the theorem.
