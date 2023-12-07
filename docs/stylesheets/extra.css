@@ -15,3 +15,11 @@
 .md-typeset svg.hooks-relationship .node a {
     fill: var(--md-primary-fg-color);
 }
+
+.md-typeset svg.hooks-relationship .edge path {
+    stroke: var(--md-typeset-color);
+}
+.md-typeset svg.hooks-relationship .edge polygon {
+    stroke: var(--md-typeset-color);
+    fill: var(--md-typeset-color);
+}

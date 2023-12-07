@@ -14,7 +14,23 @@ locale: zh-CN
 theme:
   name: material
   palette:
-    primary: teal
+    - media: "(prefers-color-scheme)"
+      primary: teal
+      toggle:
+        icon: material/brightness-auto
+        name: 切换到亮色
+    - media: "(prefers-color-scheme: light)"
+      primary: teal
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色
+    - media: "(prefers-color-scheme: dark)"
+      primary: teal
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 自动设置亮暗
   language: zh
   custom_dir: overrides
   features:
