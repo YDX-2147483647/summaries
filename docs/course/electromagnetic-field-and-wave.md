@@ -117,7 +117,7 @@ $$
 
 ### 一些模型
 
-> :material-clock-edit-outline: 2022年6月12日，2023年4月28日。
+> :material-clock-edit-outline: 2022年6月12日，2023年4月28日，2023年12月7日。
 
 |                                                 | 理想媒质 |   一般导电媒质    |       理想导体       |
 | ----------------------------------------------: | :---------------: | :---------------: | :------------------: |
@@ -131,6 +131,8 @@ $$
 > - 理想媒质（理想导体）根本不能提供自由电荷。
 > - $\sigma$ 是和 $\omega \varepsilon$ 比，相当于比传导电流和位移电流。
 > - $\vb*{J_\text{surface}} = \sigma \vb*{E} \dd{h}$，一般这是有界无穷小，理想导体是 $0 \cdot \infty$ 型极限。
+
+上表中的 $\sigma \to +\infty$ 也分程度。比较位移电流和传导电流，能采用一阶估计 $\sqrt{(\omega \epsilon)^2 + \sigma^2} - \omega \epsilon \sim \sigma$ 的称作“良导体”，能采用零阶估计 $\sqrt{(\omega \epsilon)^2 + \sigma^2} - \omega \epsilon \to +\infty$ 的才是严格的“理想导体”。
 
 ## §8 平面电磁波
 

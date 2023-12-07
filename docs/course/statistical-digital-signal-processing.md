@@ -505,6 +505,154 @@ $$
 \end{bmatrix}.
 $$
 
+## §10–12 Bayesian
+
+### Guideline
+
+> :material-clock-edit-outline: 2023年12月7日。
+
+!!! info "Bayesian"
+
+    Thomas Bayes (`/beɪz/` BAYZ) was an English statistician and philosopher. _Bayesian_ is pronounced as `/ˈbeɪziən/` BAY-zee-ən or `/ˈbeɪʒən/` BAY-zhən.
+
+$$
+\begin{aligned}
+p_{\vb*{\theta} | \vb*{x}}
+&= \frac{p_{\vb*{x} | \vb*{\theta}}}{p_\vb*{x}} \times p_\vb*{\theta}.
+\\
+\text{posterior}
+&= \frac{\text{likelihood}}{\text{evidence}} \times \text{prior}.
+\end{aligned}
+$$
+
+!!! info "Another likelihood?"
+
+    PDF of data viewing as a function of parameters is called likelihood. The PDF is parametrized in classical approach, and conditional in Bayesian approach.
+
+Similar to [Rao–Blackwell theorem](#RaoBlackwell-theorem), the estimator $\expect (\vb*{\theta} | \vb*{x})$ has minimum MSE.
+
+!!! note "Is that valid?"
+
+    Given the prior distribution of $\vb*{\theta}$, we can work out _error_. Classical approach is not capable of that. Instead, they optimize _variance_.
+
+### Composition of normal distributions
+
+> :material-clock-edit-outline: 2023年12月7日。
+>
+> :material-eye-arrow-right: [多变量正态分布的边缘分布和条件分布](./stochastic-signal-processing.md#多变量正态分布的边缘分布和条件分布)。
+
+- $\vb*{X} \sim \mathcal{N}(\vb*{0}, \Sigma_{XX})$.
+
+- Given $\vb*{X} = \vb*{x}$, $\vb*{Y}$ is distributed as $\mathcal{N}(H \vb*{x}, \Sigma_{\vb*{Y}|\vb*{x}})$.
+
+  Or equivalently,  $\vb*{Y} - H \vb*{X} \sim \mathcal{N}(\vb*{0}, \Sigma_{\vb*{Y}|\vb*{x}})$ independently to $\vb*{X}$.
+
+Just expand the square:
+
+$$
+\qty(\vb*y - H \vb*{x})^\dagger \Phi_{\vb*{Y}|\vb*{x}} \qty(\vb*y - H \vb*{x})
++ \vb*{x}^\dagger {\Sigma_{XX}}^{-1} \vb*x
+=
+\begin{bmatrix}
+    \vb*x \\ \vb*y
+\end{bmatrix}^\dagger
+\Phi
+\begin{bmatrix}
+    \vb*x \\ \vb*y
+\end{bmatrix},
+$$
+
+we get
+
+- $\Phi_{YY} = \Phi_{\vb*{Y}|\vb*{x}} := {\Sigma_{\vb*{Y}|\vb*{x}}}^{-1}$.
+
+- $\Phi_{YX} = -\Phi_{YY} H$.
+
+  In fact $H = \Sigma_{YX} {\Sigma_{XX}}^{-1}$.
+
+- $\Phi_{XX} = {\Sigma_{XX}}^{-1} + H^\dagger \Phi_{YY} H$.
+
+  The sum relates to the additivity of entropy in information theory.
+
+  It also matches the form of Schur complement:
+
+  $$
+  \begin{split}
+    \Phi_{XX}
+    &= \qty(\Sigma_{XX} - \Sigma_{XY} {\Sigma_{YY}}^{-1} \Sigma_{YX})^{-1} \\
+    &= {\Sigma_{XX}}^{-1} + \Phi_{XX} \Sigma_{XY} {\Sigma_{YY}}^{-1} \Sigma_{YX} {\Sigma_{XX}}^{-1} \\
+  \end{split}
+  $$
+
+Normalized scalar version: $\expect y = \rho x$, where $\rho$ is the corelation coefficient.
+
+**Features** of normal distribution:
+
+- This form of prior, conditional, posterior distribution are same. The conjugate prior PDF of normal distribution is itself.
+- Conditional covariance does not depend on $\vb*{x}$.
+
+### Woodbury-like identities
+
+> :material-clock-edit-outline: 2023年11月20日，2023年12月7日。
+>
+> :material-eye-arrow-right: [H. V. Henderson and S. R. Searle _On Deriving the Inverse of a Sum of Matrices_ `BU-647-M.pdf`](https://ecommons.cornell.edu/server/api/core/bitstreams/fb894fc2-6c69-4b6d-b1f6-28b41b44edcf/content).
+
+Denote the matrix inverse $(\cdot)^{-1}$ as the fraction $\frac{1}{\cdot}$.
+
+- **Multiply**: If $A, B$ are nonsingular, then
+
+  $$
+  \frac{1}{A} \frac{1}{B} = \frac{1}{B A}.
+  $$
+
+- **Factor**: If $A$ and $A+X$ are nonsingular, then
+
+  $$
+  \frac{1}{A + X}
+  = \frac{1}{I + X \frac{1}{A}} \frac{1}{A}
+  = \frac{1}{A} \frac{1}{I + \frac{1}{A} X}.
+  $$
+
+  Note the two $\frac{1}{A}$ are always on the same side.
+
+- **Extract**: If $I+X$ is nonsingular, then
+
+  $$
+  \frac{1}{I+X} = \frac{1}{I+X} (I+X - X)
+  = I - \frac{1}{I+X} X
+  = I - \frac{X}{I+X}.
+  $$
+
+  $I+X = X^0 + X^1$ commutes with $X$, hence the final “$=$”.
+
+- **Push through**: If $I + AB$ and $I + BA$ are nonsingular, then
+
+  $$
+  A \frac{1}{I + B A} = \frac{1}{I + A B} A.
+  $$
+
+  The operator $\frac{1}{I + \cdot}$ can be shifted in the sequence $ABA$. Due to the associative law, it can also be shifted in $ABAB$, $ABABA$, etc.
+
+  Besides, $I + AB$ and $I + BA$ are either both singular or both nonsingular, because of [Weinstein–Aronszajn determinant identity](https://en.wikipedia.org/wiki/Weinstein%E2%80%93Aronszajn_identity):
+
+  $$
+  \begin{vmatrix}
+    I+AB & A \\
+    O & I \\
+  \end{vmatrix}
+  = \begin{vmatrix}
+    I & A \\
+    -B & I \\
+  \end{vmatrix}
+  = \begin{vmatrix}
+    I & O \\
+    B & I - (-B)A \\
+  \end{vmatrix}.
+  $$
+
 # 注意
 
 - Always check the prerequisite of the theorem.
+- There is a negative sign in $\expect (\pdv{\theta})^2 = -\expect \pdv[2]{\theta}$.
+- Be aware what is to be estimated and what has been observed.
+- Distinguish between $\hat{\cdot}$ (hat) and $\check{\cdot}$ (caron, check).
