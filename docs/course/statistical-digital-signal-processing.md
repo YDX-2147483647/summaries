@@ -58,13 +58,19 @@ $$
 
 ## §3 Cramér–Rao lower bound
 
-> :material-clock-edit-outline: 2023年9月18日，2023年10月13日，2023年10月14日，2023年10月25日。
+> :material-clock-edit-outline: 2023年9月18日，2023年10月13日，2023年10月14日，2023年10月25日，2023年12月9日。
 
 随机变量 $\xi$ 服从参数为 $\theta$ 的分布，概率密度 $p$ 是 $\xi, \theta$ 的函数。Likelihood is $\theta \mapsto p$ when $\xi$ is given as a sample.
 
 !!! info "Cramér"
 
     Harald Cramér (Swedish: `[kraˈmeːr]`, `eː` ≈ m**ay**or in English) was a Swedish mathematician, actuary, and statistician.
+
+!!! info "Logarithm"
+
+    It is often easier to derive with the average (or normalized) log likelihood than with log likelihood or likelihood. If samples are IID, then they are $\overline{\ln p}$, $\sum \ln p$, and $\prod p$.
+
+    It means more than a calculation technique: By law of large numbers, $\overline{\ln p} \to \expect \ln p$, which is the entropy of the random variable. This relates to asymptotic properties of maximum likelihood.
 
 ### Lemma: Derivative of expectation
 
@@ -509,7 +515,7 @@ $$
 
 ### Guideline
 
-> :material-clock-edit-outline: 2023年12月7日。
+> :material-clock-edit-outline: 2023年12月7–8日。
 
 !!! info "Bayesian"
 
@@ -529,7 +535,7 @@ $$
 
     PDF of data viewing as a function of parameters is called likelihood. The PDF is parametrized in classical approach, and conditional in Bayesian approach.
 
-Similar to [Rao–Blackwell theorem](#RaoBlackwell-theorem), the estimator $\expect (\vb*{\theta} | \vb*{x})$ has minimum MSE.
+Similar to [Rao–Blackwell theorem](#RaoBlackwell-theorem), the conditional mean estimator $\expect (\vb*{\theta} | \vb*{x})$ has minimum MSE.
 
 !!! note "Is that valid?"
 
@@ -652,7 +658,7 @@ Denote the matrix inverse $(\cdot)^{-1}$ as the fraction $\frac{1}{\cdot}$.
 
 # 注意
 
-- Always check the prerequisite of the theorem.
+- Always check the prerequisite of the theorem. Occasionally the problem is irregular.
 - There is a negative sign in $\expect (\pdv{\theta})^2 = -\expect \pdv[2]{\theta}$.
 - Be aware what is to be estimated and what has been observed.
 - Distinguish between $\hat{\cdot}$ (hat) and $\check{\cdot}$ (caron, check).
