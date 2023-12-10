@@ -58,7 +58,7 @@ $$
 
 ## §3 Cramér–Rao lower bound
 
-> :material-clock-edit-outline: 2023年9月18日，2023年10月13日，2023年10月14日，2023年10月25日，2023年12月9日。
+> :material-clock-edit-outline: 2023年9月18日，2023年10月13日，2023年10月14日，2023年10月25日，2023年12月9日，2023年12月10日。
 
 随机变量 $\xi$ 服从参数为 $\theta$ 的分布，概率密度 $p$ 是 $\xi, \theta$ 的函数。Likelihood is $\theta \mapsto p$ when $\xi$ is given as a sample.
 
@@ -138,6 +138,12 @@ Because $(X, Y) \mapsto \expect \bar{X} Y$ is an inner product.
 ### Unbiased
 
 An estimator (a function of $\xi$ aiming at estimating $\theta$) $\hat\theta$ is unbiased: $\expect \hat\theta = \theta$.
+
+!!! note "Implicit $\forall$"
+
+    $\expect \hat\theta = \theta$ seems indifferent at a glance, but the definition requires it holds for all $\theta$.
+
+    It is not always possible. For example, $\xi \sim \mathcal{U}(0, 1/m)$, then $\hat m = m$ means $\int_0^{1/m} \hat{m} \times m \dd{\xi} = \int_0^{1/m} \hat{m} \dd{\xi} \times m = m$, which cannot be true for all $m$.
 
 Differentiate it:
 
@@ -656,9 +662,120 @@ Denote the matrix inverse $(\cdot)^{-1}$ as the fraction $\frac{1}{\cdot}$.
   \end{vmatrix}.
   $$
 
+### Bayesian linear model
+
+> :material-clock-edit-outline: 2023年12月10日。
+>
+> :material-eye-arrow-right: [多变量正态分布的边缘分布和条件分布](./stochastic-signal-processing.md#多变量正态分布的边缘分布和条件分布)。
+>
+> :material-eye-arrow-right: [Composition of normal distributions](#composition-of-normal-distributions).
+
+
+$\vb*{\theta}$ distributes normally, $\vb*{x} = H \vb*{\theta} + \vb*{w}$, where $\vb*{w}$ is also distributed as a normal distribution, and independent to $\vb*{\theta}$.
+
+It is obvious that the joint distribution of $\vb*{\theta},\vb*{x}$ is normal, and life gets easier. The conditional mean estimator is just $\expect(\vb*{\theta} | \vb*{x})$.
+
+The model is a simple elementary row transformation of a independent joint normal distribution:
+
+$$
+\begin{bmatrix}
+  \vb*{x} \\ \vb*{\theta}
+\end{bmatrix}
+= \begin{bmatrix}
+  I & H \\
+  O & I \\
+\end{bmatrix}
+\begin{bmatrix}
+  \vb*{w} \\ \vb*{\theta}
+\end{bmatrix},
+$$
+
+and
+
+$$
+\variant \begin{bmatrix}
+  \vb*{w} \\ \vb*{\theta}
+\end{bmatrix}
+= \begin{bmatrix}
+  C_w & O \\
+  O & C_\theta
+\end{bmatrix}.
+$$
+
+Therefore, the covariance is just a similarity transformation:
+
+$$
+\begin{split}
+\variant \begin{bmatrix}
+  \vb*{x} \\ \vb*{\theta}
+\end{bmatrix}
+&= \begin{bmatrix}
+  I & H \\
+  O & I \\
+\end{bmatrix}
+\begin{bmatrix}
+  C_w & O \\
+  O & C_\theta
+\end{bmatrix}
+\begin{bmatrix}
+  I & O \\
+  H^\dagger & I \\
+\end{bmatrix}
+\\
+&= \begin{bmatrix}
+  C_w + H C_\theta H^\dagger & H C_\theta \\
+  C_\theta H^\dagger & C_\theta
+\end{bmatrix}.
+\end{split}
+$$
+
+Note that the inverse of an elementary transformation is simply
+
+$$
+\begin{bmatrix}
+  I & H \\
+  O & I \\
+\end{bmatrix}^{-1}
+= \begin{bmatrix}
+  I & -H \\
+  O & I \\
+\end{bmatrix}.
+$$
+
+Leveraging it, we can work out the precision similarly:
+
+$$
+\begin{split}
+\qty(\variant \begin{bmatrix}
+  \vb*{x} \\ \vb*{\theta}
+\end{bmatrix})^{-1}
+&= \begin{bmatrix}
+  I & O \\
+  -H^\dagger & I \\
+\end{bmatrix}
+\begin{bmatrix}
+  \Phi_w & O \\
+  O & \Phi_\theta
+\end{bmatrix}
+\begin{bmatrix}
+  I & -H \\
+  O & I \\
+\end{bmatrix}
+\\
+&= \begin{bmatrix}
+  \Phi_w & - \Phi_w H \\
+  -H^\dagger \Phi_w & \Phi_\theta + H^\dagger \Phi_w H
+\end{bmatrix}.
+\end{split}
+$$
+
+Comparing to classical linear model, Bayesian linear model can deal with <u>nuisance parameters</u>. In terms of matrices, an elementary transformation is always invertible no matter whether the coefficient is full rank or not.
+
 # 注意
 
 - Always check the prerequisite of the theorem. Occasionally the problem is irregular.
+- Classical approaches assume $\forall \theta$ in most cases.
 - There is a negative sign in $\expect (\pdv{\theta})^2 = -\expect \pdv[2]{\theta}$.
 - Be aware what is to be estimated and what has been observed.
 - Distinguish between $\hat{\cdot}$ (hat) and $\check{\cdot}$ (caron, check).
+- Transformations of parameters does not change likelihood and evidence, but may change the prior probability <u>density</u>. Therefore, maximum likelihood estimators are invariant, but maximum _a posteriori_ (Latin “From the latter”) estimators can vary.

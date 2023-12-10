@@ -46,7 +46,7 @@ flowchart LR
 
 ### 多变量正态分布的边缘分布和条件分布
 
-> :material-clock-edit-outline: 2023年2月22日–2023年3月5日。
+> :material-clock-edit-outline: 2023年2月22日–2023年3月5日，2023年12月10日。
 
 #### 铺垫
 
@@ -128,6 +128,10 @@ $$
         于是 $\hat A_{ij} = \qty(y_{is}\ x_{sk}) \times \qty(x_{js} x_{sk})^{-1}$。
 
         把样本均值转为期望便是 $\hat A = \Sigma_{YX} {\Sigma_{XX}}^{-1}$。
+
+    !!! note "按 $\Phi$ 的写法"
+
+        按照分块矩阵乘法写 $\Phi \Sigma = I$，可知 $\Phi_{YX} \Sigma_{XX} + \Phi_{YY} \Sigma_{YX} = O$，于是条件分布的系数 $\Sigma_{YX} {\Sigma_{XX}}^{-1} = -{\Phi_{YY}}^{-1} \Phi_{YX}$.
 
   - $\Phi_{\vb*Y | \vb*x} = \Phi_{YY}$。
 
