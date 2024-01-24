@@ -179,6 +179,8 @@ $$
 > :material-eye-arrow-right: [Stationary phase approximation - Wikipedia](https://en.wikipedia.org/w/index.php?title=Stationary_phase_approximation&oldid=1153005878).
 >
 > :material-eye-arrow-right: [Via stationary phase method - Chirp spectrum - Wikipedia](https://en.wikipedia.org/w/index.php?title=Chirp_spectrum&oldid=1150891958#Via_stationary_phase_method).
+>
+> :material-eye-arrow-right: [Chapter 14 The method of stationary phase - *Semi-classical analysis*](https://math.mit.edu/~vwg/semiclassGuilleminSternberg.pdf).
 
 若 $x \mapsto \theta = K \frac{x^2}{2} + o(x^2)$ 且 $x \mapsto A$ 缓变，则定积分
 

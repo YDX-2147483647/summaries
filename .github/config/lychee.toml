@@ -8,15 +8,23 @@ exclude = [
   '^http://opinion\.people\.com\.cn', # Too far
 
   # URL
-  # Expired certificate
-  '^https://www3\.cs\.uic\.edu/pub/ECE534/WebHome/ch2\.pdf$',
-  '^https://eeweb\.engineering\.nyu\.edu/iselesni/EL713/zoom/linphase\.pdf$',
-  '^https://www2\.stat\.duke\.edu/',
   # 401 Unauthorized from time to time
   '^https://ai-master\.gitbooks\.io/svm/content/lagrange-multiplier-and-dual-formulation\.html$',
 
   # MkDocs, etc.
   "'feed_rss_(updated|created).xml'", # To be generated
+
+  # Broken
+  # Search engines may still have their indices, however.
+  # The links are annotated “(broken 💔)” in `*.md`.
+
+  # 404 Not Found
+  # The domain now redirects to https://www.eecs.utk.edu.
+  '^https://web\.eecs\.utk\.edu/~azeumaul/',
+  # Timeout
+  # At first https://www.cs.uic.edu redirects to https://cs.uic.edu, but https://www3.cs.uic.edu is still up.
+  # Now they are all down.
+  '^https://www3\.cs\.uic\.edu/',
 ]
 
 remap = [
