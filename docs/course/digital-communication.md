@@ -583,7 +583,7 @@ $$
 
 > :material-clock-edit-outline: 2022年12月10日，2022年12月16日。
 
-这是一种脉冲编码调制（Pulse Coded Modulation，PCM），近似不均匀编码的A律（$A = 87.6 \gg 1$，如下），主要用于语音信号。
+这是一种脉冲编码调制（Pulse Coded Modulation, PCM），近似不均匀编码的A律（$A = 87.6 \gg 1$，如下），主要用于语音信号。
 
 $$
 y = \operatorname{sgn} x \times \begin{cases}

@@ -491,8 +491,8 @@ $$
     - $\C$ 上的四则运算。
     - 求 $\R$ 上某点的导数值。
     - 解 $\R$ 上方程。
-    - 给定 $\C$ 上含变量的表达式，计算（calculate，<kbd>CALC</kbd>）变量取特定值时的值。
-    - 存储（store，<kbd>STO</kbd>）、使用 $\C$ 上的变量。
+    - 给定 $\C$ 上含变量的表达式，计算（calculate, <kbd>CALC</kbd>）变量取特定值时的值。
+    - 存储（store, <kbd>STO</kbd>）、使用 $\C$ 上的变量。
 
 以展开下式为例。
 
@@ -1104,7 +1104,7 @@ $$
 
 角度：调试、误差、速率、复用。
 
-- **有反馈**（infinite impulse response，IIR）
+- **有反馈**（infinite impulse response, IIR）
 
   - **直接型**（直接 I（aka. 直接）、直接 II（aka. 典范）及其转置）
     - 简单直观。
@@ -1119,7 +1119,7 @@ $$
     - 基本节之间无干扰，<u>累计误差</u>小。
     - 可<u>并行</u>运算，速率高。
 
-- **无反馈**（finite impulse response，FIR）
+- **无反馈**（finite impulse response, FIR）
 
   - **直接型**（aka. 横截、卷积）
 

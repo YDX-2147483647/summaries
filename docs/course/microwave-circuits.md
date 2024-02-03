@@ -273,7 +273,7 @@ M–S结中金属内部均一，接触表面有势垒，半导体内部有缓一
 
   大功率时，还可改用 trapped plasma avalanche triggered transit（TRATT）管，P⁺–N–N⁺，整个N区雪崩击穿。
 
-- **转移电子效应管**（transfer electron diode，TED）
+- **转移电子效应管**（transfer electron diode, TED）
 
   第三代半导体产物。利用多能谷材料的 Gunn 氏效应天然产生振荡。（这种二极管无需结）
 

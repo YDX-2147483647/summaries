@@ -25,7 +25,7 @@ relevant:
 3. MPU: Micro processor unit.
 4. SoC: System on a chip.
 
-MCU 没有存储管理单元（memory management unit，MMU），一般无法安装 Linux；MPU 一般可以。
+MCU 没有存储管理单元（memory management unit, MMU），一般无法安装 Linux；MPU 一般可以。
 
 嵌入式处理器大量使用寄存器（为实时多任务），看重存储区保护，可扩展，小、低功耗、低成本。
 
