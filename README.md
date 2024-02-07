@@ -33,7 +33,7 @@
 
    > **Note**
    >
-   > [`just`](https://just.systems/man/en/chapter_1.html)是个命令运行器。若无法安装，可手动允许`justfile`中的命令。
+   > [`just`](https://just.systems/man/en/chapter_1.html)是个命令运行器。若无法安装，可手动运行`justfile`中的命令。
 
    > **Note**
    >
