@@ -7,10 +7,6 @@ repo_url: https://github.com/YDX-2147483647/summaries
 repo_name: YDX-2147483647/summaries
 edit_uri: "blob/main/docs/"
 
-locale: zh-CN
-# `locale` will be a warning, but used in RSS.
-# https://github.com/mkdocs/mkdocs/pull/2299
-
 theme:
   name: material
   palette:
@@ -31,6 +27,10 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 自动设置亮暗
+  # TODO: There is no way to tell territory code to RSS plugin now.
+  # https://github.com/Guts/mkdocs-rss-plugin/issues/176
+  # We should change to `zh_CN` when Material theme switches to locale.
+  # https://github.com/squidfunk/mkdocs-material/discussions/6453
   language: zh
   custom_dir: overrides
   features:
