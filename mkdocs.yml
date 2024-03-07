@@ -42,6 +42,7 @@ theme:
     - content.action.edit
     - search.highlight
     - search.share
+  font: false
   logo: assets/logo.svg
   favicon: assets/logo.png
   # U+1F5C3 (🗃️) from [twemoji](https://twemoji.twitter.com/).
