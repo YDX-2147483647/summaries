@@ -14,7 +14,7 @@ $$
 
 ### Doppler 效应
 
-> :material-clock-edit-outline: 2023年9月14日。
+> :material-clock-edit-outline: 2023年9月14日，2024年3月7日。
 
 始终采用雷达参考系。
 
@@ -100,6 +100,10 @@ $$
     $$
 
     ——“走停”恐怕并不准确，这种近似只要求 $v \ll c$（从而 $\Delta r \approx v \Delta t$）和 $v$ 恒定，而与 $\Delta r \lesseqgtr \lambda$ 之类的无关。
+
+    在脉冲Doppler体制中，这一条件正对应单个脉冲内（即快时间中）Doppler效应导致的相位差是否够大。
+
+    典型例子：脉冲宽度 $1 \text{ μs}$，速率 $10^{2.5} \text{ m/s}$（接近声速），那么 $\Delta r \approx 10^{-0.5} \text{ mm}$，远小于一般波长 $10^{1.5} \text{ mm}$。
 
 ## 3 距离分辨率和角分辨率
 
