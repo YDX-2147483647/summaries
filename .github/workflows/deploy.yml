@@ -41,7 +41,7 @@ jobs:
       - uses: extractions/setup-just@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: ts-graphviz/setup-graphviz@v1
+      - uses: ts-graphviz/setup-graphviz@v2
       - run: just bootstrap
       - run: just build
       - uses: actions/upload-pages-artifact@v3
