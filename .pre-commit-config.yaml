@@ -16,3 +16,6 @@ repos:
     rev: v1.24.5
     hooks:
       - id: typos
+
+ci:
+  autoupdate_schedule: quarterly
