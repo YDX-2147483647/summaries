@@ -39,6 +39,6 @@ jobs:
           title: Link Checker Report
           # Update an existing issue if one was found (issue-number),
           # otherwise an empty value creates a new issue:
-          issue-number: "${{ steps.link-checker-issue.outputs.issue_number }}"
+          issue-number: "${{ steps.link-checker-issue.outputs.issue-number }}"
           content-filepath: ./lychee/out.md
           labels: automated issue, link-checker
