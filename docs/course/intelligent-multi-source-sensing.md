@@ -160,7 +160,7 @@ $$
 
 ### 雷达方程
 
-> :material-clock-edit-outline: 2023年9月12日。
+> :material-clock-edit-outline: 2023年9月12日，2024年9月10–11日。
 
 信号：
 
@@ -175,6 +175,28 @@ $$
 - Band width $B$。
 
 另外还有损耗 $L$。
+
+> :material-eye-arrow-right: [Avijit, electromagnetism - Effective aperture of isotropic antenna - Physics Stack Exchange](https://physics.stackexchange.com/q/86160).
+>
+> :material-eye-arrow-right: [Derivation of antenna aperture from thermodynamic considerations - Wikipedia](https://en.wikipedia.org/w/index.php?title=Aperture_(antenna)&oldid=1230824548#Derivation_of_antenna_aperture_from_thermodynamic_considerations).
+>
+> :material-eye-arrow-right: [10.13: Effective Aperture - Physics LibreTexts](https://phys.libretexts.org/Bookshelves/Electricity_and_Magnetism/Electromagnetics_II_(Ellingson)/10%3A_Antennas/10.13%3A_Effective_Aperture)
+>
+> :material-eye-arrow-right: [Glenn Schulz W9IQ, math - Why is antenna aperture a function of wavelength? - Amateur Radio Stack Exchange](https://ham.stackexchange.com/a/7688).
+
+天线面积 $A$ 很直观，当初 [Friis](https://en.wikipedia.org/wiki/Friis_transmission_equation) 很常用；但它其实是“有效”面积 $A_\text{effect}$，现代更倾向于按**增益** $G$ 分析，与各向同性无耗天线比较——增益反映定向性和损耗。
+
+各向同性天线是什么模型呢？天线面积越大，能流越集中于法向；反过来，各向同性天线其实就是点源。各向同性无耗天线的增益按定义是一，不过这代表的具体能流密度、天线有效面积需要计算。发射、接收是两个物理过程，对应两种定义，我们都分析一下。（按[互易原理](https://www.antenna-theory.com/definitions/reciprocity.php)，二者总是一致。）
+
+- 发射过程输入功率，输出电磁波，可看作热力学过程黑体辐射。Rayleigh–Jeans公式给出能谱辐射度（spectral radiance，发射物体上单位面积向单位立体角中辐射的功率的频谱密度[^B-nu]）$B = 2 k_B T / \lambda^2$，于是 $A$ 这么大的一块天线向全空间辐射的总功率谱密度是 $4\pi A B$。构造适当的热力学装置，可将它与 Johnson–Nyquist 热噪声的功率谱密度 $k_B T$ 建立联系：前者是后者的两倍（因为极化，只有一半能量有作用）。联立推出 $A = \lambda^2 / (4\pi)$。
+
+- 接收过程是点源感应平面波。注意只有近场能感应到。因为各种物理量都含 $k r$ 项（其中 $k$ 是角波数，$r$ 是间距），近场的范围大致是 $1/k$。认为有效区域就是近场覆盖的圆盘，从而 $A = \pi (1/k)^2 = \lambda^2 / (4\pi)$。
+
+[^B-nu]: 这里是频谱密度，即单位频率中的功率，也有按单位波长中的功率算的。
+
+上面是从 $A$ 理解，其实也可从 $G$ 理解。
+
+- 将一个无耗天线从各向同性改为定向，辐射功率不变，但辐射范围从全空间 $4\pi$ 压缩到了一个小波束。天线辐射出波束的平面角大致是 $\lambda / l$（其中 $l$ 是天线在这个平面内的线度），那么立体角大致就是 $\lambda^2 / A$。因此与各向同性天线相比，增益是 $G = \lambda^2 / A / (4\pi)$。
 
 ### Stationary Phase Approximation
 
