@@ -42,6 +42,8 @@ $$
 
 4. 假设 $q > 0$，那内积和 $\mathcal{L}$ 定义中的 $-q$ 要改为 $+q$，齐次方程化出来是 $\mathcal{L} y = -y$，说明 $\mathcal{L}$ 有特征值 $-1$，与它 self-adjoint 矛盾，故解不存在。
 
+这种做法还有助于理解变分法。
+
 ### 差商的误差
 
 > :material-clock-edit-outline: 2024年9月26日。
