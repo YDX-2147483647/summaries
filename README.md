@@ -33,11 +33,11 @@
 
    > **Note**
    >
-   > [`just`](https://just.systems/man/en/chapter_1.html)是个命令运行器。若无法安装，可手动运行`justfile`中的命令。
+   > [`just`](https://just.systems/man/en/)是个命令运行器。若无法安装，可手动运行`justfile`中的命令。
 
    > **Note**
    >
-   > 若想指定用哪一`python`，请创建[`.env`文件](https://just.systems/man/en/chapter_26.html)，写入`PYTHON = "/path/to/python"`，例如`PYTHON = "py -3.11"`或`PYTHON = "./.venv/Scripts/python.exe"`。
+   > 若想指定用哪一`python`，请创建[`.env`文件](https://just.systems/man/en/settings.html#dotenv-settings)，写入`PYTHON = "/path/to/python"`，例如`PYTHON = "py -3.11"`或`PYTHON = "./.venv/Scripts/python.exe"`。
 
 3. 编辑。
 
