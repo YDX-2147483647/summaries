@@ -160,7 +160,7 @@ $$
 
 ### 雷达方程
 
-> :material-clock-edit-outline: 2023年9月12日，2024年9月10–11日。
+> :material-clock-edit-outline: 2023年9月12日，2024年9月10–11日，2024年10月9日。
 
 信号：
 
@@ -197,6 +197,10 @@ $$
 上面是从 $A$ 理解，其实也可从 $G$ 理解。
 
 - 将一个无耗天线从各向同性改为定向，辐射功率不变，但辐射范围从全空间 $4\pi$ 压缩到了一个小波束。天线辐射出波束的平面角大致是 $\lambda / l$（其中 $l$ 是天线在这个平面内的线度），那么立体角大致就是 $\lambda^2 / A$。因此与各向同性天线相比，增益是 $G = \lambda^2 / A / (4\pi)$。
+
+> :material-eye-arrow-right: [Closest antenna to an isotropic? - Amateur Radio Stack Exchange](https://ham.stackexchange.com/a/1854).
+
+以上主要是“理解”，各向同性天线其实不只是造不出来，而且在理论上可证明不存在。注意电磁波是横波，振动需用两个参数描述。假设存在一个电磁场，它在球面上处处不为零，那么就构造出了球面上的一个没有奇点的向量场，这会违反Poincaré–Hopf指数和定理。
 
 ### Stationary Phase Approximation
 
