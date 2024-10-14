@@ -16,7 +16,7 @@ jobs:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
-      - uses: lycheeverse/lychee-action@v1
+      - uses: lycheeverse/lychee-action@v2
         with:
           # Fail on pull request, but create an issue otherwise
           fail: ${{ github.event_name == 'pull_request' }}
