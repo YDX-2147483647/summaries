@@ -54,7 +54,7 @@ $$
 = \variant \hat\theta + (\expect\hat\theta - \theta)^2.
 $$
 
-:material-eye-arrow-right: [“人工智能导论”类似讨论](./artificial-intelligence.md#bias-vs-variance)。
+:material-eye-arrow-right: [“人工智能导论”类似讨论](./artificial-intelligence.md#Bias-vs-Variance)。
 
 ## §3 Cramér–Rao lower bound
 
@@ -668,7 +668,7 @@ Denote the matrix inverse $(\cdot)^{-1}$ as the fraction $\frac{1}{\cdot}$.
 >
 > :material-eye-arrow-right: [多变量正态分布的边缘分布和条件分布](./stochastic-signal-processing.md#多变量正态分布的边缘分布和条件分布)。
 >
-> :material-eye-arrow-right: [Composition of normal distributions](#composition-of-normal-distributions).
+> :material-eye-arrow-right: [Composition of normal distributions](#Composition-of-normal-distributions).
 
 
 $\vb*{\theta}$ distributes normally, $\vb*{x} = H \vb*{\theta} + \vb*{w}$, where $\vb*{w}$ is also distributed as a normal distribution, and independent to $\vb*{\theta}$.
