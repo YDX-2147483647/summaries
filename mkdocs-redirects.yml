@@ -32,3 +32,4 @@ plugins:
       stochastic-signal-processing.md: course/stochastic-signal-processing.md
       theoretical-physics-intro.md: course/theoretical-physics-intro.md
       xi-thought.md: course/xi-thought.md
+      course/numerical-differential.md: course/computational-methods.md
