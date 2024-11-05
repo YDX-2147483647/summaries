@@ -5,6 +5,11 @@ relevant:
 
 # Stochastic Geometry
 
+$$
+\def\RR{\mathbb{R}}
+\def\NN{\mathbb{N}}
+\DeclareMathOperator\expect{\mathbb{E}}
+$$
 
 !!! info "课程名称"
 
@@ -56,7 +61,7 @@ $$
 H \parallel \frac{V^* e^{-j\omega t_0}} {\sqrt{S_X}}.
 $$
 
-### Wiener Filter
+### Wiener filter
 
 > :material-clock-edit-outline: 2024年10月17日。
 
@@ -101,3 +106,55 @@ $$
 3. 串联以上两步，得 $H = K H_0$。
 
     具体结果为 $H = 1 / S^+_U \times \operatorname{Causal~part~of} S_{V U} / S^-_U$。
+
+## Point Process
+
+### Random measure formalism of a point process
+
+> :material-clock-edit-outline: 2024年11月5日。
+
+In the space $X$ (e.g. $\RR^d$ where $d \in \NN_+$), for a specific set $B \subset X$ ($B$ stands for [Borel](https://mathworld.wolfram.com/BorelSet.html)), the number of points falling in $B$, denoted as $\Phi(B) \in \NN$, is a random variable. Moreover, $\Phi$ is a measure with randomness, and we can use $\Phi$ to describe the point process.
+
+!!! tip "Measure"
+
+    To say $\Phi$ is a [measure](https://mathworld.wolfram.com/Measure.html) is to declare that $\Phi$ is additive over countable disjoint sets.
+
+形象地解释一下。我们用 $B_1, B_2, \ldots$ 划分 $X$，数出 $\Phi(B_1), \Phi(B_2), \ldots$ 这一组随机变量。考察这组随机变量的概率分布，就能分析其背后的点过程。
+
+There are abundance tools for random variables, and we can generalize them to $\Phi$. But the random measure $\Phi$ includes **infinite** random variables. Therefore, many tools must be generalized into infinite-dimensional vectors, or equivalently, a **function** that maps from the _index_ to the corresponding _component_ in the vector.
+
+- Mean $m \coloneqq \expect \xi$.
+
+  → **Intensity measure** $\Lambda(B) \coloneqq \expect \Phi(B)$.
+
+- Mean of a linear combination of variables is the linear combination of their means.
+
+  <!-- <abbr title="law of the unconscious statistician">LOTUS</abbr>: $\eta \coloneqq f(\xi)$, then $\expect \eta = \int f(x) \times p(x) \dd{x}$, where $p(x) \dd{x}$ is the probability of “$\xi$ locates in the interval $\dd{x}$”. -->
+
+  → **Campbell’s theorem for sums**: Let $S$ be the sum of $f$ of points in a realization $\sum_{x \in \Phi} f(x)$, denoted as $\Phi(f)$ or $S[f]$, then $\expect S = \int_X f(x) \times \Lambda(\dd{x})$.
+
+- Probability generating function (PGF) $(z, w) \mapsto \expect z^\xi w^\eta$ and moment generating function (MGF) $(t,s) \mapsto \expect e^{t\xi + s\eta}$.
+
+  → **Probability generating functional** (p.g.fl)
+
+  $$
+  v \mapsto \expect v^\Phi
+  \coloneqq \expect \prod_{x\in\Phi} v(x)
+  = \expect e^{\Phi(\log v)},
+  $$
+
+  where $v: X \to (0, 1]$, and $v^0 = 1$ (no point here), $v^1 = v$ (here exists a point).
+
+Example: For a Poisson variable $\xi$ with parameter $\lambda$,
+
+$$
+  \expect z^\xi = \sum_{x \in \NN} \frac{(\lambda z)^x} {x!} e^{-\lambda}
+  = e^{\lambda (z - 1)}.
+$$
+
+For a Poisson point process with $\Lambda(\dd{x}) = \lambda(x) \abs{\dd{x}}$,
+
+$$
+  \expect v^\Phi = \prod_x e^{\Lambda(\dd{x}) (v(x) - 1)}
+  = e^{\int \lambda(x) (v(x) - 1) \dd{x}}.
+$$
