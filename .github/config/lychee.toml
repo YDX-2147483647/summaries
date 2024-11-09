@@ -4,6 +4,7 @@ max_cache_age = "2d"
 exclude = [
   # Domain
   '^https://www\.jstor\.org', # 403 Forbidden
+  '^https://(www|zhuanlan)\.zhihu\.com', # 403 Forbidden
   '^https://[^.]+\.bit\.edu\.cn', # Too far
   '^http://opinion\.people\.com\.cn', # Too far
 
