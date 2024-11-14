@@ -6,6 +6,7 @@ relevant:
 # Stochastic Geometry
 
 $$
+\def\CC{\mathbb{C}}
 \def\RR{\mathbb{R}}
 \def\NN{\mathbb{N}}
 \DeclareMathOperator\expect{\mathbb{E}}
@@ -17,6 +18,35 @@ $$
 
     - 概率、随机过程和随机几何及其应用
     - Probability, Random Process and Stochastic Geometry in Engineering
+
+## Random Variables
+
+### Transforms
+
+> :material-clock-edit-outline: 2024年11月14日。
+
+- Probability generating function (PGF, $G$):
+
+  $z \mapsto \expect z^\xi$, $\xi \in \NN$.
+
+- Moment generating function (MGF, $M$):
+
+  $s \mapsto \expect e^{s \xi}$, $\xi \in \RR$. Note that it may not converge for all $s \in \CC$.
+
+- Characteristic function (CF, $\varphi$):
+
+  $\nu \mapsto \expect e^{j \nu \xi}$, $\nu \in \RR$. Note that $\abs{\expect e^{j \cdots}} \leq \expect \abs{e^{j \cdots}} = 1$.
+
+### Bounds of probabilities
+
+> :material-clock-edit-outline: 2024年11月14日。
+
+For a random variable $\xi \in \RR$, there exist the following bounds of $\Pr(\xi \geq x)$. They describe how fast $\xi$, as a sum, converges to the central limit theorem.
+
+- Markov: $\expect \xi \geq x \Pr(\xi \geq x)$, where $x \in \RR^+$.
+- Generalized Markov: $\expect \xi^r \geq x^r \Pr(\xi \geq x)$, where $x,r \in \RR^+$.
+- Чебышёв: $\expect \xi^2 \geq x^2 \Pr(\abs{\xi} \geq x)$, where $x \in \RR^+$.
+- Chernoff: $M(s) \coloneqq \expect e^{s \xi} \geq e^{s x} \Pr(\xi \geq x)$, where $x\in \RR, s \in \RR^+$.
 
 ## Filters
 
