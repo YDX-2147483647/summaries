@@ -141,7 +141,7 @@ $$
 
 ### Random measure formalism of a point process
 
-> :material-clock-edit-outline: 2024年11月5日。
+> :material-clock-edit-outline: 2024年11月5日，2024年11月18日。
 
 In the space $X$ (e.g. $\RR^d$ where $d \in \NN_+$), for a specific set $B \subset X$ ($B$ stands for [Borel](https://mathworld.wolfram.com/BorelSet.html)), the number of points falling in $B$, denoted as $\Phi(B) \in \NN$, is a random variable. Moreover, $\Phi$ is a measure with randomness, and we can use $\Phi$ to describe the point process.
 
@@ -162,6 +162,10 @@ There are abundance tools for random variables, and we can generalize them to $\
   <!-- <abbr title="law of the unconscious statistician">LOTUS</abbr>: $\eta \coloneqq f(\xi)$, then $\expect \eta = \int f(x) \times p(x) \dd{x}$, where $p(x) \dd{x}$ is the probability of “$\xi$ locates in the interval $\dd{x}$”. -->
 
   → **Campbell’s theorem for sums**: Let $S$ be the sum of $f$ of points in a realization $\sum_{x \in \Phi} f(x)$, denoted as $\Phi(f)$ or $S[f]$, then $\expect S = \int_X f(x) \times \Lambda(\dd{x})$.
+
+  !!! note "点过程面面观"
+
+      $\Phi(f) = \int f(x) \Phi(\dd{x})$ taking $\Phi$ as a measure, and it also equals to $\sum f(\Phi)$ taking $\Phi$ as a set.
 
 - Probability generating function (PGF) $(z, w) \mapsto \expect z^\xi w^\eta$ and moment generating function (MGF) $(t,s) \mapsto \expect e^{t\xi + s\eta}$.
 
