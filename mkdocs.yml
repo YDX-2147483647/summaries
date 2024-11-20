@@ -76,9 +76,9 @@ markdown_extensions:
 
 plugins:
   # Default plugins
-  search:
-    separator: '[\s\u200b\-]'
-    # 零宽空格用于中文分词
+  # search:
+  #   separator: '[\s\u200b\-]'
+  #   # 零宽空格用于中文分词
 
   # Extra plugins
   rss:
