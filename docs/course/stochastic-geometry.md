@@ -192,3 +192,10 @@ $$
   \expect v^\Phi = \prod_x e^{\Lambda(\dd{x}) (v(x) - 1)}
   = e^{\int \lambda(x) (v(x) - 1) \dd{x}}.
 $$
+
+# 后备箱
+
+- Poisson过程未必<u>齐次</u>。
+- A sampling may be with or without <u>replacement</u>. 有放回（前者）的可能性更多。
+- 一个网络中有若干点，每点的参数（如发射与否）可能统一控制（$\expect e^\cdots$），也可能各自<u>独立</u>决定（$e^{\expect[\cdots]}$）。
+- 随机变量的函数可能一对一、<u>多对一</u>、无穷多对一，不过若只需数字特征，不求解函数的分布也可。
