@@ -88,7 +88,7 @@ $$
 取等条件是 $H^* \sqrt{S_X} \parallel V e^{j\omega t_0} / \sqrt{S_X}$，即
 
 $$
-H \parallel \frac{V^* e^{-j\omega t_0}} {\sqrt{S_X}}.
+H \parallel \frac{V^* e^{-j\omega t_0}} {S_X}.
 $$
 
 ### Wiener filter
