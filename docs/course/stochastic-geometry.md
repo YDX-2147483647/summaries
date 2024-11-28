@@ -1,6 +1,7 @@
 ---
 relevant:
   - ./stochastic-signal-processing.md
+  - ./statistical-digital-signal-processing.md
 ---
 
 # Stochastic Geometry
