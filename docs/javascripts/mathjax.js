@@ -1,4 +1,4 @@
-// https://squidfunk.github.io/mkdocs-material/reference/mathjax/
+// https://squidfunk.github.io/mkdocs-material/reference/math/#mathjax
 
 window.MathJax = {
     loader: {
@@ -31,5 +31,8 @@ window.MathJax = {
 }
 
 document$.subscribe(() => {
+    MathJax.startup.output.clearCache()
+    MathJax.typesetClear()
+    MathJax.texReset()
     MathJax.typesetPromise()
 })
