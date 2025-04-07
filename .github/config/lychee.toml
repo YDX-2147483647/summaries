@@ -26,9 +26,6 @@ exclude = [
   # At first https://www.cs.uic.edu redirects to https://cs.uic.edu, but https://www3.cs.uic.edu is still up.
   # Now they are all down.
   '^https://www3\.cs\.uic\.edu/',
-  # Untrusted certificate
-  # https://github.com/YDX-2147483647/summaries/issues/39
-  '^https://www2\.stat\.duke\.edu/',
 ]
 
 remap = [
