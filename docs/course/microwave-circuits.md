@@ -590,7 +590,7 @@ $$
 
 > :material-clock-edit-outline: 2023年4月24日，2023年5月1日。
 >
-> :material-eye-arrow-right: [Calculate power gain from two-port S-parameters - MATLAB `powergain`](https://ww2.mathworks.cn/help/rf/ref/powergain.html).
+> :material-eye-arrow-right: [Calculate power gain from two-port S-parameters - MATLAB `powergain`](https://www.mathworks.com/help/rf/ref/powergain.html).
 > :material-eye-arrow-right: [2.3: Amplifier Gain Definitions - Engineering LibreTexts](https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Microwave_and_RF_Design_V%3A_Amplifiers_and_Oscillators_(Steer)/02%3A_Linear_Amplifiers/2.03%3A_Amplifier_Gain_Definitions).
 
 ```mermaid
