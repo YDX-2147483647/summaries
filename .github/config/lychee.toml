@@ -26,9 +26,6 @@ exclude = [
   # At first https://www.cs.uic.edu redirects to https://cs.uic.edu, but https://www3.cs.uic.edu is still up.
   # Now they are all down.
   '^https://www3\.cs\.uic\.edu/',
-  # Untrusted certificate
-  # https://github.com/YDX-2147483647/summaries/issues/39
-  '^https://www2\.stat\.duke\.edu/',
 ]
 
 remap = [
@@ -38,3 +35,6 @@ remap = [
   # {{ … | url }}
   '''^file:///(?P<root>.*)/overrides/(%7B){2}(%20)*'(?P<url>.+)'(%20)*\|(%20)*url(%20)*(%7D){2}$ file:///$root/docs/$url''',
 ]
+
+# Otherwise, mathworks.com and other websites might response 403 Forbidden.
+user_agent = "curl/8.9.1"
