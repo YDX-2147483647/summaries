@@ -219,7 +219,7 @@ relevant:
   - 《[天朝田亩制度](https://baike.baidu.com/item/%E5%A4%A9%E6%9C%9D%E7%94%B0%E4%BA%A9%E5%88%B6%E5%BA%A6#4)》（1853年）。
 - §3 辛亥革命与君主专制制度的终结
   - 孙中山《[〈民报〉发刊词](https://baike.baidu.com/item/%E3%80%8A%E6%B0%91%E6%8A%A5%E3%80%8B%E5%8F%91%E5%88%8A%E8%AF%8D/4815677#1)》（1905年10月20日）。
-  - 毛泽东《[纪念孙中山先生](http://www.quanxue.cn/LS_Mao/WenJiG/WenJiG47.html)》（1956年11月12日）。
+  - 毛泽东《[纪念孙中山先生](https://www.marxists.org/chinese/maozedong/marxist.org-chinese-mao-19561112.htm)》（1956年11月12日）。
   - 习近平《[在纪念孙中山先生诞辰150周年大会上的讲话](http://cpc.people.com.cn/n1/2016/1111/c64094-28854791.html)》（2016年11月11日）。
 - 中编综述
   - 毛泽东《[论人民民主专政](https://www.marxists.org/chinese/maozedong/marxist.org-chinese-mao-19490630.htm)》（1949年6月30日）。
