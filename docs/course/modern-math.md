@@ -7,6 +7,10 @@ relevant:
 
 # 近代数学基础
 
+$$
+\def\dd{\mathop{}\!\mathrm{d}}
+$$
+
 !!! info "课程名称"
 
     本课讲的其实是“现代”数学的基础。
@@ -69,6 +73,28 @@ relevant:
 导集与闭包的多种刻画：一点邻域与集合的相交情况，集合中点列能收敛的范围。
 
 连续的多种刻画：ε–δ 作为距离、收敛、一点之像的邻域的原像总能覆盖该点的邻域、开集的原像总开（换成闭集同样成立）。
+
+### 第二类Volterra积分方程解的存在性
+
+> :material-clock-edit-outline: 2025年5月17日。
+
+> :material-eye-arrow-right: [Volterra Integral Equation of the Second Kind -- from Wolfram MathWorld](https://mathworld.wolfram.com/VolterraIntegralEquationoftheSecondKind.html)
+
+用压缩映射原理分析关于 $\phi$ 的积分方程
+
+$$
+\phi (x) \equiv f(x) + \int K(x,y) \phi(y) \dd y
+$$
+
+的解的存在性，其中 $\abs{K}$ 有上界 $M$。
+
+从等式右侧到左侧是个映射，其不动点就是原方程的解。若它是压缩映射（采用 $L^\infty$ 度量的连续函数空间），则存在不动点。因此积分方程解的存在性归结为映射的压缩性。
+
+- 若积分区间为固定的 $[a,b]$，则 $M$ 必须充分小（小于 $\frac{1}{b-a}$），才能保证有解。
+
+- 若积分区间为变化的 $[a,x]$，则 $M$ 只要存在就能保证有解。
+
+  因为无论 $M$ 多大，都能保证方程在开始的 $1/M$ 长度内有解，然后一段一段延长即可。
 
 ## 代数与拓扑相容的空间
 
@@ -149,3 +175,6 @@ relevant:
 - 群、度量空间等要求**非空**，环要求至少有两个元素。
 - $L^p$ 或 $l^p$ 中的元素要求**范数有限**。
 - 区分**充分**条件与**必要**条件。
+- 同构要求**双射**。
+- Lebesgue 测度的 $p$ 可以无穷。
+- $L[a,b]$ 和 $L^1 [a,b]$ 意义相同，但 $C[a,b]$ 和 $C^0 [a,b]$ 意义相同。
