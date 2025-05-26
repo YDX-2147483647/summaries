@@ -59,7 +59,7 @@ def render_inline_math(match: re.Match[str]) -> str:
     typ = f"${src}$"
     return (
         '<span class="typst-math">'
-        + typst_compile(typ).decode()
+        + typst_compile(typ).decode().strip()
         + for_screen_reader(typ)
         + "</span>"
     )
@@ -70,7 +70,7 @@ def render_block_math(match: re.Match[str]) -> str:
     typ = f"$ {src} $"
     return (
         '<div class="typst-math">'
-        + typst_compile(typ).decode()
+        + typst_compile(typ).decode().strip()
         + for_screen_reader(typ)
         + "</div>"
     )
