@@ -1,4 +1,5 @@
 ---
+math: typst
 relevant:
   - ./probability-and-statistics.md
   - ./linear-algebra.md
@@ -6,10 +7,6 @@ relevant:
 ---
 
 # 近代数学基础
-
-$$
-\def\dd{\mathop{}\!\mathrm{d}}
-$$
 
 !!! info "课程名称"
 
@@ -80,17 +77,17 @@ $$
 
 > :material-eye-arrow-right: [Volterra Integral Equation of the Second Kind -- from Wolfram MathWorld](https://mathworld.wolfram.com/VolterraIntegralEquationoftheSecondKind.html)
 
-用压缩映射原理分析关于 $\phi$ 的积分方程
+用压缩映射原理分析关于 $phi$ 的积分方程
 
 $$
-\phi (x) \equiv f(x) + \int K(x,y) \phi(y) \dd y
+phi (x) equiv f(x) + integral K(x,y) phi(y) dif y
 $$
 
-的解的存在性，其中 $\abs{K}$ 有上界 $M$。
+的解的存在性，其中 $abs(K)$ 有上界 $M$。
 
-从等式右侧到左侧是个映射，其不动点就是原方程的解。若它是压缩映射（采用 $L^\infty$ 度量的连续函数空间），则存在不动点。因此积分方程解的存在性归结为映射的压缩性。
+从等式右侧到左侧是个映射，其不动点就是原方程的解。若它是压缩映射（采用 $L^oo$ 度量的连续函数空间），则存在不动点。因此积分方程解的存在性归结为映射的压缩性。
 
-- 若积分区间为固定的 $[a,b]$，则 $M$ 必须充分小（小于 $\frac{1}{b-a}$），才能保证有解。
+- 若积分区间为固定的 $[a,b]$，则 $M$ 必须充分小（小于 $1 / (b-a)$），才能保证有解。
 
 - 若积分区间为变化的 $[a,x]$，则 $M$ 只要存在就能保证有解。
 
@@ -118,26 +115,26 @@ $$
 
 > :material-clock-edit-outline: 2025年5月16日。
 
-对于内积空间中的向量 $x \in X$ 和正交规范向量之集合 $\{e_\alpha\}_\alpha$（其中指标 $\alpha$ 可有无穷多），有如下结论。
+对于内积空间中的向量 $x in X$ 和正交规范向量之集合 ${e_alpha}_alpha$（其中指标 $alpha$ 可有无穷多），有如下结论。
 
-1. 若限制 $\alpha$ 只取前<u>有限</u>多个指标，则向量 $0$、$\sum_\alpha (x, e_\alpha) e_\alpha$、$x$ 构成直角三角形，三条边的范数满足勾股定理。
+1. 若限制 $alpha$ 只取前<u>有限</u>多个指标，则向量 $0$、$sum_alpha (x, e_alpha) e_alpha$、$x$ 构成直角三角形，三条边的范数满足勾股定理。
 
-2. 若逐渐放松对 $\alpha$ 的限制，由于 $\norm{\sum_\alpha (x, e_\alpha) e_\alpha}^2 = \sum_\alpha \abs{(x, e_\alpha)}^2$ 一直被固定的 $\norm{x}^2$ <u>限制</u>，它无法无限制地增长。
+2. 若逐渐放松对 $alpha$ 的限制，由于 $norm(sum_alpha (x, e_alpha) e_alpha)^2 = sum_alpha abs((x, e_alpha))^2$ 一直被固定的 $norm(x)^2$ <u>限制</u>，它无法无限制地增长。
 
-   事实上，由可数集的可数并仍可数，能论证 $(x, e_\alpha)$ 最多只有可数项非零。
+   事实上，由可数集的可数并仍可数，能论证 $(x, e_alpha)$ 最多只有可数项非零。
 
-3. 现在完全不再限制 $\alpha$，考虑<u>数</u>的和式 $\sum_\alpha \abs{(x, e_\alpha)}^2$。因为其中只有可数项非零，它是个合法的级数。由极限的保号性，它收敛且不超过 $\norm{x}^2$，这称作 **Bessel 不等式**。
+3. 现在完全不再限制 $alpha$，考虑<u>数</u>的和式 $sum_alpha abs((x, e_alpha))^2$。因为其中只有可数项非零，它是个合法的级数。由极限的保号性，它收敛且不超过 $norm(x)^2$，这称作 **Bessel 不等式**。
 
-4. 继续考虑<u>向量</u>的和式 $\sum_\alpha (x, e_\alpha) e_\alpha$。如果其中有无穷项非零，它未必仍在空间中。不过根据系数的级数 $\sum_\alpha \abs{(x, e_\alpha)}^2$ 收敛，能证明向量的和式必然 <u>Cauchy 收敛</u>。
+4. 继续考虑<u>向量</u>的和式 $sum_alpha (x, e_alpha) e_alpha$。如果其中有无穷项非零，它未必仍在空间中。不过根据系数的级数 $sum_alpha abs((x, e_alpha))^2$ 收敛，能证明向量的和式必然 <u>Cauchy 收敛</u>。
 
-5. 如果这空间是 Hilbert 空间，<u>完备</u>，那么向量的和式收敛。于是向量 $0$、$\sum_\alpha (x, e_\alpha) e_\alpha$、$x$ 仍在空间内构成直角三角形，相应勾股定理仍成立。
+5. 如果这空间是 Hilbert 空间，<u>完备</u>，那么向量的和式收敛。于是向量 $0$、$sum_alpha (x, e_alpha) e_alpha$、$x$ 仍在空间内构成直角三角形，相应勾股定理仍成立。
 
-6. $\{e_\alpha\}_\alpha$ 选得好时，一条直角边退化为点，这时 $\norm{x}^2 = \sum_\alpha \abs{(x, e_\alpha)}^2$，这称作 **Parseval 等式**。
+6. ${e_alpha}_alpha$ 选得好时，一条直角边退化为点，这时 $norm(x)^2 = sum_alpha abs((x, e_alpha))^2$，这称作 **Parseval 等式**。
 
    事实上，以下三条等价。
 
-   - $\{e_\alpha\}_\alpha$ 构成基（$x$ 可用它线性表示）
-   - $\{e_\alpha\}_\alpha$ 完全（其正交补为零）
+   - ${e_alpha}_alpha$ 构成基（$x$ 可用它线性表示）
+   - ${e_alpha}_alpha$ 完全（其正交补为零）
    - Parseval 等式成立
 
 ### 最佳逼近

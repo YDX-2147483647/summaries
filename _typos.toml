@@ -1,3 +1,6 @@
 [type.md]
 # 不支持中文，故只检查文件名，不检查内容
 check-file = false
+
+[default.extend-words]
+typ = "typ"

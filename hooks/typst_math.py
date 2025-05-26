@@ -1,0 +1,95 @@
+"""Render math with typst
+
+## Usage
+
+1. Install the markdown extensions pymdownx.arithmatex.
+2. Add `math: typst` to pages' metadata.
+
+## Requirements
+
+- typst
+
+"""
+
+from __future__ import annotations
+
+import re
+from functools import cache
+from subprocess import CalledProcessError, run
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from mkdocs.config.defaults import MkDocsConfig
+    from mkdocs.structure.files import Files
+    from mkdocs.structure.pages import Page
+
+
+def should_render(page: Page) -> bool:
+    return page.meta.get("math") == "typst"
+
+
+def on_page_markdown(
+    markdown: str, page: Page, config: MkDocsConfig, files: Files
+) -> str | None:
+    if should_render(page):
+        assert "pymdownx.arithmatex" in config.markdown_extensions, (
+            "Missing pymdownx.arithmatex in config.markdown_extensions. "
+            "Setting `math: typst` requires it to parse markdown."
+        )
+
+
+def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
+    if should_render(page):
+        output = re.sub(
+            r'<span class="arithmatex">(.+?)</span>', render_inline_math, output
+        )
+
+        output = re.sub(
+            r'<div class="arithmatex">(.+?)</div>',
+            render_block_math,
+            output,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+        return output
+
+
+def render_inline_math(html: re.Match[str]) -> str:
+    src = html.group(1).removeprefix(R"\(").removesuffix(R"\)").strip()
+    return '<span class="typst-math">' + typst_compile(f"${src}$").decode() + "</span>"
+
+
+def render_block_math(html: re.Match[str]) -> str:
+    src = html.group(1).removeprefix(R"\[").removesuffix(R"\]").strip()
+    return '<div class="typst-math">' + typst_compile(f"$ {src} $").decode() + "</div>"
+
+
+@cache
+def typst_compile(
+    typ: str,
+    *,
+    prelude="#set page(width: auto, height: auto, margin: 0pt)\n",
+    format="svg",
+) -> bytes:
+    """Compile a Typst document
+
+    https://github.com/marimo-team/marimo/discussions/2441
+    """
+    try:
+        return run(
+            ["typst", "compile", "-", "-", "--format", format],
+            input=(prelude + typ).encode(),
+            check=True,
+            capture_output=True,
+        ).stdout
+    except CalledProcessError as err:
+        raise RuntimeError(
+            f"""
+Failed to render a typst math:
+
+```typst
+{typ}
+```
+
+{err.stderr.decode()}
+""".strip()
+        )
