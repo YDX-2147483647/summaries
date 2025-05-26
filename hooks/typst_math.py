@@ -13,6 +13,7 @@
 
 from __future__ import annotations
 
+import html
 import re
 from functools import cache
 from subprocess import CalledProcessError, run
@@ -55,12 +56,28 @@ def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
 
 def render_inline_math(html: re.Match[str]) -> str:
     src = html.group(1).removeprefix(R"\(").removesuffix(R"\)").strip()
-    return '<span class="typst-math">' + typst_compile(f"${src}$").decode() + "</span>"
+    typ = f"${src}$"
+    return (
+        '<span class="typst-math">'
+        + typst_compile(typ).decode()
+        + for_screen_reader(typ)
+        + "</span>"
+    )
 
 
 def render_block_math(html: re.Match[str]) -> str:
     src = html.group(1).removeprefix(R"\[").removesuffix(R"\]").strip()
-    return '<div class="typst-math">' + typst_compile(f"$ {src} $").decode() + "</div>"
+    typ = f"$ {src} $"
+    return (
+        '<div class="typst-math">'
+        + typst_compile(typ).decode()
+        + for_screen_reader(typ)
+        + "</div>"
+    )
+
+
+def for_screen_reader(typ: str) -> str:
+    return f'<span class="sr-only">{html.escape(typ)}</span>'
 
 
 @cache

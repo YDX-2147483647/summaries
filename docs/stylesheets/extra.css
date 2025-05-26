@@ -31,3 +31,12 @@ div.typst-math {
     display: flex;
     justify-content: center;
 }
+
+/*
+    https://v3.tailwindcss.com/docs/screen-readers
+    will interrupt the selection, thus unusable
+*/
+.sr-only {
+    position: absolute;
+    left: -9999px;
+}
