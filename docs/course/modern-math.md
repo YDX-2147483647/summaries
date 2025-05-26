@@ -165,6 +165,94 @@ $$
 
 - 线性有界算子构成赋范线性空间，算子陪域的完备性蕴含了算子空间的完备性
 
+### 共轭空间（对偶空间）
+
+> :material-clock-edit-outline: 2025年3月27、30日，2025年5月26–27日。
+
+0. 设 $p,q in [1, +oo]$ 是一对共轭指数，即满足 $1/p + 1/q = 1$。
+
+  !!! info "共轭指数的等价公式"
+
+      参考理想凸透镜成像公式，$1/p + 1/q = 1$ 等价于 $(p-1) (q-1) = 1$，$p q = p + q$，$p\/q = p-1$ 等。
+
+1. 任何序列 $f in l^p$（可以无限长）都可诱导出映射 $F: l^q -> CC$——
+
+  $$
+  u |-> F(u) = sum_n f_n u_n.
+  $$
+
+  - 可以证明这种诱导保范，即 $norm(f)_p = norm(F)$，从而总收敛。
+  - 这种诱导是单射：取序列空间标准的基 ${e^((n))}_n$，则 $F(e^((n)))$ 就是 $f_n$。
+
+2. 其实 $F$ 是 $l^q$ 上的有界线性泛函，它所在的空间称作 $l^q$ 的共轭空间 $(l^q)^*$。以上命题其实是说，$(l^q)^*$ 存在子空间（在保范线性的意义下）与 $l^p$ 同构。
+
+3. 若 $q < +oo$，可以证明这个子空间就是 $(l^q)^*$ 本身；若 $q = +oo$，则在通常的公理下，$(l^oo)^* supset.neq l^1$，称作 ba space（ba 表示 bounded additive）。
+
+!!! note "保范"
+
+    $F: l^q -> CC$ 的范数
+
+    $$
+    norm(F)
+    &:= sup_(norm(u)_q = 1) abs(F(u))
+    &= sup_(norm(u)_q = 1) abs(sum_n f_n u_n)
+    &= sup_(norm(u)_q = 1) sum_n abs(f_n u_n).
+    $$
+
+    下面证明它等于 $norm(f)_p$。
+
+    - **上界**：$forall u, norm(u)_q = 1 => abs(F(u)) <= norm(f)_p$
+
+      分类讨论。若 $p = +oo$，则 $abs(u)$ 在目标 $abs(f u)$ 与限制 $abs(u)^q$ 中的倍率相同，一分钱一分货，把 $abs(u)$ 完全布置到 $abs(f)$ 最大处即最大化目标，于是 $abs(F(u)) = sup abs(f)$，刚好是 $norm(f)_oo$。下面只讨论 $p < +oo$ 的情形。
+
+      由 $1 <= p < +oo$，根据 $y |-> y^p$ 在 $RR_(>=0)$ 的凸性，任取随机变量 $xi$ 和非负函数 $h$，$EE^p thin h(xi) <= EE thin h^p (xi)$。
+
+      取分布列为 $abs(u)^q$，取 $h := abs(f) thin abs(u)^(1-q)$，$h^p = abs(f)^p abs(u)^(-q)$，则上述不等式化为
+
+      $$
+      (sum abs(f) thin abs(u)^(1-q) dot abs(u)^q)^p <= sum abs(f)^p abs(u)^(-q) dot abs(u)^q,
+      $$
+
+      也就是
+
+      $$
+      (sum abs(f) thin abs(u))^p <= sum abs(f)^p,
+      $$
+
+      即 $abs(F(u))^p <= norm(f)_p^p$。
+
+    - **取等**：$exists u, norm(u)_q = 1 and abs(F(u)) = norm(f)_p$
+
+      凸性不等式的取等条件是 $h$ 为常值，即 $abs(f)^p$ 与 $abs(u)^q$ 成比例。这样的 $u$ 显然存在。
+
+!!! tip "Hölder 不等式"
+
+    以上保范命题其实几乎是 Hölder 不等式。
+
+    $sum_n abs(f_n u_n)$ 就是 $norm(f u)_1$，然后由范数的齐次性，$norm(u)_q = 1 ==> norm(f u)_1 <= norm(f)_p$ 相当于 $norm(f u)_1 <= norm(f)_p norm(u)_q$。
+
+    另外，Hölder 不等式还可推广到一般的 $1/p' + 1/q' = 1/r'$，得到 $norm(f' u')_r' <= norm(f')_p' norm(u')_q'$。证明只需取 $(p,q) := (p',q') \/ r'$，$abs(f)^p := abs(f')^p', abs(u)^q := abs(u')^q'$ 即可。
+
+!!! note "$supset.neq$ 还是 $=$"
+
+    $(l^q)^* supset.neq l^p$ 还是 $(l^q)^* = l^p$，问题在于从 $l^p$ 序列到 $(l^q)^*$ 泛函的诱导关系 $f |-> F$ 是不是满射。
+
+    等一下，我们刚才证明单射时，已经事实上给出了诱导关系的逆：输入泛函 $F in (l^q)^*$，输出序列 $n |-> F(e^((n)))$。难道这个映射不适用于整个 $(l^q)^*$ 吗？
+
+    适用，但输出结果的范数 $norm(dot)_p$ 未必有限，从而未必属于 $l^p$。让我们分析几个例子，分析后会发现 $norm(dot)_p < +oo$ 并不平凡。
+
+    - $p = +oo, q = 1$ 时，$(l^1)^* = l^oo$
+
+      $norm(F(e^((dot))))_p = sup abs(F(e^((dot)))) = sup norm(F) dot norm(e^((dot))) = norm(F) < +oo$。
+
+    - $p = 2 = q$ 时，$(l^2)^* = l^2$
+
+      $l^2$ 可以定义内积，有正交补的概念。$F: l^2 -> CC$，$dim im F <= dim CC = 1$，故 $dim (ker F)^perp = dim l^2 \/ ker F = dim im F <= 1$。于是，$F(e^((dot)))$ 要么为零，要么就在一维的 $(ker F)^perp$ 中，所以 $norm(F(e^((dot))))_2 < +oo$。
+
+    - $p = 1, q = +oo$ 时，$(l^oo)^* supset.neq l^1$
+
+      $norm(F(e^((dot))))_p = sum abs(F(e^((dot))))$，这有无穷项，似乎没有什么特别的理由收敛。
+
 # 注意
 
 - 区分**正交规范**集与普通的向量集合。
