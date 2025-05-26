@@ -23,3 +23,11 @@
     stroke: var(--md-typeset-color);
     fill: var(--md-typeset-color);
 }
+
+span.typst-math > svg {
+    overflow: visible;
+}
+div.typst-math {
+    display: flex;
+    justify-content: center;
+}

@@ -16,6 +16,7 @@ bootstrap:
     {{ pip }} install jieba --upgrade  # 搜索中文
     dot -V  # Graphviz / dot is also needed for hooks/relationship.py. https://www.graphviz.org/download/
     {{ pip }} install graphviz --upgrade
+    typst --version  # Typst is needed for hooks/typst_math.py. https://typst.app
 
 # Start the live-reloading docs server
 serve *ARGS:

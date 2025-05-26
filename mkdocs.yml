@@ -91,6 +91,7 @@ plugins:
 
 hooks:
   - hooks/relationship.py
+  - hooks/typst_math.py
 
 extra_javascript:
   - javascripts/mathjax.js
