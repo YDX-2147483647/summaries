@@ -86,7 +86,11 @@ def fix_svg(svg: bytes) -> str:
     - Strip trailing spaces
     - Support dark theme
     """
-    return svg.decode().strip().replace('fill="#000000"', 'class="text-color"')
+    return re.sub(
+        r' (fill|stroke)="#000000"',
+        r' \1="var(--md-typeset-color)"',
+        svg.decode().strip(),
+    )
 
 
 @cache
