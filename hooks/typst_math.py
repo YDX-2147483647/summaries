@@ -59,7 +59,7 @@ def render_inline_math(match: re.Match[str]) -> str:
     typ = f"${src}$"
     return (
         '<span class="typst-math">'
-        + typst_compile(typ).decode().strip()
+        + fix_svg(typst_compile(typ))
         + for_screen_reader(typ)
         + "</span>"
     )
@@ -70,7 +70,7 @@ def render_block_math(match: re.Match[str]) -> str:
     typ = f"$ {src} $"
     return (
         '<div class="typst-math">'
-        + typst_compile(typ).decode().strip()
+        + fix_svg(typst_compile(typ))
         + for_screen_reader(typ)
         + "</div>"
     )
@@ -80,11 +80,20 @@ def for_screen_reader(typ: str) -> str:
     return f'<span class="sr-only">{html.escape(typ)}</span>'
 
 
+def fix_svg(svg: bytes) -> str:
+    """Fix the compiled SVG to be embedded in HTML
+
+    - Strip trailing spaces
+    - Support dark theme
+    """
+    return svg.decode().strip().replace('fill="#000000"', 'class="text-color"')
+
+
 @cache
 def typst_compile(
     typ: str,
     *,
-    prelude="#set page(width: auto, height: auto, margin: 0pt)\n",
+    prelude="#set page(width: auto, height: auto, margin: 0pt, fill: none)\n",
     format="svg",
 ) -> bytes:
     """Compile a Typst document

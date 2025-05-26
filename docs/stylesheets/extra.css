@@ -24,7 +24,10 @@
     fill: var(--md-typeset-color);
 }
 
-span.typst-math > svg {
+.md-typeset svg.typst-doc .text-color {
+    fill: var(--md-typeset-color);
+}
+.typst-math > svg {
     overflow: visible;
 }
 div.typst-math {
