@@ -65,15 +65,15 @@ relevant:
 
 ### 评论
 
-> :material-clock-edit-outline: 2025年5月16、17日。
+> :material-clock-edit-outline: 2025年5月16、17日，2025年9月22日。
 
 导集与闭包的多种刻画：一点邻域与集合的相交情况，集合中点列能收敛的范围。
 
-连续的多种刻画：ε–δ 作为距离、收敛、一点之像的邻域的原像总能覆盖该点的邻域、开集的原像总开（换成闭集同样成立）。
+连续的多种刻画：ε–δ 作为距离、收敛、一点之像的邻域的原像总能覆盖该点的邻域（或者说，该点存在能被覆盖的邻域）、开集的原像总开（换成闭集同样成立）。
 
 ### 映射保持拓扑结构的程度
 
-> :material-clock-edit-outline: 2025年5月27日。
+> :material-clock-edit-outline: 2025年5月27日，2025年9月17、22日。
 
 > :material-eye-arrow-right: [两个拓扑空间间的闭映射一定是开映射吗？ - 知乎](https://www.zhihu.com/question/303043369)
 
@@ -84,7 +84,9 @@ relevant:
 - **开**映射：$X$ 中的开集 $U$ ⇒ $Y$ 中的 $f(U)$ 开。
 - **闭**映射：$X$ 中的闭集 $U$ ⇒ $Y$ 中的 $f(U)$ 闭。
 
-注意，连续映射、商映射的定义谈论原像 $f^(-1)$，这时用开集、闭集讨论一样；然而开映射、闭映射的定义谈论像 $f$，这时用开集、闭集讨论不同。原因在于，补的原像总是原像的补，但补的像未必是像的补——$X$ 中的集合 $A$ 在映射 $f$ 下不一定“饱和”，可能有 $A$ 之外的元素同样能映射到 $f(A)$ 里，即可能 $A subset.neq f^(-1) (f (A))$。
+注意，连续映射、商映射的定义谈论原像 $f^(-1)$，这时用开集、闭集讨论一样；然而开映射、闭映射的定义谈论像 $f$，这时用开集、闭集讨论不同。原因在于，补的原像总是原像的补，但补的像未必是像的补——$X$ 中的集合 $A$ 在映射 $f$ 下不一定“饱和”，可能有 $A$ 之外的元素同样能映射到 $f(A)$ 里，即可能 $A subset.neq f^(-1) (f (A))$。若 $f$ 是单射，则用开集、闭集讨论等价。
+
+另外注意，缩小集合时，即使保持邻域结构，也可能改变子集的开闭。考虑某点的邻域，缩小集合时这邻域也会缩减，导致更容易出现开集和闭集，更不容易出现既不开也不闭的子集。例如 $RR^3$ 缩减为 $RR^2 times {0}$，考虑子集 $[0,1]^2 times {0}$，它从既不开也不闭变成了闭。
 
 ### 第二类Volterra积分方程解的存在性
 
@@ -169,6 +171,29 @@ $$
 由此可得**投影定理**：若父空间完备，子空间闭，则投影唯一存在，并且是最佳逼近点。
 
 ## 算子与泛函
+
+### 各种结构
+
+> :material-clock-edit-outline: 2025年9月22日。
+
+> :material-eye-arrow-right: [245B, notes 3: $L^p$ spaces | What's new](https://terrytao.wordpress.com/2009/01/09/245b-notes-3-lp-spaces/)
+
+为了允许各种有意义的操作，函数（算子）空间经常具备以下若干结构，以及某些结构之间的兼容条件。（不过通常并非以下全部结构）
+
+- 代数
+  - **向量空间** vector space：加法、数乘。不过通常无穷维。
+  - **代数** algebra：某种乘法，比如逐点相乘、卷积；或者共轭空间之类的。
+  - **群操作** group actions：描述函数空间的对称性，比如旋转、反射、平移、调制、拉伸，甚至 Lie 群之类的。群操作还生出表示理论、Fourier分析等手法。
+- 拓扑
+  - **范数** norm：描述一个函数的大小。与数域不同，函数空间有高、宽、振荡、正则、衰减快慢等许多性质，所以也有许多种范数。为兼容向量空间，设置三角不等式；为兼容代数结构，设置齐次性。
+  - **度量** metric：描述两个函数的距离，可由合适的范数结构诱导。收敛、完备等话题依赖度量结构。紧性也属于度量结构，可惜函数空间通常不具备。
+  - **拓扑** topology：描述相邻、开闭、收敛等。保持拓扑结构引出了连续概念。合适的度量结构会诱导一种拓扑。
+- 混合
+  - **泛函** functional：把函数转换成更简单的数研究。范数、积分、求值都是泛函，另外内积结构会诱导一类泛函。泛函所在的空间还引出对偶概念。
+  - **内积** inner product：描述两个函数之间的相互作用或关系。除了通常的共轭积之和，还有 $(f,mu) |-> integral f dif mu$ 这种两个函数分属不同空间的内积。合适的范数可与内积相互诱导。Cauchy–Schwarz 不等式和正交是内积结构引出的有力工具。为与向量空间兼容，设置与标量域匹配的双线性。
+- **序** order：描述函数之间的大小关系，比如非负、“控制”、最大等。
+
+函数空间似乎不太考虑**测度** measure，大概因为通常无穷维，定量的测度手段容易遇到困难。往往可用定性的拓扑手段解决。
 
 ### 概念
 
@@ -270,6 +295,49 @@ $$
 
     - 若取有限数 $N$，只考虑 $l^p$、$l^q$ 中最多前 $N$ 项非零的子集 $V_p, V_q$，则 $V_p = V_q$（此处不是保范同构，仅在集合的意义上），并且 $V^p = (V^q)^* = (V^p)^(**)$（此处是保范同构），即 $V_p$ 自反。
 
+### 开映射定理
+
+> :material-clock-edit-outline: 2025年9月19、22日。
+
+之所以要关心映射 $T: X -> Y$ 的这些性质，是因为它与关于 $x$ 的方程 $T x = y$ 的解的性质紧密相关。考虑 $Y ->^U X ->^T Y ->^V X$：
+
+- 若总**存在**解（$forall y, exists x, T x = Y$），则 $T$ 是满射，$T U: Y -> Y$ 可以是恒等映射，即存在 $U$ 是 $T$ 的右逆。
+- 若总无解或最多**一解**（$forall y, T x_1 = y = T x_2 => x_1 = x_2$），则 $T$ 是单射， $V T: X -> X$ 可以是恒等映射，即存在 $V$ 是 $T$ 的左逆。
+- 在总有唯一解的基础上（$T^(-1)$ 存在），若解**稳定**（$x_0 = T^(-1) y_0$ 随 $y_0$ 连续变化），则 $T^(-1): Y -> X$ 连续，也即 $T: X -> Y$ 是开映射。
+
+对于线性算子，特别是线性有界算子，这些条件可以进一步简化。
+
+> :material-eye-arrow-right: [245B, Notes 9: The Baire category theorem and its Banach space consequences | What's new](https://terrytao.wordpress.com/2009/02/01/245b-notes-9-the-baire-category-theorem-and-its-banach-space-consequences/)
+
+首先分析开映射。开映射是全局概念，但对于线性算子，可等价转换为一点邻域的性质，特别是原点邻域的性质——这与连续类似。具体如下。
+
+- 开映射 ⇒ “定量”可解性
+
+  1. 若 $T$ 是**开映射**，则 $T(B_X (0,1))$ 开，$exists r > 0, B_Y (0, r) subset T(B_X (0,1))$。换句话说，$forall norm(y) < r, exists x in X, y = T x and norm(x) < 1$，进而 $norm(x) < norm(y) \/ r$。
+  2. 由于 $T$ 和 $norm(x) < norm(y) \/ r$ 都**齐次**，上述命题的前提 $norm(y) < r$ 可去掉，于是得到 $exists r > 0, forall y, exists x, y = T x and norm(x) < norm(y) \/ r$。
+  3. 总结一下，$exists C > 0, forall y, exists x, y = T x and norm(x) < C norm(y)$——这一条件姑且称做“定量”可解性。
+
+- “定量”可解性 ⇒ 开映射
+
+  1. 由“定量”**可解性**，$forall norm(y) < 1, exists x, y = T x and norm(x) < C norm(y) < C$，于是 $forall norm(y) < 1, exists norm(x) < C, y = T x$，即 $B_Y (0, 1) subset T(B_X (0, C))$。
+  2. 由于 $T$ 和 $B_Y (0, 1) subset T(B_X (0, C))$ 都**齐次**，任取 $X$ 中以原点为中心的开球 $B_X (0,r)$，它的像都包含开球 $B_Y (0, r\/C)$，所以是开集。
+  3. 由于 $T$ **线性**，以上可外推至 $X$ 中一般的开集，从而 $T$ 是开映射。
+
+!!! note "与有界性的区别"
+
+    注意“定量”可解性不同于 $T$ 有界。$T$ 有界可以仿照描述为 $exists C > 0, forall x, exists y, y = T x and norm(y) < C norm(x)$。这种“对仗”正如开映射与连续映射。
+
+注意“定量”可解性显然可推出“定性”可解性（指解的存在性，$forall y, exists x, y = T x$，也即 $T$ 是满射）。[**开映射定理**（open mapping theorem）](https://en.wikipedia.org/wiki/Open_mapping_theorem_(functional_analysis))指出，对于 $T in B(X,Y)$ 的**完备**情形，“定量”可解性不仅是“定性”可解性的充分条件，还是必要条件。“定量”可解性其实对应解方程时附加的正则项。开映射定理指出，添加这个定则项仅仅是表面上弱化问题，实际上仍然等价。
+
+下面简要介绍开映射定理的证明。
+
+1. 定义 $E_n := {y in Y : exists x, y = T x and norm(x) <= n norm(y)}$，则“定性”可解性等价于 $union.big_(n in NN) E_n = Y$。
+2. 由于 **$Y$ 完备**，故也是 [Baire 空间](https://en.wikipedia.org/wiki/Baire_space)，所以确定存在某个 $n$ 保证 $E_n$ 不是无处稠密的。也就是说，$E_n$ 在某个开球 $B(y_0, r)$ 内稠密，即 $forall epsilon > 0, forall y in B(y_0, r), exists x, norm(y - T x) <= epsilon and norm(x) <= n norm(y)$。（$x$ 相当于 $y = T x$ 的近似解）
+3. 利用 **$T$ 可加**，取两个这样的 $y$，可把结论转换到原点附近，具体来说是 $forall epsilon > 0, forall y in B(0, 2r), exists x, norm(y - T x) <= 2 epsilon and norm(x) <= 2n (r+epsilon)$。利用**齐次**性，再进一步去掉 $y$ 的限制，转换为 $forall y, forall epsilon > 0, exists x, norm(y - T x) <= 2 epsilon and norm(x) <= 2n (1+epsilon) norm(y)$。
+4. 由于 **$X$ 完备**、$T$ 连续，可取极限 $epsilon -> 0$，得到 $forall y, exists x, y = T x and norm(x) <= 3n norm(y)$，即“定量”可解性。
+
+开映射定理有一等价命题：**逆算子定理**（bounded inverse theorem）指出，若 $T in B(X,Y)$ 不仅是满射，还是双射，则 $T^(-1)$ 连续。
+
 # 注意
 
 - 区分**正交规范**集与普通的向量集合。
@@ -280,3 +348,6 @@ $$
 - 同构要求**双射**。
 - Lebesgue 测度的 $p$ 可以无穷。
 - $L[a,b]$ 和 $L^1 [a,b]$ 意义相同，但 $C[a,b]$ 和 $C^0 [a,b]$ 意义相同。
+- 有些字母有多种意义。
+  - $L(X,Y)$ 表示 $X -> Y$ 线性（linear）映射，但是 $L[a,b]$ 表示 $L^1 [a,b]$（Lebesgue）。
+  - $B(X,Y)$ 表示完备（Banach）的 $L(X,Y)$，但是 $B(x,r)$ 表示以 $x$ 中心、$r$ 为半径的开球（ball）。
