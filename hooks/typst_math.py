@@ -88,7 +88,7 @@ def fix_svg(svg: bytes) -> str:
     """
     return re.sub(
         r' (fill|stroke)="#000000"',
-        r' \1="var(--md-typeset-color)"',
+        r' \1="currentColor"',
         svg.decode().strip(),
     )
 
