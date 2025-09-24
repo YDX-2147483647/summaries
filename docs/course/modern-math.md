@@ -309,7 +309,7 @@ $$
 
 > :material-eye-arrow-right: [245B, Notes 9: The Baire category theorem and its Banach space consequences | What's new](https://terrytao.wordpress.com/2009/02/01/245b-notes-9-the-baire-category-theorem-and-its-banach-space-consequences/)
 
-首先分析开映射。开映射是全局概念，但对于线性算子，可等价转换为一点邻域的性质，特别是原点邻域的性质——这与连续类似。具体如下。
+先分析开映射。开映射是全局概念，但对于线性算子，可等价转换为一点邻域的性质，特别是原点邻域的性质——这与连续类似。具体如下。
 
 - 开映射 ⇒ “定量”可解性
 
@@ -337,6 +337,36 @@ $$
 4. 由于 **$X$ 完备**、$T$ 连续，可取极限 $epsilon -> 0$，得到 $forall y, exists x, y = T x and norm(x) <= 3n norm(y)$，即“定量”可解性。
 
 开映射定理有一等价命题：**逆算子定理**（bounded inverse theorem）指出，若 $T in B(X,Y)$ 不仅是满射，还是双射，则 $T^(-1)$ 连续。
+
+### 闭图像定理
+
+> :material-clock-edit-outline: 2025年9月23–24日。
+
+映射 $T: X -> Y$ 的[图像](https://en.wikipedia.org/wiki/Graph_of_a_function)是指 $X times Y$ 平面内的子集 ${ (x, T x) : x in X }$。这样定义既符合绘图习惯，又有数学上的优势。
+
+- 图像是一种看待函数的视角，有些性质用图像描述更直观。例如，“向下凸”等价于[图像“上方”的区域](https://en.wikipedia.org/wiki/Epigraph_(mathematics))是凸的。
+
+- 图像连接了函数的定义域和值域，$X in.rev x <-> (x, T x) |-> T x in op("image") f$。第一步从定义域到图像，必为双射，且其逆连续；第二步从图像到值域，如果空间允许定义连续，那么也连续。此外两步都会继承 $T$ 的性质。
+
+- 用图像可以捕捉更弱的函数，以及函数更弱的性质。
+
+  - 即使函数只在 $D subset.neq X$ 上有定义，也可用 $X times Y$ 中的图像描述，不丢弃 $X$ 的好性质。
+
+  - 记 $y_n = T x_n$。函数具有**闭图像**是指图像是闭集，即若 $x_n -> x$，且 $y_n -> y$，则 $y = T x$；而函数连续是指若 $x_n -> x$，则 $y_n -> y$，且 $y = T x$。由此可见，闭图像性质是连续的必要条件。
+
+    闭图像性质确实比连续弱。求导算子就有闭图像，但无界，所以不连续。
+
+!!! info "名称"
+
+    闭图像性质的“闭”和开映射的“开”指不同东西，两个概念并无直接关系。
+
+    具有闭图像性质的映射最好不要简称为“闭映射”，不然会与[描述拓扑结构的那种“闭映射”](#映射保持拓扑结构的程度)混淆。
+
+继续[开映射定理](#开映射定理)的话题。连续反映方程解的稳定性，条件在线性时可能简化。[闭图像定理（closed graph theorem）](https://en.wikipedia.org/wiki/Closed_graph_theorem_(functional_analysis))指出，对于完备空间之间的线性映射，闭图像性质不仅是连续的必要条件，还是充分条件。
+
+下面简要介绍闭图像定理的证明。若 $T$ 具有闭图像，则图像本身构成完备空间。考虑 $x <-> (x, T x) |-> T x$。第一步的逆是是连续双射，由开映射定理，它正过来也连续。于是 $x |-> y$ 是两个连续映射的串联，从而连续。
+
+图像是看待函数的视角，应用到各领域都有类似的闭图像定理。以上介绍的是泛函分析版本，其它版本可参考[陶哲轩的总结](https://terrytao.wordpress.com/2012/11/20/the-closed-graph-theorem-in-various-categories/)。
 
 # 注意
 
