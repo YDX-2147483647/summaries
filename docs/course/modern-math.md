@@ -1,5 +1,9 @@
 ---
 math: typst
+math-preamble: |
+  #let image = math.op("image")
+  #let kernel = math.op("kernel")
+
 relevant:
   - ./probability-and-statistics.md
   - ./linear-algebra.md
@@ -169,6 +173,32 @@ $$
   - 若父空间**完备**，则最佳逼近点存在。（⇐ 子空间内的 Cauchy 列能收敛到子空间内）
 
 由此可得**投影定理**：若父空间完备，子空间闭，则投影唯一存在，并且是最佳逼近点。
+
+### 常见空间模型
+
+> :material-clock-edit-outline: 2025年5月17–18日，2025年9月28日。
+
+- $l^p$ Lebesgue 可和序列
+
+  完备，包括 $p = +oo$ 时。
+
+  - $p < +oo$ 时可分，“仅前有限项非零的序列”是其可数稠密子集
+  - $p = +oo$ 时不可分，${0,1}^oo$ 两两间距为 $1$，却有不可数个。
+
+  $p < +oo$ 时 $l^p$ 的共轭空间与 $l^q$ 同构，其中 $1/p + 1/q = 1$。$l^oo$ 的共轭空间会比 $l^1$ 大，并不同构，可能还和公理有关。
+
+- $L^p [a,b]$ Lebesgue 可积函数
+
+  完备，包括 $p = +oo$ 时。
+
+  - $p < +oo$ 时可分，有界连续函数在其中稠密。
+  - $p = +oo$ 时不可分，区间的示性函数两两间距为 $1$，却有不可数个。
+
+- $C[a,b]$ 连续函数（默认 $L^oo$ 度量，对应一致收敛）
+
+  可分，有理系数多项式是其可数稠密子集。
+
+  在配套度量下，完备；若换用 $L^1$ 度量，会减弱为逐点收敛，就不完备了。
 
 ## 算子与泛函
 
@@ -346,7 +376,7 @@ $$
 
 - 图像是一种看待函数的视角，有些性质用图像描述更直观。例如，“向下凸”等价于[图像“上方”的区域](https://en.wikipedia.org/wiki/Epigraph_(mathematics))是凸的。
 
-- 图像连接了函数的定义域和值域，$X in.rev x <-> (x, T x) |-> T x in op("image") f$。第一步从定义域到图像，必为双射，且其逆连续；第二步从图像到值域，如果空间允许定义连续，那么也连续。此外两步都会继承 $T$ 的性质。
+- 图像连接了函数的定义域和值域，$X in.rev x <-> (x, T x) |-> T x in image f$。第一步从定义域到图像，必为双射，且其逆连续；第二步从图像到值域，如果空间允许定义连续，那么也连续。此外两步都会继承 $T$ 的性质。
 
 - 用图像可以捕捉更弱的函数，以及函数更弱的性质。
 
@@ -367,6 +397,161 @@ $$
 下面简要介绍闭图像定理的证明。若 $T$ 具有闭图像，则图像本身构成完备空间。考虑 $x <-> (x, T x) |-> T x$。第一步的逆是是连续双射，由开映射定理，它正过来也连续。于是 $x |-> y$ 是两个连续映射的串联，从而连续。
 
 图像是看待函数的视角，应用到各领域都有类似的闭图像定理。以上介绍的是泛函分析版本，其它版本可参考[陶哲轩的总结](https://terrytao.wordpress.com/2012/11/20/the-closed-graph-theorem-in-various-categories/)。
+
+### 谱论
+
+> :material-clock-edit-outline: 2025年9月25、28日。
+
+特征值理论推广到无穷维空间就是谱论。对于线性变换 $T: X -> X$，考虑方程 $T x = λ x$ 的解的情况，其中 $λ in CC$。这归结为分析 $T_λ := T - lambda I$ 的核与像（值域）。
+
+#### 核与像的性质
+
+对于有限维空间，$X$ 与 $kernel T_λ plus.circle image T_λ$ [等价](https://en.wikipedia.org/wiki/Rank–nullity_theorem)，单射（$kernel T_λ = {0}$）与满射（$image T_λ = X$）相互蕴含；但对于无限维空间，$X$ 可能更大，有更多内容。
+
+- **核**的性质——空间中不同的两点是否必有不同的像
+
+  分类：名副其实的单射、名不副实的单射、非单射
+
+  若把“不同”理解为“不相等”，则描述映射是否是<u>集合</u>论意义上的单射；若给空间附加<u>度量</u>结构，把“不同”理解为“相距较远”，则描述放大倍数 $norm(T (x_1 - x_2)) \/ norm(x_1 - x_2)$ 是否存在正的下界。“放大倍数有下界”比“始终不相等”更强，据此可将单射进一步区分为“名副其实的单射”与“名不副实的单射”。
+
+  对于有限维空间，将映射按基分解后，放大倍数的下界会归结为有限个数的下界，所以单射都名副其实。对于无限维空间，下界可能涉及无限多数，未必如此。
+
+- **像**的性质——空间中任意点是否都存在某点的像与之相同
+
+  分类：满射、半满不满、很空
+
+  若把“相同”理解为“相等”，则描述映射是否是<u>集合</u>论意义上的满射；若给空间附加<u>度量</u>结构，把“相同”理解为“相距较近”，则描述像在陪域中是否稠密。“像稠密”比“像不满”更强，据此可将非满射进一步区分为“半满不满”与“很空”两种。
+
+  对于有限维空间，将空间以及像按基分解后，可证明不存在稠密的真子空间，所以不存在半满不满的映射。对于无限维空间，基必须加上系数才能确定子空间（参考 [Hamel 基](https://en.wikipedia.org/wiki/Basis_(linear_algebra)#Hamel_basis)与 [Schauder 基](https://en.wikipedia.org/wiki/Schauder_basis)的区别），无法保证如此。
+
+!!! note "例：名不副实的单射"
+
+    考虑 $l^oo$ 上的变换 $(a, b, c, ...) |-> (a/1, b/2, c/3, ...)$。它是单射，但会把 $0, e_n$ 分别映射到 $0, 1/n e_n$，放大倍数可以任意接近零。
+
+!!! note "例：半满不满的映射"
+
+    考虑 $l^1$ 上的变换 $(a, b, c, ...) |-> (a/1, b/2, c/4, ...)$。它不是满射，因为可和序列的“原像”未必可和；不过像仍然稠密，因为总可用前有限项逼近过去。
+
+    比如 $y = (1, 1/2, 1/4, ...) in l^1$。假如存在 $x$ 满足 $y = T x$，则 $x$ 必为 $(1,1,1,...) in.not l^1$，所以 $y$ 在像空间之外。不过 $y$ 与像空间很接近，只要依次映射 $(1, 0, ...), (1,1,0,...), (1,1,1,0,...), ...$，就能让像逐渐收敛到 $y$。
+
+!!! note "例：不满的单射"
+
+    考虑 $l^oo$ 上的变换 $(a,b,c,...) |-> (0,a,b,c,...)$（右移），它不满（而且很空），但是单射（名副其实）。映射前后表面上减少了维度，但实际上又等势——这正是无限维的定义。
+
+#### 谱的划分
+
+根据核、像的性质，可将 $CC$ [划分](https://en.wikipedia.org/wiki/Decomposition_of_spectrum_(functional_analysis))为 $rho union sigma = rho union sigma_p union sigma_c union sigma_r$：
+
+- $sigma$ 谱点，谱集——不满或不单，$kernel T_λ != {0} or image T_λ subset.neq X$
+
+  - $sigma_p$ **点谱** point，特征值——不单（有非零解），$kernel T_λ != {0}$
+
+    $kernel T_λ$ 是 $T$ 的特征子空间，直接反映 $T$ 的性质。
+
+    有时 $kernel T_λ$ 还不够充分，需进一步考虑 $kernel (T_λ)^2, kernel (T_λ)^3, ...$ 等一[串](https://en.wikibooks.org/wiki/Linear_Algebra/Strings)不变子空间，最终拆分成 Jordan 标准形。
+
+  - 无限维特有情况——不满的单射，$kernel T_λ = {0} and image T_λ subset.neq X$
+
+    - $sigma_c$ **连续谱** continuous——像稠密，$overline(image T_λ) = X$
+    - $sigma_r$ **剩余谱** residual——像不稠密，$overline(image T_λ) subset.neq X$
+
+    连续谱与剩余谱的区别取决于度量结构。
+
+- $rho$ 正则点，[预解集](https://en.wikipedia.org/wiki/Resolvent_set)——双射，$kernel T_λ = {0} and image T_λ = X$
+
+  这是最常见的情况。
+
+正则点与谱点的区别取决于空间范围。
+
+!!! note "例：双边序列的右移映射"
+
+    - 若按 $l^oo (ZZ)$，则 $sigma_p = sigma = TT := { λ : abs(λ) = 1 }$，$λ in sigma_p$ 对应的特征向量是复指数序列 $(..., λ^(-1), 1, λ, λ^2, ...)$。
+    - 若按 $l^2 (ZZ)$，由于复指数序列不再属于空间，则 $sigma_c = sigma = TT := { λ : abs(λ) = 1 }$，点谱换成了连续谱。
+
+<figure id="spectrum-decomp" markdown="span">
+  <style>
+    #spectrum-decomp {
+      table {
+        border: none;
+      }
+      th, td {
+        border: .05rem solid var(--md-typeset-table-color);
+        vertical-align: middle;
+        text-align: center;
+      }
+      th {
+        min-width: 3rem;
+        padding-inline: 0.5em;
+      }
+    }
+  </style>
+  <table markdown="span">
+    <caption>一般空间中有界线性变换的谱</caption>
+    <tr>
+      <th rowspan="3" colspan="3"></th>
+      <th scope="col" colspan="3">核的性质</th>
+    </tr>
+    <tr>
+      <th scope="col" colspan="2">单射</th>
+      <th scope="col" rowspan="2">非单射</th>
+    </tr>
+    <tr>
+      <th scope="col">名副其实</th>
+      <th scope="col">名不副实</th>
+    </tr>
+    <tr markdown="span">
+      <th scope="row" rowspan="3">像的性质</th>
+      <th scope="row" colspan="2">满射</th>
+      <td markdown="span">正则 $rho$</td>
+      <td markdown="span">$nothing$</td>
+      <td rowspan="3" markdown="span">点谱 $sigma_p$</td>
+    </tr>
+    <tr markdown="span">
+      <th scope="row" rowspan="2">非满射</th>
+      <th scope="row">半满不满</th>
+      <td markdown="span">$nothing$</td>
+      <td markdown="span">连续谱 $sigma_c$</td>
+    </tr>
+    <tr markdown="span">
+      <th scope="row">很空</th>
+      <td colspan="2" markdown="span">剩余谱 $sigma_r$</td>
+    </tr>
+  </table>
+  <table markdown="span">
+    <caption>有限维空间中线性变换的谱</caption>
+    <tr>
+      <th rowspan="2" colspan="2"></th>
+      <th scope="col" colspan="2">核的性质</th>
+    </tr>
+    <tr>
+      <th scope="col">单射（名副其实）</th>
+      <th scope="col">非单射</th>
+    </tr>
+    <tr markdown="span">
+      <th scope="row" rowspan="2">像的性质</th>
+      <th scope="row">满射</th>
+      <td markdown="span">正则 $rho$</td>
+      <td markdown="span">$nothing$</td>
+    </tr>
+    <tr markdown="span">
+      <th scope="row">非满射（很空）</th>
+      <td markdown="span">$nothing$</td>
+      <td markdown="span">点谱 $sigma_p$</td>
+    </tr>
+  </table>
+</figure>
+
+!!! note "两个 $nothing$ 的来源"
+
+    - “双射”都是“名副其实的单射”
+
+      对于双射，“放大系数有下界”等价于“逆映射有界”。[逆算子定理](#开映射定理)保证了这一点。
+
+    - “名副其实的单射”不可能“半满不满”
+
+      设 $T$ 的放大系数有下界，首先证明 $image T$ 必为闭集。任取收敛列 ${y_n}_n subset image T$，并配套选取序列 ${x_n}_n$ 满足 $forall n, T x_n = y_n$。由 $T$ 的放大系数有下界，以及 ${y_n}_n$ Cauchy 收敛，可知 ${x_n}_n$ Cauchy 收敛。由 $X$ 完备，可设 $x := lim_n x_n$。构造 $y := T x$，则由 $T$ 连续，$y_n -> y in image T$。
+
+      既然像必为闭集，那么稠密（不很空）就意味着是全集（满射），所以不可能出现稠密的真子集（半满不满）。
 
 # 注意
 
