@@ -9,6 +9,14 @@
 
 - typst
 
+## Configurations (per-page)
+
+```yaml
+math: typst
+math-preamble: |
+  #import "@preview/physica:0.9.5": dv, pdv
+  #let image = math.op("image")
+```
 """
 
 from __future__ import annotations
@@ -17,7 +25,7 @@ import html
 import re
 from functools import cache
 from subprocess import CalledProcessError, run
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable
 
 if TYPE_CHECKING:
     from mkdocs.config.defaults import MkDocsConfig
@@ -41,39 +49,59 @@ def on_page_markdown(
 
 def on_post_page(output: str, page: Page, config: MkDocsConfig) -> str | None:
     if should_render(page):
+        preambles: list[str] = [page.meta.get("math-preamble", "")]
+
         output = re.sub(
-            r'<span class="arithmatex">(.+?)</span>', render_inline_math, output
+            r'<span class="arithmatex">(.+?)</span>',
+            render_inline_math(preambles),
+            output,
         )
 
         output = re.sub(
             r'<div class="arithmatex">(.+?)</div>',
-            render_block_math,
+            render_block_math(preambles),
             output,
             flags=re.MULTILINE | re.DOTALL,
         )
         return output
 
 
-def render_inline_math(match: re.Match[str]) -> str:
-    src = html.unescape(match.group(1)).removeprefix(R"\(").removesuffix(R"\)").strip()
-    typ = f"${src}$"
-    return (
-        '<span class="typst-math">'
-        + fix_svg(typst_compile(typ))
-        + for_screen_reader(typ)
-        + "</span>"
-    )
+def render_inline_math(preambles: list[str]) -> Callable[[re.Match[str]], str]:
+    def repl(match: re.Match[str]) -> str:
+        src = (
+            html.unescape(match.group(1))
+            .removeprefix(R"\(")
+            .removesuffix(R"\)")
+            .strip()
+        )
+        typ = f"${src}$"
+        return (
+            '<span class="typst-math">'
+            + fix_svg(typst_compile("\n".join(preambles + [typ])))
+            + for_screen_reader(typ)
+            + "</span>"
+        )
+
+    return repl
 
 
-def render_block_math(match: re.Match[str]) -> str:
-    src = html.unescape(match.group(1)).removeprefix(R"\[").removesuffix(R"\]").strip()
-    typ = f"$ {src} $"
-    return (
-        '<div class="typst-math">'
-        + fix_svg(typst_compile(typ))
-        + for_screen_reader(typ)
-        + "</div>"
-    )
+def render_block_math(preambles: list[str]) -> Callable[[re.Match[str]], str]:
+    def repl(match: re.Match[str]) -> str:
+        src = (
+            html.unescape(match.group(1))
+            .removeprefix(R"\[")
+            .removesuffix(R"\]")
+            .strip()
+        )
+        typ = f"$ {src} $"
+        return (
+            '<div class="typst-math">'
+            + fix_svg(typst_compile("\n".join(preambles + [typ])))
+            + for_screen_reader(typ)
+            + "</div>"
+        )
+
+    return repl
 
 
 def for_screen_reader(typ: str) -> str:
