@@ -400,7 +400,7 @@ $$
 
 ### 谱论
 
-> :material-clock-edit-outline: 2025年9月25、28日。
+> :material-clock-edit-outline: 2025年9月25、28日、2025年10月10日。
 
 特征值理论推广到无穷维空间就是谱论。对于线性变换 $T: X -> X$，考虑方程 $T x = λ x$ 的解的情况，其中 $λ in CC$。这归结为分析 $T_λ := T - lambda I$ 的核与像（值域）。
 
@@ -465,7 +465,7 @@ $$
 
 !!! note "例：双边序列的右移映射"
 
-    - 若按 $l^oo (ZZ)$，则 $sigma_p = sigma = TT := { λ : abs(λ) = 1 }$，$λ in sigma_p$ 对应的特征向量是复指数序列 $(..., λ^(-1), 1, λ, λ^2, ...)$。
+    - 若按 $l^oo (ZZ)$，则 $sigma_p = sigma = TT := { λ : abs(λ) = 1 }$，$λ in sigma_p$ 对应的特征向量是复指数序列 $(..., λ, 1, λ^(-1), λ^(-2), ...)$。
     - 若按 $l^2 (ZZ)$，由于复指数序列不再属于空间，则 $sigma_c = sigma = TT := { λ : abs(λ) = 1 }$，点谱换成了连续谱。
 
 <figure id="spectrum-decomp" markdown="span">
@@ -552,6 +552,61 @@ $$
       设 $T$ 的放大系数有下界，首先证明 $image T$ 必为闭集。任取收敛列 ${y_n}_n subset image T$，并配套选取序列 ${x_n}_n$ 满足 $forall n, T x_n = y_n$。由 $T$ 的放大系数有下界，以及 ${y_n}_n$ Cauchy 收敛，可知 ${x_n}_n$ Cauchy 收敛。由 $X$ 完备，可设 $x := lim_n x_n$。构造 $y := T x$，则由 $T$ 连续，$y_n -> y in image T$。
 
       既然像必为闭集，那么稠密（不很空）就意味着是全集（满射），所以不可能出现稠密的真子集（半满不满）。
+
+!!! note "各类例子总结"
+
+    满射、半满不满、很空分别简记为 $square.filled,square,circle$，名副其实的单射、名不副实的单射、非单射分别简记为 $1,0^+,0$
+
+    $$
+    #import grid: cell
+    #grid(
+      columns: 3,
+      inset: (x: 0.5em, y: 0.25em),
+      //
+      cell(fill: green, $square.filled\/1$),
+      $square.filled\/0^+$,
+      cell(fill: yellow, $square.filled\/0$),
+      //
+      $square\/1$,
+      cell(fill: red, $square\/0^+$),
+      cell(fill: aqua, $square\/0$),
+      //
+      cell(fill: yellow, $circle\/1$),
+      cell(fill: red, $square\/0^+$),
+      cell(fill: green, $square\/0$),
+    )
+    $$
+
+    - $square.filled\/1, thick circle\/0$
+
+      有限维空间即存在例子。
+
+    - $square\/1, thick square.filled\/0^+$
+
+      不存在。
+
+    - $circle\/1, thick square.filled\/0$
+
+      分别例如单边序列的右移、左移，采用 $l^1$ 或 $l^oo$ 度量均可。
+
+    - $square\/0^+, thick circle\/0^+$
+
+      考虑 $[-1,1] -> CC$ 函数空间上的“与有零点的函数相乘”映射 $T$，比如选择与 $x |->x$ 相乘，即 $(T f) (x) := x f(x)$。显然 $image T = { f : f(0) = 0}$，不满；那么它稠密吗？
+
+      - 采用 $L^1$ 度量：$x = 0$ 这一点带来的影响可忽略不计，$image T$ 稠密。
+      - 采用 $L^oo$ 度量：$image T$ 中所有函数与 $g(x) equiv 1$ 的距离都至少是 $g(0) = 1$，所以 $image T$ 不稠密。
+
+      由于把几乎处处相等的函数认同，$T$ 是单射；那么放大倍数有正的下界吗？考虑宽 $2 w$、高 $h$ 的门函数，$T$ 对于它的放大倍数在 $L^1$ 下是 $w \/ 2$，在 $L^oo$ 下是 $w$，二者都可任意接近零。
+
+      以上这对例子是 $L^1, L^oo$；另外也存在一对 $l^1, l^oo$ 的例子，参考前面“半满不满的映射”“名不副实的单射”两例。
+
+    - $square\/0$
+
+      例如 $l^oo$ 双边序列上的映射 $T(n |-> a_n) := (n |-> a_n - a_(n-1))$。记序列 $..., 1, 1, ...$ 为 $e_0$。
+
+      - $T$ 不是单射，因为 $T(e_0) = 0$。
+      - $T$ 不是满射，这可从它的 Fourier 变换谱是 $omega |-> 1 - e^(-i omega)$ 存在零点（$omega = 0$）看出。具体来说，$e_0 in.not image T$，因为假如存在序列 ${a_n}_n$ 满足 $T(a) = e_0$，则必然 $a_n equiv a_0 + n$，然而这样的序列并不可和。
+      - $image T$ 稠密，这可从它的 Fourier 变换谱只有零散的单个零点看出。
 
 # 注意
 
