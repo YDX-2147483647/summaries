@@ -27,10 +27,15 @@ from functools import cache
 from subprocess import CalledProcessError, run
 from typing import TYPE_CHECKING, Callable
 
+from mkdocs.plugins import get_plugin_logger
+
 if TYPE_CHECKING:
     from mkdocs.config.defaults import MkDocsConfig
     from mkdocs.structure.files import Files
     from mkdocs.structure.pages import Page
+
+
+log = get_plugin_logger(__name__)
 
 
 def should_render(page: Page) -> bool:
@@ -75,6 +80,7 @@ def render_inline_math(preambles: list[str]) -> Callable[[re.Match[str]], str]:
             .strip()
         )
         typ = f"${src}$"
+        log.debug(typ)
         return (
             '<span class="typst-math">'
             + fix_svg(typst_compile("\n".join(preambles + [typ])))
@@ -94,6 +100,7 @@ def render_block_math(preambles: list[str]) -> Callable[[re.Match[str]], str]:
             .strip()
         )
         typ = f"$ {src} $"
+        log.debug(typ)
         return (
             '<div class="typst-math">'
             + fix_svg(typst_compile("\n".join(preambles + [typ])))

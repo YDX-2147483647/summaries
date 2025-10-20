@@ -8,6 +8,7 @@
             "args": [
                 "serve",
                 "--dirtyreload",
+                "--verbose",
             ],
             "group": "build",
             "isBackground": true,
