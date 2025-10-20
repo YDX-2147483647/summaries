@@ -3,6 +3,7 @@ math: typst
 math-preamble: |
   #let image = math.op("image")
   #let kernel = math.op("kernel")
+  #let Re = math.op("Re")
 
 relevant:
   - ./probability-and-statistics.md
@@ -174,9 +175,21 @@ $$
 
 由此可得**投影定理**：若父空间完备，子空间闭，则投影唯一存在，并且是最佳逼近点。
 
+### 范数的正定性
+
+> :material-clock-edit-outline: 2025年10月20日。
+
+范数的正定性并没有那么不平凡。
+
+如果去掉正定性，只要求齐次性、三角不等式，则称作<u>半范数</u>。半范数起码半正定——任取 $x$，因为齐次性中带有绝对值，$x$ 与 $-x$ 的半范数相等，再结合三角不等式，这两个相等的数之和大于等于零。
+
+> :material-eye-arrow-right: Theorem 33 in [18.102 Introduction to Functional Analysis | Mathematics | MIT OpenCourseWare](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/)
+
+半范数可以改造成范数。例如 $L^1$（半）范数本来只是半正定，但若将几乎处处相等的函数“认同”，则正定。一般而言，对于 $V$ 上的半范数 $norm(dot)$，取 $E := { v in V : norm(v) = 0}$，则商空间 $V\/E$ 构成赋范空间。这样构造之所以成立，是因为若 $v_1, v_2$ 只相差一个零范向量 $e in E$，则 $norm(v_1) = norm(v_1) + norm(e) >= norm(v_2) >= norm(v_1) - norm(-e) = norm(v_1)$，即 $norm(v_1) = norm(v_2)$。将只差零范向量的这种 $v_1, v_2$ 认同时，零范向量也都认同成 $0$ 了，于是半范数就升级成范数了。
+
 ### 常见空间模型
 
-> :material-clock-edit-outline: 2025年5月17–18日，2025年9月28日。
+> :material-clock-edit-outline: 2025年5月17–18日，2025年9月28日，2025年10月20日。
 
 - $l^p$ Lebesgue 可和序列
 
@@ -185,7 +198,7 @@ $$
   - $p < +oo$ 时可分，“仅前有限项非零的序列”是其可数稠密子集
   - $p = +oo$ 时不可分，${0,1}^oo$ 两两间距为 $1$，却有不可数个。
 
-  $p < +oo$ 时 $l^p$ 的共轭空间与 $l^q$ 同构，其中 $1/p + 1/q = 1$。$l^oo$ 的共轭空间会比 $l^1$ 大，并不同构，可能还和公理有关。
+  $p < +oo$ 时 $l^p$ 的共轭空间与 $l^q$ 同构，其中 $1/p + 1/q = 1$。$l^oo$ 的共轭空间会比 $l^1$ 大，并不同构，可能还和公理（Zorn引理）有关。
 
 - $L^p [a,b]$ Lebesgue 可积函数
 
@@ -200,7 +213,19 @@ $$
 
   在配套度量下，完备；若换用 $L^1$ 度量，会减弱为逐点收敛，就不完备了。
 
+!!! info "谁的共轭空间是 $l^1$？"
+
+    $l^oo$ 的共轭空间比 $l^1$ 大，那么谁的共轭空间是 $l^1$ 呢？答案可以是 $l^oo$ 的以下真子集——[收敛（converge）到 $0$ 的序列](https://en.wikipedia.org/wiki/C_space)。
+
+    $$
+    c_0 := { a in l^oo : lim_(n -> +oo) a_n = 0 }.
+    $$
+
+    $l^1 subset (c_0)^*$ 可直接验证；证明 $(c_0)^* subset l^1$ 需要针对 $(c_0)^*$ 中每个泛函构造一组 $c_0$ 中的序列，使它们经泛函映射后，会趋于泛函的 $l^1$ 范数（具体来说，选 $a_n$ 使 $a_n b_n = abs(b_n)$，并依次保留前有限项以保证这些 $a$ 都在 $c_0$ 中）。
+
 ## 算子与泛函
+
+> :material-eye-arrow-right: [18.102 Introduction to Functional Analysis | Mathematics | MIT OpenCourseWare](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/)
 
 ### 各种结构
 
@@ -357,7 +382,7 @@ $$
 
     注意“定量”可解性不同于 $T$ 有界。$T$ 有界可以仿照描述为 $exists C > 0, forall x, exists y, y = T x and norm(y) < C norm(x)$。这种“对仗”正如开映射与连续映射。
 
-注意“定量”可解性显然可推出“定性”可解性（指解的存在性，$forall y, exists x, y = T x$，也即 $T$ 是满射）。[**开映射定理**（open mapping theorem）](https://en.wikipedia.org/wiki/Open_mapping_theorem_(functional_analysis))指出，对于 $T in B(X,Y)$ 的**完备**情形，“定量”可解性不仅是“定性”可解性的充分条件，还是必要条件。“定量”可解性其实对应解方程时附加的正则项。开映射定理指出，添加这个定则项仅仅是表面上弱化问题，实际上仍然等价。
+注意“定量”可解性显然可推出“定性”可解性（指解的存在性，$forall y, exists x, y = T x$，也即 $T$ 是满射）。[**开映射定理**（open mapping theorem）](https://en.wikipedia.org/wiki/Open_mapping_theorem_(functional_analysis))指出，对于 $T in cal(B)(X,Y)$ 的**完备**情形，“定量”可解性不仅是“定性”可解性的充分条件，还是必要条件。“定量”可解性其实对应解方程时附加的正则项。开映射定理指出，添加这个定则项仅仅是表面上弱化问题，实际上仍然等价。
 
 下面简要介绍开映射定理的证明。
 
@@ -366,7 +391,7 @@ $$
 3. 利用 **$T$ 可加**，取两个这样的 $y$，可把结论转换到原点附近，具体来说是 $forall epsilon > 0, forall y in B(0, 2r), exists x, norm(y - T x) <= 2 epsilon and norm(x) <= 2n (r+epsilon)$。利用**齐次**性，再进一步去掉 $y$ 的限制，转换为 $forall y, forall epsilon > 0, exists x, norm(y - T x) <= 2 epsilon and norm(x) <= 2n (1+epsilon) norm(y)$。
 4. 由于 **$X$ 完备**、$T$ 连续，可取极限 $epsilon -> 0$，得到 $forall y, exists x, y = T x and norm(x) <= 3n norm(y)$，即“定量”可解性。
 
-开映射定理有一等价命题：**逆算子定理**（bounded inverse theorem）指出，若 $T in B(X,Y)$ 不仅是满射，还是双射，则 $T^(-1)$ 连续。
+开映射定理有一等价命题：**逆算子定理**（bounded inverse theorem）指出，若 $T in cal(B)(X,Y)$ 不仅是满射，还是双射，则 $T^(-1)$ 连续。
 
 ### 闭图像定理
 
@@ -398,7 +423,7 @@ $$
 
 图像是看待函数的视角，应用到各领域都有类似的闭图像定理。以上介绍的是泛函分析版本，其它版本可参考[陶哲轩的总结](https://terrytao.wordpress.com/2012/11/20/the-closed-graph-theorem-in-various-categories/)。
 
-### 谱论
+### 谱论与特征值问题
 
 > :material-clock-edit-outline: 2025年9月25、28日、2025年10月10日。
 
@@ -608,6 +633,34 @@ $$
       - $T$ 不是满射，这可从它的 Fourier 变换谱是 $omega |-> 1 - e^(-i omega)$ 存在零点（$omega = 0$）看出。具体来说，$e_0 in.not image T$，因为假如存在序列 ${a_n}_n$ 满足 $T(a) = e_0$，则必然 $a_n equiv a_0 + n$，然而这样的序列并不可和。
       - $image T$ 稠密，这可从它的 Fourier 变换谱只有零散的单个零点看出。
 
+### 度量算子和二次型
+
+> :material-clock-edit-outline: 2025年10月20日。
+
+算子 $T$ 的范数 $norm(T) := sup_(norm(x) = 1) norm(T x)$。在 Hilbert 空间中，这等价于 $sup_(norm(x) = 1 = norm(y)) abs((T x, y))$。此外，Hilbert 空间中还可考虑二次型 $x |-> (T x, x)$，它也可度量成一个数 $sup_(norm(x) = 1) abs((T x, x))$。类似的度量方法都刻画 $T$，它们有如下关联。
+
+- $sup_(norm(x) = 1 = norm(y)) abs((T x, y)) >= sup_(norm(x) = 1) abs((T x, x))$
+
+  $x,y$ 任意时的上界，不低于 $x = y$ 时的上界。因为后者范围更小。
+
+- $sup_(norm(x) = 1 = norm(y)) 1/2 abs((T x, y) + (T y, x)) <= sup_(norm(x) = 1) abs((T x, x))$
+
+  $x,y$ 任意时对称部分的上界，不高于 $x = y$ 时的上界。因为后者的线性组合可表示出前者，具体如下。
+
+  $$
+  abs(((T x, y) + (T y, x))/2)
+  &= abs(((T(x+y), x+y) - (T(x-y),x-y))/4) \
+  &<= (norm(x+y)^2 + norm(x-y)^2)/4 sup_(norm(u) != 0) abs((T u, u)) / norm(u)^2 \
+  &= (norm(x)^2 + norm(y)^2)/2 sup_(norm(u) != 0) abs((T u, u)) / norm(u)^2 \
+  &<= norm(x) norm(y) sup_(norm(u) != 0) abs((T u, u)) / norm(u)^2.
+  $$
+
+- $sup_(norm(x) = 1 = norm(y)) abs((T x, y)) = sup_(norm(x) = 1 = norm(y)) Re (T x, y)$
+
+  $x,y$ 任意时，模的上界等于实部的上界。因为 $x,y$ 乘以单位复数，仍然满足 $norm(x) = 1 = norm(y)$，而 $(T x, y)$ 可关于 $0 in CC$ 自由旋转，所以集合 ${ (T x, y) : norm(x) = 1 = norm(y)}$ 旋转对称。
+
+对于自伴算子，对称部分就是实部，进而以上几种上界都相等。
+
 # 注意
 
 - 区分**正交规范**集与普通的向量集合。
@@ -620,4 +673,4 @@ $$
 - $L[a,b]$ 和 $L^1 [a,b]$ 意义相同，但 $C[a,b]$ 和 $C^0 [a,b]$ 意义相同。
 - 有些字母有多种意义。
   - $L(X,Y)$ 表示 $X -> Y$ 线性（linear）映射，但是 $L[a,b]$ 表示 $L^1 [a,b]$（Lebesgue）。
-  - $B(X,Y)$ 表示完备（Banach）的 $L(X,Y)$，但是 $B(x,r)$ 表示以 $x$ 中心、$r$ 为半径的开球（ball）。
+  - $cal(B)(X,Y)$ 表示有界（bounded）的 $L(X,Y)$（若 $Y$ 完备，则 $cal(B)(X,Y)$ 也完备，故也可认为 $cal(B)$ 代表 Banach），但是 $B(x,r)$ 表示以 $x$ 中心、$r$ 为半径的开球（ball）。
