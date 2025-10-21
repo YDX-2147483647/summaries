@@ -1,10 +1,11 @@
 import logging
 import re
 from argparse import ArgumentParser
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable, Final, TypeAlias
+from typing import Final
 
-TRANSFORMER: TypeAlias = Callable[[list[str], Path], list[str] | None]
+type Transformer = Callable[[list[str], Path], list[str] | None]
 """转换器
 
 参数
@@ -27,16 +28,16 @@ def build_parser() -> ArgumentParser:
 def mark_dates(lines: list[str], file: Path) -> list[str] | None:
     """标记创建、修改日期
 
-    @see TRANSFORMER
+    @see Transformer
     """
 
     DATES_PATTERN: Final = re.compile(r"^> ([–\d年月日，、]+。)$")
 
     changed = False
 
-    for i, l in enumerate(lines):
-        if match := DATES_PATTERN.match(l):
-            print(f"Mark dates: “{l}”. ({file}:{i})")
+    for i, line in enumerate(lines):
+        if match := DATES_PATTERN.match(line):
+            print(f"Mark dates: “{line}”. ({file}:{i})")
             changed = True
             lines[i] = f"> :material-clock-edit-outline: {match.group(1)}"
 
@@ -65,7 +66,7 @@ def is_separation(line: str, *, head: str = "") -> bool:
 def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
     """隔开“$$”
 
-    @see TRANSFORMER
+    @see Transformer
     """
 
     DOLLARS_PATTERN: Final = re.compile(r"^(>?\s*)\$\$$")
@@ -74,18 +75,18 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
     new_lines: list[str] = []
 
     within_math_block = False
-    for i, l in enumerate(lines):
-        if match := DOLLARS_PATTERN.match(l):
-            logging.debug(f"Dollars detected on line {i} in “{file}”: “{l}”.")
+    for i, line in enumerate(lines):
+        if match := DOLLARS_PATTERN.match(line):
+            logging.debug(f"Dollars detected on line {i} in “{file}”: “{line}”.")
 
             # if this is the first line or the last line
             if not new_lines or i == len(lines) - 1:
                 # No separation needed.
-                new_lines.append(l)
+                new_lines.append(line)
 
             # elif inside a math block → outside
             elif within_math_block:
-                new_lines.append(l)
+                new_lines.append(line)
 
                 if not is_separation(lines[i + 1], head=match.group(1).rstrip()):
                     changed = True
@@ -99,12 +100,12 @@ def separate_dollars(lines: list[str], file: Path) -> list[str] | None:
                     print(f"Separate dollars before line {i} in “{file}”.")
                     new_lines.append(match.group(1))
 
-                new_lines.append(l)
+                new_lines.append(line)
 
             # Flip
             within_math_block = not within_math_block
         else:
-            new_lines.append(l)
+            new_lines.append(line)
 
     return new_lines if changed else None
 
@@ -116,7 +117,7 @@ def main():
     )
     args = build_parser().parse_args()
 
-    transformers: list[TRANSFORMER] = [
+    transformers: list[Transformer] = [
         mark_dates,
         separate_dollars,
     ]

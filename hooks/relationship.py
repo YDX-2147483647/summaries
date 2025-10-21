@@ -131,9 +131,9 @@ def on_page_content(html: str, page: Page, config: MkDocsConfig, files: Files) -
             if isinstance(r, str):
                 relevant[r] = {}
             else:
-                assert (
-                    len(r) == 1
-                ), "Every edge should target to exactly one destination"
+                assert len(r) == 1, (
+                    "Every edge should target to exactly one destination"
+                )
 
                 relevant.update(r)
 

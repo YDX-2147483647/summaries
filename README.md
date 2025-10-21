@@ -29,7 +29,7 @@
    $ just bootstrap
    ```
 
-   这会使用`python -m pip`安装一些包。
+   这会使用 [uv](https://docs.astral.sh/uv/) 安装一些包。
 
    > **Note**
    >
@@ -37,7 +37,7 @@
 
    > **Note**
    >
-   > 若想指定用哪一`python`，请创建[`.env`文件](https://just.systems/man/en/settings.html#dotenv-settings)，写入`PYTHON = "/path/to/python"`，例如`PYTHON = "py -3.11"`或`PYTHON = "./.venv/Scripts/python.exe"`。
+   > 若想手动安装包并使用特定`python`，请创建[`.env`文件](https://just.systems/man/en/settings.html#dotenv-settings)，写入`PYTHON = "/path/to/python"`，例如`PYTHON = "py -3.12"`或`PYTHON = "./.venv/Scripts/python.exe"`。
 
 3. 编辑。
 

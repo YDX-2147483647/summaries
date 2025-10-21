@@ -35,9 +35,10 @@ jobs:
           fetch-depth: 0  # RSS plugin needs all history
       - uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
-          cache: pip
-          cache-dependency-path: justfile
+          python-version-file: .python-version
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
       - uses: extractions/setup-just@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

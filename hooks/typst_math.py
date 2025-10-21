@@ -25,11 +25,13 @@ import html
 import re
 from functools import cache
 from subprocess import CalledProcessError, run
-from typing import TYPE_CHECKING, Callable
+from typing import TYPE_CHECKING
 
 from mkdocs.plugins import get_plugin_logger
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
+
     from mkdocs.config.defaults import MkDocsConfig
     from mkdocs.structure.files import Files
     from mkdocs.structure.pages import Page
