@@ -21,3 +21,12 @@ extend-select = [
     "F",
     "I",
 ]
+
+[dependency-groups]
+dev = [
+    # Downgrade click to mitigate a temporary issue for mkdocs serve live reload.
+    # https://github.com/squidfunk/mkdocs-material/issues/8478
+    # https://github.com/mkdocs/mkdocs/issues/4032
+    # https://github.com/pallets/click/issues/3084
+    "click==8.2.1",
+]
