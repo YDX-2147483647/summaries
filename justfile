@@ -12,7 +12,6 @@ mkdocs := python + " -m mkdocs"
 bootstrap:
     uv sync
     dot -V  # Graphviz / dot is also needed for hooks/relationship.py. https://www.graphviz.org/download/
-    typst --version  # Typst is needed for hooks/typst_math.py. https://typst.app
 
 # Start the live-reloading docs server
 serve *ARGS:

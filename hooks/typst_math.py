@@ -21,12 +21,15 @@ math-preamble: |
 
 from __future__ import annotations
 
+import atexit
 import html
 import re
 from functools import cache
-from subprocess import CalledProcessError, run
-from typing import TYPE_CHECKING
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from typing import TYPE_CHECKING, Literal
 
+import typst
 from mkdocs.plugins import get_plugin_logger
 
 if TYPE_CHECKING:
@@ -38,6 +41,75 @@ if TYPE_CHECKING:
 
 
 log = get_plugin_logger(__name__)
+
+
+class World:
+    _compiler: typst.Compiler
+    """A typst compiler.
+
+    This compiler will be reused through out the whole process.
+    Therefore, changing the environment (e.g., `$TYPST_FONT_PATHS`) after beginning `mkdocs serve` might not work as expected.
+    """
+
+    _file: Path
+    """Path to a temporary typst file to be written."""
+
+    def __init__(self) -> None:
+        # This file must have a visible name in the file system, or `typst.Compiler` might reject it.
+        file = NamedTemporaryFile(
+            prefix=f"mkdocs.plugins.{__name__.replace('/', '.')}-",
+            suffix="-main.typ",
+            delete_on_close=False,  # This file will be re-opened again, so can't be deleted on close.
+        )
+        file.close()  # Finish the initial write
+
+        self._file = Path(file.name)
+        self._compiler = typst.Compiler(self._file)
+
+    @cache
+    def compile(
+        self,
+        typ: str,
+        *,
+        prelude="#set page(width: auto, height: auto, margin: 0pt, fill: none)\n",
+        format: Literal["pdf", "svg", "png", "html"] = "svg",
+    ) -> bytes:
+        self._file.write_text(prelude + typ, encoding="utf-8")
+
+        try:
+            pages = self._compiler.compile(format=format)
+        except typst.TypstError as err:
+            raise RuntimeError(
+                f"""
+Failed to render a typst math:
+
+```typst
+{typ}
+```
+
+{err}
+""".strip()
+            )
+
+        assert pages is not None
+        assert not isinstance(pages, list), (
+            f"Multi-page document is not supported:\n\n```typst\n{typ}\n```"
+        )
+
+        return pages
+
+    def __del__(self) -> None:
+        self.clean()
+
+    def clean(self) -> None:
+        self._file.unlink(missing_ok=True)
+        # Missing is okay, because:
+        # - if `__init__` failed, then the file might not exist when calling `__del__`;
+        # - we allow this method to be `atexit.register`-ed, so it might be called multiple times.
+
+
+_world = World()
+atexit.register(_world.clean)
 
 
 def should_render(page: Page) -> bool:
@@ -85,7 +157,7 @@ def render_inline_math(preambles: list[str]) -> Callable[[re.Match[str]], str]:
         log.debug(typ)
         return (
             '<span class="typst-math">'
-            + fix_svg(typst_compile("\n".join(preambles + [typ])))
+            + fix_svg(_world.compile("\n".join(preambles + [typ])))
             + for_screen_reader(typ)
             + "</span>"
         )
@@ -105,7 +177,7 @@ def render_block_math(preambles: list[str]) -> Callable[[re.Match[str]], str]:
         log.debug(typ)
         return (
             '<div class="typst-math">'
-            + fix_svg(typst_compile("\n".join(preambles + [typ])))
+            + fix_svg(_world.compile("\n".join(preambles + [typ])))
             + for_screen_reader(typ)
             + "</div>"
         )
@@ -128,35 +200,3 @@ def fix_svg(svg: bytes) -> str:
         r' \1="currentColor"',
         svg.decode().strip(),
     )
-
-
-@cache
-def typst_compile(
-    typ: str,
-    *,
-    prelude="#set page(width: auto, height: auto, margin: 0pt, fill: none)\n",
-    format="svg",
-) -> bytes:
-    """Compile a Typst document
-
-    https://github.com/marimo-team/marimo/discussions/2441
-    """
-    try:
-        return run(
-            ["typst", "compile", "-", "-", "--format", format],
-            input=(prelude + typ).encode(),
-            check=True,
-            capture_output=True,
-        ).stdout
-    except CalledProcessError as err:
-        raise RuntimeError(
-            f"""
-Failed to render a typst math:
-
-```typst
-{typ}
-```
-
-{err.stderr.decode()}
-""".strip()
-        )
