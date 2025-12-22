@@ -238,7 +238,7 @@ $$
 
 ### 矩阵积的秩的范围
 
-> :material-clock-edit-outline: 2021年3月16日、2021年3月24日。
+> :material-clock-edit-outline: 2021年3月16日、2021年3月24日、2025年12月22日。
 >
 > :material-eye-arrow-right: [热雪](https://www.zhihu.com/people/re-xue-23-7)《[矩阵的秩的不等式汇总及其证明](https://zhuanlan.zhihu.com/p/341263037)》。
 
@@ -253,16 +253,24 @@ $$
 \end{split}
 \\[2em]
 \begin{split}
-    &\rank(AB)+n \\
-    =\ & \rank\begin{bmatrix} AB & \\ & I_n \end{bmatrix}
-    = \rank\begin{bmatrix} AB & B \\ & I \end{bmatrix}
-    = \rank\begin{bmatrix}  & B \\ -A & I \end{bmatrix} \\
+    &\rank(AB)+m \\
+    =\ & \rank\begin{bmatrix} AB & \\ & I_m \end{bmatrix}
+    = \rank\begin{bmatrix} AB & \\ B & I \end{bmatrix}
+    = \rank\begin{bmatrix}  & -A \\ B & I \end{bmatrix} \\
     \geq\ & \rank A + \rank B
 \end{split}
 }
 $$
 
+（第二个不等式称作Sylvester秩不等式）
+
 另证：$AB$ 的每列向量都是 $A$ 各列向量的线性组合，故 $\rank(AB) \leq \rank A$。
+
+又证：从线性空间与线性映射 $\C^l \overset{A}{\leftarrow} \C^m \overset{B}{\leftarrow} \C^n$ 的角度，这两个不等式都显然。
+
+- $\rank AB$ 反映 $AB$ 的象空间（列空间）$\{A B x \in \C^l : x \in \C^n\}$ 的维度。一方面，该集合包含于 $A$ 的象 $\{A b \in \C^l : b \in \C^m \}$，所以它的维度 $\rank AB$ 不可能超过后者的维度，即 $\rank A$；另一方面，$b \mapsto A b$ 是从 $B$ 的象 $\{B x \in \C^m : x \in \C^n\}$ 到该集合的满射，而映射不可能增多维度，所以该集合的维度 $\rank AB$ 也不会超过 $\rank B$。
+
+- 映射 $b \mapsto A b$ 将 $B$ 的象映为 $AB$ 的象，维数从 $\rank B$ 减少到 $\rank AB$。维数之所以减少，是因为它把某些东西映射到零了，即 $A$ 的核空间（零空间）与 $B$ 的象空间有一块交集。不过，这块交集的维度最多也就是 $A$ 的核空间的维度，即 $m - \rank A$。因此 $\rank AB \geq \rank B - (m - \rank A) = \rank A + \rank B - m$.
 
 ### 秩
 

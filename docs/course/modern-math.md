@@ -55,6 +55,34 @@ relevant:
 
     测度是 measure，度量是 metric。
 
+### Lebesgue 可测
+
+> :material-clock-edit-outline: 2025年10月23日。
+
+!!! note "“代数”"
+
+    此“代数”与彼“代数”无关。
+
+- **代数**：一族 $RR$ 上的集合，对补集和<u>有限</u>交并封闭。（若已确定对补集封闭，则对有限交封闭和对有限并封闭相互蕴含。）
+
+- **σ-代数**：在代数的基础上，还对<u>可数</u>交并封闭。
+
+  之所以提出这个概念，是因为我们希望可数个不相交集合之并的测度，能等于各自测度之和，于是可数并的结果至少得可测。
+
+- **Borel σ-代数**：包含所有开集的最小的 σ-代数，一般记作 $cal(B)$。（由于对补集封闭，定义中的开集可替换为闭集。）
+
+  Borel σ-代数虽然没包含整个 $cal(P)(RR)$，但内容也相当多，包含绝大部分能手工写出的集合。如果某个 σ-代数包含 Borel σ-代数，说明它考虑了足够多的情况，比较实用。
+
+  由于 $RR$ 可分（$QQ$ 是可数稠密子集），任何开集都是可数个开区间之并，所以定义中的开集还可弱化为开区间。
+
+$RR$ 上的 Lebesgue 可测集构成 σ-代数，并且它包含 Borel σ-代数。这族集合一般记作 $cal(M)$。
+
+Lebesgue 测度 $m$ 是把 [outer measure](https://en.wikipedia.org/wiki/Outer_measure) $m^*$（用开区间覆盖集合，把区间长度加起来，以其下确界作为测度）局限于 Lebesgue 可测的集合。具体而言，把待测集合 $E$ 随意用 $A subset RR$ 划分为 $E inter A$ 与 $E inter A^complement$ 两部分。理想情况下，$E$ 总能满足 [Carathéodory 条件](https://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_criterion) $m^* (E inter A) + m^* (E inter A^complement) = m^* (E)$；不过有些 $E$ 的毛刺太严重，$A$ 适当时，$E inter A$ 和 $E inter A^complement$ 在测量时会把这种毛刺算两遍，导致 $m^* (E inter A) + m^* (E inter A^complement) > m^* (E)$。前一种情况算作可测。另外，还常用零测集概念，由于 $m^* = 0$ 蕴含可测，所以用 $m$ 和 $m^*$ 定义出来的“零测”等价。
+
+之所以要考虑 Lebesgue 测度，是为了改进可积的定义，让可积函数的空间能完备（只需按逐点收敛）。示性函数的积分最简单，于是把它抽象为测度。
+
+除了 Lebesgue 可测“集”，还有 Lebesgue 可测“函数”的概念——$(a, +oo], [a, +oo]$ 等半无穷区间（可含 $plus.minus oo$)的原像始终是可测集。注意 Lebesgue“可测”加上积分绝对收敛才是通常所说的 Lebesgue“可积”。
+
 ## 度量空间
 
 ### 概念
@@ -135,7 +163,7 @@ $$
 
 ### Bessel 不等式与 Parseval 等式
 
-> :material-clock-edit-outline: 2025年5月16日。
+> :material-clock-edit-outline: 2025年5月16日，2025年10月27、30日。
 
 对于内积空间中的向量 $x in X$ 和正交规范向量之集合 ${e_alpha}_alpha$（其中指标 $alpha$ 可有无穷多），有如下结论。
 
@@ -146,6 +174,8 @@ $$
    事实上，由可数集的可数并仍可数，能论证 $(x, e_alpha)$ 最多只有可数项非零。
 
 3. 现在完全不再限制 $alpha$，考虑<u>数</u>的和式 $sum_alpha abs((x, e_alpha))^2$。因为其中只有可数项非零，它是个合法的级数。由极限的保号性，它收敛且不超过 $norm(x)^2$，这称作 **Bessel 不等式**。
+
+   Bessel 不等式说明，$(x, e_alpha)$ 不可能有太多大项。粗略地说，虽然空间可能有无穷维，但每一具体的 $x$ 主要只占据几个有限的维度，而其余维度的成分可以忽略不记。若某集合的点不仅都具有这种性质，而且它们的余项一致地小，那么称该集合有  equi-small tails（[MIT 18.102](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/) 之定义 194）。在 Hilbert 空间中，该性质是紧性的必要条件，而且加上有界、闭就是充分条件。
 
 4. 继续考虑<u>向量</u>的和式 $sum_alpha (x, e_alpha) e_alpha$。如果其中有无穷项非零，它未必仍在空间中。不过根据系数的级数 $sum_alpha abs((x, e_alpha))^2$ 收敛，能证明向量的和式必然 <u>Cauchy 收敛</u>。
 
@@ -158,6 +188,8 @@ $$
    - ${e_alpha}_alpha$ 构成基（$x$ 可用它线性表示）
    - ${e_alpha}_alpha$ 完全（其正交补为零）
    - Parseval 等式成立
+
+由 Zorn 引理（按 ${e_alpha}_alpha$ 的包含关系），非平凡的内积空间都存在完全正交规范集（但未必可数）。即使不用 Zorn 引理，也能证明<u>可分</u>的内积空间都存在可数的完全正交规范集（其实也只有可分的内积空间才存在），于是都与 $l^2$ <u>同构</u>。这一结论很好。
 
 ### 最佳逼近
 
@@ -183,13 +215,13 @@ $$
 
 如果去掉正定性，只要求齐次性、三角不等式，则称作<u>半范数</u>。半范数起码半正定——任取 $x$，因为齐次性中带有绝对值，$x$ 与 $-x$ 的半范数相等，再结合三角不等式，这两个相等的数之和大于等于零。
 
-> :material-eye-arrow-right: Theorem 33 in [18.102 Introduction to Functional Analysis | Mathematics | MIT OpenCourseWare](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/)
+> :material-eye-arrow-right: Theorem 33 in [18.102 Introduction to Functional Analysis | Mathematics | MIT OpenCourseWare](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/) ([Dr. Rodriguez’s Fall 2021 lecture notes](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/pages/lecture-notes-and-readings/#:~:text=Introduction%20to%20Functional%20Analysis%20(PDF)))
 
 半范数可以改造成范数。例如 $L^1$（半）范数本来只是半正定，但若将几乎处处相等的函数“认同”，则正定。一般而言，对于 $V$ 上的半范数 $norm(dot)$，取 $E := { v in V : norm(v) = 0}$，则商空间 $V\/E$ 构成赋范空间。这样构造之所以成立，是因为若 $v_1, v_2$ 只相差一个零范向量 $e in E$，则 $norm(v_1) = norm(v_1) + norm(e) >= norm(v_2) >= norm(v_1) - norm(-e) = norm(v_1)$，即 $norm(v_1) = norm(v_2)$。将只差零范向量的这种 $v_1, v_2$ 认同时，零范向量也都认同成 $0$ 了，于是半范数就升级成范数了。
 
 ### 常见空间模型
 
-> :material-clock-edit-outline: 2025年5月17–18日，2025年9月28日，2025年10月20日。
+> :material-clock-edit-outline: 2025年5月17–18日，2025年9月28日，2025年10月20、22日。
 
 - $l^p$ Lebesgue 可和序列
 
@@ -204,12 +236,12 @@ $$
 
   完备，包括 $p = +oo$ 时。
 
-  - $p < +oo$ 时可分，有界连续函数在其中稠密。
+  - $p < +oo$ 时可分，有界连续函数 $C[a,b]$ 在其中稠密。
   - $p = +oo$ 时不可分，区间的示性函数两两间距为 $1$，却有不可数个。
 
 - $C[a,b]$ 连续函数（默认 $L^oo$ 度量，对应一致收敛）
 
-  可分，有理系数多项式是其可数稠密子集。
+  可分，有理系数多项式是其可数稠密子集。（Weierstrass 近似）
 
   在配套度量下，完备；若换用 $L^1$ 度量，会减弱为逐点收敛，就不完备了。
 
@@ -222,6 +254,24 @@ $$
     $$
 
     $l^1 subset (c_0)^*$ 可直接验证；证明 $(c_0)^* subset l^1$ 需要针对 $(c_0)^*$ 中每个泛函构造一组 $c_0$ 中的序列，使它们经泛函映射后，会趋于泛函的 $l^1$ 范数（具体来说，选 $a_n$ 使 $a_n b_n = abs(b_n)$，并依次保留前有限项以保证这些 $a$ 都在 $c_0$ 中）。
+
+!!! note "必须是 Lebesgue 可积"
+
+    $L^p [a,b]$ 必须按 Lebesgue 积分；Riemann 积分定义出来不完备，只是在 $L^p [a,b]$ 中稠密。
+
+### 无穷维线性空间的特点
+
+> :material-clock-edit-outline: 2025年10月29日。
+
+第一，无穷维 Hilbert 空间 $H$ 可能存在**不闭**的真子空间。例如 $l^2$ 中“仅有限项非零的向量”就构成真子空间，但不闭。
+
+此外，$H$ 存在子空间 $W$ 并不意味着 $H$ 能分解为 $W plus.circle W^perp$。$W^perp := {u in H : forall w in W, w perp u}$ 确实构成子空间（而且归功于 $H$ 的完备性，$W^perp$ 必然闭），但 $W plus.circle W^perp$ 未必能凑齐整个 $H$。
+
+如果 $W$ 闭，才能确定 $W plus.circle W^perp = H$。任取 $u in H$，$u + W := {u + w : w in W}$ 构成凸闭子集，故 $inf_(c in u + W) norm(c)$ 能取到（最佳逼近），记这样的 $c$ 为 $u_perp$，记 $u_parallel := u - u_perp$。按定义 $u_parallel in W$（投影），可用二次函数极值证明 $u_perp in W^perp$（垂足），至此完成分解 $u = u_parallel + u_perp$。
+
+不过，$(W^perp)^perp = overline(W)$ 且 $W^perp = overline(W)^perp$，所以其实不闭也能修改成闭的。
+
+第二，无穷维 Hilbert 空间中有界闭集可能**不紧**。例如 $l^2$ 中的单位球有界、闭，但它包含无穷个相互正交的单位向量（取 $l^2$ 的标准基即可），其两两间距为 $sqrt(2)$，不存在收敛子列。
 
 ## 算子与泛函
 
