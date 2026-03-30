@@ -41,7 +41,7 @@
 
 > :material-file-move-outline: 《十九大报告·一、过去五年的工作和历史性变革》结尾。
 >
-> :material-eye-arrow-right: 李慎明，《[正确认识中国特色社会主义新时代社会主要矛盾](http://www.qstheory.cn/dukan/hqwg/2018-03/08/c_1122505893.htm)》，《红旗文稿》，求是网。
+> :material-eye-arrow-right: 李慎明，《[正确认识中国特色社会主义新时代社会主要矛盾](https://www.qstheory.cn/dukan/hqwg/2018-03/08/c_1122505893.htm)》，《红旗文稿》，求是网。
 
 ---
 
@@ -69,7 +69,7 @@
 
 > :material-file-move-outline: 《十九大报告·一、过去五年的工作和历史性变革》结尾。
 >
-> :material-eye-arrow-right: 张银霞，《[如何理解“中国特色社会主义进入新时代”](https://www.nxnews.net/sz/gdjn/201712/t20171201_4421466.html)》，《宁夏日报》，求是网、宁夏新闻网。
+> :material-eye-arrow-right: 张银霞，《[如何理解“中国特色社会主义进入新时代”](https://web.archive.org/web/20250413091258/https://www.nxnews.net/sz/gdjn/201712/t20171201_4421466.html)》，《宁夏日报》，求是网、宁夏新闻网。
 >
 > :material-eye-arrow-right: 杨建荣，《[如何认识中国特色社会主义进入新时代](http://www.yqnews.com.cn/lt/201711/t20171126_473110.html)》，《阳泉日报》，阳泉新闻网。
 
@@ -280,11 +280,11 @@
 
   <u>治理能力</u>指利用这套制度管理社会事务的能力，包括改革发展稳定、内政外交国防、治党治国治军等，将制度优势转化为管理国家的效能。
 
-> :material-eye-arrow-right: 《[中共中央关于全面深化改革若干重大问题的决定](http://www.audit.gov.cn/n4/n18/c4169/content.html)》（2013年）。
+> :material-eye-arrow-right: 《[中共中央关于全面深化改革若干重大问题的决定](https://jgdw.mofcom.gov.cn/zyjs/art/2013/art_546a008449494c8caed5799ec6f13b82.html)》（2013年）。
 >
 > :material-eye-arrow-right: 习近平，《[切实把思想统一到党的十八届三中全会精神上来](https://www.guancha.cn/politics/2014_01_01_196638.shtml)》，新华网，观察者网。
 >
-> :material-eye-arrow-right: 穆虹，《[正确把握全面深化改革的总目标和基本要求](http://www.qstheory.cn/dukan/qs/2018-09/17/c_1123429045.htm)》，求是网。
+> :material-eye-arrow-right: 穆虹，《[正确把握全面深化改革的总目标和基本要求](https://www.qstheory.cn/dukan/qs/2018-09/17/c_1123429045.htm)》，求是网。
 
 ## 12 外交：构建人类命运共同体思想的科学内涵
 
@@ -297,7 +297,7 @@
 - 凝聚各国共识，为人类社会实现共同发展、持续繁荣、长治久安绘制了蓝图。
 - 继承和发展新中国各时期重大外交思想和主张，集人类文明思想之大成，反映中外优秀文化和全人类共同价值追求，适应新时代中国与世界关系的历史性变化，是中国引领时代潮流和人类文明进步方向的鲜明旗帜。
 
-> :material-eye-arrow-right: 李慎明，《[正确认识和深刻理解构建人类命运共同体的科学内涵](http://www.qstheory.cn/dukan/hqwg/2019-09/09/c_1124968276.htm)》，《红旗文稿》，求是网。
+> :material-eye-arrow-right: 李慎明，《[正确认识和深刻理解构建人类命运共同体的科学内涵](https://www.qstheory.cn/dukan/hqwg/2019-09/09/c_1124968276.htm)》，《红旗文稿》，求是网。
 
 ## 13 坚持和加强党的领导：如何理解党的领导是中国特色社会主义最本质的特征
 
@@ -311,9 +311,9 @@
 
 另外，明确这一点还表明了党承担使命的自觉和全面从严治党的决心。
 
-> :material-eye-arrow-right: 李海青，《[党的领导是中国特色社会主义的最本质特征](http://www.qstheory.cn/zhuanqu/bkjx/2019-07/03/c_1124705610.htm)》，《光明日报》，求是网。
+> :material-eye-arrow-right: 李海青，《[党的领导是中国特色社会主义的最本质特征](https://www.qstheory.cn/zhuanqu/bkjx/2019-07/03/c_1124705610.htm)》，《光明日报》，求是网。
 >
-> :material-eye-arrow-right: 丁俊萍，《[党的领导是中国特色社会主义最本质的特征和最大优势](http://www.qstheory.cn/dukan/hqwg/2017-01/09/c_1120271315.htm)》，《红旗文稿》，求是网。
+> :material-eye-arrow-right: 丁俊萍，《[党的领导是中国特色社会主义最本质的特征和最大优势](https://www.qstheory.cn/dukan/hqwg/2017-01/09/c_1120271315.htm)》，《红旗文稿》，求是网。
 
 ## 参考
 

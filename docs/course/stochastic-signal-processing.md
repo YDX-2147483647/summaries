@@ -294,7 +294,7 @@ $$
 
 > :material-clock-edit-outline: 2023年4月13日。
 >
-> :material-eye-arrow-right: [The Wiener-Khinchin Theorem](https://www.comm.utoronto.ca/frank/notes/wk.pdf).
+> :material-eye-arrow-right: [The Wiener-Khinchin Theorem](https://www.comm.utoronto.ca/~frank/notes/wk.pdf).
 
 该定理不仅限于平稳随机信号，也适用于确定信号和一般随机信号；而且即使 Fourier 变换不存在，该定理仍有某种形式。
 

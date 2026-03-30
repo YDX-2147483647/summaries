@@ -453,7 +453,7 @@ $$
   ![](../assets/radix-4.png)
   ![](../assets/split-radix.png)
 </div>
-<figcaption markdown='1'>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions</a>, revised</figcaption>
+<figcaption markdown='1'>N=16 radix-2 (left), radix-4 (middle), and split-radix (right) DIT FFT | <a href='https://cnx.org/contents/wtdd66e0@5/Split-radix-FFT-Algorithms'>Connexions (broken 💔)</a>, revised</figcaption>
 </figure>
 
 - **radix-2**

@@ -350,7 +350,7 @@ $$
 
 > :material-clock-edit-outline: 2021年11月27日。
 >
-> :material-eye-arrow-right: [Method of Green’s Functions - 18.303 Linear PDEs](https://ocw.mit.edu/courses/mathematics/18-303-linear-partial-differential-equations-fall-2006/lecture-notes/greensfn.pdf)
+> :material-eye-arrow-right: [Method of Green’s Functions - 18.303 Linear PDEs](https://ocw.mit.edu/courses/18-303-linear-partial-differential-equations-fall-2006/resources/greensfn/)
 
 ### 格林公式
 
