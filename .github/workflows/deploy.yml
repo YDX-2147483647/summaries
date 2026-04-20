@@ -45,7 +45,7 @@ jobs:
       - uses: ts-graphviz/setup-graphviz@v2
       - run: just bootstrap
       - run: just build
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site/
   deploy:
