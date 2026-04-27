@@ -21,12 +21,9 @@ math-preamble: |
 
 from __future__ import annotations
 
-import atexit
 import html
 import re
 from functools import cache
-from pathlib import Path
-from tempfile import NamedTemporaryFile
 from typing import TYPE_CHECKING, Literal
 
 import typst
@@ -51,20 +48,8 @@ class World:
     Therefore, changing the environment (e.g., `$TYPST_FONT_PATHS`) after beginning `mkdocs serve` might not work as expected.
     """
 
-    _file: Path
-    """Path to a temporary typst file to be written."""
-
     def __init__(self) -> None:
-        # This file must have a visible name in the file system, or `typst.Compiler` might reject it.
-        file = NamedTemporaryFile(
-            prefix=f"mkdocs.plugins.{__name__.replace('/', '.')}-",
-            suffix="-main.typ",
-            delete_on_close=False,  # This file will be re-opened again, so can't be deleted on close.
-        )
-        file.close()  # Finish the initial write
-
-        self._file = Path(file.name)
-        self._compiler = typst.Compiler(self._file)
+        self._compiler = typst.Compiler()
 
     @cache
     def compile(
@@ -74,10 +59,20 @@ class World:
         prelude="#set page(width: auto, height: auto, margin: 0pt, fill: none)\n",
         format: Literal["pdf", "svg", "png", "html"] = "svg",
     ) -> bytes:
-        self._file.write_text(prelude + typ, encoding="utf-8")
-
         try:
-            pages = self._compiler.compile(format=format)
+            pages, warnings = self._compiler.compile_with_warnings(
+                (prelude + typ).encode("utf-8"), format=format
+            )
+            if warnings:
+                log.warning(
+                     f"""
+Warnings while rendering a typst math: {warnings}
+
+```typst
+{typ}
+```
+""".strip()
+                )
         except typst.TypstError as err:
             raise RuntimeError(
                 f"""
@@ -98,18 +93,8 @@ Failed to render a typst math:
 
         return pages
 
-    def __del__(self) -> None:
-        self.clean()
-
-    def clean(self) -> None:
-        self._file.unlink(missing_ok=True)
-        # Missing is okay, because:
-        # - if `__init__` failed, then the file might not exist when calling `__del__`;
-        # - we allow this method to be `atexit.register`-ed, so it might be called multiple times.
-
 
 _world = World()
-atexit.register(_world.clean)
 
 
 def should_render(page: Page) -> bool:
