@@ -265,9 +265,9 @@ $$
 
 第一，无穷维 Hilbert 空间 $H$ 可能存在**不闭**的真子空间。例如 $l^2$ 中“仅有限项非零的向量”就构成真子空间，但不闭。
 
-此外，$H$ 存在子空间 $W$ 并不意味着 $H$ 能分解为 $W plus.circle W^perp$。$W^perp := {u in H : forall w in W, w perp u}$ 确实构成子空间（而且归功于 $H$ 的完备性，$W^perp$ 必然闭），但 $W plus.circle W^perp$ 未必能凑齐整个 $H$。
+此外，$H$ 存在子空间 $W$ 并不意味着 $H$ 能分解为 $W plus.o W^perp$。$W^perp := {u in H : forall w in W, w perp u}$ 确实构成子空间（而且归功于 $H$ 的完备性，$W^perp$ 必然闭），但 $W plus.o W^perp$ 未必能凑齐整个 $H$。
 
-如果 $W$ 闭，才能确定 $W plus.circle W^perp = H$。任取 $u in H$，$u + W := {u + w : w in W}$ 构成凸闭子集，故 $inf_(c in u + W) norm(c)$ 能取到（最佳逼近），记这样的 $c$ 为 $u_perp$，记 $u_parallel := u - u_perp$。按定义 $u_parallel in W$（投影），可用二次函数极值证明 $u_perp in W^perp$（垂足），至此完成分解 $u = u_parallel + u_perp$。
+如果 $W$ 闭，才能确定 $W plus.o W^perp = H$。任取 $u in H$，$u + W := {u + w : w in W}$ 构成凸闭子集，故 $inf_(c in u + W) norm(c)$ 能取到（最佳逼近），记这样的 $c$ 为 $u_perp$，记 $u_parallel := u - u_perp$。按定义 $u_parallel in W$（投影），可用二次函数极值证明 $u_perp in W^perp$（垂足），至此完成分解 $u = u_parallel + u_perp$。
 
 不过，$(W^perp)^perp = overline(W)$ 且 $W^perp = overline(W)^perp$，所以其实不闭也能修改成闭的。
 
@@ -481,7 +481,7 @@ $$
 
 #### 核与像的性质
 
-对于有限维空间，$X$ 与 $kernel T_λ plus.circle image T_λ$ [等价](https://en.wikipedia.org/wiki/Rank–nullity_theorem)，单射（$kernel T_λ = {0}$）与满射（$image T_λ = X$）相互蕴含；但对于无限维空间，$X$ 可能更大，有更多内容。
+对于有限维空间，$X$ 与 $kernel T_λ plus.o image T_λ$ [等价](https://en.wikipedia.org/wiki/Rank–nullity_theorem)，单射（$kernel T_λ = {0}$）与满射（$image T_λ = X$）相互蕴含；但对于无限维空间，$X$ 可能更大，有更多内容。
 
 - **核**的性质——空间中不同的两点是否必有不同的像
 
