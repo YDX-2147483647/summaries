@@ -13,6 +13,7 @@ relevant:
 
 $$
 \def\RR{\mathbb{R}}
+\DeclareMathOperator\epi{epi}
 $$
 
 ## 前言
@@ -37,7 +38,7 @@ $$
 
 ## 1 引言
 
-> :material-clock-edit-outline: 2026年3月31日。
+> :material-clock-edit-outline: 2026年3月31日、2026年6月8日。
 
 这里说的**稀疏**是指约束条件与优化变量的关系稀疏，而不是优化变量各分量的取值稀疏。
 
@@ -50,6 +51,10 @@ $$
 ---
 
 由于涉及到 $≤$，优化问题的目标、约束必须在实数域考虑；优化变量可以是复数。
+
+---
+
+凸优化对方法本身倒没有太多贡献，其贡献主要在于使用方法后的结果。一旦识别出凸优化问题，那么用普通方法就能求出全局最优解。
 
 ### 最小二乘问题
 
@@ -219,9 +224,9 @@ flowchart LR
 
 ### 保凸运算
 
-> :material-clock-edit-outline: 2026年5月20、21日。
+> :material-clock-edit-outline: 2026年5月20、21、26、30日。
 
-任意并、有限交保开集，有限并、任意交保闭集，嵌套并、任意交保凸集。
+任意并、有限交保开集，有限并、任意交保闭集，嵌套并、任意交保凸集。（顺便提一下，测度可加性是不相交可数并。）
 
 任意交能覆盖一大类运算，比如习题 2.12f：若 $A$ 是凸集，$B$ 是任意集合，则 $A$ 用 $B$ 挖掉一圈的集合也是凸集，具体描述如下。
 
@@ -233,9 +238,16 @@ $$
 
 透视映射 $\RR^{n+1} ∋ (x,t) ↦ x/t ∈ \RR^n$ 差一点就保凸集了，但从 $t > 0$ 跨越到 $t < 0$ 会镜像，破坏像的凸性。可以把定义域局限到其中一半，这样就真正保凸集了。透视映射与线性映射（不是变换的映射也允许，正逆映射也都允许）结合，又能覆盖一大类运算。
 
+注意“正逆映射都允许”是说凸集在某些映射下的像仍凸，且在另一些映射下的原像也凸，并不是说集合在映射前后同时凸或同时不凸——一个集合可能本身不凸，但正映射得到的像凸，再逆映射得到的原像也凸，只不过像的原像比原集合大。就本质而言，映射保凸集的意思大概如下。
+
+- 凸组合齐次，与原点与基的选取无关，所以可逆仿射映射保凸集
+- 凸性的定义只涉及两点所连线段上的情况，所以透视映射保凸集
+- 不可逆仿射映射的核是超平面，它与凸集之交仍凸，所以保凸集
+- 凸性的定义只谈集合内，扩充域无影响，故合适映射的原像仍凸
+
 ### 正常锥与广义不等式
 
-> :material-clock-edit-outline: 2026年4月26–27日、2026年5月5日、2026年5月16日。
+> :material-clock-edit-outline: 2026年4月26–27日、2026年5月5日、2026年5月16日、2026年6月3日。
 
 把关系 $x \preceq y$ 表达成 $y - x \in K$ 本身就结合了序结构与代数结构，这种“$\preceq$”天然满足 $x \preceq y \implies \forall z, x+z \preceq y+z$（该条件是“存在那样的 $K$”的充要条件）。在该条件下，“$\preceq$”的传递性蕴含对加法保序——若 $x ⪯ x' ∧ y ⪯ y'$，则 $x + y ⪯ x' + y ⪯ x' + y'$。而且“$\preceq$”如果既对加法保序，又对非负数乘保序，那么必然对锥组合保序。
 
@@ -246,6 +258,7 @@ $$
 |                 $\forall z, x+z \preceq y+z$                 |                 （“$\preceq$”能用 $K$ 表达）                 |
 |                     自反：$x \preceq x$                      |                          $0 \in K$                           |
 |    反对称：$x \preceq y \land y \preceq x \implies x = y$    | 尖，pointed，不含直线（最多含射线）：$x \in K \land -x \in K \implies x =0$ |
+| 任两元素都可比（全序的“全”）：$x \preceq y \lor y \preceq x$ |     每条直线一半：$x ≠ 0 \implies x \in K \lor -x \in K$     |
 |             传递：$x ⪯ y ∧ y ⪯ z \implies x ⪯ z$             |     对加法封闭：$x \in K ∧ y \in K \implies x + y \in K$     |
 |      对非负数乘保序：$λ ≥ 0 ∧ x ⪯ y \implies λ x ⪯ λ y$      |           锥：$λ ≥ 0 ∧ x \in K \implies λ x \in K$           |
 | 对锥组合保序：$λ,μ \in \RR_{≥0} ∧ x ⪯ x' ∧ y ⪯ y' \implies λ x + μ y ⪯ λ x' + μ y'$ | 凸锥：$λ,μ \in \RR_{≥0} ∧ x,y \in K \implies λ x + μ y \in K$ |
@@ -269,16 +282,23 @@ $$
 各种变体如下，其中逗号表示“$∧$”，$b \in \RR^m$，$A: \RR^n → \RR^m$。
 
 $$
-\begin{array}{cc}
+\begin{array}{ccc}
 Ax=b,\ x \in \RR^n.
-  & Ax=b,\ x \in \RR_{\textcolor{red}{≥0}}^n. \\
+  & Ax=b,\ x \in \RR_{\textcolor{red}{≥0}}^n.
+  & Ax=b,\ x \in \RR_{\textcolor{red}{>0}}^n. \\
 y^\dagger A = 0,\ y^\dagger b < 0,\ y\in \RR^m.
-  & y^\dagger A \textcolor{red}{≥} 0,\ y^\dagger b < 0,\ y\in \RR^m. \\
+  & y^\dagger A \textcolor{red}{≥} 0,\ y^\dagger b < 0,\ y\in \RR^m.
+  & \cdots \\
 \\
 Ax \textcolor{cyan}{≤} b,\ x \in \RR^n.
-  & Ax \textcolor{cyan}{≤} b,\ x \in \RR_{\textcolor{red}{≥0}}^n. \\
+  & Ax \textcolor{cyan}{≤} b,\ x \in \RR_{\textcolor{red}{≥0}}^n.
+  & \cdots \\
 y^\dagger A = 0,\ y^\dagger b < 0,\ y\in \RR_{\textcolor{cyan}{≥0}}^m.
-  & y^\dagger A \textcolor{red}{≥} 0,\ y^\dagger b < 0,\ y\in \RR_{\textcolor{cyan}{≥0}}^m. \\
+  & y^\dagger A \textcolor{red}{≥} 0,\ y^\dagger b < 0,\ y\in \RR_{\textcolor{cyan}{≥0}}^m.
+  & \cdots \\
+\\
+Ax \textcolor{cyan}{<} b,\ x \in \RR^n. & \cdots & \cdots \\
+\cdots & \cdots & \cdots
 \end{array}
 $$
 
@@ -336,6 +356,65 @@ $y^† b < 0$ 改为 $y^\dagger b ≤ 0$ 是因为前面分析时的第二个集
 - $K = K^*$ 等价于 $K$ 是“任两元素都有关系且包含 $K$ 的各种集合”中最大的那个。
 
 对于范数锥 $K = \{(x,t) : \norm{x} ≤ t \}$，它的对偶锥就是原范数的对偶范数 $\norm{\cdot}_*$ 形成的范数锥 $K^* = \{(y,s) : \norm{y}_* ≤ s\}$。这是因为对偶范数的定义相当于 Hölder 不等式 $\abs{x \vdot y} ≤ \norm{x} \norm{y}_*$ 成立且能取到等号，而 $(x,t)$ 与 $(y,s)$ 的内积非负等价于 $-x \vdot y ≤ t s ≤ \norm{x} \norm{y}_*$，二者刚好匹配。
+
+### Theorem of alternatives 再总结
+
+> 2026年5月21日
+
+$A: \RR^n → \RR^m$ 与 $b \in \RR^m$ 是固定参数，
+
+考虑以下 $x$ 的命题。将问题拆成目标不等式（或等式）“$\overset{?}{⪯}$”与 $x$ 的取值范围 $\mathcal{X}$ 两部分，把每部分对应的 $y$ 的条件凑起来，就是二选一另一半 $y$ 的命题。
+
+$$
+∃ x ∈ \mathcal{X}, A x \overset{?}{⪯} b.
+$$
+
+其实这里存在四套序关系：
+
+- 标量 $y^† b, y^† β, y^† α ∈ \RR$ 最简单，就是普通的“$≥$”与“$>$”。
+- 目标 $Ax,b ∈ \RR^m$，它们之间的“$⪰$”用正常锥 $K$ 定义，而“$≻$”则用 $K$ 的内部 $K^\circ$ 则定义。
+- 分离平面的法向量 $y ∈ \RR^m$ 虽然在相同空间，但关注点不同，它与零的大小关系用 $K$ 的对偶锥 $K^*$ 定义。
+- $A$ 各列的组合系数 $x ∈ \RR^n$，它与零的大小关系用 $\RR_{≥0}^n$ 及其内部 $\RR_{>0}^n$ 定义。
+
+先从以下三列取一列作为 $\overset{?}{⪯}$。其中前两列最后一行的 $y ≠ 0$ 可省略，因已被 $y^† b < 0$ 蕴含。
+
+$$
+\begin{array}{r|ccc}
+Ax \overset{?}{⪯} b
+  & = & ⪯ & ≺
+\\
+\mathcal{B} ≔ {?}
+  & \{b\}
+  & b - K
+  & b - K^\circ
+\\
+∀ β ∈ \mathcal{B},\ y^† β < 0. \iff {?}
+  & \begin{cases} y^† b < 0 \\ y ≠ 0 \end{cases}
+  & \begin{cases} y^† b \textcolor{green}{<} 0 \\ y \in K^* \setminus \{0\} \end{cases}
+  & \begin{cases} y^† b \textcolor{green}{≤} 0 \\ y \in K^* \setminus \{0\} \end{cases}
+\end{array}
+$$
+
+再从以下三列取一列作为 $\mathcal{X}$。
+
+$$
+\begin{array}{r|ccc}
+\mathcal{X}
+  & \RR^n & \RR_{\textcolor{red}{≥}0}^n & \RR_{\textcolor{red}{>}0}^n
+\\
+\mathcal{A} ≔ \{ A x : x ∈ \mathcal{X} \}
+  & \text{线性包}
+  & \text{锥包}
+  & \text{锥包内部}
+\\
+∀ α ∈ \mathcal{A},\ y^† α ≥ 0. \iff {?}
+  & y^† A = 0
+  & y^† A ∈ \RR_{≥0}^m
+  & y^† A ∈ \RR_{≥0}^m \setminus \{0\}
+\end{array}
+$$
+
+嗯，于是得到 $3×3 = 9$ 对~儿~二选一命题……
 
 ### 矩阵的范数
 
@@ -395,3 +474,43 @@ U ≔ \frac{1}{\sqrt{2}} \begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix},\quad
 V ≔ \frac{1}{\sqrt{2}} \begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix},\quad
 W ≔ \frac{1}{\sqrt{2}} \begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}.
 $$
+
+### 最小与极小
+
+> :material-clock-edit-outline: 2026年5月23日。
+
+一般最小是 global minimum，极小是 local minimum，但凸优化里最小是 minimum element，极小是 mimimal element。两种极小不是一个意思。
+
+### 对偶的转移
+
+> :material-clock-edit-outline: 2026年6月13日。
+
+习题2.37指出「恒非负多项式的系数」与「Hankel 方阵半正定的序列」都是锥，并且后者是前者的对偶锥。
+
+这个对偶能从半正定锥自对偶转移过来。大致思路是构造从半正定阵到「恒非负多项式系数」的映射 $Y ↦ x$，再构造从「Hankel 方阵半正定的序列」到半正定阵的映射 $z ↦ H$，并且 $x$ 与 $z$ 的内积恒等于 $Y$ 与 $H$ 的内积。由半正定阵所构成集合的对偶是其自身，得 $x$ 所在集合的对偶是 $z$ 所在集合。
+
+不过并非 $Y ↦ x$ 并非单射，$z ↦ H$ 并非满射，所以自对偶转移丢了。
+
+## 3 凸函数
+
+### 上境图
+
+> :material-clock-edit-outline: 2026年6月8日。
+
+函数 $f$ 的性质与其上境图（epigraph）$\epi f :=\{(x, f(x)) : x \in \operatorname{domain} f \}$ 的性质可以相互转化。
+
+|                 函数                 |                            上境图                            |
+| :----------------------------------: | :----------------------------------------------------------: |
+|               （任意）               |                每个 $x$ 截面是左闭右无穷区间                 |
+|                  凸                  |                             凸集                             |
+|    拟凸（各 sublevel 集合是凸集）    |            每个 $f(x) = \text{const.}$ 截面是凸集            |
+|                 $-f$                 |                      $(\epi f)^∁$【边】                      |
+| $x ↦ \sup_{α ∈ \mathcal{A}} f(x,α)$  |         $\bigcap_{α ∈ \mathcal{A}} \epi f(\cdot,α)$          |
+|      $x ↦ \inf_{y ∈ C} f(x,y)$       |  $\epi f(\cdot, \cdot)$ 取 $y ∈ C$ 截层再沿 $y$ 投影【边】   |
+| $(x,u) ↦ u\, f(\frac{x}{u}),\ u > 0$ | 点光源照射薄板透射光线 $\{(λx, λ, λt) : (x,t) \in \epi f ∧ λ > 0\}$ |
+|             $g \circ f$              |               $\{(x, g(t)) : (x,t) ∈ \epi f\}$               |
+|             $f \circ g$              |               $\{(x, t) : (g(x),t) ∈ \epi f\}$               |
+
+标【边】的可能相差边界。
+
+> :material-eye-arrow-right: [近代数学基础 → 闭图像定理](./modern-math.md#闭图像定理)
